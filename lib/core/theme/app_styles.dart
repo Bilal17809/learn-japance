@@ -124,7 +124,17 @@ final BoxDecoration roundedDecoration = BoxDecoration(
     ),
   ],
 );
-
+final BoxDecoration roundedbgicondecotion=BoxDecoration(
+  color: iconbdcolor,
+  borderRadius: BorderRadius.circular(50),
+  boxShadow: [
+    BoxShadow(
+      color: kWhite01,
+      blurRadius: 6,
+      offset: Offset(0, 2),
+    ),
+  ],
+);
 //for home view
 final BoxDecoration roundedDecorationHomevie = BoxDecoration(
   gradient: kGradient,
