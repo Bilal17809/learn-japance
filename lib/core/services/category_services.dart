@@ -51,7 +51,6 @@ class MenuItem {
   MenuItem({required this.image, required this.label});
 }
 
-
 class MyProgressBar extends StatelessWidget {
   final double progress; // value between 0.0 and 1.0
   final Color backgroundColor;
@@ -83,12 +82,12 @@ class MyProgressBar extends StatelessWidget {
   }
 }
 
-
-
-Widget buildMenuItem(IconData icon, String label) {
+Widget buildMenuItem(String imagePath, String label) {
   return VStack([
-    VxBox(child: Icon(icon, size: 30, color: Vx.gray800)).rounded.p16
-        .color(Color(0xFFF5F7FA)) // light grey background
+    VxBox(child: Image.asset(imagePath, width: 30))
+        .rounded
+        .p16
+        .color(Color(0xFFF5F7FA))
         .make(),
     8.heightBox,
     label.text.semiBold.size(14).make(),
@@ -106,3 +105,4 @@ Widget LossonWOrdSentenco(int num, String label) {
     // Handle tap action
   });
 }
+

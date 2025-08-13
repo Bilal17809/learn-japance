@@ -12,12 +12,9 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: bgcolor,
       appBar: AppBar(
         backgroundColor: bgcolor,
-        title: Row(
-          children: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.apps)),
-            "LEARN JAPANESE".text.size(18).semiBold.make(),
-          ],
-        ),
+        leading:  Image.asset("images/2x/four-circle.png",),
+        title: "LEARN JAPANESE".text.size(18).semiBold.make(),
+
       ),
       body: SafeArea(
         child: Column(
@@ -36,7 +33,9 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             // SizedBox(height: 15,),
-            30.heightBox,
+            // 15.heightBox,
+            "ADD/".text.semiBold.size(15).make().centered().box.color(bgadd).size(screenw*1, screenh*0.09).make(),
+            45.heightBox,
           ],
         ),
       ),
