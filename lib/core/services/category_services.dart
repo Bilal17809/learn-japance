@@ -4,6 +4,8 @@ import 'package:learn_japan/presentation/Translator/screen/translator.dart';
 
 import '../../presentation/Starte_learning/learn_japance.dart';
 import '../../presentation/Starte_learning/screen/start_learning.dart';
+import '../../presentation/category/screen/category.dart';
+import '../../presentation/cateory_type/screen/category_type.dart';
 import '../../presentation/learn_japance/screen/learn_japanse.dart';
 
 final List<MenuItem> menuItems = [
@@ -27,7 +29,7 @@ final List<MenuItem> menuItems = [
     targetScreen: Greeting()
   ),
   MenuItem(image: Image.asset("images/3x/left.png"), label: "Phrases",
-    targetScreen: StartLearning(),),
+    targetScreen:Category_screen(),),
   MenuItem(image: Image.asset("images/3x/dictionary.png"), label: "",
     targetScreen: StartLearning(),),
 ];
@@ -171,6 +173,7 @@ final List<LearnjapItem> learnjapItems = [
     image: Image.asset("images/3x/delivery-truck.png"),
     label: "Transportation",
   ),
+
 ];
 
 class LearnjapItem {
@@ -233,6 +236,98 @@ class LearnjapanceCard extends StatelessWidget {
   }
 }
 
+final List<CategoryItem> category = [
+  CategoryItem(
+    image: Image.asset("images/3x/pdf-file.png"),
+    label: "Merge PDF",
+  ),
+  CategoryItem(image: Image.asset("images/3x/split.png"), label: "Split PDF"),
+  CategoryItem(
+    image: Image.asset("images/3x/delete.png"),
+    label: "Delete Page",
+  ),
+  CategoryItem(
+    image: Image.asset("images/3x/scissors.png"),
+    label: "Extract Page",
+  ),
+  CategoryItem(
+    image: Image.asset("images/3x/padlock.png"),
+    label: "Lock PDF",
+  ),
+  CategoryItem(
+    image: Image.asset("images/3x/unlocked.png"),
+    label: "Unlock PDF",
+  ),
+  CategoryItem(
+    image: Image.asset("images/3x/rotate-right.png"),
+    label: "Rotate Page",
+  ),
+  CategoryItem(
+    image: Image.asset("images/3x/drop.png"),
+    label: "Add Watermark",
+  ),
+];
+
+class CategoryItem {
+  final Image image;
+  final String label;
+  CategoryItem({required this.image, required this.label});
+}
+
+class Category extends StatelessWidget {
+  const Category({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: kBodyHp),
+      child: GridView.builder(
+        itemCount: category.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 30,
+          mainAxisSpacing: 16,
+          childAspectRatio: 1,
+        ),
+        itemBuilder: (context, index) {
+          final item = category[index];
+          return CategoryCard(item: item);
+        },
+      ),
+    );
+  }
+}
+
+class CategoryCard extends StatelessWidget {
+  final CategoryItem item;
+
+  const CategoryCard({required this.item, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Get.to(() => CategoryType());
+      },
+      child: Container(
+        decoration: roundedDecoration,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: roundedbgicondecotion,
+              child: SizedBox(height: 35, width: 35, child: item.image),
+            ),
+            const SizedBox(height: 8),
+            item.label.text.align(TextAlign.center).semiBold.size(14).make(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class Translatorcard extends StatelessWidget {
   final String mainText; // For the title
   final IconData leftIcon; // First icon in the bottom row
@@ -259,44 +354,110 @@ class Translatorcard extends StatelessWidget {
     final screenh = MediaQuery.of(context).size.height;
 
     return Column(
+      children: [
+        // Top row
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Top row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                mainText.text.size(15).make().px(20),
-                IconButton(
-                  onPressed: () {}, // Remove button
-                  icon: const Icon(Icons.highlight_remove),
-                ),
-              ],
+            mainText.text.size(15).make().px(20),
+            IconButton(
+              onPressed: () {}, // Remove button
+              icon: const Icon(Icons.highlight_remove),
             ),
-            const Spacer(),
-            // Bottom icons row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: onLeftPressed,
-                  icon: Icon(leftIcon, color: blackTextColor, size: 28),
-                ),
-                IconButton(
-                  onPressed: onCenterPressed,
-                  icon: Icon(centerIcon, color: blackTextColor, size: 28),
-                ),
-                IconButton(
-                  onPressed: onRightPressed,
-                  icon: Icon(rightIcon, color: blackTextColor, size: 28),
-                ),
-              ],
-            ).box.size(screenw * 1, screenh * 0.06).color(diconbdcolor).make(),
           ],
-        ).box
+        ),
+        const Spacer(),
+        // Bottom icons row
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              onPressed: onLeftPressed,
+              icon: Icon(leftIcon, color: blackTextColor, size: 28),
+            ),
+            IconButton(
+              onPressed: onCenterPressed,
+              icon: Icon(centerIcon, color: blackTextColor, size: 28),
+            ),
+            IconButton(
+              onPressed: onRightPressed,
+              icon: Icon(rightIcon, color: blackTextColor, size: 28),
+            ),
+          ],
+        ).box.size(screenw * 1, screenh * 0.06).color(diconbdcolor).make(),
+      ],
+    ).box
         .color(boxbgcolor)
         .size(screenw * 0.8, screenh * 0.25)
         .make()
         .card
         .make()
         .centered();
+  }
+}
+
+
+
+class ToolsScreen extends StatelessWidget {
+  ToolsScreen({super.key});
+
+  final tools = [
+    {"iconPath": "images/3x/pdf-file.png", "label": "Merge PDF"},
+    {"iconPath": "images/3x/split.png", "label": "Split PDF"},
+    {"iconPath": "images/3x/delete.png", "label": "Delete Page"},
+    {"iconPath": "images/3x/scissors.png", "label": "Extract Page"},
+    {"iconPath": "images/3x/padlock.png", "label": "Lock PDF"},
+    {"iconPath": "images/3x/unlocked.png", "label": "Unlock PDF"},
+    {"iconPath": "images/3x/rotate-right.png", "label": "Rotate Page"},
+    {"iconPath": "images/3x/drop.png", "label": "Add Watermark"},
+  ];
+
+  // Example placeholder styles (replace with your actual constants)
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // backgroundColor: kWhite,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.separated(
+          itemCount: tools.length,
+          separatorBuilder: (_, __) => const SizedBox(height: 8),
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: listdecoration,
+              child: ListTile(
+                contentPadding:
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                leading: CircleAvatar(
+                  backgroundColor: iconbdcolor,
+                  radius: 22,
+                  child: Image.asset(
+                    tools[index]["iconPath"] as String,
+                    width: 24,
+                    height: 24,
+                  ),
+                ),
+                title: Text(
+                  tools[index]["label"] as String,
+                  style: const TextStyle(fontWeight: FontWeight.w500),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 16,
+                  color: Colors.grey.shade600,
+                ),
+                onTap: () {
+                  // Handle action for each tool
+                  print("${tools[index]["label"]} tapped");
+                },
+              ),
+            );
+          },
+        ),
+      ),
+    );
   }
 }

@@ -179,3 +179,14 @@ final boxShadow = BoxShadow(
   offset: Offset(0, 2),
 );
 
+final BoxDecoration listdecoration=BoxDecoration(
+  color: bgcolor,
+  borderRadius: BorderRadius.circular(12),
+  boxShadow: [
+    BoxShadow(
+      color: Colors.black12,
+      blurRadius: 4,
+      offset: Offset(0, 2),
+    ),
+  ],
+);
