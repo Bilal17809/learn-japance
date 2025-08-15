@@ -178,3 +178,4 @@ final boxShadow = BoxShadow(
   blurRadius: 6,
   offset: Offset(0, 2),
 );
+

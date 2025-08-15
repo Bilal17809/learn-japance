@@ -53,67 +53,38 @@ class Translator extends StatelessWidget {
             ],
           ),
           30.heightBox,
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  "English".text.size(15).make().px(20),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.highlight_remove),
-                  ),
-                ],
-              ),
-              Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(Icons.volume_up, color: blackTextColor, size: 28).box.make().pOnly(left: 10),
-                  Icon(Icons.mic, color: blackTextColor, size: 28),
-                  Icon(Icons.camera_alt_outlined, color: blackTextColor, size: 28).box.make().pOnly(right: 10),
-                ],
-              ).box.size(screenw*1, screenh*0.06).color(diconbdcolor).make()
+          Translatorcard(
+            mainText: "English",
+            leftIcon: Icons.volume_up,
+            centerIcon: Icons.mic,
+            rightIcon: Icons.camera_alt_outlined,
+            onLeftPressed: () {
 
-            ],
-          ).box
-              .color(boxbgcolor)
-              .size(screenw * 0.8, screenh * 0.25)
-              .make()
-              .card
-              .make()
-              .centered(),
+            },
+            onCenterPressed: () {
+
+            },
+            onRightPressed: () {
+
+            },
+          ),
+
           30.heightBox,
-          Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      "Japance".text.size(15).make().px(20),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.highlight_remove),
-                      ),
-                    ],
-                  ),
-                  Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(Icons.volume_up, color: blackTextColor, size: 28).box.make().pOnly(left: 10),
-                      Icon(Icons.copy, color: Vx.black, size: 28),
-                      Icon(Icons.access_time, color: Vx.black, size: 28).box.make().pOnly(right: 10),
-                    ],
-                  ).box.size(screenw*1, screenh*0.06).color(diconbdcolor).make()
+          Translatorcard(
+            mainText: "Japanese",
+            leftIcon: Icons.volume_up,
+            centerIcon: Icons.copy,
+            rightIcon: Icons.history,
+            onLeftPressed: () {
 
-                ],
-              ).box
-              .color(boxbgcolor)
-              .size(screenw * 0.8, screenh * 0.25)
-              .make()
-              .card
-              .make()
-              .centered(),
+            },
+            onCenterPressed: () {
+
+            },
+            onRightPressed: () {
+
+            },
+          ),
         ]),
       ),
     );

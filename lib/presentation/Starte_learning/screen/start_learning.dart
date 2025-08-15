@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:learn_japan/presentation/Starte_learning/learn_japance.dart';
 import 'package:learn_japan/presentation/Translator/screen/translator.dart';
 
@@ -26,7 +26,7 @@ class StartLearning extends StatelessWidget {
             }),
           ]).box.px24.make(),
           2.heightBox,
-          Container(
+          SizedBox(
             width: screenw * 0.85,
             child: MyProgressBar(
               progress: 0.75,
@@ -79,7 +79,7 @@ class StartLearning extends StatelessWidget {
           ], alignment: MainAxisAlignment.spaceAround).px8().centered().py8(),
           "Today Progress".text.size(15).make().px24(),
           5.heightBox,
-          Container(
+          SizedBox(
             width: screenw * 0.85,
             child: MyProgressBar(
               progress: 0.75,
@@ -90,9 +90,9 @@ class StartLearning extends StatelessWidget {
           ).box.px24.make(),
           5.heightBox,
           HStack([
-            LossonWOrdSentenco(10,"Lessons").box.px24.make(),
-            LossonWOrdSentenco(30,"Words").box.px24.make(),
-            LossonWOrdSentenco(5,"Sentences").box.px24.make(),
+            lossonwordSentenco(10,"Lessons").box.px24.make(),
+            lossonwordSentenco(30,"Words").box.px24.make(),
+            lossonwordSentenco(5,"Sentences").box.px24.make(),
           ],),
         5.heightBox,
           HStack([
