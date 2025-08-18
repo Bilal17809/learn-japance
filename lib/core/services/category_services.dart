@@ -302,7 +302,6 @@ class Translatorcard extends StatelessWidget {
         .centered();
   }
 }
-
 final List<CategoryItem> category = [
   CategoryItem(
     image: Image.asset("images/3x/noun.png"),
@@ -456,3 +455,76 @@ class ToolsScreen extends StatelessWidget {
   }
 }
 
+// phrase_data.dart
+class PhraseData {
+  static final Map<String, Map<String, dynamic>> phraseData = {
+    "Noun Phrase": {
+      "definition": "A phrase where a noun is the main word.",
+      "examples": [
+        "The big house",
+        "A beautiful garden",
+        "My best friend",
+        "The tall man"
+      ],
+    },
+    "Verb Phrase": {
+      "definition": "A phrase where a verb is the main word.",
+      "examples": [
+        "is playing cricket",
+        "will be singing",
+        "has been working hard",
+        "should have gone"
+      ],
+    },
+    "Adjective Phrase": {
+      "definition": "A phrase that describes a noun.",
+      "examples": [
+        "full of energy",
+        "happy to see you",
+        "difficult to understand",
+        "interested in music"
+      ],
+    },
+    "Adverb Phrase": {
+      "definition": "A phrase that describes a verb, adjective, or another adverb.",
+      "examples": [
+        "with great speed",
+        "in the morning",
+        "after the party",
+        "very carefully"
+      ],
+    },
+    "Prepositional Phrase": {
+      "definition":
+      "A phrase that starts with a preposition and ends with a noun/pronoun.",
+      "examples": ["on the table", "under the bridge", "at the park", "with my family"],
+    },
+    "Infinitive Phrase": {
+      "definition": "A phrase beginning with 'to + verb'.",
+      "examples": [
+        "to read a book",
+        "to win the match",
+        "to help others",
+        "to learn Japanese"
+      ],
+    },
+    "Gerund Phrase": {
+      "definition": "A phrase where a verb ends with -ing and acts as a noun.",
+      "examples": [
+        "Running every morning",
+        "Eating healthy food",
+        "Swimming in the sea",
+        "Reading novels daily"
+      ],
+    },
+    "Absolute Phrase": {
+      "definition": "A phrase that modifies the whole sentence (adds extra info).",
+      "examples": [
+        "The sun having set, we went home.",
+        "His hands shaking, he opened the letter.",
+        "Her voice trembling, she gave the speech.",
+        "The work completed, they took a rest."
+      ],
+    },
+  };
+}
