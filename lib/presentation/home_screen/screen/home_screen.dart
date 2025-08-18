@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
             Image.asset(
               "images/3x/men.png",
               // width: 250,
-              height: 250,
+              height: screenh*0.41,
 
             ),
              20.heightBox,
@@ -32,10 +32,9 @@ class HomeScreen extends StatelessWidget {
                 child: MenuGrid()
               ),
             ),
-            // SizedBox(height: 15,),
-            // 15.heightBox,
+
             "ADD/".text.semiBold.size(15).make().centered().box.color(bgadd).size(screenw*1, screenh*0.09).make(),
-            45.heightBox,
+            (screenh*0.03).heightBox
           ],
         ),
       ),

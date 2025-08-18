@@ -235,99 +235,6 @@ class LearnjapanceCard extends StatelessWidget {
     );
   }
 }
-
-final List<CategoryItem> category = [
-  CategoryItem(
-    image: Image.asset("images/3x/pdf-file.png"),
-    label: "Merge PDF",
-  ),
-  CategoryItem(image: Image.asset("images/3x/split.png"), label: "Split PDF"),
-  CategoryItem(
-    image: Image.asset("images/3x/delete.png"),
-    label: "Delete Page",
-  ),
-  CategoryItem(
-    image: Image.asset("images/3x/scissors.png"),
-    label: "Extract Page",
-  ),
-  CategoryItem(
-    image: Image.asset("images/3x/padlock.png"),
-    label: "Lock PDF",
-  ),
-  CategoryItem(
-    image: Image.asset("images/3x/unlocked.png"),
-    label: "Unlock PDF",
-  ),
-  CategoryItem(
-    image: Image.asset("images/3x/rotate-right.png"),
-    label: "Rotate Page",
-  ),
-  CategoryItem(
-    image: Image.asset("images/3x/drop.png"),
-    label: "Add Watermark",
-  ),
-];
-
-class CategoryItem {
-  final Image image;
-  final String label;
-  CategoryItem({required this.image, required this.label});
-}
-
-class Category extends StatelessWidget {
-  const Category({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kBodyHp),
-      child: GridView.builder(
-        itemCount: category.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 30,
-          mainAxisSpacing: 16,
-          childAspectRatio: 1,
-        ),
-        itemBuilder: (context, index) {
-          final item = category[index];
-          return CategoryCard(item: item);
-        },
-      ),
-    );
-  }
-}
-
-class CategoryCard extends StatelessWidget {
-  final CategoryItem item;
-
-  const CategoryCard({required this.item, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Get.to(() => CategoryType());
-      },
-      child: Container(
-        decoration: roundedDecoration,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: roundedbgicondecotion,
-              child: SizedBox(height: 35, width: 35, child: item.image),
-            ),
-            const SizedBox(height: 8),
-            item.label.text.align(TextAlign.center).semiBold.size(14).make(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class Translatorcard extends StatelessWidget {
   final String mainText; // For the title
   final IconData leftIcon; // First icon in the bottom row
@@ -396,8 +303,95 @@ class Translatorcard extends StatelessWidget {
   }
 }
 
+final List<CategoryItem> category = [
+  CategoryItem(
+    image: Image.asset("images/3x/noun.png"),
+    label: "Noun Phrase",
+  ),
+  CategoryItem(image: Image.asset("images/3x/verb.png"), label: "Verb Phrase"),
+  CategoryItem(
+    image: Image.asset("images/3x/adjective.png"),
+    label: "Adjective Phrase",
+  ),
+  CategoryItem(
+    image: Image.asset("images/3x/adverb.png"),
+    label: "Adverb Phrase",
+  ),
+  CategoryItem(
+    image: Image.asset("images/3x/prepositional.png"),
+    label: "Prepositional Phrase",
+  ),
+  CategoryItem(
+    image: Image.asset("images/3x/infinity.png"),
+    label: "Infinitive Phrase",
+  ),
+  CategoryItem(
+    image: Image.asset("images/3x/pencil.png"),
+    label: "Gerund Phrase",
+  ),
+  CategoryItem(
+    image: Image.asset("images/3x/absolute.png"),
+    label: "Absolute Phrase",
+  ),
+];
+class CategoryItem {
+  final Image image;
+  final String label;
+  CategoryItem({required this.image, required this.label});
+}
+class Category extends StatelessWidget {
+  const Category({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: kBodyHp),
+      child: GridView.builder(
+        itemCount: category.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 30,
+          mainAxisSpacing: 16,
+          childAspectRatio: 1,
+        ),
+        itemBuilder: (context, index) {
+          final item = category[index];
+          return CategoryCard(item: item);
+        },
+      ),
+    );
+  }
+}
+class CategoryCard extends StatelessWidget {
+  final CategoryItem item;
 
+  const CategoryCard({required this.item, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Get.to(() => CategoryType(item: item));
+      },
+
+      child: Container(
+        decoration: roundedDecoration,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: roundedbgicondecotion,
+              child: SizedBox(height: 35, width: 35, child: item.image),
+            ),
+            const SizedBox(height: 8),
+            item.label.text.align(TextAlign.center).semiBold.size(14).make(),
+          ],
+        ),
+      ),
+    );
+  }
+}
 class ToolsScreen extends StatelessWidget {
   ToolsScreen({super.key});
 
@@ -419,7 +413,7 @@ class ToolsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: kWhite,
+       // backgroundColor: bgcolor,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.separated(
@@ -461,3 +455,4 @@ class ToolsScreen extends StatelessWidget {
     );
   }
 }
+
