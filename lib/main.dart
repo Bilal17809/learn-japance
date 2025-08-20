@@ -1,28 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:learn_japan/presentation/splash/view/splash_view.dart';
+import '/core/local_storage/local_storage.dart';
+import 'core/binders/dependency_injection.dart';
+import 'core/theme/theme.dart';
 
-import 'package:learn_japan/presentation/home_screen/screen/home_screen.dart';
-
-
-
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  DependencyInjection.init();
+  final storage = LocalStorage();
+  final isDark = await storage.getBool('isDarkMode');
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(
+    LearnJapanese(
+      themeMode:
+          isDark == true
+              ? ThemeMode.dark
+              : isDark == false
+              ? ThemeMode.light
+              : ThemeMode.system,
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class LearnJapanese extends StatelessWidget {
+  final ThemeMode themeMode;
+  const LearnJapanese({super.key, required this.themeMode});
+
   @override
   Widget build(BuildContext context) {
-
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: HomeScreen(),
+      title: 'Learn Japanese',
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: themeMode,
+      home: SplashView(),
     );
   }
 }
-
