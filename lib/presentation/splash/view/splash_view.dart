@@ -31,7 +31,7 @@ class SplashView extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                               horizontal: kBodyHp,
                             ),
-                            child: CustomButton(
+                            child: SimpleButton(
                               width: mobileWidth(context) * 0.4,
                               height: 50,
                               backgroundColor: AppColors.primaryColorLight,

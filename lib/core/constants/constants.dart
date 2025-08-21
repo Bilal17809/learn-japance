@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-const fontFamily = 'Montserrat';
-
 /// ========== Padding ==========
 const double kBodyHp = 16.0;
 const double kElementGap = 12.0;
@@ -14,7 +12,7 @@ const double kBorderRadius = 12.0;
 /// ========== Icon Sizes ==========
 double primaryIcon(BuildContext context) => mobileWidth(context) * 0.08;
 double secondaryIcon(BuildContext context) => mobileWidth(context) * 0.07;
-double mediumIcon(BuildContext context) => mobileWidth(context) * 0.19;
+double smallIcon(BuildContext context) => mobileWidth(context) * 0.05;
 
 /// ========== MediaQuery Helpers ==========
 double mobileWidth(BuildContext context) => MediaQuery.of(context).size.width;

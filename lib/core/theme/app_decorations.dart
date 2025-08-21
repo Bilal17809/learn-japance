@@ -6,9 +6,9 @@ class AppDecorations {
   static BoxDecoration rounded(BuildContext context) => BoxDecoration(
     color: AppColors.container(context),
     borderRadius: BorderRadius.circular(kBorderRadius),
+    border: Border.all(color: AppColors.container(context)),
   );
-
-  BoxDecoration roundedInnerDecor(BuildContext context) => BoxDecoration(
+  static BoxDecoration roundedInnerDecor(BuildContext context) => BoxDecoration(
     color: AppColors.secondary(context).withValues(alpha: 0.5),
     borderRadius: BorderRadius.circular(8),
     boxShadow: [
@@ -47,5 +47,19 @@ class AppDecorations {
               : [AppColors.secondaryColorLight, AppColors.primaryColorLight],
       stops: const [0.3, 0.95],
     ),
+  );
+
+  static BoxDecoration highlight(
+    BuildContext context, {
+    required bool isExample,
+  }) => BoxDecoration(
+    color:
+        isExample
+            ? (context.isDark
+                ? AppColors.container(context)
+                : AppColors.kSkyBlue.withValues(alpha: 0.6))
+            : AppColors.container(context),
+    borderRadius: BorderRadius.circular(kBorderRadius),
+    border: Border.all(color: AppColors.kSkyBlue),
   );
 }

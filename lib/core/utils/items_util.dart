@@ -8,6 +8,18 @@ class ItemsUtil {
     ItemsModel(assetPath: Assets.translation, label: "Translator"),
     ItemsModel(assetPath: Assets.linguistics, label: "Grammar"),
     ItemsModel(assetPath: Assets.quotes, label: "Phrases"),
-    ItemsModel(assetPath: Assets.dictionary, label: ""),
+    ItemsModel(assetPath: Assets.heroImage, label: ""),
+  ];
+  static final List<ItemsModel> grammarItems = [
+    ItemsModel(assetPath: Assets.adverb),
+    ItemsModel(assetPath: Assets.auxVerb),
+    ItemsModel(assetPath: Assets.particle),
+    ItemsModel(assetPath: Assets.verbConjugation),
+    ItemsModel(assetPath: Assets.adjective),
+    ItemsModel(assetPath: Assets.conjunction),
+    ItemsModel(assetPath: Assets.honoraryLanguage),
+    ItemsModel(assetPath: Assets.sentencePattern),
+    ItemsModel(assetPath: Assets.questionWord),
+    ItemsModel(assetPath: Assets.performance),
   ];
 }

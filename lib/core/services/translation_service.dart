@@ -3,7 +3,6 @@ import 'package:translator/translator.dart';
 class TranslationService {
   final GoogleTranslator _translator = GoogleTranslator();
 
-  /// Translates given [text] to the [targetLanguage] (default: English 'en').
   Future<String> translateText(
     String text, {
     String targetLanguage = 'en',
@@ -16,7 +15,6 @@ class TranslationService {
     }
   }
 
-  /// Translates a list of texts at once (batch processing).
   Future<List<String>> translateList(
     List<String> texts, {
     String targetLanguage = 'en',

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learn_japan/core/theme/app_decorations.dart';
 import '../../../core/theme/theme.dart';
-import '../../Starte_learning/screen/start_learning.dart';
+import '../../Start_learning/screen/start_learning.dart';
 import '/core/constants/constants.dart';
 
-class LearnJapanse extends StatelessWidget {
-  const LearnJapanse({super.key});
+class LearnJapanese extends StatelessWidget {
+  const LearnJapanese({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -29,7 +29,7 @@ class ItemCard extends StatelessWidget {
           ),
           const Gap(kGap),
           Text(
-            item.label,
+            item.label ?? '',
             textAlign: TextAlign.center,
             style: bodyMediumStyle,
             maxLines: 2,

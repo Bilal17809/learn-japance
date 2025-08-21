@@ -2,7 +2,29 @@ import 'package:flutter/material.dart';
 import '../constants/constants.dart';
 import '/core/theme/theme.dart';
 
-class CustomButton extends StatelessWidget {
+class AppElevatedButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final IconData icon;
+  final String label;
+
+  const AppElevatedButton({
+    super.key,
+    required this.onPressed,
+    required this.icon,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: onPressed,
+      icon: Icon(icon),
+      label: Text(label),
+    );
+  }
+}
+
+class SimpleButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
   final double? width;
@@ -11,7 +33,7 @@ class CustomButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? shadowColor;
 
-  const CustomButton({
+  const SimpleButton({
     super.key,
     required this.onPressed,
     required this.text,
@@ -155,8 +177,8 @@ class ImageActionButton extends StatelessWidget {
               isCircular ? null : borderRadius ?? BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
-              color: AppColors.kGrey.withValues(alpha: 0.2),
-              blurRadius: 6,
+              color: AppColors.kGrey.withValues(alpha: 0.1),
+              blurRadius: 5,
               offset: Offset(0, 2),
             ),
           ],

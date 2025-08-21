@@ -31,8 +31,6 @@ class TitleBar extends StatelessWidget implements PreferredSizeWidget {
               children: [
                 useBackButton
                     ? IconActionButton(
-                      isCircular: true,
-                      backgroundColor: AppColors.secondary(context),
                       onTap: () {
                         FocusScope.of(context).unfocus();
                         Future.delayed(const Duration(milliseconds: 150), () {
@@ -45,7 +43,7 @@ class TitleBar extends StatelessWidget implements PreferredSizeWidget {
                       },
                       icon: Icons.arrow_back_ios_new,
                       color: AppColors.icon(context),
-                      size: secondaryIcon(context) * 0.6,
+                      size: smallIcon(context),
                     )
                     : IconActionButton(
                       onTap: () => Scaffold.of(context).openDrawer(),

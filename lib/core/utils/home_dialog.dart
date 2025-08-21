@@ -43,7 +43,7 @@ class HomeDialogs {
               children: [
                 Expanded(
                   child: Container(
-                    decoration: AppDecorations().roundedInnerDecor(context),
+                    decoration: AppDecorations.roundedInnerDecor(context),
                     child: TextButton(
                       onPressed: () => Navigator.pop(context, false),
                       child: Text(
@@ -56,7 +56,7 @@ class HomeDialogs {
                 const Gap(kGap),
                 Expanded(
                   child: Container(
-                    decoration: AppDecorations().roundedInnerDecor(context),
+                    decoration: AppDecorations.roundedInnerDecor(context),
                     child: TextButton(
                       onPressed: () => Navigator.pop(context, true),
                       child: Text(

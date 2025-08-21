@@ -3,12 +3,12 @@ import '/data/models/models.dart';
 import '/core/services/services.dart';
 import '/presentation/splash/controller/splash_controller.dart';
 
-class PhrasesController extends GetxController {
+class GrammarTypeController extends GetxController {
   final SplashController splashController = Get.find<SplashController>();
   final TranslationService translationService = TranslationService();
 
   var categoryTranslations = <String, String>{}.obs;
-  var translatingStates = <String, bool>{}.obs;
+  var translationsLoading = true.obs;
 
   @override
   void onInit() {
@@ -16,27 +16,20 @@ class PhrasesController extends GetxController {
     translateAllCategories();
   }
 
-  void translateAllCategories() {
+  void translateAllCategories() async {
     if (splashController.japaneseData == null) return;
-
     final categories = getUniqueCategories(splashController.japaneseData!);
-    for (final category in categories) {
-      translateCategory(category);
-    }
-  }
-
-  Future<void> translateCategory(String category) async {
-    if (categoryTranslations.containsKey(category)) return;
-
-    translatingStates[category] = true;
-
     try {
-      final translation = await translationService.translateText(category);
-      categoryTranslations[category] = translation;
+      final translations = await translationService.translateList(categories);
+      for (int i = 0; i < categories.length; i++) {
+        categoryTranslations[categories[i]] = translations[i];
+      }
     } catch (e) {
-      categoryTranslations[category] = category; // fallback
+      for (final category in categories) {
+        categoryTranslations[category] = category;
+      }
     } finally {
-      translatingStates[category] = false;
+      translationsLoading.value = false;
     }
   }
 
@@ -44,9 +37,5 @@ class PhrasesController extends GetxController {
     final categories = data.map((e) => e.category).toSet().toList();
     categories.sort();
     return categories;
-  }
-
-  int getCategoryItemCount(List<GrammarModel> data, String category) {
-    return data.where((item) => item.category == category).length;
   }
 }

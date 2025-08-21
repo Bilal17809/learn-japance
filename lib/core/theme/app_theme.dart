@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'theme.dart';
+import '../constants/constants.dart';
 
 class AppTheme {
   static final lightTheme = ThemeData(
@@ -12,6 +12,22 @@ class AppTheme {
       secondary: AppColors.secondaryColorLight,
       surface: AppColors.lightBgColor,
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.primaryColorLight,
+        foregroundColor: AppColors.kBlack,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kBorderRadius),
+        ),
+      ),
+    ),
+    cardTheme: CardThemeData(
+      margin: const EdgeInsets.only(bottom: kElementGap),
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(kBorderRadius),
+      ),
+    ),
   );
 
   static final darkTheme = ThemeData(
@@ -22,6 +38,22 @@ class AppTheme {
       primary: AppColors.primaryColorDark,
       secondary: AppColors.secondaryColorDark,
       surface: AppColors.darkBgColor,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.primaryColorDark,
+        foregroundColor: AppColors.kWhite,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kBorderRadius),
+        ),
+      ),
+    ),
+    cardTheme: CardThemeData(
+      margin: const EdgeInsets.only(bottom: kElementGap),
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(kBorderRadius),
+      ),
     ),
   );
 }
