@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learn_japan/core/utils/assets_util.dart';
+import 'package:lottie/lottie.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/presentation/grammar/controller/grammar_controller.dart';
@@ -25,27 +27,38 @@ class GrammarView extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: kBodyHp),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: kBodyHp,
+                  vertical: kGap,
+                ),
                 child: SearchBarField(
                   controller: controller.searchController,
                   onSearch: (value) => controller.searchQuery.value = value,
                 ),
               ),
               Expanded(
-                child: ListView.builder(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: kBodyHp,
-                    vertical: kGap,
-                  ),
-                  itemCount: data.length,
-                  itemBuilder: (context, index) {
-                    return JapaneseCard(
-                      item: data[index],
-                      controller: controller,
-                      index: index,
-                    );
-                  },
-                ),
+                child:
+                    data.isEmpty
+                        ? Center(
+                          child: Lottie.asset(
+                            Assets.searchError,
+                            width: mobileWidth(context) * 0.41,
+                          ),
+                        )
+                        : ListView.builder(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: kBodyHp,
+                            vertical: kGap,
+                          ),
+                          itemCount: data.length,
+                          itemBuilder: (context, index) {
+                            return JapaneseCard(
+                              item: data[index],
+                              controller: controller,
+                              index: index,
+                            );
+                          },
+                        ),
               ),
             ],
           ),

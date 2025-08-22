@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 /// Text
 TextStyle headlineLargeStyle = const TextStyle(
-  fontSize: 64,
+  fontSize: 74,
   fontWeight: FontWeight.w700,
-  shadows: kShadow,
 );
 
 TextStyle headlineMediumStyle = const TextStyle(

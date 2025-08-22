@@ -28,23 +28,8 @@ class JapaneseCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: kGap,
-                    vertical: kGap / 2,
-                  ),
-                  decoration: AppDecorations.roundedIcon(context),
-                  child: Text(
-                    "${index + 1}",
-                    style: bodyMediumStyle.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const Gap(kGap),
-                Expanded(child: Text(item.title, style: titleLargeStyle)),
-              ],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Text(item.title, style: titleLargeStyle)],
             ),
             const Gap(kElementGap),
             TranslationField(

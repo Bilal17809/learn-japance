@@ -8,18 +8,6 @@ class AppDecorations {
     borderRadius: BorderRadius.circular(kBorderRadius),
     border: Border.all(color: AppColors.container(context)),
   );
-  static BoxDecoration roundedInnerDecor(BuildContext context) => BoxDecoration(
-    color: AppColors.secondary(context).withValues(alpha: 0.5),
-    borderRadius: BorderRadius.circular(8),
-    boxShadow: [
-      BoxShadow(
-        color: AppColors.kBlack.withValues(alpha: 0.3),
-        blurRadius: 6,
-        spreadRadius: 1,
-        offset: Offset(0, 2),
-      ),
-    ],
-  );
 
   static BoxDecoration roundedIcon(BuildContext context) => BoxDecoration(
     color: AppColors.secondary(context),
@@ -61,5 +49,8 @@ class AppDecorations {
             : AppColors.container(context),
     borderRadius: BorderRadius.circular(kBorderRadius),
     border: Border.all(color: AppColors.kSkyBlue),
+    boxShadow: const [
+      BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 2)),
+    ],
   );
 }

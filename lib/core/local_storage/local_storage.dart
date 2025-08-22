@@ -1,15 +1,25 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorage {
-  static const FlutterSecureStorage _secureStorage = FlutterSecureStorage();
+  Future<SharedPreferences> get _prefs async => SharedPreferences.getInstance();
 
   Future<bool?> getBool(String key) async {
-    final value = await _secureStorage.read(key: key);
-    if (value == null) return null;
-    return value.toLowerCase() == 'true';
+    final prefs = await _prefs;
+    return prefs.getBool(key);
   }
 
   Future<void> setBool(String key, bool value) async {
-    await _secureStorage.write(key: key, value: value.toString());
+    final prefs = await _prefs;
+    await prefs.setBool(key, value);
+  }
+
+  Future<List<String>?> getStringList(String key) async {
+    final prefs = await _prefs;
+    return prefs.getStringList(key);
+  }
+
+  Future<void> setStringList(String key, List<String> value) async {
+    final prefs = await _prefs;
+    await prefs.setStringList(key, value);
   }
 }

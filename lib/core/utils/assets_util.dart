@@ -6,6 +6,10 @@ class Assets {
   static const String translation = "images/translation.png";
   static const String linguistics = "images/linguistics.png";
   static const String quotes = "images/quotes.png";
+  static const String practice = "images/mic.png";
+  static const String speaking = "images/pencil.png";
+  static const String quiz = "images/question.png";
+  static const String star = "images/star.png";
 
   /// Grammar Icons
   static const String adverb = "images/adverb.png";
@@ -18,4 +22,5 @@ class Assets {
   static const String sentencePattern = "images/sentence_pattern.png";
   static const String questionWord = "images/question_word.png";
   static const String performance = "images/performance.png";
+  static const String searchError = "assets/search_error.json";
 }

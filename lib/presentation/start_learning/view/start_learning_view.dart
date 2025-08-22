@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learn_japan/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/theme/theme.dart';
 import '/presentation/Translator/screen/translator.dart';
 
-class StartLearning extends StatelessWidget {
-  const StartLearning({super.key});
+class StartLearningView extends StatelessWidget {
+  const StartLearningView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final screenw = MediaQuery.of(context).size.width;
-    final screenh = MediaQuery.of(context).size.height;
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -47,7 +45,7 @@ class StartLearning extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SizedBox(
-                  width: screenw * 0.85,
+                  width: mobileWidth(context) * 0.85,
                   child: HorizontalProgress(currentStep: 34),
                 ),
               ),
@@ -90,8 +88,8 @@ class StartLearning extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Card(
                   child: Container(
-                    width: screenw * 0.9,
-                    height: screenh * 0.37,
+                    width: mobileWidth(context) * 0.9,
+                    height: mobileHeight(context) * 0.37,
                     color: AppColors.secondary(context),
                     child: Column(
                       children: [
@@ -102,7 +100,7 @@ class StartLearning extends StatelessWidget {
                               const SizedBox(width: 16),
                               Image.asset(
                                 "images/correct.png",
-                                width: screenh * 0.035,
+                                width: mobileHeight(context) * 0.035,
                               ),
                               const SizedBox(width: 13),
                               Text(
@@ -129,8 +127,8 @@ class StartLearning extends StatelessWidget {
                         GestureDetector(
                           onTap: () => Get.to(() => Translator()),
                           child: Container(
-                            width: screenw * 0.6,
-                            height: screenh * 0.075,
+                            width: mobileWidth(context) * 0.6,
+                            height: mobileHeight(context) * 0.075,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               color: AppColors.primary(context),
@@ -185,7 +183,7 @@ class StartLearning extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SizedBox(
-                  width: screenw * 0.85,
+                  width: mobileWidth(context) * 0.85,
                   child: HorizontalProgress(currentStep: 57),
                 ),
               ),
@@ -217,7 +215,10 @@ class StartLearning extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    Image.asset("images/star.png", width: screenh * 0.025),
+                    Image.asset(
+                      "images/star.png",
+                      width: mobileHeight(context) * 0.025,
+                    ),
                     const SizedBox(width: 3),
                     Text(
                       "5 achievements",

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/common_widgets/common_widgets.dart';
-import 'package:learn_japan/core/global_keys/global_key.dart';
-import 'package:learn_japan/presentation/app_drawer/app_drawer.dart';
-import 'package:learn_japan/presentation/home/controller/home_controller.dart';
+import '/core/common_widgets/common_widgets.dart';
+import '/core/global_keys/global_key.dart';
+import '/presentation/app_drawer/app_drawer.dart';
+import '/presentation/home/controller/home_controller.dart';
 import '/core/utils/utils.dart';
-import '/core/constants/constants.dart';
 import 'widgets/menu_grid.dart';
+import 'widgets/hiragana_section.dart';
+import 'widgets/bottom_section.dart';
+import 'widgets/home_header.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -30,23 +32,18 @@ class HomeView extends StatelessWidget {
         },
         appBar: TitleBar(title: 'Learn Japanese', useBackButton: false),
         body: SafeArea(
-          child: Column(children: const [_HeroImage(), MenuGrid()]),
+          child: Column(
+            children: const [
+              HomeHeader(),
+              HiraganaSection(),
+              MenuGrid(),
+              BottomSection(),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class _HeroImage extends StatelessWidget {
-  const _HeroImage();
 
-  @override
-  Widget build(BuildContext context) {
-    return Flexible(
-      child: Image.asset(
-        Assets.heroImage,
-        height: mobileHeight(context) * 0.41,
-      ),
-    );
-  }
-}

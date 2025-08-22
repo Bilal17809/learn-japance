@@ -1,41 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learn_japan/core/common_widgets/common_widgets.dart';
+import 'package:learn_japan/presentation/phrases_topic/view/phrases_topic_view.dart';
+import 'package:learn_japan/presentation/start_learning/view/start_learning_view.dart';
 import '/core/utils/utils.dart';
-import '/presentation/Greeting/screen/greeting.dart';
-import '/presentation/Start_learning/screen/start_learning.dart';
 import '/presentation/Translator/screen/translator.dart';
 import '/presentation/grammar_type/view/grammar_type_view.dart';
-import '/presentation/learn_japanese/screen/learn_japanese.dart';
+import '/presentation/learn_japanese/view/learn_japanese_view.dart';
 import '/core/constants/constants.dart';
+import 'package:gap/gap.dart';
+import '/data/models/models.dart';
+import '/core/theme/theme.dart';
 
 class MenuGrid extends StatelessWidget {
   const MenuGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: kBodyHp),
-        child: GridView.builder(
-          itemCount: ItemsUtil.homeItems.length,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: kElementGap,
-            mainAxisSpacing: kElementGap,
-            childAspectRatio: 0.85,
-          ),
-          itemBuilder: (context, index) {
-            final item = ItemsUtil.homeItems[index];
-            return GestureDetector(
+    final double itemHeight =
+        primaryIcon(context) +
+        (kBodyHp * 2) +
+        kGap +
+        bodyMediumStyle.fontSize! * 3;
+
+    return SizedBox(
+      height: itemHeight,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: ItemsUtil.homeItems.length,
+        padding: const EdgeInsets.symmetric(horizontal: kBodyHp),
+        itemBuilder: (context, index) {
+          final item = ItemsUtil.homeItems[index];
+          return Padding(
+            padding: EdgeInsets.only(
+              right: index == ItemsUtil.homeItems.length - 1 ? 0 : kGap,
+            ),
+            child: GestureDetector(
               onTap: () {
                 switch (index) {
                   case 0:
-                    Get.to(() => StartLearning());
+                    Get.to(() => StartLearningView());
                     break;
                   case 1:
-                    Get.to(() => LearnJapanese());
+                    Get.to(() => LearnJapaneseView());
                     break;
                   case 2:
                     Get.to(() => Translator());
@@ -44,17 +51,52 @@ class MenuGrid extends StatelessWidget {
                     Get.to(() => GrammarTypeView());
                     break;
                   case 4:
-                    Get.to(() => Greeting());
-                    break;
-                  default:
+                    Get.to(() => PhrasesTopicView());
                     break;
                 }
               },
-              child: ItemCard(item: item),
-            );
-          },
-        ),
+              child: _ItemCard(item: item),
+            ),
+          );
+        },
       ),
+    );
+  }
+}
+
+class _ItemCard extends StatelessWidget {
+  final ItemsModel item;
+
+  const _ItemCard({required this.item});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: ImageActionButton(
+            assetPath: item.assetPath,
+            backgroundColor: AppColors.container(Get.context!),
+            padding: const EdgeInsets.all(kBodyHp),
+            size: primaryIcon(context),
+          ),
+        ),
+        const Gap(kGap),
+        SizedBox(
+          width: 60,
+          child: Text(
+            item.label ?? '',
+            textAlign: TextAlign.center,
+            style: bodyMediumStyle.copyWith(fontWeight: FontWeight.w600),
+            maxLines: 2,
+            softWrap: true,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -17,8 +17,8 @@ class GrammarTypeController extends GetxController {
   }
 
   void translateAllCategories() async {
-    if (splashController.japaneseData == null) return;
-    final categories = getUniqueCategories(splashController.japaneseData!);
+    if (splashController.grammarData == null) return;
+    final categories = getUniqueCategories(splashController.grammarData!);
     try {
       final translations = await translationService.translateList(categories);
       for (int i = 0; i < categories.length; i++) {

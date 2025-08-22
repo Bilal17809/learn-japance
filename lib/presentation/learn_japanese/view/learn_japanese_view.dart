@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learn_japan/core/theme/app_decorations.dart';
+import 'package:learn_japan/presentation/Start_learning/view/start_learning_view.dart';
 import '../../../core/theme/theme.dart';
-import '../../Start_learning/screen/start_learning.dart';
 import '/core/constants/constants.dart';
 
-class LearnJapanese extends StatelessWidget {
-  const LearnJapanese({super.key});
+class LearnJapaneseView extends StatelessWidget {
+  const LearnJapaneseView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class LearnJapaneseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(() => StartLearning());
+        Get.to(() => StartLearningView());
       },
       child: Container(
         decoration: AppDecorations.rounded(context),

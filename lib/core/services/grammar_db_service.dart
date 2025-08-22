@@ -3,8 +3,8 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:learn_japan/core/common/app_exceptions.dart';
 import '/data/models/models.dart';
 
-class GrammarService {
-  Future<List<GrammarModel>> loadJapaneseDataset() async {
+class GrammarDbService {
+  Future<List<GrammarModel>> loadGrammarData() async {
     try {
       final jsonString = await rootBundle.loadString(
         'assets/japanese_dataset.json',

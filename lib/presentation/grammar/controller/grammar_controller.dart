@@ -7,10 +7,8 @@ import '/presentation/splash/controller/splash_controller.dart';
 class GrammarController extends GetxController {
   final SplashController splashController = Get.find<SplashController>();
   final TranslationService translationService = TranslationService();
-
   final RxMap<String, String> translationCache = <String, String>{}.obs;
   final RxMap<String, bool> translatingStates = <String, bool>{}.obs;
-
   final TextEditingController searchController = TextEditingController();
   final RxString searchQuery = ''.obs;
 
@@ -51,7 +49,7 @@ class GrammarController extends GetxController {
   }
 
   List<GrammarModel> getFilteredData(String category) {
-    final data = splashController.japaneseData ?? [];
+    final data = splashController.grammarData ?? [];
 
     final filtered = data.where((item) => item.category == category).toList();
 

@@ -22,7 +22,7 @@ class GrammarTypeView extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
 
-        final data = controller.splashController.japaneseData!;
+        final data = controller.splashController.grammarData!;
         final categories = controller.getUniqueCategories(data);
 
         return SafeArea(

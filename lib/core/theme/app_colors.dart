@@ -46,7 +46,8 @@ class AppColors {
   static Color primaryText(BuildContext context) =>
       context.isDark ? textWhiteColor : textBlackColor;
 
-  static Color secondaryText(BuildContext context) => textGreyColor;
+  static Color secondaryText(BuildContext context) =>
+      context.isDark ? kWhite.withValues(alpha: 0.7) : textGreyColor;
 
   static Color container(BuildContext context) =>
       context.isDark ? kWhite.withValues(alpha: 0.1) : kWhite;
