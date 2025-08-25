@@ -31,7 +31,7 @@ class SplashView extends StatelessWidget {
                               horizontal: kBodyHp,
                             ),
                             child: SimpleButton(
-                              width: mobileWidth(context) * 0.4,
+                              width: context.screenWidth * 0.4,
                               height: 50,
                               backgroundColor: AppColors.primaryColorLight,
                               shadowColor: AppColors.secondaryColorLight,
@@ -46,7 +46,7 @@ class SplashView extends StatelessWidget {
                         )
                         : LoadingAnimationWidget.newtonCradle(
                           color: AppColors.secondaryColorLight,
-                          size: mobileWidth(context) * 0.2,
+                          size: context.screenWidth * 0.2,
                         ),
               ),
             ),

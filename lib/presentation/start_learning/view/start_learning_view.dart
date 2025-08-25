@@ -45,7 +45,7 @@ class StartLearningView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SizedBox(
-                  width: mobileWidth(context) * 0.85,
+                  width: context.screenWidth * 0.85,
                   child: HorizontalProgress(currentStep: 34),
                 ),
               ),
@@ -88,8 +88,8 @@ class StartLearningView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Card(
                   child: Container(
-                    width: mobileWidth(context) * 0.9,
-                    height: mobileHeight(context) * 0.37,
+                    width: context.screenWidth * 0.9,
+                    height: context.screenHeight * 0.37,
                     color: AppColors.secondary(context),
                     child: Column(
                       children: [
@@ -100,7 +100,7 @@ class StartLearningView extends StatelessWidget {
                               const SizedBox(width: 16),
                               Image.asset(
                                 "images/correct.png",
-                                width: mobileHeight(context) * 0.035,
+                                width: context.screenWidth * 0.035,
                               ),
                               const SizedBox(width: 13),
                               Text(
@@ -127,8 +127,8 @@ class StartLearningView extends StatelessWidget {
                         GestureDetector(
                           onTap: () => Get.to(() => Translator()),
                           child: Container(
-                            width: mobileWidth(context) * 0.6,
-                            height: mobileHeight(context) * 0.075,
+                            width: context.screenWidth * 0.6,
+                            height: context.screenHeight * 0.075,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               color: AppColors.primary(context),
@@ -183,7 +183,7 @@ class StartLearningView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SizedBox(
-                  width: mobileWidth(context) * 0.85,
+                  width: context.screenWidth * 0.85,
                   child: HorizontalProgress(currentStep: 57),
                 ),
               ),
@@ -217,7 +217,7 @@ class StartLearningView extends StatelessWidget {
                     Spacer(),
                     Image.asset(
                       "images/star.png",
-                      width: mobileHeight(context) * 0.025,
+                      width: context.screenWidth * 0.025,
                     ),
                     const SizedBox(width: 3),
                     Text(
@@ -240,6 +240,9 @@ class StartLearningView extends StatelessWidget {
   }
 }
 
+/*
+ widget???
+*/
 Widget buildMenuItem(String imagePath, String label) {
   return GestureDetector(
     onTap: () {},
