@@ -6,12 +6,15 @@ import '/core/services/services.dart';
 class SplashController extends GetxController {
   final GrammarDbService _dataService;
   final PhrasesDbService _phrasesDbService;
+  final LanguageService _lngService;
 
   SplashController({
     required GrammarDbService dataService,
     required PhrasesDbService phrasesDbService,
+    required LanguageService lngService,
   }) : _dataService = dataService,
-       _phrasesDbService = phrasesDbService;
+       _phrasesDbService = phrasesDbService,
+       _lngService = lngService;
 
   final isLoading = true.obs;
   final isDataLoaded = false.obs;

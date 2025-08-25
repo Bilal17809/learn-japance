@@ -89,8 +89,8 @@ class _LanguageDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: mobileWidth(context) * 0.30,
-      height: mobileHeight(context) * 0.05,
+      width: context.screenWidth * 0.30,
+      height: context.screenHeight * 0.05,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
         color: AppColors.primary(context),

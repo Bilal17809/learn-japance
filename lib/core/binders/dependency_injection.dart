@@ -7,6 +7,7 @@ import '/presentation/home/controller/home_controller.dart';
 import '/presentation/grammar_type/controller/grammar_type_controller.dart';
 import '/presentation/splash/controller/splash_controller.dart';
 import '../services/services.dart';
+
 class DependencyInjection {
   static void init() {
     // /// Core Services
@@ -16,14 +17,15 @@ class DependencyInjection {
 
     /// Controllers
     Get.lazyPut<SplashController>(() {
-      final  dataService = Get.find<GrammarDbService>();
+      final dataService = Get.find<GrammarDbService>();
       final phrasesService = Get.find<PhrasesDbService>();
+      final lngService = Get.find<LanguageService>();
       return SplashController(
         dataService: dataService,
-        phrasesDbService: phrasesService
+        phrasesDbService: phrasesService,
+        lngService: lngService,
       );
     });
-
 
     Get.lazyPut(() => HomeController(), fenix: true);
     Get.lazyPut(() => PhrasesTopicController(), fenix: true);
@@ -33,21 +35,3 @@ class DependencyInjection {
     Get.lazyPut(() => GrammarController(), fenix: true);
   }
 }
-
-//
-// class DependencyInjection {
-//   static void init() {
-//     /// Core Services
-//     Get.lazyPut(() => PhrasesDbService(), fenix: true);
-//     Get.lazyPut(() => GrammarDbService(), fenix: true);
-//
-//     /// Controllers
-//     Get.lazyPut(() => SplashController(dataService:, phrasesDbService: ),
-//       fenix: true,);
-//     Get.lazyPut(() => HomeController(), fenix: true);
-//     Get.lazyPut(() => PhrasesTopicController(), fenix: true);
-//     Get.lazyPut(() => PhrasesController(), fenix: true);
-//     Get.lazyPut(() => GrammarTypeController(), fenix: true);
-//     Get.lazyPut(() => GrammarController(), fenix: true);
-//   }
-// }
