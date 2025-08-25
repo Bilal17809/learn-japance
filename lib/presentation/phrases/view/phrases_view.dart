@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 import '/core/common_widgets/common_widgets.dart';
-import '/core/utils/assets_util.dart';
 import '../controller/phrases_controller.dart';
 import 'widgets/phrase_card.dart';
 

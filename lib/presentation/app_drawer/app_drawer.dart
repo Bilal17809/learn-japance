@@ -107,7 +107,6 @@ class AppDrawer extends StatelessWidget {
                   AppColors.kGrey.withValues(alpha: 0.5),
                 ),
                 trackOutlineWidth: WidgetStatePropertyAll(1),
-
                 activeThumbImage: AssetImage(Assets.heroImage),
               ),
             ),

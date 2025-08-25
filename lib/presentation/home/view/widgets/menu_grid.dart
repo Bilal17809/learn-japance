@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/common_widgets/common_widgets.dart';
-import 'package:learn_japan/presentation/phrases_topic/view/phrases_topic_view.dart';
-import 'package:learn_japan/presentation/start_learning/view/start_learning_view.dart';
+import '/core/common_widgets/common_widgets.dart';
+import '/presentation/phrases_topic/view/phrases_topic_view.dart';
+import '/presentation/start_learning/view/start_learning_view.dart';
 import '/core/utils/utils.dart';
-import '/presentation/Translator/screen/translator.dart';
+import '/presentation/translator/view/translator_view.dart';
 import '/presentation/grammar_type/view/grammar_type_view.dart';
 import '/presentation/learn_japanese/view/learn_japanese_view.dart';
 import '/core/constants/constants.dart';
@@ -45,7 +45,7 @@ class MenuGrid extends StatelessWidget {
                     Get.to(() => LearnJapaneseView());
                     break;
                   case 2:
-                    Get.to(() => Translator());
+                    Get.to(() => TranslatorView());
                     break;
                   case 3:
                     Get.to(() => GrammarTypeView());

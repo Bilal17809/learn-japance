@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
+import '/core/utils/utils.dart';
 import '/data/models/models.dart';
 
 class PhrasesDbService {
@@ -25,7 +26,7 @@ class PhrasesDbService {
     String path = join(documentsDir.path, "phrases_db.db");
 
     if (!await File(path).exists()) {
-      ByteData data = await rootBundle.load("assets/phrases_db.db");
+      ByteData data = await rootBundle.load(Assets.phrasesDB);
       List<int> bytes = data.buffer.asUint8List(
         data.offsetInBytes,
         data.lengthInBytes,

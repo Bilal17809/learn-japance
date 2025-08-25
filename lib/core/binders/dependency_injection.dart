@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'package:learn_japan/presentation/phrases/controller/phrases_controller.dart';
+import '/presentation/phrases/controller/phrases_controller.dart';
+import '/presentation/translator/controller/translator_controller.dart';
 import '/presentation/phrases_topic/controller/phrases_topic_controller.dart';
 import '/presentation/grammar/controller/grammar_controller.dart';
 import '/presentation/home/controller/home_controller.dart';
@@ -11,6 +12,7 @@ class DependencyInjection {
   static void init() {
     /// Core Services
     Get.lazyPut(() => PhrasesDbService(), fenix: true);
+    Get.lazyPut(() => LanguageService(), fenix: true);
     Get.lazyPut(() => GrammarDbService(), fenix: true);
 
     /// Controllers
@@ -18,6 +20,7 @@ class DependencyInjection {
     Get.lazyPut(() => HomeController(), fenix: true);
     Get.lazyPut(() => PhrasesTopicController(), fenix: true);
     Get.lazyPut(() => PhrasesController(), fenix: true);
+    Get.lazyPut(() => TranslatorController(), fenix: true);
     Get.lazyPut(() => GrammarTypeController(), fenix: true);
     Get.lazyPut(() => GrammarController(), fenix: true);
   }

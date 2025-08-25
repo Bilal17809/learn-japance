@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:learn_japan/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/theme/theme.dart';
-import '/presentation/Translator/screen/translator.dart';
+import '/presentation/translator/view/translator_view.dart';
 
 class StartLearningView extends StatelessWidget {
   const StartLearningView({super.key});
@@ -125,7 +125,7 @@ class StartLearningView extends StatelessWidget {
                         ),
                         const Spacer(),
                         GestureDetector(
-                          onTap: () => Get.to(() => Translator()),
+                          onTap: () => Get.to(() => TranslatorView()),
                           child: Container(
                             width: mobileWidth(context) * 0.6,
                             height: mobileHeight(context) * 0.075,

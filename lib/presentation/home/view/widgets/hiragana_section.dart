@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:learn_japan/core/common_widgets/common_widgets.dart';
 import '/core/theme/theme.dart';
-import '/presentation/Translator/screen/translator.dart';
+import '/presentation/translator/view/translator_view.dart';
 import '/core/constants/constants.dart';
 
 class HiraganaSection extends StatelessWidget {
@@ -50,7 +50,7 @@ class HiraganaSection extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: kElementGap),
                   child: AppElevatedButton(
-                    onPressed: () => Get.to(() => Translator()),
+                    onPressed: () => Get.to(() => TranslatorView()),
                     icon: Icons.translate,
                     label: 'Continue',
                     width: mobileWidth(context) * 0.6,

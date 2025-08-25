@@ -5,6 +5,7 @@ import '/core/services/services.dart';
 
 class SplashController extends GetxController {
   final GrammarDbService _dataService = Get.find<GrammarDbService>();
+  final LanguageService _lngService = Get.find<LanguageService>();
   final PhrasesDbService _phrasesDbService = Get.find<PhrasesDbService>();
 
   final isLoading = true.obs;
@@ -12,6 +13,7 @@ class SplashController extends GetxController {
   var showButton = false.obs;
 
   List<GrammarModel>? grammarData;
+  List<LanguageModel>? lngData;
 
   @override
   void onInit() {
@@ -25,9 +27,11 @@ class SplashController extends GetxController {
       isDataLoaded.value = false;
       grammarData = await _dataService.loadGrammarData();
       await _phrasesDbService.database;
+      lngData = await _lngService.loadLanguages();
       isDataLoaded.value = true;
       debugPrint("///////////////Phrases DB initialized successfully");
       debugPrint("Grammar dataset loaded: ${grammarData?.length} items");
+      debugPrint("Lng dataset loaded: ${lngData?.length} items");
     } catch (e) {
       debugPrint(e.toString());
     } finally {

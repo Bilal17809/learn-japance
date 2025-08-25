@@ -1,4 +1,13 @@
 class Assets {
+  /// Assets
+  static const String lngCodes = "assets/language_codes.json";
+  static const String lngFlags = "assets/language_flags.json";
+  static const String grammarDB = "assets/japanese_dataset.json";
+  static const String phrasesDB = "assets/phrases_db.db";
+
+  /// Lottie
+  static const String searchError = "assets/search_error.json";
+
   /// Home Icons
   static const String heroImage = "images/hero_image.png";
   static const String readingBook = "images/reading-book.png";
@@ -22,5 +31,4 @@ class Assets {
   static const String sentencePattern = "images/sentence_pattern.png";
   static const String questionWord = "images/question_word.png";
   static const String performance = "images/performance.png";
-  static const String searchError = "assets/search_error.json";
 }
