@@ -1,12 +1,13 @@
 class Assets {
-  /// Assets
-  static const String lngCodes = "assets/language_codes.json";
-  static const String lngFlags = "assets/language_flags.json";
-  static const String grammarDB = "assets/japanese_dataset.json";
-  static const String phrasesDB = "assets/phrases_db.db";
+  /// Db
+  static const String lngCodes = "assets/db/language_codes.json";
+  static const String lngFlags = "assets/db/language_flags.json";
+  static const String grammarDB = "assets/db/japanese_dataset.json";
+  static const String phrasesDB = "assets/db/phrases_db.db";
 
   /// Lottie
-  static const String searchError = "assets/search_error.json";
+  static const String searchError = "assets/animations/search_error.json";
+  static const String translationLottie = "assets/animations/translation.json";
 
   /// Home Icons
   static const String heroImage = "images/hero_image.png";

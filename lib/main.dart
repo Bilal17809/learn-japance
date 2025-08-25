@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:learn_japan/presentation/splash/view/splash_view.dart';
+import 'package:toastification/toastification.dart';
 import '/core/local_storage/local_storage.dart';
 import 'core/binders/dependency_injection.dart';
 import 'core/theme/theme.dart';
@@ -30,13 +31,15 @@ class LearnJapanese extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Learn Japanese',
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: themeMode,
-      home: SplashView(),
+    return ToastificationWrapper(
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Learn Japanese',
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: themeMode,
+        home: SplashView(),
+      ),
     );
   }
 }

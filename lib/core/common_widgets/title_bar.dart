@@ -33,7 +33,7 @@ class TitleBar extends StatelessWidget implements PreferredSizeWidget {
                     ? IconActionButton(
                       onTap: () {
                         FocusScope.of(context).unfocus();
-                        Future.delayed(const Duration(milliseconds: 150), () {
+                        Future.delayed(const Duration(milliseconds: 180), () {
                           if (onBackTap != null) {
                             onBackTap!();
                           } else {
