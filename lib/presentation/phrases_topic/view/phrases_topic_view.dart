@@ -43,7 +43,7 @@ class PhrasesTopicView extends StatelessWidget {
                         ? Center(
                           child: Lottie.asset(
                             Assets.searchError,
-                            width: mobileWidth(context) * 0.41,
+                            width: context.screenWidth * 0.41,
                           ),
                         )
                         : ListView.builder(

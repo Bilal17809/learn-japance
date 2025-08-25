@@ -27,7 +27,7 @@ class HiraganaSection extends StatelessWidget {
           ),
           const Gap(kGap / 1.5),
           Container(
-            height: mobileHeight(context) * 0.37,
+            height: context.screenHeight * 0.37,
             color: AppColors.secondary(context),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,8 +53,8 @@ class HiraganaSection extends StatelessWidget {
                     onPressed: () => Get.to(() => TranslatorView()),
                     icon: Icons.translate,
                     label: 'Continue',
-                    width: mobileWidth(context) * 0.6,
-                    height: mobileHeight(context) * 0.075,
+                    width: context.screenWidth * 0.6,
+                    height: context.screenHeight * 0.075,
                   ),
                 ),
               ],
