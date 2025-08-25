@@ -9,9 +9,9 @@ class SplashController extends GetxController {
 
   SplashController({
     required GrammarDbService dataService,
-    required PhrasesDbService phrasesDbService
-  }):_dataService=dataService,
-        _phrasesDbService=phrasesDbService;
+    required PhrasesDbService phrasesDbService,
+  }) : _dataService = dataService,
+       _phrasesDbService = phrasesDbService;
 
   final isLoading = true.obs;
   final isDataLoaded = false.obs;
