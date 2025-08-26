@@ -20,12 +20,14 @@ class LanguageDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: kGap),
+        width: context.screenWidth * 0.4,
+        padding: const EdgeInsets.symmetric(horizontal: kGap / 2),
         decoration: AppDecorations.simpleDecor(
           context,
         ).copyWith(borderRadius: BorderRadius.circular(kBorderRadius)),
         child: DropdownButtonHideUnderline(
           child: DropdownButton<LanguageModel>(
+            borderRadius: BorderRadius.circular(kBorderRadius / 2),
             isExpanded: true,
             value: selected,
             dropdownColor: AppColors.secondary(context),
@@ -36,18 +38,17 @@ class LanguageDropdown extends StatelessWidget {
                         value: lng,
                         child: Row(
                           children: [
-                            SizedBox(
-                              width: 30,
+                            Padding(
+                              padding: const EdgeInsets.only(left: kGap / 2),
                               child: Text(
                                 lng.flagEmoji,
-                                style: const TextStyle(fontSize: 20),
-                                textAlign: TextAlign.center,
+                                style: titleLargeStyle,
                               ),
                             ),
                             const Gap(kGap),
                             Flexible(
                               child: Text(
-                                lng.name,
+                                lng.name.split(" ").first,
                                 style: titleSmallStyle,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,

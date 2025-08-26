@@ -1,3 +1,4 @@
+import 'package:learn_japan/core/common/app_exceptions.dart';
 import 'package:translator/translator.dart';
 
 class TranslationService {
@@ -11,7 +12,7 @@ class TranslationService {
       final translation = await _translator.translate(text, to: targetLanguage);
       return translation.text;
     } catch (e) {
-      return "Translation failed: $e";
+      return "${AppExceptions().failToTranslate}: $e";
     }
   }
 
@@ -25,7 +26,7 @@ class TranslationService {
       );
       return translations.map((t) => t.text).toList();
     } catch (e) {
-      return ["Translation failed: $e"];
+      return ["${AppExceptions().failToTranslate}: $e"];
     }
   }
 }

@@ -1,11 +1,17 @@
 import 'package:get/get.dart';
-import '/core/services/phrases_db_service.dart';
-import '/core/services/translation_service.dart';
+import 'package:learn_japan/core/common/app_exceptions.dart';
+import '/core/services/services.dart';
 import '/data/models/models.dart';
 
 class PhrasesController extends GetxController {
-  final PhrasesDbService _dbService = Get.find<PhrasesDbService>();
-  final TranslationService translationService = TranslationService();
+  final PhrasesDbService _dbService;
+  final TranslationService _translationService;
+
+  PhrasesController({
+    required PhrasesDbService dbService,
+    required TranslationService translationService,
+  }) : _dbService = dbService,
+       _translationService = translationService;
 
   var phrases = <PhrasesModel>[].obs;
   var isLoading = true.obs;
@@ -46,13 +52,13 @@ class PhrasesController extends GetxController {
     if (translationCache.containsKey(key)) return;
     translatingStates[key] = true;
     try {
-      final translation = await translationService.translateText(
+      final translation = await _translationService.translateText(
         text,
         targetLanguage: 'ja',
       );
       translationCache[key] = translation;
     } catch (e) {
-      translationCache[key] = "Translation failed";
+      translationCache[key] = "${AppExceptions().failToTranslate}: $e";
     } finally {
       translatingStates[key] = false;
     }
@@ -60,7 +66,7 @@ class PhrasesController extends GetxController {
 
   Future<void> translateAll(PhrasesModel item) async {
     final textsToTranslate = [item.explanation, item.sentence];
-    final translations = await translationService.translateList(
+    final translations = await _translationService.translateList(
       textsToTranslate,
       targetLanguage: 'ja',
     );
@@ -72,13 +78,13 @@ class PhrasesController extends GetxController {
   Future<void> translateDescription(String description) async {
     translatedDescription.value = "翻訳中...";
     try {
-      final translation = await translationService.translateText(
+      final translation = await _translationService.translateText(
         description,
         targetLanguage: 'ja',
       );
       translatedDescription.value = translation;
     } catch (e) {
-      translatedDescription.value = "Translation failed";
+      translatedDescription.value = "${AppExceptions().failToTranslate}: $e";
     }
   }
 }

@@ -1,14 +1,20 @@
 import 'package:get/get.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
-import '/presentation/splash/controller/splash_controller.dart';
 
 class GrammarTypeController extends GetxController {
-  final SplashController splashController = Get.find<SplashController>();
-  final TranslationService translationService = TranslationService();
+  final TranslationService _translationService;
+  final GrammarDbService _grammarDbService;
+
+  GrammarTypeController({
+    required TranslationService translationService,
+    required GrammarDbService grammarDbService,
+  }) : _grammarDbService = grammarDbService,
+       _translationService = translationService;
 
   var categoryTranslations = <String, String>{}.obs;
   var translationsLoading = true.obs;
+  List<GrammarModel>? grammarData;
 
   @override
   void onInit() {
@@ -16,11 +22,12 @@ class GrammarTypeController extends GetxController {
     translateAllCategories();
   }
 
-  void translateAllCategories() async {
-    if (splashController.grammarData == null) return;
-    final categories = getUniqueCategories(splashController.grammarData!);
+  Future<void> translateAllCategories() async {
+    grammarData = await _grammarDbService.loadGrammarData();
+
+    final categories = getUniqueCategories(grammarData!);
     try {
-      final translations = await translationService.translateList(categories);
+      final translations = await _translationService.translateList(categories);
       for (int i = 0; i < categories.length; i++) {
         categoryTranslations[categories[i]] = translations[i];
       }

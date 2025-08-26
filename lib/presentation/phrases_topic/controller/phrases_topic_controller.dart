@@ -1,14 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/local_storage/local_storage.dart';
-import '/core/services/phrases_db_service.dart';
-import '/core/services/translation_service.dart';
+import '/core/local_storage/local_storage.dart';
+import '/core/common/app_exceptions.dart';
+import '/core/services/services.dart';
 import '/data/models/models.dart';
 
 class PhrasesTopicController extends GetxController {
-  final PhrasesDbService dbService = Get.find<PhrasesDbService>();
-  final TranslationService translationService = TranslationService();
-  final LocalStorage localStorage = LocalStorage();
+  final PhrasesDbService _phrasesDbService;
+  final TranslationService _translationService;
+  final LocalStorage _localStorage;
+
+  PhrasesTopicController({
+    required PhrasesDbService phrasesDbService,
+    required TranslationService translationService,
+    required LocalStorage localStorage,
+  }) : _phrasesDbService = phrasesDbService,
+       _translationService = translationService,
+       _localStorage = localStorage;
+
   final TextEditingController searchController = TextEditingController();
   final RxString searchQuery = ''.obs;
   var topics = <PhrasesTopicModel>[].obs;
@@ -35,9 +44,9 @@ class PhrasesTopicController extends GetxController {
     try {
       await Future.delayed(const Duration(milliseconds: 350));
       error.value = '';
-      final result = await dbService.getAllTopics();
+      final result = await _phrasesDbService.getAllTopics();
       topics.assignAll(result);
-      final cached = await localStorage.getStringList(_translationCacheKey);
+      final cached = await _localStorage.getStringList(_translationCacheKey);
       if (cached != null && cached.length == result.length) {
         topicTranslations.assignAll(cached);
       } else {
@@ -54,15 +63,15 @@ class PhrasesTopicController extends GetxController {
     translationsLoading.value = true;
     try {
       final titles = data.map((e) => e.title).toList();
-      final translations = await translationService.translateList(
+      final translations = await _translationService.translateList(
         titles,
         targetLanguage: 'ja',
       );
 
       topicTranslations.assignAll(translations);
-      await localStorage.setStringList(_translationCacheKey, translations);
+      await _localStorage.setStringList(_translationCacheKey, translations);
     } catch (e) {
-      debugPrint('Translation error: $e');
+      debugPrint('${AppExceptions().failToTranslate}: $e');
     } finally {
       translationsLoading.value = false;
     }

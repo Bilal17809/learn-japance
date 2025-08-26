@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/theme/app_styles.dart';
+import '/presentation/trans_fav/view/trans_fav_view.dart';
+import '/core/services/services.dart';
+import '/core/theme/theme.dart';
 import 'package:lottie/lottie.dart';
 import '/core/utils/utils.dart';
 import '/presentation/translator/controller/translator_controller.dart';
@@ -17,12 +19,16 @@ class TranslatorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<TranslatorController>();
+    final tts = Get.find<TtsService>();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: TitleBar(title: 'Translator'),
       body: SafeArea(
         child: Obx(() {
+          if (controller.isLoading.value) {
+            return const Center(child: CircularProgressIndicator());
+          }
           return Padding(
             padding: const EdgeInsets.all(kBodyHp),
             child: Column(
@@ -35,7 +41,15 @@ class TranslatorView extends StatelessWidget {
                       languages: controller.allLanguages,
                       onChanged: (lng) => controller.setSource(lng),
                     ),
-                    Gap(context.screenWidth * 0.2),
+                    IconActionButton(
+                      onTap: () {
+                        final holder = controller.sourceLanguage.value!;
+                        controller.setSource(controller.targetLanguage.value!);
+                        controller.setTarget(holder);
+                      },
+                      icon: Icons.swap_horiz,
+                      color: AppColors.icon(context),
+                    ),
                     LanguageDropdown(
                       selected: controller.targetLanguage.value,
                       languages: controller.allLanguages,
@@ -46,11 +60,21 @@ class TranslatorView extends StatelessWidget {
                 const Gap(kElementGap),
                 TranslatorCard(
                   mainText: controller.sourceLanguage.value?.name,
-                  leftIcon: Icons.volume_up,
+                  leftIcon:
+                      tts.isSpeaking(controller.inputText.value)
+                          ? Icons.stop
+                          : Icons.volume_up,
                   centerIcon: Icons.mic,
                   rightIcon: Icons.send,
-                  onLeftPressed: () {},
-                  onCenterPressed: () {},
+                  onLeftPressed: () {
+                    tts.isSpeaking(controller.inputText.value)
+                        ? tts.stop()
+                        : tts.speak(
+                          controller.inputText.value,
+                          controller.sourceLanguage.value,
+                        );
+                  },
+                  onCenterPressed: () => controller.handleSpeechInput(),
                   onRightPressed: () {
                     controller.translateInput();
                   },
@@ -60,16 +84,26 @@ class TranslatorView extends StatelessWidget {
                 if (controller.translatedText.value.isNotEmpty) ...[
                   TranslatorCard(
                     mainText: controller.targetLanguage.value?.name,
-                    leftIcon: Icons.volume_up,
+                    leftIcon:
+                        tts.isSpeaking(controller.translatedText.value)
+                            ? Icons.stop
+                            : Icons.volume_up,
                     centerIcon: Icons.copy,
                     rightIcon: Icons.history,
-                    onLeftPressed: () {},
+                    onLeftPressed: () {
+                      tts.isSpeaking(controller.translatedText.value)
+                          ? tts.stop()
+                          : tts.speak(
+                            controller.translatedText.value,
+                            controller.targetLanguage.value,
+                          );
+                    },
                     onCenterPressed: () {
                       Clipboard.setData(
                         ClipboardData(text: controller.translatedText.value),
                       );
                     },
-                    onRightPressed: () {},
+                    onRightPressed: () => Get.to(() => TransFavView()),
                     canWrite: false,
                   ),
                 ] else ...[

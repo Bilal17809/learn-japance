@@ -14,15 +14,16 @@ class GrammarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GrammarController controller = Get.put(GrammarController());
+    final GrammarController controller = Get.find<GrammarController>();
 
     return Scaffold(
       appBar: TitleBar(title: selectedCategory),
       body: Obx(() {
-        if (controller.splashController.isLoading.value) {
+        if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
         final data = controller.getFilteredData(selectedCategory);
+
         return SafeArea(
           child: Column(
             children: [

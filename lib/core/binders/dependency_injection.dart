@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../local_storage/local_storage.dart';
 import '/presentation/phrases/controller/phrases_controller.dart';
 import '/presentation/translator/controller/translator_controller.dart';
 import '/presentation/phrases_topic/controller/phrases_topic_controller.dart';
@@ -11,27 +12,63 @@ import '../services/services.dart';
 class DependencyInjection {
   static void init() {
     // /// Core Services
+    Get.lazyPut(() => LocalStorage(), fenix: true);
+    Get.lazyPut(() => TranslationService(), fenix: true);
+    Get.lazyPut(() => TtsService(), fenix: true);
+    Get.lazyPut(() => SpeechService(), fenix: true);
     Get.lazyPut(() => PhrasesDbService(), fenix: true);
     Get.lazyPut(() => LanguageService(), fenix: true);
     Get.lazyPut(() => GrammarDbService(), fenix: true);
 
     /// Controllers
-    Get.lazyPut<SplashController>(() {
-      final dataService = Get.find<GrammarDbService>();
-      final phrasesService = Get.find<PhrasesDbService>();
-      final lngService = Get.find<LanguageService>();
-      return SplashController(
-        dataService: dataService,
-        phrasesDbService: phrasesService,
-        lngService: lngService,
-      );
-    });
+    Get.lazyPut<SplashController>(() => SplashController());
 
     Get.lazyPut(() => HomeController(), fenix: true);
-    Get.lazyPut(() => PhrasesTopicController(), fenix: true);
-    Get.lazyPut(() => PhrasesController(), fenix: true);
-    Get.lazyPut(() => TranslatorController(), fenix: true);
-    Get.lazyPut(() => GrammarTypeController(), fenix: true);
-    Get.lazyPut(() => GrammarController(), fenix: true);
+    Get.lazyPut<PhrasesTopicController>(() {
+      final phrasesService = Get.find<PhrasesDbService>();
+      final translationService = Get.find<TranslationService>();
+      final localStorage = Get.find<LocalStorage>();
+      return PhrasesTopicController(
+        phrasesDbService: phrasesService,
+        translationService: translationService,
+        localStorage: localStorage,
+      );
+    }, fenix: true);
+    Get.lazyPut<PhrasesController>(() {
+      final phrasesService = Get.find<PhrasesDbService>();
+      final translationService = Get.find<TranslationService>();
+      return PhrasesController(
+        dbService: phrasesService,
+        translationService: translationService,
+      );
+    }, fenix: true);
+    Get.lazyPut<TranslatorController>(() {
+      final lngService = Get.find<LanguageService>();
+      final translationService = Get.find<TranslationService>();
+      final localStorage = Get.find<LocalStorage>();
+      final speechService = Get.find<SpeechService>();
+      return TranslatorController(
+        lngService: lngService,
+        translationService: translationService,
+        localStorage: localStorage,
+        speechService: speechService,
+      );
+    }, fenix: true);
+    Get.lazyPut<GrammarTypeController>(() {
+      final grammarDbService = Get.find<GrammarDbService>();
+      final translationService = Get.find<TranslationService>();
+      return GrammarTypeController(
+        grammarDbService: grammarDbService,
+        translationService: translationService,
+      );
+    }, fenix: true);
+    Get.lazyPut<GrammarController>(() {
+      final grammarDbService = Get.find<GrammarDbService>();
+      final translationService = Get.find<TranslationService>();
+      return GrammarController(
+        grammarDbService: grammarDbService,
+        translationService: translationService,
+      );
+    }, fenix: true);
   }
 }

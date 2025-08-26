@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:learn_japan/core/constants/constants.dart';
 import 'package:learn_japan/core/theme/app_colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import '../../home/view/home_view.dart';
+import '/presentation/home/view/home_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '../controller/splash_controller.dart';
 
@@ -37,7 +37,6 @@ class SplashView extends StatelessWidget {
                               shadowColor: AppColors.secondaryColorLight,
                               textColor: AppColors.kBlack,
                               onPressed: () {
-                                // Get.to(() => PhrasesTopicView());
                                 Get.to(() => HomeView());
                               },
                               text: "Let's Go",

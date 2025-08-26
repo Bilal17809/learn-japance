@@ -17,13 +17,12 @@ class GrammarTypeView extends StatelessWidget {
     return Scaffold(
       appBar: TitleBar(title: 'Select Category'),
       body: Obx(() {
-        if (controller.splashController.isLoading.value ||
-            controller.translationsLoading.value) {
+        if (controller.translationsLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
 
-        final data = controller.splashController.grammarData!;
-        final categories = controller.getUniqueCategories(data);
+        final data = controller.grammarData;
+        final categories = controller.getUniqueCategories(data!);
 
         return SafeArea(
           child: Padding(

@@ -1,31 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learn_japan/core/common/app_exceptions.dart';
 import '/data/models/models.dart';
-import '/core/services/translation_service.dart';
-import '/presentation/splash/controller/splash_controller.dart';
+import '/core/services/services.dart';
 
 class GrammarController extends GetxController {
-  final SplashController splashController = Get.find<SplashController>();
-  final TranslationService translationService = TranslationService();
+  final GrammarDbService _grammarDbService;
+  final TranslationService _translationService;
+
+  GrammarController({
+    required GrammarDbService grammarDbService,
+    required TranslationService translationService,
+  }) : _grammarDbService = grammarDbService,
+       _translationService = translationService;
+
+  var isLoading = true.obs;
+  final RxList<GrammarModel> allData = <GrammarModel>[].obs;
   final RxMap<String, String> translationCache = <String, String>{}.obs;
   final RxMap<String, bool> translatingStates = <String, bool>{}.obs;
   final TextEditingController searchController = TextEditingController();
   final RxString searchQuery = ''.obs;
 
   @override
-  void onClose() {
-    searchController.dispose();
-    super.onClose();
+  void onInit() {
+    super.onInit();
+    _fetchData();
+  }
+
+  Future<void> _fetchData() async {
+    isLoading.value = true;
+    try {
+      await Future.delayed(const Duration(milliseconds: 300));
+      final data = await _grammarDbService.loadGrammarData();
+      allData.assignAll(data);
+    } finally {
+      isLoading.value = false;
+    }
   }
 
   Future<void> translateText(String key, String text) async {
     if (translationCache.containsKey(key)) return;
     translatingStates[key] = true;
     try {
-      final translation = await translationService.translateText(text);
+      final translation = await _translationService.translateText(text);
       translationCache[key] = translation;
     } catch (e) {
-      translationCache[key] = "Translation failed";
+      translationCache[key] = "${AppExceptions().failToTranslate}: $e";
     } finally {
       translatingStates[key] = false;
     }
@@ -37,7 +57,7 @@ class GrammarController extends GetxController {
       item.description,
       ...item.examples,
     ];
-    final translations = await translationService.translateList(
+    final translations = await _translationService.translateList(
       textsToTranslate,
     );
     await translateText("${item.id}_category", translations[0]);
@@ -49,9 +69,8 @@ class GrammarController extends GetxController {
   }
 
   List<GrammarModel> getFilteredData(String category) {
-    final data = splashController.grammarData ?? [];
-
-    final filtered = data.where((item) => item.category == category).toList();
+    final filtered =
+        allData.where((item) => item.category == category).toList();
 
     if (searchQuery.value.isNotEmpty) {
       return filtered
@@ -64,5 +83,11 @@ class GrammarController extends GetxController {
     }
 
     return filtered;
+  }
+
+  @override
+  void onClose() {
+    searchController.dispose();
+    super.onClose();
   }
 }

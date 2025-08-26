@@ -81,17 +81,20 @@ class TranslatorCard extends StatelessWidget {
                           ),
                         )
                         : Obx(
-                          () => Text(
-                            textDirection:
-                                controller.isTargetRtl.value
-                                    ? TextDirection.rtl
-                                    : TextDirection.ltr,
-                            textAlign:
-                                controller.isTargetRtl.value
-                                    ? TextAlign.right
-                                    : TextAlign.left,
-                            controller.translatedText.value,
-                            style: bodyLargeStyle,
+                          () => SizedBox(
+                            width: double.infinity,
+                            child: Text(
+                              textDirection:
+                                  controller.isTargetRtl.value
+                                      ? TextDirection.rtl
+                                      : TextDirection.ltr,
+                              textAlign:
+                                  controller.isTargetRtl.value
+                                      ? TextAlign.right
+                                      : TextAlign.left,
+                              controller.translatedText.value,
+                              style: bodyLargeStyle,
+                            ),
                           ),
                         ),
               ),

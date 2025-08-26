@@ -1,5 +1,6 @@
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
+import '/data/models/language_model.dart';
 
 class TtsService extends GetxController {
   final FlutterTts _flutterTts = FlutterTts();
@@ -12,13 +13,8 @@ class TtsService extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _initTTS();
-  }
-
-  Future<void> _initTTS() async {
-    await _flutterTts.setLanguage("en-US");
-    await _flutterTts.setPitch(1.0);
-    await _flutterTts.setSpeechRate(0.5);
+    _flutterTts.setPitch(1);
+    _flutterTts.setSpeechRate(0.5);
 
     _flutterTts.setCompletionHandler(() {
       _currentSpeakingText.value = '';
@@ -27,10 +23,16 @@ class TtsService extends GetxController {
     _flutterTts.setErrorHandler((msg) {
       _currentSpeakingText.value = '';
     });
+  }
 
-    List<dynamic> voices = await _flutterTts.getVoices;
+  Future<void> speak(String text, LanguageModel? language) async {
+    if (text.isEmpty || language == null) return;
+
+    _currentSpeakingText.value = text;
+    await _flutterTts.setLanguage(language.ttsCode);
+    final voices = await _flutterTts.getVoices;
     for (var voice in voices) {
-      if (voice is Map && voice['name'] == 'en-us-x-tpd-network') {
+      if (voice is Map && voice['locale'] == language.ttsCode) {
         final castedVoice = voice.map(
           (k, v) => MapEntry(k.toString(), v.toString()),
         );
@@ -38,10 +40,7 @@ class TtsService extends GetxController {
         break;
       }
     }
-  }
 
-  Future<void> speak(String text) async {
-    _currentSpeakingText.value = text;
     await _flutterTts.speak(text);
   }
 
