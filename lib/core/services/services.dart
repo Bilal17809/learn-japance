@@ -4,3 +4,4 @@ export 'tts_service.dart';
 export 'phrases_db_service.dart';
 export 'language_service.dart';
 export 'speech_service.dart';
+export 'translator_storage_service.dart';

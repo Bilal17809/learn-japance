@@ -21,7 +21,9 @@ class AppDrawer extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              decoration: AppDecorations.simpleDecor(context),
+              decoration: AppDecorations.simpleDecor(
+                context,
+              ).copyWith(borderRadius: BorderRadius.zero),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

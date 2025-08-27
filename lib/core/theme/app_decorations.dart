@@ -14,14 +14,6 @@ class AppDecorations {
     borderRadius: BorderRadius.circular(kCircularBorderRadius),
   );
 
-  static BoxDecoration list(BuildContext context) => BoxDecoration(
-    color: context.isDark ? Colors.black : Colors.white,
-    borderRadius: BorderRadius.circular(kBorderRadius),
-    boxShadow: const [
-      BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 2)),
-    ],
-  );
-
   static BoxDecoration simpleDecor(BuildContext context) => BoxDecoration(
     gradient: LinearGradient(
       begin: Alignment.bottomLeft,
@@ -35,6 +27,7 @@ class AppDecorations {
               : [AppColors.secondaryColorLight, AppColors.primaryColorLight],
       stops: const [0.3, 0.95],
     ),
+    borderRadius: BorderRadius.circular(kBorderRadius),
   );
 
   static BoxDecoration highlight(

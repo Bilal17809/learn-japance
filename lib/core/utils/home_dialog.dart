@@ -16,9 +16,7 @@ class HomeDialogs {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                decoration: AppDecorations.simpleDecor(
-                  context,
-                ).copyWith(borderRadius: BorderRadius.circular(kBorderRadius)),
+                decoration: AppDecorations.simpleDecor(context),
                 child: Padding(
                   padding: const EdgeInsets.all(kElementGap),
                   child: Icon(
@@ -48,9 +46,7 @@ class HomeDialogs {
               children: [
                 Expanded(
                   child: Container(
-                    decoration: AppDecorations.simpleDecor(context).copyWith(
-                      borderRadius: BorderRadius.circular(kBorderRadius),
-                    ),
+                    decoration: AppDecorations.simpleDecor(context),
                     child: TextButton(
                       onPressed: () => Navigator.pop(context, false),
                       child: Text(
@@ -63,9 +59,7 @@ class HomeDialogs {
                 const Gap(kGap),
                 Expanded(
                   child: Container(
-                    decoration: AppDecorations.simpleDecor(context).copyWith(
-                      borderRadius: BorderRadius.circular(kBorderRadius),
-                    ),
+                    decoration: AppDecorations.simpleDecor(context),
                     child: TextButton(
                       onPressed: () => Navigator.pop(context, true),
                       child: Text(

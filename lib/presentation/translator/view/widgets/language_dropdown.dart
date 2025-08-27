@@ -22,9 +22,10 @@ class LanguageDropdown extends StatelessWidget {
       child: Container(
         width: context.screenWidth * 0.4,
         padding: const EdgeInsets.symmetric(horizontal: kGap / 2),
-        decoration: AppDecorations.simpleDecor(
-          context,
-        ).copyWith(borderRadius: BorderRadius.circular(kBorderRadius)),
+        decoration: AppDecorations.rounded(context).copyWith(
+          color: AppColors.primary(context),
+          border: Border.all(color: AppColors.secondary(context)),
+        ),
         child: DropdownButtonHideUnderline(
           child: DropdownButton<LanguageModel>(
             borderRadius: BorderRadius.circular(kBorderRadius / 2),

@@ -82,9 +82,7 @@ class _TopicCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(bottom: kElementGap),
         padding: const EdgeInsets.all(kBodyHp),
-        decoration: AppDecorations.simpleDecor(
-          context,
-        ).copyWith(borderRadius: BorderRadius.circular(kBorderRadius)),
+        decoration: AppDecorations.simpleDecor(context),
         child: Obx(() {
           final translated =
               index < controller.topicTranslations.length

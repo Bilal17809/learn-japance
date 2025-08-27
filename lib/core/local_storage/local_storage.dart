@@ -32,4 +32,9 @@ class LocalStorage {
     final prefs = await _prefs;
     await prefs.setStringList(key, value);
   }
+
+  Future<void> remove(String key) async {
+    final prefs = await _prefs;
+    await prefs.remove(key);
+  }
 }

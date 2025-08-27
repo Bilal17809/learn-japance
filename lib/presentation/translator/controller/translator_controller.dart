@@ -1,172 +1,214 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/local_storage/local_storage.dart';
 import '/core/common/app_exceptions.dart';
 import '/core/common_widgets/common_widgets.dart';
-import '/core/theme/theme.dart';
-import 'package:toastification/toastification.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
+import '/core/utils/utils.dart';
 
 class TranslatorController extends GetxController {
   final LanguageService _lngService;
   final TranslationService _translationService;
-  final LocalStorage _localStorage;
+  final TranslatorStorageService _storageService;
   final SpeechService _speechService;
 
   TranslatorController({
     required LanguageService lngService,
     required TranslationService translationService,
-    required LocalStorage localStorage,
+    required TranslatorStorageService storageService,
     required SpeechService speechService,
   }) : _lngService = lngService,
        _translationService = translationService,
-       _localStorage = localStorage,
+       _storageService = storageService,
        _speechService = speechService;
 
-  final TextEditingController inputController = TextEditingController();
-  var isLoading = true.obs;
-  var sourceLanguage = Rxn<LanguageModel>();
-  var targetLanguage = Rxn<LanguageModel>();
-  var allLanguages = <LanguageModel>[].obs;
-  var inputText = "".obs;
-  var translatedText = "".obs;
-  var isTranslating = false.obs;
-  final rtlLng = ["ar", "ur"];
-  var isSourceRtl = false.obs;
-  var isTargetRtl = false.obs;
-  var isSpeaking = false.obs;
+  final inputController = TextEditingController();
+  final isLoading = true.obs;
+  final sourceLanguage = Rxn<LanguageModel>();
+  final targetLanguage = Rxn<LanguageModel>();
+  final allLanguages = <LanguageModel>[].obs;
+  final inputText = "".obs;
+  final translations = <TransResultModel>[].obs;
+  final isTranslating = false.obs;
+  final isSourceRtl = false.obs;
+  final isTargetRtl = false.obs;
+  final isSpeaking = false.obs;
+  final favorites = <TransResultModel>[].obs;
+
+  static const rtlLng = ["ar", "ur"];
 
   @override
   void onInit() {
     super.onInit();
     fetchLngData();
+    loadFav();
+    _loadTranslations();
   }
 
-  void fetchLngData() async {
+  Future<void> fetchLngData() async {
     isLoading.value = true;
     try {
       await Future.delayed(const Duration(milliseconds: 300));
       allLanguages.value = await _lngService.loadLanguages();
-      final savedSource = await _localStorage.getString('sourceLanguage');
-      final savedTarget = await _localStorage.getString('targetLanguage');
-      if (savedSource != null && savedTarget != null) {
-        sourceLanguage.value = allLanguages.firstWhere(
-          (lng) => lng.name == savedSource,
-          orElse: () => allLanguages.first,
-        );
-        targetLanguage.value = allLanguages.firstWhere(
-          (lng) => lng.name == savedTarget,
-          orElse: () => allLanguages[1],
-        );
-      } else {
-        sourceLanguage.value = allLanguages.firstWhere(
-          (lng) => lng.name == "English",
-        );
-        targetLanguage.value = allLanguages.firstWhere(
-          (lng) => lng.name == "Japanese",
-        );
-      }
 
+      final savedSource = await _storageService.getSourceLanguage();
+      final savedTarget = await _storageService.getTargetLanguage();
+
+      sourceLanguage.value =
+          _findLng(savedSource) ??
+          allLanguages.firstWhere((lng) => lng.name == "English");
+      targetLanguage.value =
+          _findLng(savedTarget) ??
+          allLanguages.firstWhere((lng) => lng.name == "Japanese");
       _checkRtl();
     } finally {
       isLoading.value = false;
     }
   }
 
+  Future<void> _loadTranslations() async {
+    translations.value = await _storageService.getTranslations();
+  }
+
+  LanguageModel? _findLng(String? name) =>
+      name == null ? null : allLanguages.firstWhere((lng) => lng.name == name);
+
   Future<void> translateInput() async {
     if (inputText.value.isEmpty) {
-      SimpleToast.showCustomToast(
-        context: Get.context!,
-        message: 'Input field cannot be empty',
-        type: ToastificationType.error,
-        primaryColor: AppColors.kRed,
-        icon: Icons.error_outline,
-      );
+      ToastUtil().showErrorToast('Input field cannot be empty');
       return;
-    } else {
-      isTranslating.value = true;
-      try {
-        final result = await _translationService.translateText(
-          inputText.value,
-          targetLanguage: targetLanguage.value!.code,
+    }
+
+    isTranslating.value = true;
+    final loadingId = DateTime.now().millisecondsSinceEpoch.toString();
+    final currentSourceRtl = isSourceRtl.value;
+    final currentTargetRtl = isTargetRtl.value;
+
+    final loadingResult = TransResultModel(
+      id: loadingId,
+      input: inputText.value,
+      output: "Translating...",
+      isSourceRtl: currentSourceRtl,
+      isTargetRtl: currentTargetRtl,
+    );
+
+    translations.add(loadingResult);
+
+    try {
+      final result = await _translationService.translateText(
+        inputText.value,
+        targetLanguage: targetLanguage.value!.code,
+      );
+
+      final index = translations.indexWhere((t) => t.id == loadingId);
+      if (index != -1) {
+        translations[index] = TransResultModel(
+          id: loadingId,
+          input: inputText.value,
+          output: result,
+          isSourceRtl: currentSourceRtl,
+          isTargetRtl: currentTargetRtl,
         );
-        translatedText.value = result;
-      } catch (e) {
-        translatedText.value = "${AppExceptions().failToTranslate}: $e";
-      } finally {
-        isTranslating.value = false;
-        Get.find<TtsService>().speak(
-          translatedText.value,
-          targetLanguage.value,
+        await _storageService.saveTranslation(translations[index]);
+      }
+    } catch (e) {
+      final index = translations.indexWhere((t) => t.id == loadingId);
+      if (index != -1) {
+        translations[index] = TransResultModel(
+          id: loadingId,
+          input: inputText.value,
+          output: "${AppExceptions().failToTranslate}: $e",
+          isSourceRtl: currentSourceRtl,
+          isTargetRtl: currentTargetRtl,
         );
+      }
+    } finally {
+      isTranslating.value = false;
+      final lastOutput = translations.last.output;
+      if (lastOutput != "Translating...") {
+        Get.find<TtsService>().speak(lastOutput, targetLanguage.value);
       }
     }
   }
 
   void _checkRtl() {
-    if (sourceLanguage.value != null &&
-        rtlLng.contains(sourceLanguage.value!.code)) {
-      isSourceRtl.value = true;
+    isSourceRtl.value = rtlLng.contains(sourceLanguage.value?.code);
+    isTargetRtl.value = rtlLng.contains(targetLanguage.value?.code);
+  }
+
+  Future<void> _setLanguage(LanguageModel lng, bool isSource) async {
+    if (isSource) {
+      sourceLanguage.value = lng;
+      inputController.clear();
+      inputText.value = '';
+      await _storageService.setSourceLanguage(lng.name);
     } else {
-      isSourceRtl.value = false;
+      targetLanguage.value = lng;
+      await _storageService.setTargetLanguage(lng.name);
     }
-
-    if (targetLanguage.value != null &&
-        rtlLng.contains(targetLanguage.value!.code)) {
-      isTargetRtl.value = true;
-    } else {
-      isTargetRtl.value = false;
-    }
-  }
-
-  void setSource(LanguageModel lng) async {
-    sourceLanguage.value = lng;
-    await _localStorage.setString('sourceLanguage', lng.name);
     _checkRtl();
-    inputController.clear();
-    inputText.value = '';
   }
 
-  void setTarget(LanguageModel lng) async {
-    targetLanguage.value = lng;
-    await _localStorage.setString('targetLanguage', lng.name);
-    _checkRtl();
-    translatedText.value = '';
-  }
+  void setSource(LanguageModel lng) => _setLanguage(lng, true);
+  void setTarget(LanguageModel lng) => _setLanguage(lng, false);
 
-  void handleSpeechInput() async {
+  Future<void> handleSpeechInput() async {
     try {
       final locale = sourceLanguage.value?.ttsCode;
+      String? recognized;
+
       if (Platform.isAndroid) {
         await _speechService.startSpeechToText(locale: locale);
-        final recognizedText = _speechService.getRecognizedText();
-        if (recognizedText.isNotEmpty) {
-          inputController.text = recognizedText;
-          inputText.value = recognizedText;
-        }
+        recognized = _speechService.getRecognizedText();
       } else {
-        final result = await showDialog<String>(
+        recognized = await showDialog<String>(
           context: Get.context!,
-          builder: (context) => const SpeechDialog(),
+          builder: (_) => const SpeechDialog(),
         );
-        if (result != null && result.isNotEmpty) {
-          inputController.text = result;
-          inputText.value = result;
-        }
+      }
+
+      if (recognized?.isNotEmpty ?? false) {
+        inputController.text = recognized!;
+        inputText.value = recognized;
       }
     } catch (e) {
-      SimpleToast.showCustomToast(
-        context: Get.context!,
-        message: '${AppExceptions().failToTranslate}: $e',
-        type: ToastificationType.error,
-        primaryColor: AppColors.kRed,
-        icon: Icons.error_outline,
-      );
+      ToastUtil().showErrorToast('${AppExceptions().failToTranslate}: $e');
     } finally {
       translateInput();
     }
+  }
+
+  Future<void> loadFav() async {
+    favorites.value = await _storageService.getFavorites();
+  }
+
+  Future<void> toggleFav(String id) async {
+    final t = translations.firstWhereOrNull((t) => t.id == id);
+    if (t == null) return;
+
+    if (isFav(id)) {
+      favorites.removeWhere((f) => f.id == id);
+    } else {
+      favorites.add(t);
+    }
+    await _storageService.saveFavorites(favorites);
+    favorites.refresh();
+  }
+
+  bool isFav(String id) => favorites.any((f) => f.id == id);
+
+  Future<void> remove(String id) async {
+    translations.removeWhere((t) => t.id == id);
+
+    await _storageService.removeTranslation(id);
+    translations.refresh();
+  }
+
+  Future<void> removeFav(String id) async {
+    favorites.removeWhere((f) => f.id == id);
+    await _storageService.saveFavorites(favorites);
+    favorites.refresh();
   }
 
   @override

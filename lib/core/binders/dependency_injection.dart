@@ -11,11 +11,15 @@ import '../services/services.dart';
 
 class DependencyInjection {
   static void init() {
-    // /// Core Services
+    /// Core Services
     Get.lazyPut(() => LocalStorage(), fenix: true);
     Get.lazyPut(() => TranslationService(), fenix: true);
     Get.lazyPut(() => TtsService(), fenix: true);
     Get.lazyPut(() => SpeechService(), fenix: true);
+    Get.lazyPut(
+      () => TranslatorStorageService(localStorage: Get.find<LocalStorage>()),
+      fenix: true,
+    );
     Get.lazyPut(() => PhrasesDbService(), fenix: true);
     Get.lazyPut(() => LanguageService(), fenix: true);
     Get.lazyPut(() => GrammarDbService(), fenix: true);
@@ -45,13 +49,13 @@ class DependencyInjection {
     Get.lazyPut<TranslatorController>(() {
       final lngService = Get.find<LanguageService>();
       final translationService = Get.find<TranslationService>();
-      final localStorage = Get.find<LocalStorage>();
+      final storageService = Get.find<TranslatorStorageService>();
       final speechService = Get.find<SpeechService>();
       return TranslatorController(
         lngService: lngService,
         translationService: translationService,
-        localStorage: localStorage,
         speechService: speechService,
+        storageService: storageService,
       );
     }, fenix: true);
     Get.lazyPut<GrammarTypeController>(() {

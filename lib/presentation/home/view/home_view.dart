@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/global_keys/global_key.dart';
-import '/presentation/app_drawer/app_drawer.dart';
+import '../../app_drawer/view/app_drawer.dart';
 import '/presentation/home/controller/home_controller.dart';
 import '/core/utils/utils.dart';
 import 'widgets/menu_grid.dart';
@@ -45,5 +45,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
-

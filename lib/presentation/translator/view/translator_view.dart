@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '/presentation/trans_fav/view/trans_fav_view.dart';
+import 'package:learn_japan/presentation/trans_fav/view/trans_fav_view.dart';
 import '/core/services/services.dart';
 import '/core/theme/theme.dart';
 import 'package:lottie/lottie.dart';
@@ -11,7 +10,7 @@ import '/presentation/translator/controller/translator_controller.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import 'widgets/language_dropdown.dart';
-import 'widgets/translator_card.dart';
+import 'widgets/input_card.dart';
 
 class TranslatorView extends StatelessWidget {
   const TranslatorView({super.key});
@@ -23,12 +22,22 @@ class TranslatorView extends StatelessWidget {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: TitleBar(title: 'Translator'),
+      appBar: TitleBar(
+        title: 'Translator',
+        actions: [
+          IconActionButton(
+            onTap: () => Get.to(() => const TransFavView()),
+            icon: Icons.history,
+            color: AppColors.icon(context),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Obx(() {
           if (controller.isLoading.value) {
             return const Center(child: CircularProgressIndicator());
           }
+
           return Padding(
             padding: const EdgeInsets.all(kBodyHp),
             child: Column(
@@ -58,7 +67,7 @@ class TranslatorView extends StatelessWidget {
                   ],
                 ),
                 const Gap(kElementGap),
-                TranslatorCard(
+                InputCard(
                   mainText: controller.sourceLanguage.value?.name,
                   leftIcon:
                       tts.isSpeaking(controller.inputText.value)
@@ -78,33 +87,27 @@ class TranslatorView extends StatelessWidget {
                   onRightPressed: () {
                     controller.translateInput();
                   },
-                  canWrite: true,
                 ),
                 const Gap(kElementGap),
-                if (controller.translatedText.value.isNotEmpty) ...[
-                  TranslatorCard(
-                    mainText: controller.targetLanguage.value?.name,
-                    leftIcon:
-                        tts.isSpeaking(controller.translatedText.value)
-                            ? Icons.stop
-                            : Icons.volume_up,
-                    centerIcon: Icons.copy,
-                    rightIcon: Icons.history,
-                    onLeftPressed: () {
-                      tts.isSpeaking(controller.translatedText.value)
-                          ? tts.stop()
-                          : tts.speak(
-                            controller.translatedText.value,
-                            controller.targetLanguage.value,
-                          );
-                    },
-                    onCenterPressed: () {
-                      Clipboard.setData(
-                        ClipboardData(text: controller.translatedText.value),
-                      );
-                    },
-                    onRightPressed: () => Get.to(() => TransFavView()),
-                    canWrite: false,
+                if (controller.translations.isNotEmpty) ...[
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: controller.translations.length,
+                      itemBuilder: (context, index) {
+                        final reversedIndex =
+                            controller.translations.length - 1 - index;
+                        final item = controller.translations[reversedIndex];
+                        return TranslationCard(
+                          showFav: true,
+                          translationId: item.id,
+                          inputText: item.input,
+                          translatedText: item.output,
+                          isSourceRtl: item.isSourceRtl,
+                          isTargetRtl: item.isTargetRtl,
+                          onRemove: () => controller.remove(item.id),
+                        );
+                      },
+                    ),
                   ),
                 ] else ...[
                   Expanded(

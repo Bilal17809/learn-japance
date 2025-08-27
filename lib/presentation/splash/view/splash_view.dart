@@ -43,7 +43,7 @@ class SplashView extends StatelessWidget {
                             ),
                           ),
                         )
-                        : LoadingAnimationWidget.newtonCradle(
+                        : LoadingAnimationWidget.beat(
                           color: AppColors.secondaryColorLight,
                           size: context.screenWidth * 0.2,
                         ),
