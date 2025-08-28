@@ -4,11 +4,11 @@ import '/core/services/services.dart';
 import '/data/models/models.dart';
 
 class PhrasesController extends GetxController {
-  final PhrasesDbService _dbService;
+  final DbService _dbService;
   final TranslationService _translationService;
 
   PhrasesController({
-    required PhrasesDbService dbService,
+    required DbService dbService,
     required TranslationService translationService,
   }) : _dbService = dbService,
        _translationService = translationService;

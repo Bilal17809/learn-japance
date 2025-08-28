@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '/presentation/convo_cat/controller/convo_cat_controller.dart';
 import '../local_storage/local_storage.dart';
 import '/presentation/phrases/controller/phrases_controller.dart';
 import '/presentation/translator/controller/translator_controller.dart';
@@ -20,7 +21,7 @@ class DependencyInjection {
       () => TranslatorStorageService(localStorage: Get.find<LocalStorage>()),
       fenix: true,
     );
-    Get.lazyPut(() => PhrasesDbService(), fenix: true);
+    Get.lazyPut(() => DbService(), fenix: true);
     Get.lazyPut(() => LanguageService(), fenix: true);
     Get.lazyPut(() => GrammarDbService(), fenix: true);
 
@@ -29,7 +30,7 @@ class DependencyInjection {
 
     Get.lazyPut(() => HomeController(), fenix: true);
     Get.lazyPut<PhrasesTopicController>(() {
-      final phrasesService = Get.find<PhrasesDbService>();
+      final phrasesService = Get.find<DbService>();
       final translationService = Get.find<TranslationService>();
       final localStorage = Get.find<LocalStorage>();
       return PhrasesTopicController(
@@ -39,7 +40,7 @@ class DependencyInjection {
       );
     }, fenix: true);
     Get.lazyPut<PhrasesController>(() {
-      final phrasesService = Get.find<PhrasesDbService>();
+      final phrasesService = Get.find<DbService>();
       final translationService = Get.find<TranslationService>();
       return PhrasesController(
         dbService: phrasesService,
@@ -58,6 +59,9 @@ class DependencyInjection {
         storageService: storageService,
       );
     }, fenix: true);
+    Get.lazyPut<ConvoCatController>(
+      () => ConvoCatController(convoDbService: Get.find<DbService>()),
+    );
     Get.lazyPut<GrammarTypeController>(() {
       final grammarDbService = Get.find<GrammarDbService>();
       final translationService = Get.find<TranslationService>();

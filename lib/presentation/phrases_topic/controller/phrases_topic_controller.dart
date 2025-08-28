@@ -6,12 +6,12 @@ import '/core/services/services.dart';
 import '/data/models/models.dart';
 
 class PhrasesTopicController extends GetxController {
-  final PhrasesDbService _phrasesDbService;
+  final DbService _phrasesDbService;
   final TranslationService _translationService;
   final LocalStorage _localStorage;
 
   PhrasesTopicController({
-    required PhrasesDbService phrasesDbService,
+    required DbService phrasesDbService,
     required TranslationService translationService,
     required LocalStorage localStorage,
   }) : _phrasesDbService = phrasesDbService,
@@ -30,7 +30,7 @@ class PhrasesTopicController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchTopics();
+    _fetchTopics();
   }
 
   @override
@@ -39,7 +39,7 @@ class PhrasesTopicController extends GetxController {
     super.onClose();
   }
 
-  Future<void> fetchTopics() async {
+  Future<void> _fetchTopics() async {
     isLoading.value = true;
     try {
       await Future.delayed(const Duration(milliseconds: 350));

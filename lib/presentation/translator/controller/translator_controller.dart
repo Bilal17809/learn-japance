@@ -81,19 +81,8 @@ class TranslatorController extends GetxController {
     }
 
     isTranslating.value = true;
-    final loadingId = DateTime.now().millisecondsSinceEpoch.toString();
     final currentSourceRtl = isSourceRtl.value;
     final currentTargetRtl = isTargetRtl.value;
-
-    final loadingResult = TransResultModel(
-      id: loadingId,
-      input: inputText.value,
-      output: "Translating...",
-      isSourceRtl: currentSourceRtl,
-      isTargetRtl: currentTargetRtl,
-    );
-
-    translations.add(loadingResult);
 
     try {
       final result = await _translationService.translateText(
@@ -101,34 +90,30 @@ class TranslatorController extends GetxController {
         targetLanguage: targetLanguage.value!.code,
       );
 
-      final index = translations.indexWhere((t) => t.id == loadingId);
-      if (index != -1) {
-        translations[index] = TransResultModel(
-          id: loadingId,
-          input: inputText.value,
-          output: result,
-          isSourceRtl: currentSourceRtl,
-          isTargetRtl: currentTargetRtl,
-        );
-        await _storageService.saveTranslation(translations[index]);
-      }
+      final newResult = TransResultModel(
+        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        input: inputText.value,
+        output: result,
+        isSourceRtl: currentSourceRtl,
+        isTargetRtl: currentTargetRtl,
+      );
+
+      translations.add(newResult);
+      await _storageService.saveTranslation(newResult);
+
+      Get.find<TtsService>().speak(newResult.output, targetLanguage.value);
     } catch (e) {
-      final index = translations.indexWhere((t) => t.id == loadingId);
-      if (index != -1) {
-        translations[index] = TransResultModel(
-          id: loadingId,
+      translations.add(
+        TransResultModel(
+          id: DateTime.now().millisecondsSinceEpoch.toString(),
           input: inputText.value,
           output: "${AppExceptions().failToTranslate}: $e",
           isSourceRtl: currentSourceRtl,
           isTargetRtl: currentTargetRtl,
-        );
-      }
+        ),
+      );
     } finally {
       isTranslating.value = false;
-      final lastOutput = translations.last.output;
-      if (lastOutput != "Translating...") {
-        Get.find<TtsService>().speak(lastOutput, targetLanguage.value);
-      }
     }
   }
 

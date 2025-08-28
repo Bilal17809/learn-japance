@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:learn_japan/core/services/services.dart';
 
 class SplashController extends GetxController {
   var showButton = false.obs;

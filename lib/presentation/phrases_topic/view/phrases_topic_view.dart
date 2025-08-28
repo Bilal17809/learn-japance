@@ -41,9 +41,12 @@ class PhrasesTopicView extends StatelessWidget {
                 child:
                     data.isEmpty
                         ? Center(
-                          child: Lottie.asset(
-                            Assets.searchError,
-                            width: context.screenWidth * 0.41,
+                          child: Opacity(
+                            opacity: 0.5,
+                            child: Lottie.asset(
+                              Assets.searchError,
+                              width: context.screenWidth * 0.41,
+                            ),
                           ),
                         )
                         : ListView.builder(

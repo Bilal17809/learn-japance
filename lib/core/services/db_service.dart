@@ -6,12 +6,12 @@ import 'package:sqflite/sqflite.dart';
 import '/core/utils/utils.dart';
 import '/data/models/models.dart';
 
-class PhrasesDbService {
-  static final PhrasesDbService _instance = PhrasesDbService._internal();
+class DbService {
+  static final DbService _instance = DbService._internal();
 
-  factory PhrasesDbService() => _instance;
+  factory DbService() => _instance;
 
-  PhrasesDbService._internal();
+  DbService._internal();
 
   Database? _db;
 
@@ -37,6 +37,7 @@ class PhrasesDbService {
     return await openDatabase(path, readOnly: true);
   }
 
+  /// For Phrases
   Future<List<PhrasesTopicModel>> getAllTopics() async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query("Topics");
@@ -51,5 +52,12 @@ class PhrasesDbService {
       whereArgs: [topicId],
     );
     return maps.map((map) => PhrasesModel.fromMap(map)).toList();
+  }
+
+  /// For Convo
+  Future<List<ConvoModel>> getAllConvo() async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query("tbl_conversation");
+    return maps.map((map) => ConvoModel.fromMap(map)).toList();
   }
 }
