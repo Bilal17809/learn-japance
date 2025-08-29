@@ -14,12 +14,13 @@ class Assets {
   static const String readingBook = "images/reading-book.png";
   static const String dictionary = "images/dictionary.png";
   static const String translation = "images/translation.png";
-  static const String linguistics = "images/linguistics.png";
+  static const String grammar = "images/grammar.png";
   static const String quotes = "images/quotes.png";
-  static const String practice = "images/mic.png";
-  static const String speaking = "images/pencil.png";
+  static const String speaking = "images/mic.png";
+  static const String practice = "images/pencil.png";
   static const String quiz = "images/question.png";
   static const String star = "images/star.png";
+  static const String convo = "images/chat.png";
 
   /// Grammar Icons
   static const String adverb = "images/adverb.png";

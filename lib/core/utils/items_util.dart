@@ -6,12 +6,12 @@ class ItemsUtil {
     ItemsModel(assetPath: Assets.readingBook, label: "Learn Japanese"),
     ItemsModel(assetPath: Assets.dictionary, label: "Japanese Dictionary"),
     ItemsModel(assetPath: Assets.translation, label: "Translator"),
-    ItemsModel(assetPath: Assets.linguistics, label: "Grammar"),
+    ItemsModel(assetPath: Assets.grammar, label: "Grammar"),
     ItemsModel(assetPath: Assets.quotes, label: "Phrases"),
     ItemsModel(assetPath: Assets.practice, label: "Practice"),
     ItemsModel(assetPath: Assets.speaking, label: "Speaking"),
     ItemsModel(assetPath: Assets.quiz, label: "Quiz"),
-    ItemsModel(assetPath: Assets.heroImage, label: ""),
+    ItemsModel(assetPath: Assets.convo, label: "Dialog"),
   ];
   static final List<ItemsModel> grammarItems = [
     ItemsModel(assetPath: Assets.adverb),

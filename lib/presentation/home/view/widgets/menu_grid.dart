@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learn_japan/presentation/convo_cat/view/convo_cat_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/phrases_topic/view/phrases_topic_view.dart';
 import '/presentation/start_learning/view/start_learning_view.dart';
@@ -53,6 +54,18 @@ class MenuGrid extends StatelessWidget {
                   case 4:
                     Get.to(() => PhrasesTopicView());
                     break;
+                  case 5:
+                    Get.to(() => PhrasesTopicView());
+                    break;
+                  case 6:
+                    Get.to(() => PhrasesTopicView());
+                    break;
+                  case 7:
+                    Get.to(() => PhrasesTopicView());
+                    break;
+                  case 8:
+                    Get.to(() => ConvoCatView());
+                    break;
                 }
               },
               child: _ItemCard(item: item),
@@ -79,9 +92,10 @@ class _ItemCard extends StatelessWidget {
           fit: BoxFit.scaleDown,
           child: ImageActionButton(
             assetPath: item.assetPath,
-            backgroundColor: AppColors.container(Get.context!),
+            backgroundColor: AppColors.container(context),
             padding: const EdgeInsets.all(kBodyHp),
             size: primaryIcon(context),
+            color: AppColors.primary(context),
           ),
         ),
         const Gap(kGap),

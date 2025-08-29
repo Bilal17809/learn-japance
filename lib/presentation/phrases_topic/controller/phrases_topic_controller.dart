@@ -6,12 +6,12 @@ import '/core/services/services.dart';
 import '/data/models/models.dart';
 
 class PhrasesTopicController extends GetxController {
-  final DbService _phrasesDbService;
+  final PhrasesDbService _phrasesDbService;
   final TranslationService _translationService;
   final LocalStorage _localStorage;
 
   PhrasesTopicController({
-    required DbService phrasesDbService,
+    required PhrasesDbService phrasesDbService,
     required TranslationService translationService,
     required LocalStorage localStorage,
   }) : _phrasesDbService = phrasesDbService,
@@ -33,12 +33,6 @@ class PhrasesTopicController extends GetxController {
     _fetchTopics();
   }
 
-  @override
-  void onClose() {
-    searchController.dispose();
-    super.onClose();
-  }
-
   Future<void> _fetchTopics() async {
     isLoading.value = true;
     try {
@@ -50,7 +44,7 @@ class PhrasesTopicController extends GetxController {
       if (cached != null && cached.length == result.length) {
         topicTranslations.assignAll(cached);
       } else {
-        await translateTopics(result);
+        await _translateTopics(result);
       }
     } catch (e) {
       error.value = e.toString();
@@ -59,7 +53,7 @@ class PhrasesTopicController extends GetxController {
     }
   }
 
-  Future<void> translateTopics(List<PhrasesTopicModel> data) async {
+  Future<void> _translateTopics(List<PhrasesTopicModel> data) async {
     translationsLoading.value = true;
     try {
       final titles = data.map((e) => e.title).toList();
@@ -88,5 +82,11 @@ class PhrasesTopicController extends GetxController {
           ),
         )
         .toList();
+  }
+
+  @override
+  void onClose() {
+    searchController.dispose();
+    super.onClose();
   }
 }

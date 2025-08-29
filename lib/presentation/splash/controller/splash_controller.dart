@@ -1,6 +1,12 @@
 import 'package:get/get.dart';
+import '/core/utils/utils.dart';
+import '/core/helper/db_helper.dart';
 
 class SplashController extends GetxController {
+  final DbHelper _dbHelper;
+
+  SplashController({required DbHelper dbHelper}) : _dbHelper = dbHelper;
+  var isLoading = true.obs;
   var showButton = false.obs;
 
   @override
@@ -10,7 +16,13 @@ class SplashController extends GetxController {
   }
 
   void _init() async {
-    await Future.delayed(const Duration(seconds: 2));
-    showButton.value = true;
+    try {
+      isLoading.value = true;
+      // await Future.delayed(const Duration(seconds: 2));
+      await _dbHelper.initDatabase('phrases_db', Assets.phrasesDB);
+    } finally {
+      isLoading.value = false;
+      showButton.value = true;
+    }
   }
 }
