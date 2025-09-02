@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/theme/app_decorations.dart';
-import 'package:learn_japan/presentation/Start_learning/view/start_learning_view.dart';
-import '../../../core/theme/theme.dart';
+import '/core/utils/utils.dart';
+import '/presentation/learn_japanese/controller/learn_japanese_controller.dart';
+import '/core/common_widgets/common_widgets.dart';
+import '/core/theme/theme.dart';
+import '/presentation/Start_learning/view/start_learning_view.dart';
 import '/core/constants/constants.dart';
 
 class LearnJapaneseView extends StatelessWidget {
@@ -10,57 +13,57 @@ class LearnJapaneseView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<LearnJapaneseController>();
     return Scaffold(
-      appBar: AppBar(
-        leading: Image.asset("images/2x/four-circle.png"),
-        title: const Text(
-          "LEARN JAPANESE",
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600, // semiBold
-          ),
-        ),
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 30),
-
-            Image.asset("images/Group 1.png", height: 180),
-
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: kBodyHp),
-                child: const Learnjapance(),
-              ),
+      appBar: TitleBar(title: 'Learn Japanese'),
+      body: Obx(() {
+        if (controller.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        final data = controller.topics;
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(kBodyHp),
+            child: Column(
+              children: [
+                const Gap(kElementGap),
+                Image.asset(Assets.heroImg, width: context.screenWidth * 0.41),
+                const Gap(kElementGap),
+                Expanded(child: _MenuGrid()),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      }),
     );
   }
 }
 
-class Learnjapance extends StatelessWidget {
-  const Learnjapance({super.key});
+class _MenuGrid extends StatelessWidget {
+  const _MenuGrid();
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kBodyHp),
-      child: GridView.builder(
-        itemCount: learnJapaneseItems.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 30,
-          mainAxisSpacing: 16,
-          childAspectRatio: 1,
-        ),
-        itemBuilder: (context, index) {
-          final item = learnJapaneseItems[index];
-          return LearnJapaneseCard(item: item);
-        },
+    return GridView.builder(
+      padding: const EdgeInsets.all(kBodyHp),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: kGap,
+        crossAxisSpacing: kGap,
+        childAspectRatio: 1,
       ),
+      itemCount: ItemsUtil.homeItems.length,
+      itemBuilder: (context, index) {
+        final item = ItemsUtil.homeItems[index];
+        return GestureDetector(
+          onTap: () {},
+          child: ItemCard(
+            item: item,
+            width: primaryIcon(context) * 5,
+            // height: primaryIcon(context) * 5,
+          ),
+        );
+      },
     );
   }
 }

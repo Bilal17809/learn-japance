@@ -4,6 +4,7 @@ class Assets {
   static const String lngFlags = "assets/db/language_flags.json";
   static const String grammarDB = "assets/db/japanese_dataset.json";
   static const String phrasesDB = "assets/db/phrases_db.db";
+  static const String learnDB = "assets/db/learn_japanese.db";
 
   /// Lottie
   static const String searchError = "assets/animations/search_error.json";
@@ -33,4 +34,7 @@ class Assets {
   static const String sentencePattern = "images/sentence_pattern.png";
   static const String questionWord = "images/question_word.png";
   static const String performance = "images/performance.png";
+
+  /// Learn Japanese Icons
+  static const String heroImg = "images/learn_hero_img.png";
 }

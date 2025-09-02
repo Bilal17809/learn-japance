@@ -6,3 +6,5 @@ export 'language_service.dart';
 export 'speech_service.dart';
 export 'translator_storage_service.dart';
 export 'convo_db_service.dart';
+export 'on_close_service.dart';
+export 'learn_db_service.dart';

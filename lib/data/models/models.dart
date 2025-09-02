@@ -5,3 +5,5 @@ export 'phrases_topic_model.dart';
 export 'language_model.dart';
 export 'trans_result_model.dart';
 export 'convo_model.dart';
+export 'learn_model.dart';
+export 'learn_topic_model.dart';

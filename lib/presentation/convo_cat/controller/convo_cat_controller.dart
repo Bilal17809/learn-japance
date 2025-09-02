@@ -36,7 +36,6 @@ class ConvoCatController extends GetxController {
   Future<void> _fetchCat() async {
     isLoading.value = true;
     try {
-      await Future.delayed(const Duration(milliseconds: 200));
       final result = await _convoDbService.getAllConvo();
       cat.assignAll(result);
       final unique = result.map((e) => e.category).toSet().toList();
@@ -58,7 +57,7 @@ class ConvoCatController extends GetxController {
     translationLoading.value = true;
     try {
       final translations = await _translationService.translateList(
-        uniqueCat,
+        unique,
         targetLanguage: 'ja',
       );
       catTranslations.assignAll(translations);

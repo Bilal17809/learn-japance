@@ -87,10 +87,7 @@ class _TopicCard extends StatelessWidget {
         padding: const EdgeInsets.all(kBodyHp),
         decoration: AppDecorations.simpleDecor(context),
         child: Obx(() {
-          final translated =
-              index < controller.topicTranslations.length
-                  ? controller.topicTranslations[index]
-                  : '翻訳中...';
+          final translated = controller.topicTranslations[index];
           return ListTile(
             title: Align(
               alignment: Alignment.topLeft,

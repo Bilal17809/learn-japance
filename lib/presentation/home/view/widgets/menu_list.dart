@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/presentation/convo_cat/view/convo_cat_view.dart';
+import '/presentation/convo_cat/view/convo_cat_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/phrases_topic/view/phrases_topic_view.dart';
 import '/presentation/start_learning/view/start_learning_view.dart';
@@ -9,12 +9,10 @@ import '/presentation/translator/view/translator_view.dart';
 import '/presentation/grammar_type/view/grammar_type_view.dart';
 import '/presentation/learn_japanese/view/learn_japanese_view.dart';
 import '/core/constants/constants.dart';
-import 'package:gap/gap.dart';
-import '/data/models/models.dart';
 import '/core/theme/theme.dart';
 
-class MenuGrid extends StatelessWidget {
-  const MenuGrid({super.key});
+class MenuList extends StatelessWidget {
+  const MenuList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,49 +66,11 @@ class MenuGrid extends StatelessWidget {
                     break;
                 }
               },
-              child: _ItemCard(item: item),
+              child: ItemCard(item: item),
             ),
           );
         },
       ),
-    );
-  }
-}
-
-class _ItemCard extends StatelessWidget {
-  final ItemsModel item;
-
-  const _ItemCard({required this.item});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        FittedBox(
-          fit: BoxFit.scaleDown,
-          child: ImageActionButton(
-            assetPath: item.assetPath,
-            backgroundColor: AppColors.container(context),
-            padding: const EdgeInsets.all(kBodyHp),
-            size: primaryIcon(context),
-            color: AppColors.primary(context),
-          ),
-        ),
-        const Gap(kGap),
-        SizedBox(
-          width: 60,
-          child: Text(
-            item.label ?? '',
-            textAlign: TextAlign.center,
-            style: bodyMediumStyle.copyWith(fontWeight: FontWeight.w600),
-            maxLines: 2,
-            softWrap: true,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-      ],
     );
   }
 }

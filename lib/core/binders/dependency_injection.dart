@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
-import '/core/helper/db_helper.dart';
+import '/presentation/learn_japanese/controller/learn_japanese_controller.dart';
+import '/core/helper/helper.dart';
 import '/presentation/convo/controller/convo_controller.dart';
 import '/presentation/convo_cat/controller/convo_cat_controller.dart';
-import '../local_storage/local_storage.dart';
+import '/core/local_storage/local_storage.dart';
 import '/presentation/phrases/controller/phrases_controller.dart';
 import '/presentation/translator/controller/translator_controller.dart';
 import '/presentation/phrases_topic/controller/phrases_topic_controller.dart';
@@ -10,7 +11,7 @@ import '/presentation/grammar/controller/grammar_controller.dart';
 import '/presentation/home/controller/home_controller.dart';
 import '/presentation/grammar_type/controller/grammar_type_controller.dart';
 import '/presentation/splash/controller/splash_controller.dart';
-import '../services/services.dart';
+import '/core/services/services.dart';
 
 class DependencyInjection {
   static void init() {
@@ -32,8 +33,16 @@ class DependencyInjection {
       final dbHelper = Get.find<DbHelper>();
       return ConvoDbService(dbHelper: dbHelper);
     }, fenix: true);
+    Get.lazyPut(() {
+      final dbHelper = Get.find<DbHelper>();
+      return LearnDbService(dbHelper: dbHelper);
+    }, fenix: true);
     Get.lazyPut(() => LanguageService(), fenix: true);
     Get.lazyPut(() => GrammarDbService(), fenix: true);
+    Get.lazyPut(() {
+      final dbHelper = Get.find<DbHelper>();
+      return OnCloseService(dbHelper: dbHelper);
+    }, fenix: true);
 
     /// Controllers
     Get.lazyPut<SplashController>(() {
@@ -86,6 +95,10 @@ class DependencyInjection {
     Get.lazyPut<ConvoController>(() {
       final translationService = Get.find<TranslationService>();
       return ConvoController(translationService: translationService);
+    }, fenix: true);
+    Get.lazyPut(() {
+      final learnDbService = Get.find<LearnDbService>();
+      return LearnJapaneseController(learnDbService: learnDbService);
     }, fenix: true);
     Get.lazyPut<GrammarTypeController>(() {
       final grammarDbService = Get.find<GrammarDbService>();

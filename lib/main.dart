@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/presentation/splash/view/splash_view.dart';
+import '/core/services/services.dart';
+import '/presentation/splash/view/splash_view.dart';
 import 'package:toastification/toastification.dart';
 import '/core/local_storage/local_storage.dart';
 import 'core/binders/dependency_injection.dart';
@@ -10,6 +11,7 @@ import 'core/theme/theme.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DependencyInjection.init();
+  WidgetsBinding.instance.addObserver(Get.find<OnCloseService>());
   final storage = LocalStorage();
   final isDark = await storage.getBool('isDarkMode');
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
