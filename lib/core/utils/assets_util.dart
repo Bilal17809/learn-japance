@@ -37,4 +37,24 @@ class Assets {
 
   /// Learn Japanese Icons
   static const String heroImg = "images/learn_hero_img.png";
+  static const String greetings = "images/hand-shake.png";
+  static const String genConvo = "images/chat.png";
+  static const String numbers = "images/calculator.png";
+  static const String timeNDate = "images/calendar.png";
+  static const String direction = "images/road-map.png";
+  static const String transportation = "images/delivery-truck.png";
+  static const String accommodation = "images/accommodation.png";
+  static const String eating = "images/eating.png";
+  static const String shopping = "images/shopping.png";
+  static const String colours = "images/colours.png";
+  static const String regions = "images/regions.png";
+  static const String countries = "images/countries.png";
+  static const String tourism = "images/tourism.png";
+  static const String fam = "images/family.png";
+  static const String dating = "images/dating.png";
+  static const String emergency = "images/emergency.png";
+  static const String sickness = "images/sickness.png";
+  static const String tongueTwist = "images/tongue_twister.png";
+  static const String occasion = "images/occasion.png";
+  static const String body = "images/body.png";
 }

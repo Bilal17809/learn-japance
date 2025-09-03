@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
 import '/data/models/language_model.dart';
 
-class TtsService extends GetxController {
+class TtsService extends GetxController with WidgetsBindingObserver {
   final FlutterTts _flutterTts = FlutterTts();
 
   final RxString _currentSpeakingText = ''.obs;
@@ -13,6 +14,7 @@ class TtsService extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    WidgetsBinding.instance.addObserver(this);
     _flutterTts.setPitch(1);
     _flutterTts.setSpeechRate(0.5);
 
@@ -42,6 +44,13 @@ class TtsService extends GetxController {
     }
 
     await _flutterTts.speak(text);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      stop();
+    }
   }
 
   Future<void> stop() async {

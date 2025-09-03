@@ -13,7 +13,7 @@ class LearnModel {
     return LearnModel(
       catId: map['category_id'] as int,
       english: map['english'] as String,
-      japanese: map['tans_n_male'] as String,
+      japanese: map['trans_n_male'] as String,
     );
   }
 }

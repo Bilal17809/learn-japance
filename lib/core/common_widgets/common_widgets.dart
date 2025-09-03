@@ -6,4 +6,6 @@ export 'search_bar.dart';
 export 'toast.dart';
 export 'speech_dialog.dart';
 export 'translation_card.dart';
-export 'item_card.dart';
+export 'category_card.dart';
+export 'wavy_clipper.dart';
+export 'ticket_clipper.dart';

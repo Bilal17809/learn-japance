@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/presentation/phrases/controller/phrases_controller.dart';
-import '/core/common_widgets/common_widgets.dart';
+import '/presentation/phrases/controller/phrases_controller.dart';
 import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 
-class TranslationField extends StatelessWidget {
+class PhrasesField extends StatelessWidget {
   final String label, jpLabel, text, cacheKey;
   final IconData icon;
   final bool isExample;
   final PhrasesController controller;
 
-  const TranslationField({
+  const PhrasesField({
     super.key,
     required this.label,
     required this.jpLabel,
@@ -50,7 +49,7 @@ class TranslationField extends StatelessWidget {
               ],
             ),
             const Gap(kGap),
-            Text(text, style: bodyLargeStyle),
+            Text(text, style: titleSmallStyle),
             const Gap(kGap),
             Row(
               children: [
@@ -59,7 +58,7 @@ class TranslationField extends StatelessWidget {
                       isLoading
                           ? Text(
                             "Translating...",
-                            style: bodyMediumStyle.copyWith(
+                            style: bodyLargeStyle.copyWith(
                               color: AppColors.textGreyColor,
                             ),
                           )
@@ -70,17 +69,17 @@ class TranslationField extends StatelessWidget {
                               context,
                               isExample: !isExample,
                             ),
-                            child: Text(translated, style: bodyMediumStyle),
+                            child: Text(translated, style: bodyLargeStyle),
                           )
                           : const SizedBox.shrink(),
                 ),
-                if (!isLoading && translated == null)
-                  IconActionButton(
-                    onTap: () => controller.translateText(cacheKey, text),
-                    icon: Icons.translate,
-                    color: AppColors.primaryText(context),
-                    size: smallIcon(context),
-                  ),
+                // if (!isLoading && translated == null)
+                //   IconActionButton(
+                //     onTap: () => controller.translateText(cacheKey, text),
+                //     icon: Icons.translate,
+                //     color: AppColors.primaryText(context),
+                //     size: smallIcon(context),
+                //   ),
               ],
             ),
           ],

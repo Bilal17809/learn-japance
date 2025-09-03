@@ -91,13 +91,19 @@ class _TopicCard extends StatelessWidget {
           return ListTile(
             title: Align(
               alignment: Alignment.topLeft,
-              child: Text(topic.title),
+              child: Text(
+                topic.title,
+                style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
+              ),
             ),
             subtitle: Padding(
               padding: const EdgeInsets.only(top: kGap / 1.5),
               child: Align(
                 alignment: Alignment.bottomRight,
-                child: Text(translated),
+                child: Text(
+                  translated,
+                  style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           );

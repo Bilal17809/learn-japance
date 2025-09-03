@@ -25,4 +25,27 @@ class ItemsUtil {
     ItemsModel(assetPath: Assets.questionWord),
     ItemsModel(assetPath: Assets.performance),
   ];
+
+  static final List<ItemsModel> learnItems = [
+    ItemsModel(assetPath: Assets.greetings),
+    ItemsModel(assetPath: Assets.genConvo),
+    ItemsModel(assetPath: Assets.numbers),
+    ItemsModel(assetPath: Assets.timeNDate),
+    ItemsModel(assetPath: Assets.direction),
+    ItemsModel(assetPath: Assets.transportation),
+    ItemsModel(assetPath: Assets.accommodation),
+    ItemsModel(assetPath: Assets.eating),
+    ItemsModel(assetPath: Assets.shopping),
+    ItemsModel(assetPath: Assets.colours),
+    ItemsModel(assetPath: Assets.regions),
+    ItemsModel(assetPath: Assets.countries),
+    ItemsModel(assetPath: Assets.tourism),
+    ItemsModel(assetPath: Assets.fam),
+    ItemsModel(assetPath: Assets.dating),
+    ItemsModel(assetPath: Assets.emergency),
+    ItemsModel(assetPath: Assets.sickness),
+    ItemsModel(assetPath: Assets.tongueTwist),
+    ItemsModel(assetPath: Assets.occasion),
+    ItemsModel(assetPath: Assets.body),
+  ];
 }

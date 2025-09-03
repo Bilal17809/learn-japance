@@ -5,7 +5,6 @@ import '/presentation/grammar/view/grammar_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '../controller/grammar_type_controller.dart';
-import 'widgets/category_card.dart';
 
 class GrammarTypeView extends StatelessWidget {
   GrammarTypeView({super.key});

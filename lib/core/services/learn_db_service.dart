@@ -13,7 +13,11 @@ class LearnDbService {
 
   Future<List<LearnModel>> getCatByTopic(int topicId) async {
     final db = _dbHelper.getDb("learn_japanese");
-    final List<Map<String, dynamic>> maps = await db.query('tempt');
+    final List<Map<String, dynamic>> maps = await db.query(
+      'tempt',
+      where: "category_id = ?",
+      whereArgs: [topicId],
+    );
     return maps.map((map) => LearnModel.fromMap(map)).toList();
   }
 }

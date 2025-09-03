@@ -95,10 +95,19 @@ class _CatCard extends StatelessWidget {
         child: Obx(() {
           final translated = controller.catTranslations[index];
           return ListTile(
-            title: Align(alignment: Alignment.topLeft, child: Text(cat)),
+            title: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                cat,
+                style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
+              ),
+            ),
             subtitle: Align(
               alignment: Alignment.bottomRight,
-              child: Text(translated),
+              child: Text(
+                translated,
+                style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
+              ),
             ),
           );
         }),

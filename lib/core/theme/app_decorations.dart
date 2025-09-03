@@ -38,10 +38,10 @@ class AppDecorations {
         isExample
             ? (context.isDark
                 ? AppColors.container(context)
-                : AppColors.kSkyBlue.withValues(alpha: 0.6))
+                : AppColors.container(context).withValues(alpha: 0.75))
             : AppColors.container(context),
     borderRadius: BorderRadius.circular(kBorderRadius),
-    border: Border.all(color: AppColors.kSkyBlue),
+    border: Border.all(color: AppColors.primary(context)),
     boxShadow: const [
       BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 2)),
     ],

@@ -1,12 +1,17 @@
 import 'package:get/get.dart';
+import 'package:learn_japan/data/models/models.dart';
 import '/core/common/app_exceptions.dart';
 import '/core/services/services.dart';
 
 class ConvoController extends GetxController {
   final TranslationService _translationService;
+  final TtsService _ttsService;
 
-  ConvoController({required TranslationService translationService})
-    : _translationService = translationService;
+  ConvoController({
+    required TranslationService translationService,
+    required TtsService ttsService,
+  }) : _translationService = translationService,
+       _ttsService = ttsService;
 
   var titles = <String>[].obs;
   var conversations = <String>[].obs;
@@ -14,6 +19,9 @@ class ConvoController extends GetxController {
   final RxMap<String, bool> translatingStates = <String, bool>{}.obs;
   var showTranslation = false.obs;
   var translatedCategory = ''.obs;
+  final targetLanguage = Rx<LanguageModel>(
+    LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
+  );
 
   void setArgs({
     required List<String> titles,
@@ -52,5 +60,16 @@ class ConvoController extends GetxController {
 
   void toggleTranslationVisibility() {
     showTranslation.value = !showTranslation.value;
+  }
+
+  void onSpeak(String text) {
+    _ttsService.speak(text, targetLanguage.value);
+  }
+
+  void clearTranslation(int index) {
+    final titleKey = "title_$index";
+    final convoKey = "convo_$index";
+    translationCache.remove(titleKey);
+    translationCache.remove(convoKey);
   }
 }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import '/presentation/convo/view/widgets/convo_field.dart';
 import '../../controller/convo_controller.dart';
-import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
-import '/core/theme/theme.dart';
 
 class ConvoCard extends StatelessWidget {
   final String title;
@@ -22,20 +21,12 @@ class ConvoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: kElementGap),
-      child: Padding(
+    return Obx(
+      () => Padding(
         padding: const EdgeInsets.all(kGap),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Conversation ${index + 1}", style: titleLargeStyle),
-              ],
-            ),
-            const Gap(kElementGap),
             ConvoField(
               label: "Title",
               jpLabel: "タイトル",
@@ -43,25 +34,21 @@ class ConvoCard extends StatelessWidget {
               cacheKey: "title_$index",
               icon: Icons.title,
               controller: controller,
+              index: index,
             ),
-            const Gap(kGap),
-            ConvoField(
-              label: "Conversation",
-              jpLabel: "会話",
-              text: conversation,
-              cacheKey: "convo_$index",
-              icon: Icons.chat,
-              isExample: true,
-              controller: controller,
-            ),
-            const Gap(kGap),
-            Center(
-              child: AppElevatedButton(
-                onPressed: () => controller.translateConversation(index),
-                icon: Icons.translate,
-                label: 'Translate All',
+            if (controller.translationCache["title_$index"] != null) ...[
+              const Gap(kGap),
+              ConvoField(
+                label: "Conversation",
+                jpLabel: "会話",
+                text: conversation,
+                cacheKey: "convo_$index",
+                icon: Icons.chat,
+                isExample: true,
+                controller: controller,
+                index: index,
               ),
-            ),
+            ],
           ],
         ),
       ),

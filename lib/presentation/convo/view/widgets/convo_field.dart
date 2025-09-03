@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import '../../controller/convo_controller.dart';
@@ -11,6 +12,7 @@ class ConvoField extends StatelessWidget {
   final IconData icon;
   final bool isExample;
   final ConvoController controller;
+  final int index;
 
   const ConvoField({
     super.key,
@@ -21,6 +23,7 @@ class ConvoField extends StatelessWidget {
     required this.icon,
     required this.controller,
     this.isExample = false,
+    required this.index,
   });
 
   @override
@@ -29,7 +32,7 @@ class ConvoField extends StatelessWidget {
       final isLoading = controller.translatingStates[cacheKey] == true;
       final translated = controller.translationCache[cacheKey];
       return Container(
-        padding: const EdgeInsets.all(kElementGap),
+        padding: const EdgeInsets.fromLTRB(kGap, kGap, kGap, 0),
         decoration: AppDecorations.highlight(context, isExample: isExample),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,13 +76,44 @@ class ConvoField extends StatelessWidget {
                           )
                           : const SizedBox.shrink(),
                 ),
-                if (!isLoading && translated == null)
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                if (!isLoading && translated == null) ...[
                   IconActionButton(
-                    onTap: () => controller.translateText(cacheKey, text),
+                    onTap: () => controller.translateConversation(index),
                     icon: Icons.translate,
                     color: AppColors.primaryText(context),
                     size: smallIcon(context),
                   ),
+                ] else ...[
+                  IconActionButton(
+                    onTap: () => controller.onSpeak(translated ?? ''),
+                    icon: Icons.volume_up,
+                    color: AppColors.primaryText(context),
+                    size: smallIcon(context),
+                  ),
+                  if (isExample) ...[
+                    IconActionButton(
+                      onTap:
+                          () => Clipboard.setData(
+                            ClipboardData(text: translated ?? ''),
+                          ),
+                      icon: Icons.copy,
+                      color: AppColors.primaryText(context),
+                      size: smallIcon(context),
+                    ),
+                  ] else ...[
+                    IconActionButton(
+                      onTap: () => controller.clearTranslation(index),
+                      icon: Icons.arrow_drop_up,
+                      color: AppColors.primaryText(context),
+                      size: secondaryIcon(context),
+                    ),
+                  ],
+                ],
               ],
             ),
           ],
