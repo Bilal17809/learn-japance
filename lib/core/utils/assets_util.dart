@@ -2,9 +2,11 @@ class Assets {
   /// Db
   static const String lngCodes = "assets/db/language_codes.json";
   static const String lngFlags = "assets/db/language_flags.json";
-  static const String grammarDB = "assets/db/japanese_dataset.json";
-  static const String phrasesDB = "assets/db/phrases_db.db";
-  static const String learnDB = "assets/db/learn_japanese.db";
+  static const String grammarDb = "assets/db/japanese_dataset.json";
+  static const String phrasesDb = "assets/db/phrases_db.db";
+  static const String learnDb = "assets/db/learn_japanese.db";
+  static const String convoDb = "assets/db/tbl_conversation.json";
+  static const String dictDb = "assets/db/dictionary.db";
 
   /// Lottie
   static const String searchError = "assets/animations/search_error.json";

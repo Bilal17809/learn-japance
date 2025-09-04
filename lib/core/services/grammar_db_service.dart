@@ -7,13 +7,13 @@ import '/data/models/models.dart';
 class GrammarDbService {
   Future<List<GrammarModel>> loadGrammarData() async {
     try {
-      final jsonString = await rootBundle.loadString(Assets.grammarDB);
+      final jsonString = await rootBundle.loadString(Assets.grammarDb);
       final List<dynamic> jsonData = json.decode(jsonString);
 
       return jsonData.map((item) => GrammarModel.fromJson(item)).toList();
     } catch (e) {
       throw Exception(
-        "${AppExceptions().failToLoadDb} assets/japanese_dataset.json: $e",
+        "${AppExceptions().failToLoadDb} - ${Assets.grammarDb}: $e",
       );
     }
   }

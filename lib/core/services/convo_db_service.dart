@@ -1,13 +1,20 @@
-import '/core/helper/helper.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
+import '/core/common/app_exceptions.dart';
+import '/core/utils/utils.dart';
 import '/data/models/models.dart';
 
 class ConvoDbService {
-  final DbHelper _dbHelper;
-  ConvoDbService({required DbHelper dbHelper}) : _dbHelper = dbHelper;
+  Future<List<ConvoModel>> loadConvoData() async {
+    try {
+      final jsonString = await rootBundle.loadString(Assets.convoDb);
+      final List<dynamic> jsonData = json.decode(jsonString);
 
-  Future<List<ConvoModel>> getAllConvo() async {
-    final db = _dbHelper.getDb("phrases_db");
-    final maps = await db.query("tbl_conversation");
-    return maps.map((map) => ConvoModel.fromMap(map)).toList();
+      return jsonData.map((item) => ConvoModel.fromJson(item)).toList();
+    } catch (e) {
+      throw Exception(
+        "${AppExceptions().failToLoadDb} - ${Assets.convoDb}: $e",
+      );
+    }
   }
 }

@@ -1,19 +1,28 @@
 class ConvoModel {
+  final String cat;
+  final String catTrans;
+  final String convo;
+  final String convoTrans;
   final String title;
-  final String conversation;
-  final String category;
+  final String titleTrans;
 
   ConvoModel({
+    required this.cat,
+    required this.catTrans,
+    required this.convo,
+    required this.convoTrans,
     required this.title,
-    required this.conversation,
-    required this.category,
+    required this.titleTrans,
   });
 
-  factory ConvoModel.fromMap(Map<String, dynamic> map) {
+  factory ConvoModel.fromJson(Map<String, dynamic> json) {
     return ConvoModel(
-      title: map['title'] as String,
-      conversation: map['conversation'] as String,
-      category: map['category'] as String,
+      cat: json['category'],
+      catTrans: json['category_translation'],
+      convo: json['conversation'],
+      convoTrans: json['conversation_translation'],
+      title: json['title'],
+      titleTrans: json['title_translation'],
     );
   }
 }

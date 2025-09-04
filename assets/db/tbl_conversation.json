@@ -1,0 +1,1058 @@
+[
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Sydney:Did you call Ben last night?~John:Yes. I tried to get a hold of him last night, but it was so difficult to get through.~Sydney:That's strange. Maybe he was on the Net.~John:That's probably it! No wonder the line was busy all the time! Maybe he ought to get another line.~Sydney:Or he should get call-waiting.",
+        "conversation_translation": "シドニー：昨晩ベンに電話した？～ジョン：ええ。昨晩彼に連絡を取ろうとしたんだけど、なかなか繋がらなかったの。～シドニー：変だね。もしかしたらネットを使っていたのかも。～ジョン：たぶんそうだろうね！回線がずっと混み合っていたのも無理はない！別の回線に変えた方がいいかもしれないね。～シドニー：それともコールウェイティングにした方がいいかな。",
+        "title": "You're so difficult to get through to!",
+        "title_translation": "君の言うことはとてもわかりにくいね"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Sandy:Why didn't you call me yesterday?~Thomas:I tried to get a hold of you, but I couldn't get through.~Sandy:What time did you call? ~Thomas:I tried all morning! ~Sandy:Then I can't understand why you couldn't get through.. ~Thomas:I kept getting a busy signal. ~Sandy:Hmmm...",
+        "conversation_translation": "サンディ：どうして昨日電話してくれなかったの？～トーマス：君に連絡しようとしたけど、繋がらなかったんだ。～サンディ：何時に電話したの？～トーマス：午前中ずっと試したんだ！～サンディ：じゃあ、なんで繋がらなかったのか理解できないな。～トーマス：話し中の音ばかりだったんだ。～サンディ：ふーん…",
+        "title": "I kept getting a busy signal!",
+        "title_translation": "ずっと話し中の音が聞こえた！"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Ruben:Is your phone out of order?~Donna:What do you mean?~Ruben:I tried calling you all night, but I wasn't able to get through.~Donna:Oh, I was on the phone all night. Sorry about that. ~Ruben:Well, you might wanna add call-waiting to your phone service if you're always on the phone.~Donna:I guess so.",
+        "conversation_translation": "ルーベン：君の電話、故障してるの？～ドナ：どういう意味？～ルーベン：一晩中君に電話したけど、繋がらなかったんだ。～ドナ：ああ、一晩中電話してたの。ごめんね。～ルーベン：じゃあ、いつも電話中ならコールウェイティングをつけた方がいいよ。～ドナ：そうかもしれないね。",
+        "title": "Is Your Phone Out of Order?",
+        "title_translation": "あなたの電話は故障してるの？"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Lucy:What's wrong with your phone, Dale? I tried to call you all night last night.~Dale:I'm sorry. No one was able to get through yesterday. My telephone was disconnected by the phone company.~Lucy:What happened? Didn't you pay the bill?~Dale:Well...er...I forgot.",
+        "conversation_translation": "ルーシー：デイル、あなたの電話どうしたの？昨日の夜、一晩中電話したのに。～デイル：ごめん。昨日は誰も繋がらなかったんだ。電話会社に回線を切られちゃったんだよ。～ルーシー：どうしたの？料金を払わなかったの？～デイル：えっと…その…忘れちゃったんだ。",
+        "title": "My Telephone Was Disconnected.",
+        "title_translation": "電話が止められた"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Howard:I can hardly hear you, Nick!~Nick:Oh, we seem to have a bad connection on this phone. ~Howard:Could you speak up, please? ~Nick:I'm talking as loud as I can. ~Howard:I'm going to hang up and call again. ~Nick:All right!",
+        "conversation_translation": "ハワード：ニック、ほとんど聞こえないよ！～ニック：ああ、この電話は接続が悪いみたいだ。～ハワード：もっと大きな声で話してくれる？～ニック：できるだけ大きな声で話してるんだ。～ハワード：一度切って掛け直すよ。～ニック：わかった！",
+        "title": "We Seem to Have a Bad Connection!",
+        "title_translation": "接続が悪いみたいだ！"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "John:Hello, may I speak to Mr. Brown?~Secretary:He just left.~John:When do you expect him back?~Secretary:I'm sorry, but he's gone for the day. Would you care to leave a message?~John:Could you tell him that John Smith called and have him call me back tomorrow?~Secretary:Sure. May I have your phone number?~John:I think he has my number.~Secretary:Thank you, Mr. Smith. I'll tell him you called.~John:Thanks!",
+        "conversation_translation": "ジョン：こんにちは、ブラウンさんとお話しできますか？～秘書：彼はちょうど出かけました。～ジョン：いつ戻る予定ですか？～秘書：申し訳ありませんが、今日はもう戻りません。伝言を残されますか？～ジョン：ジョン・スミスから電話があったと伝えて、明日折り返してもらえるようにお願いできますか？～秘書：かしこまりました。お電話番号をいただけますか？～ジョン：彼は私の番号を知っていると思います。～秘書：ありがとうございます、スミスさん。電話があったことを伝えておきます。～ジョン：ありがとう！",
+        "title": "Would You Care to Leave a Message?",
+        "title_translation": "伝言を残されますか？"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Joe:Hello, May I speak to Mr. John Smith?~Secretary:I'm sorry.  He's out to lunch.  Would you like to leave a message?~Joe:What time do you expect him back?~Secretary:Mr. Smith should be back in half an hour.~Joe:Thank you!  I'll try back later.",
+        "conversation_translation": "ジョー：こんにちは、ジョン・スミスさんとお話しできますか？～秘書：申し訳ありません。彼は昼食に出かけています。伝言を残されますか？～ジョー：何時に戻る予定ですか？～秘書：スミスさんは30分ほどで戻るはずです。～ジョー：ありがとうございます！また後でかけ直します。",
+        "title": "He's Out to Lunch. Would You Like to Leave a Message?",
+        "title_translation": "彼は昼食に出ています。伝言を残されますか？"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Jose:Pamela, can you come to a meeting on Friday?~Pamela:I'm not sure.  Let me check my schedule.  What time are you having it?~Jose:We're planning on having it around noon.~Pamela:Let me get back to you in a few minutes.~Jose:Sure!  If I'm not in, could you leave a message on my answering machine?~Pamela:Sure thing!",
+        "conversation_translation": "ホセ：パメラ、金曜日の会議に来られる？～パメラ：わからないわ。予定を確認させて。何時にやるの？～ホセ：正午ごろを予定しているよ。～パメラ：数分後に返事するわね。～ホセ：わかった！もし私がいなかったら留守電にメッセージを残してくれる？～パメラ：もちろん！",
+        "title": "Let Me Get Back to You in a Few Minutes.",
+        "title_translation": "数分後に返事するわ"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Timothy:Stanley, there's a Mr. Miller on the phone who wants to talk to you.~Stanley:I'm busy at the moment.  Can you ask him to hold?  Tell him I'll talk with him in a few seconds.~Timothy:Sure.  He's on Line 2.~Stanley:Thanks, Timothy!",
+        "conversation_translation": "ティモシー：スタンリー、電話でミラーさんが話したいそうです。～スタンリー：今は忙しいんだ。少し待ってもらえるように頼んでくれる？数秒後に話すと伝えて。～ティモシー：わかりました。2番回線にいます。～スタンリー：ありがとう、ティモシー！",
+        "title": "There's a Call for You.  I've Put Him on Hold.",
+        "title_translation": "あなたに電話ですよ。保留にしておきました。"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Operator:Pacific Bell.  May I help you?~Dave:Yes, I'd like to set up a telephone service, please.~Operator:Do you presently have service?~Dave:No, this is new.~Operator:All right!  I'll connect you with our customer service department. Please hold.~Dave:Thanks!",
+        "conversation_translation": "オペレーター：パシフィックベルです。ご用件をどうぞ。～デイブ：はい、電話サービスを申し込みたいのですが。～オペレーター：現在サービスをご利用中ですか？～デイブ：いいえ、新規です。～オペレーター：わかりました！カスタマーサービス部門につなぎますので、そのままお待ちください。～デイブ：ありがとう！",
+        "title": "I'd Like to Get Telephone Service.",
+        "title_translation": "電話サービスを申し込みたいのですが。"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Sean:I'd like to have a phone installed, please.~Customer Service:May I have your name and address, please?~Sean:Sure.  My name is Sean Kobluk.  K-O-B-L-U-K.  My address is 1600 Iowa Avenue, Apartment 16.~Customer Service:May I have your date of birth and your social security number, please?~Sean:Sure!  My date of birth is June 11, 1980.  My Social Security Number is 554-66-9980.~Customer Service:Thank you very much!  The earliest day for connection is this Friday.  Is that OK?~Sean:That's fine!  Thanks!~Customer Service:Thank you very much, Mr. Kobluk.  Have a nice day!",
+        "conversation_translation": "ショーン：電話を設置してほしいのですが。～カスタマーサービス：お名前と住所をお願いします。～ショーン：はい。私の名前はショーン・コブルクです。K-O-B-L-U-K。住所はアイオワ通り1600番地16号室です。～カスタマーサービス：生年月日と社会保障番号をお願いします。～ショーン：はい！生年月日は1980年6月11日です。社会保障番号は554-66-9980です。～カスタマーサービス：ありがとうございます！最短で金曜日に接続できますが、よろしいですか？～ショーン：大丈夫です！ありがとう！～カスタマーサービス：ありがとうございます、コブルク様。良い一日を！",
+        "title": "I'd Like to Have a Phone Installed.",
+        "title_translation": "電話を設置してほしいのですが。"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Customer Service:Pacific Bell. May I help you?~Jefferey:I'd like to have my phone disconnected.~Customer Service:May I ask why?~Jefferey:Well, I'm graduated and am moving to California for a new job there.~Customer Service:Congratulations!~Jefferey:Thanks.~Customer Service:All right. May I have your phone number, please?~Jefferey:Sure. My phone number is 377-765-8769.~Customer Service:And the name on the account, please?~Jefferey:My name is Jefferey Schaefer.~Customer Service:For security purposes, Mr. Schaefer, may I have your date of birth, please?~Jefferey:It's June 5, 1978.~Customer Service:Thank you. Now, when would you like it to be disconnected?~Jefferey:Tomorrow by 5:00 PM.~Customer Service:Sure. The telephone will be disconnected at 5:00 PM tomorrow.",
+        "conversation_translation": "カスタマーサービス：パシフィックベルです。ご用件をどうぞ。～ジェフリー：電話を解約したいのですが。～カスタマーサービス：理由を伺ってもよろしいですか？～ジェフリー：ええ、卒業してカリフォルニアに新しい仕事で引っ越すんです。～カスタマーサービス：おめでとうございます！～ジェフリー：ありがとうございます。～カスタマーサービス：それでは電話番号をお願いします。～ジェフリー：はい、377-765-8769です。～カスタマーサービス：ご契約名義は？～ジェフリー：ジェフリー・シェーファーです。～カスタマーサービス：セキュリティのために、生年月日をお願いします。～ジェフリー：1978年6月5日です。～カスタマーサービス：ありがとうございます。いつ解約をご希望ですか？～ジェフリー：明日の午後5時までにお願いします。～カスタマーサービス：承知しました。明日の午後5時に解約されます。",
+        "title": "I'd Like to Have My Phone Disconnected.",
+        "title_translation": "電話を解約したいのですが。"
+    },
+    {
+        "category": "Communication",
+        "category_translation": "コミュニケーション",
+        "conversation": "Jack:George, may I talk with you for a minute?~George:Sure. What's on your mind?~Jack:Hmmm...nothing, really. Hey! Nice weather, isn't it?~George:Come on! Don't beat about the bush. Just tell me what's on your mind!",
+        "conversation_translation": "ジャック：ジョージ、ちょっと話せる？～ジョージ：もちろん。どうしたんだい？～ジャック：うーん…別に何もないんだ。ただ…いい天気だね！～ジョージ：おいおい！回りくどいこと言わないで、正直に言いなよ！",
+        "title": "Don't beat about the bush!",
+        "title_translation": "回りくどいことを言うな！"
+    },
+    {
+        "category": "Eating",
+        "category_translation": "食事",
+        "conversation": "Wayne:What are we going to eat for dinner?~Lilia:I'm going to fix some pork chops.~Wayne:I'm afraid the meat is rotten.~Lilia:That's strange!  I just bought it the day before yesterday.~Wayne:Well, I forgot to put it in the refrigerator.~Lilia:Good for you!  Now what should we eat?~Wayne:Why don't we eat out?~Lilia:Again?  Weren't you just complaining that it's too expensive to eat out?~Wayne:Not when you're hungry.",
+        "conversation_translation": "ウェイン：夕食は何を食べるの？～リリア：ポークチョップを作るつもりよ。～ウェイン：肉が腐ってるみたいだ。～リリア：変ね！おととい買ったばかりなのに。～ウェイン：冷蔵庫に入れるのを忘れちゃったんだ。～リリア：よくやったわね！じゃあ何を食べる？～ウェイン：外食にしようよ。～リリア：また？外食は高いって文句言ってなかった？～ウェイン：お腹が空いてるときは違うんだ。",
+        "title": "It tastes stale!",
+        "title_translation": "味が古くなってる！"
+    },
+    {
+        "category": "Eating",
+        "category_translation": "食事",
+        "conversation": "Cindy:John, where are the cookies?  Don't tell me you ate them all!  Again!~John:Yes, I did.  I couldn't help it.  They were so good.~Cindy:I thought you didn't like cookies.~John:Well, I don't like cookies flavored with chocolate at all. But vanilla is different.  I love them to death. ~Cindy:Huh, I didn't know that.~John:Well, tell you what, vanilla cookies taste even better with a glass of cold milk.",
+        "conversation_translation": "シンディ：ジョン、クッキーはどこ？まさか全部食べちゃったんじゃないでしょうね！また？～ジョン：そうだよ。我慢できなかったんだ。本当においしかったから。～シンディ：あなた、クッキーは嫌いだと思ってたのに。～ジョン：チョコ味のクッキーは全然好きじゃないんだ。でもバニラは別だよ。大好きなんだ。～シンディ：へぇ、知らなかったわ。～ジョン：それにね、バニラクッキーは冷たいミルクと一緒に食べるともっとおいしいんだよ。",
+        "title": "I couldn't help it.  They were so good!",
+        "title_translation": "我慢できなかった。本当においしかったんだ！"
+    },
+    {
+        "category": "Eating",
+        "category_translation": "食事",
+        "conversation": "Waitress:Are you ready to order now?~Maria:Yes.  I'll have some salad, roast beef, and mashed potatoes.~Waitress:How do you want the beef?  Rare, medium, or well-done?~Maria:Well-done.  And easy on the salt, please.~Waitress:Sure.  Anything to drink? ~Maria:Do you have coffee or tea?  I'd like decaf.~Waitress:Yes, we have both.  Which one would you like, coffee or tea?~Maria:Iced tea, please.  And easy on the ice.",
+        "conversation_translation": "ウェイトレス：ご注文はお決まりですか？～マリア：はい。サラダ、ローストビーフ、マッシュポテトをお願いします。～ウェイトレス：お肉の焼き加減はいかがなさいますか？レア、ミディアム、それともウェルダン？～マリア：ウェルダンで。塩は控えめにお願いします。～ウェイトレス：かしこまりました。お飲み物は？～マリア：コーヒーか紅茶はありますか？カフェインレスがいいのですが。～ウェイトレス：はい、両方ございます。どちらにされますか？～マリア：アイスティーをお願いします。氷は控えめで。",
+        "title": "How do you want your beef?",
+        "title_translation": "お肉の焼き加減はいかがなさいますか？"
+    },
+    {
+        "category": "Eating",
+        "category_translation": "食事",
+        "conversation": "Waiter:What would you like to order?~Kate:I'd like ham and eggs, please.~Waiter:How do you want your eggs?~Kate:What are my choices?~Waiter:Scrambled, sunny side-up, over-easy, and over-hard.~Kate:Scrambled, please.  Hm, no, I think I want sunny side-up.~Waiter:Is there anything else?~Kate:One orange juice.  Make it small, please.",
+        "conversation_translation": "ウェイター：ご注文は？～ケイト：ハムエッグをお願いします。～ウェイター：卵の焼き方はいかがなさいますか？～ケイト：どんな選択肢がありますか？～ウェイター：スクランブル、サニーサイドアップ、両面焼きの半熟、両面焼きの固めです。～ケイト：スクランブルでお願いします。うーん、やっぱりサニーサイドアップにします。～ウェイター：他に何か？～ケイト：オレンジジュースを。小さいサイズでお願いします。",
+        "title": "Make it small, please!",
+        "title_translation": "小さいサイズでお願いします！"
+    },
+    {
+        "category": "Eating",
+        "category_translation": "食事",
+        "conversation": "Michelle:John, can you do me a favor?  Can you help me cut this chicken?~John:At your service.  How do you want me to cut it?~Michelle:I would like half of it cut into slices, and the other half diced.~John:OK.  Half sliced and the other half diced.~Michelle:Oh, by the way, I want it to be very, very lean.  Not even a shred of fat. ~John:Got'cha.  Cut off the fat.",
+        "conversation_translation": "ミシェル：ジョン、お願いがあるんだけど。このチキンを切るのを手伝ってくれる？～ジョン：お任せあれ。どうやって切ればいい？～ミシェル：半分はスライスにして、もう半分はサイコロ状に切ってほしいの。～ジョン：了解。半分はスライス、もう半分はサイコロ状ね。～ミシェル：あ、そうだ、すごく脂身を取ってね。脂は一切残さないで。～ジョン：わかった。脂は全部取り除くよ。",
+        "title": "I want it to be very, very lean!",
+        "title_translation": "すごく脂身を取ってね！"
+    },
+    {
+        "category": "Eating",
+        "category_translation": "食事",
+        "conversation": "Louise:How often do you eat out, Shelly?~Shelly:Well, very often.  I eat out almost five times a week.~Louise:Wow, I really envy you. ~Shelly:Don't envy me.  It's for business.  In fact, I'm sick and tired of restaurant food.  Sometimes I just want a home-cooked meal.",
+        "conversation_translation": "ルイーズ：シェリー、どのくらいの頻度で外食するの？～シェリー：そうね、かなり頻繁よ。週にほぼ5回は外食してるわ。～ルイーズ：わぁ、うらやましい！～シェリー：うらやましがらないで。仕事のためなのよ。実のところ、レストランの料理にはもううんざり。時々、家庭料理が恋しくなるの。",
+        "title": "How Often Do You Eat Out?",
+        "title_translation": "どのくらい外食するの？"
+    },
+    {
+        "category": "Eating",
+        "category_translation": "食事",
+        "conversation": "Hostess:Pompas.  How may I help you?~Ron:Yes.  I'd like to reserve a table for dinner.~Hostess:How large a group are you expecting?~Ron:Six couples.~Hostess:Would you like to reserve a private dinning room?~Ron:That sounds like a good idea.~Hostess:All right.  May I have your name, sir?~Ron:My name is Ron Kollitz.  K-O-L-L-I-T-Z.~Hostess:What time will you be arriving?~Ron:Around 7:30 PM.~Hostess:All right, Mr. Kollitz.  We have reserved a private dinning room for you at 7:30 PM.  Thanks for calling Pompas.~Ron:Thank you very much.",
+        "conversation_translation": "ホステス：ポンパスです。ご用件をどうぞ。～ロン：はい、ディナーの予約をしたいのですが。～ホステス：何名様のご予定ですか？～ロン：6組です。～ホステス：個室をご予約なさいますか？～ロン：それはいい考えですね。～ホステス：かしこまりました。お名前をお願いします。～ロン：ロン・コリッツです。K-O-L-L-I-T-Z。～ホステス：ご到着は何時頃ですか？～ロン：午後7時半ごろです。～ホステス：承知しました、コリッツ様。午後7時半に個室をご用意いたしました。ポンパスにお電話いただきありがとうございます。～ロン：どうもありがとうございます。",
+        "title": "I'd like to reserve a table for dinner.",
+        "title_translation": "ディナーの予約をしたいのですが。"
+    },
+    {
+        "category": "Eating",
+        "category_translation": "食事",
+        "conversation": "Mary:Thanks for lunch!  It was delicious!~Shelly:It's OK.~Mary:Next time lunch is on me.~Shelly:Don't be silly.~Mary:I'm serious. ~Shelly:All right.  Next time you'll treat.",
+        "conversation_translation": "メアリー：ランチをごちそうさま！とても美味しかったわ！～シェリー：どういたしまして。～メアリー：次回は私がごちそうするわ。～シェリー：そんなこと言わないで。～メアリー：本気よ。～シェリー：わかったわ。次回はあなたのおごりね。",
+        "title": "Shelly treats her friend Mary to lunch at a restaurant....",
+        "title_translation": "シェリーが友人メアリーにレストランでランチをごちそうする…。"
+    },
+    {
+        "category": "Eating",
+        "category_translation": "食事",
+        "conversation": "Donald:Let's eat out, shall we?~Debra:I'm broke.  I've gone through my paycheck for the week already.~Donald:Don't worry about it.  It's my treat.~Debra:You're sure?  You're so generous!~Donald:And nice, too.~Debra:So, where are you taking me?~Donald:Some place you've never been before.  Donald's Kitchen.",
+        "conversation_translation": "ドナルド：外食しようか？～デブラ：お金がないの。今週の給料はもう使い果たしちゃった。～ドナルド：心配しないで。僕のおごりだから。～デブラ：本当？あなたってすごく気前がいいわ！～ドナルド：優しいでしょ？～デブラ：それで、どこへ連れて行ってくれるの？～ドナルド：君が行ったことのない場所だよ。ドナルドのキッチンさ。",
+        "title": "It's my treat.",
+        "title_translation": "僕のおごりだよ。"
+    },
+    {
+        "category": "Eating",
+        "category_translation": "食事",
+        "conversation": "Sam:You're going to miss your sister since she's married, aren't you?~Robert:I sure am.  She made a lovely bride, didn't she?~Sam:She was beautiful.  So when will your turn be?~Robert:Soon!  Very soon!~Sam:Well, a drink to you and your future wife!",
+        "conversation_translation": "サム：妹さんが結婚して、寂しくなるんじゃない？～ロバート：本当にそうだよ。彼女は素敵な花嫁だったよね？～サム：とても美しかった。じゃあ君の番はいつだい？～ロバート：すぐに！とても近いうちに！～サム：じゃあ、君と未来の奥さんに乾杯だ！",
+        "title": "Drink to you and your future!",
+        "title_translation": "君と未来の奥さんに乾杯！"
+    },
+    {
+        "category": "Emotions",
+        "category_translation": "感情",
+        "conversation": "Jan:What's going on between you and Gary?  Did you guys have a fight or something?~Andy:I can't stand him any more!  He has such a short fuse that even a little piece of friendly advice sets him off.~Jan:So what did you tell him?~Andy:I told him that if he could be more patient and try not to lose his temper so easily, he would be more popular.~Jan:No wonder he threw a fit.  His popularity is really a sore spot.~Andy:Well, I guess I'll just keep my mouth shut.  That'll teach me to give advice!~Jan:Not unless you want to die!",
+        "conversation_translation": "ジャン：君とゲイリーの間に何があったの？ケンカでもしたの？～アンディ：もう我慢できない！彼はすぐカッとなるから、ちょっとした親切なアドバイスでも怒り出すんだ。～ジャン：それで、何を言ったの？～アンディ：もっと忍耐強くなって、簡単に怒らないようにすれば、もっと人気が出るよって言ったんだ。～ジャン：それじゃ怒るのも無理ないわね。人気のことは彼にとって本当に痛いところだから。～アンディ：まあ、これからは黙ってることにするよ。アドバイスなんかするもんじゃないね！～ジャン：命が惜しいならね！",
+        "title": "I Can't Stand Him Any Longer!",
+        "title_translation": "もう彼には我慢できない！"
+    },
+    {
+        "category": "Emotions",
+        "category_translation": "感情",
+        "conversation": "Vickie:Jack, can you do the dishes tonight?  I'm very tired.~Jack:Can't we just put them in the dish-washer?  I've had a very bad day, too!  I just want to kick back and relax.~Vickie:Hey!  Just because you had a bad day today doesn't give you permission to take it out on me!~Jack:Just leave me alone, OK!~Vickie:Why are you being such a turd!  I wish I hadn't gotten married!",
+        "conversation_translation": "ビッキー：ジャック、今夜は皿洗いしてくれる？すごく疲れてるの。～ジャック：食洗機に入れちゃダメ？僕だってひどい一日だったんだ！ただゆっくり休みたいんだよ。～ビッキー：ちょっと！あなたが嫌な一日を過ごしたからって、私に八つ当たりする権利はないわよ！～ジャック：ほっといてくれよ！～ビッキー：なんでそんな最低なの！結婚なんてしなきゃよかった！",
+        "title": "Don't Take It Out On Me!",
+        "title_translation": "私に八つ当たりしないで！"
+    },
+    {
+        "category": "Emotions",
+        "category_translation": "感情",
+        "conversation": "June:You look so angry. What happened?~Mark:Nothing.   I'd rather not talk about it.  Just don't ask.~June:Come on.  I think you need to let off some steam.  Besides, you shouldn't keep your feelings pent up.  They'll eat you alive.  So, talk to me.~Mark:All right.  This morning I took my car to the garage to have them check the air-conditioner. They only gave it a once-over, refilled it with some Freon, and charged me 300 bucks!~June:No wonder you're livid.  I'd be mad, too if someone ripped me off like that.~Mark:Yeah.   AND they were rude.  They said I didn't know anything about cars, which I don't, but they didn't have to be so blunt!~June:Sounds like you got a raw deal!  Maybe you should file a complaint with the Consumer Protection Agency.",
+        "conversation_translation": "ジューン：すごく怒ってるみたい。どうしたの？～マーク：何でもないよ。話したくない。聞かないでくれ。～ジューン：いいじゃない。少しは発散したほうがいいわよ。それに気持ちをため込んじゃダメ。自分を苦しめるだけよ。だから私に話して。～マーク：わかった。今朝、車を修理工場に持って行ってエアコンを見てもらったんだ。ざっと見ただけで、フロンを補充して、300ドルも取られた！～ジューン：それは怒って当然だわ。私だってそんなふうにぼったくられたら腹が立つ。～マーク：そうだろ？しかも態度が悪かった。僕が車のことを何も知らないって言ったんだ。確かに知らないけど、あんなにきつく言う必要はないだろ！～ジューン：ひどい目にあったのね！消費者保護局に苦情を出した方がいいかも。",
+        "title": "No Wonder You're Livid!",
+        "title_translation": "怒るのも無理ない！"
+    },
+    {
+        "category": "Emotions",
+        "category_translation": "感情",
+        "conversation": "Judy:You look like you're fuming.  What's going on?~Andy:The boss is being unreasonable!  He flared up at me, making a mountain out of molehill!~Judy:What's the \"molehill\" he made a mountain out of?~Andy:I only made a few more copies, and I didn't think it was any big deal, but he blew up at me!~Judy:Well, he has been under a lot of pressure recently.  The company has been losing money and he's been a little bit depressed.~Andy:Well, I know he has the blues, but it doesn't mean he can vent his anger on me.",
+        "conversation_translation": "ジュディ：怒ってるみたいね。どうしたの？～アンディ：上司が理不尽なんだ！些細なことを大げさにして僕に怒鳴ったんだ！～ジュディ：その「些細なこと」って何？～アンディ：ちょっと多めにコピーしただけで、大したことじゃないのに、彼は怒鳴り散らしたんだ！～ジュディ：まあ、最近彼は相当プレッシャーを感じているのよ。会社が赤字続きで、少し落ち込んでいるの。～アンディ：落ち込んでるのはわかるけど、だからって僕に八つ当たりしていいわけじゃない！",
+        "title": "He Flared up at Me!",
+        "title_translation": "彼が僕に怒鳴った！"
+    },
+    {
+        "category": "Emotions",
+        "category_translation": "感情",
+        "conversation": "Clara:What happened just now, Mark?  You werne't very kind when you were talking with Ted.  What do you have against him?~Mark:I just don't like him at all.~Clara:Why?  Is there something in particular?~Mark:Well, he has such a mean streak in him!  I went to his office to ask him for some help, and he simply turned up his nose at me!  I was so angry that I wanted to slap him!  He wasn't like that before he got the job.   Now he's such a snob!~Clara:You want my advice?  Let it go.~Mark:Of course, logically I know you're right, but somehow I just can't bring myself to forget it.  Even the mention of his name starts me fuming.",
+        "conversation_translation": "クララ：さっきどうしたのマーク？テッドと話しているとき、あまり優しくなかったわね。彼のこと嫌ってるの？～マーク：全然好きじゃないんだ。～クララ：どうして？何か理由があるの？～マーク：彼は意地悪なところがあるんだ！助けを頼みに彼のオフィスへ行ったら、鼻であしらわれた！あまりに腹が立って殴りたくなったよ！彼がその仕事に就く前はそんな人じゃなかったのに、今はすっかり嫌なやつだ！～クララ：アドバイスしてあげようか？忘れなさいよ。～マーク：もちろん論理的には君が正しいってわかってるけど、どうしても忘れられないんだ。名前を聞くだけで腹が立つ。",
+        "title": "Even the mention of his name starts me fuming!",
+        "title_translation": "彼の名前を聞くだけで腹が立つ！"
+    },
+    {
+        "category": "Emotions",
+        "category_translation": "感情",
+        "conversation": "Joanne:Hey, you look concerned.  What's on your mind?~Harry:The final exam.  I'm not fully prepared yet.~Joanne:Well, don't worry too much.  You still have three days.~Harry:Yeah, but three days will fly past in a wink.~Joanne:Well, you still have time to cram things into your brain anyway.",
+        "conversation_translation": "ジョアン：ねえ、心配そうに見えるわ。何を考えているの？～ハリー：期末試験だよ。まだ十分に準備できていないんだ。～ジョアン：まあ、そんなに心配しないで。あと3日あるじゃない。～ハリー：うん、でも3日なんてあっという間に過ぎちゃうよ。～ジョアン：それでも頭に詰め込む時間はあるわよ。",
+        "title": "What's on your mind?",
+        "title_translation": "何を考えているの？"
+    },
+    {
+        "category": "Emotions",
+        "category_translation": "感情",
+        "conversation": "Jake:Ouch!  This tooth is really bugging me.~Anna:Have you seen the dentist?~Jake:No, I haven't.  Going to the dentist really unnerves me.   I try to avoid it like the plague.~Anna:Come on.  Don't be a chicken!  It can't be that bad!~Jake:I'm not a chicken!  But I'll do anything to keep myself from getting in the dentist's chair.~Anna:Even deal with a tooth that's killing you?~Jake:You bet!",
+        "conversation_translation": "ジェイク：いてっ！この歯が本当に痛むんだ。～アンナ：歯医者に行った？～ジェイク：いや、行ってない。歯医者に行くのは本当に怖いんだ。まるで伝染病みたいに避けてるよ。～アンナ：もう、臆病者にならないで！そんなに悪くないでしょ！～ジェイク：俺は臆病者じゃない！でも歯医者の椅子に座るくらいなら何だってするよ。～アンナ：痛くてたまらない歯でも？～ジェイク：もちろんだ！",
+        "title": "Going to the Dentist Really Unnerves Me!",
+        "title_translation": "歯医者に行くのは本当に怖い！"
+    },
+    {
+        "category": "Fashion",
+        "category_translation": "ファッション",
+        "conversation": "John:She's really pretty, isn't she?  Her skin looks so baby smooth!~Becky:Well, it's just that she puts lots of make-up on her face.  Actually, natural beauty comes from within.~John:Ah, I can smell jealousy in the air!~Becky:She has nothing that deserves my jealousy.  I don't have to put things on my face and I still look pretty.  Don't you think so?~John:Yeah, right!  But what did you put on your face last night, those little greenish things?~Becky:They're cucumbers.  They're natural skin soothers, natural healers of the skin.  Haven't you heard them say on TV that...erh...they soften the skin, wipe out the roughness, counter irritation, and build strength and resilience?~John:Yeah, yeah, yeah!  They wipe out tight, tired feelings and remove lines and age signs.  Blah, blah, blah, blah, blah!  See I can even recite it. ~Becky:That's right!  You've learned a lot, haven't you?",
+        "conversation_translation": "ジョン：彼女、本当にきれいだよね？肌が赤ちゃんみたいにすべすべだ！～ベッキー：それは化粧をたくさんしてるだけよ。本当の美しさは内面から出てくるの。～ジョン：ああ、嫉妬の匂いがするな！～ベッキー：彼女には私が嫉妬するようなものなんてないわ。私は顔に何もつけなくてもきれいなの。そう思わない？～ジョン：はいはい！でも昨夜君が顔につけてた緑っぽいものは何？～ベッキー：あれはキュウリよ。自然な肌の鎮静剤で、肌を癒すものなの。テレビでも言ってるじゃない…えっと…肌を柔らかくして、ざらつきをなくして、刺激を抑えて、強さと弾力を作るって。～ジョン：はいはいはい！肌の疲れを取って、シワや老化のサインを消すんだよな。ブツブツブツ！見て、僕だって暗唱できるぞ。～ベッキー：その通り！たくさん学んだじゃない！",
+        "title": "Her Skin Looks So Baby Smooth!",
+        "title_translation": "彼女の肌は赤ちゃんみたいにすべすべ！"
+    },
+    {
+        "category": "Fashion",
+        "category_translation": "ファッション",
+        "conversation": "James:Oh, what happened to your face, John?  It looks like a heat rash.~John:It's a razor burn.  I cut myself when I shaved this morning.  The burns and cuts are really irritating.~James:I know how you feel.  Maybe you shouldn't have grown a long, long beard.~John:Well, I thought it would be fun and would make me look more mature and sophisticated.~James:Yeah, my Mature man!~John:Come on!  Any advice?~James:Maybe you could shave in the shower.  The steam really helps soften your beard and moustache.~John:Hm, sounds like a good idea.~James:And you should avoid pressing too hard or tugging on your skin while shaving.~John:I guess I've been stretching it too often when I shave.~James:Hm.  I would also suggest you try this cream I have.  Use it on the affected area.  It really helps moisturize your skin and lessen irritations.",
+        "conversation_translation": "ジェームズ：あれ、ジョン、顔どうしたの？あせもみたいに見えるぞ。～ジョン：これはカミソリ負けだよ。今朝ひげを剃ったときに切っちゃってさ。焼ける感じと切り傷がすごくイライラするんだ。～ジェームズ：気持ちわかるよ。長いひげなんて伸ばさなきゃよかったんじゃない？～ジョン：いや、ちょっと面白そうだし、大人っぽく見えるかなって思ったんだ。～ジェームズ：ああ、俺の成熟した男！～ジョン：やめろよ！何かアドバイスはある？～ジェームズ：シャワーを浴びながら剃るといいかも。蒸気でひげや口ひげが柔らかくなるんだ。～ジョン：ふむ、いい考えだな。～ジェームズ：それに、強く押しすぎたり肌を引っ張りながら剃らないほうがいいよ。～ジョン：たしかに、よく肌を伸ばして剃ってたな。～ジェームズ：それと、このクリームを試してみたら？患部に塗るといい。肌を保湿して、刺激を減らしてくれるんだ。",
+        "title": "The razor burn is really irritating!",
+        "title_translation": "カミソリ負けが本当にイライラする！"
+    },
+    {
+        "category": "Fashion",
+        "category_translation": "ファッション",
+        "conversation": "John:My toes feel very itchy.  It's really irritating.  I don't know what's happening.~Jenny:Let me take a look.  Ah-huh, I think you have athlete's foot.~John:What are you talking about?  I'm not an athlete!~Jenny:Come on, John, stop joking.  You'd better take care of it before it gets worse.  Imagine you have pus gushing out and rashes all over your legs....~John:Stop it, \"Dr.\" Jenny. ~Jenny:OK, OK.  I guess I've got some cream for it.  It really fixes skin in trouble.  It's really a help for irritations and blemishes. ~John:Is it this one?~Jenny:Not really.  That one is for heat burns.~John:Have you had athlete's foot before?~Jenny:Yeah. It was a very bad experience.  You know, if you don't keep your feet dry and clean, the fungus will grow and spread out quickly.~John:So my case isn't that bad, huh? ~Jenny:You're lucky. Yeah, here it is.  Now apply it to the affected areas.  This cream is very effective in clearing out bacteria and stopping inflammation from developing.",
+        "conversation_translation": "ジョン：つま先がすごくかゆいんだ。本当にイライラする。何が起きてるのか分からないよ。～ジェニー：ちょっと見せて。あら、これは水虫だと思うわ。～ジョン：何言ってるんだ？俺はアスリートじゃないぞ！～ジェニー：やめてよ、ジョン、冗談は。悪化する前に治した方がいいわよ。膿が出て足中に発疹が広がったところを想像してみて....～ジョン：やめろよ、「ジェニー先生」。～ジェニー：わかった、わかった。これに効くクリームがあるはずよ。肌トラブルに本当に効くの。かゆみや吹き出物にも役立つわ。～ジョン：これのことか？～ジェニー：違うわ、それは火傷用よ。～ジョン：君、水虫になったことあるの？～ジェニー：ええ。とても嫌な経験だったわ。足を乾いた清潔な状態に保たないと、菌がすぐに広がるのよ。～ジョン：じゃあ、俺の場合はそんなに悪くないんだな？～ジェニー：運がいいわ。そうそう、これよ。じゃあ患部に塗って。これは細菌を退治して炎症を防ぐのにすごく効果的よ。",
+        "title": "It Knocks Out Bacteria and Gungi.",
+        "title_translation": "細菌と菌を退治する。"
+    },
+    {
+        "category": "Fashion",
+        "category_translation": "ファッション",
+        "conversation": "Liz:(In the bedroom.  Mac is making the bed for sleep.)  Mac, you know what?  Connie's going to get a face lift.~Mac:Oh?~Liz:She even said she'd get the rest done, too!~Mac:The rest?~Liz:Yeah!  Mac, if my breasts were saggy, would you still love me?~Mac:What?~Liz:Answer my question, please!~Mac:What a silly question!  Love has nothing to do with breasts being large or small, or being firm or saggy.~Liz:I'm just asking.  You don't have to be impatient.~Mac:And Connie.  She's crazy!  No one can sustain youth forever.~Liz:Yeah.  That's what I told her.  (Liz goes to the bathroom and locks herself in it.  She looks into the mirror and starts murmuring to herself.)  Oh, I think I'm getting old.  The forehead is wrinkled, the eyes are puffy, the sacks under the eyes are dark, and the skin is no longer as resilient as it was.  Why!  Age has set in!  Maybe I also need a lift.  Maybe, I need a new life!  Oh, I really miss the good old days.  At that time, my skin really felt so baby smooth!~Mac:Liz.  what're you murmuring about?  It's getting late.  You should've been in bed minutes ago....",
+        "conversation_translation": "リズ：（寝室。マックがベッドを整えている）マック、聞いて！コニーがフェイスリフトをするんですって。～マック：え？～リズ：しかも、他のところもやるって言ってたわ！～マック：他のところ？～リズ：そうよ！マック、もし私の胸が垂れてたら、あなたはまだ私を愛してくれる？～マック：は？～リズ：ちゃんと答えて！～マック：なんて馬鹿げた質問なんだ！愛は胸が大きいとか小さいとか、張ってるとか垂れてるとか、そんなこととは関係ないよ。～リズ：ただ聞いてみただけよ。そんなにイライラしないで。～マック：それにコニー。彼女はおかしいよ！誰も永遠に若さを保てないんだ。～リズ：そうね。私もそう言ったの。 （リズは洗面所に行き、鍵をかけて鏡を見ながら独り言を言う）ああ、私老けてきたみたい。額にはしわ、目は腫れて、クマも濃くなって、肌のハリもなくなってきた。なんてこと！年齢のせいだ！私もリフトが必要かも。新しい人生が必要かも！ああ、昔が本当に懐かしい。あの頃は肌が赤ちゃんみたいにスベスベだったのに！～マック：リズ、何をブツブツ言ってるんだ？もう遅いよ。そろそろ寝る時間だろ....",
+        "title": "Age has set in!",
+        "title_translation": "年齢が出てきた！"
+    },
+    {
+        "category": "Fashion",
+        "category_translation": "ファッション",
+        "conversation": "Connie:Do you know anyone who's had plastic surgery?~Liz:You mean like a breast enlargement?  I don't think that's really necessary.  That's not the way a woman should stay attractive.~Connie:Why not?  Why can't we go back to the way things were?~Liz:Because!  I don't know!  But, Connie, you wouldn't do that, would you?~Connie:Darned right I would!~Liz:Maybe make-up would be enough?~Connie:Come on, Liz.  Be open-minded!  Look at my eyes!  They're puffy.  And my eyebags, they're dark and loose and full of lines and circles.  I really hope surgery can wipe out the tired feelings.~Liz:But what would other people think?~Connie:I don't care what other people think.  I'm ready for a lift.",
+        "conversation_translation": "コニー：整形手術を受けた人知ってる？～リズ：豊胸手術とか？それは必要ないと思うわ。女の人が魅力的でいる方法じゃないと思う。～コニー：どうして？昔みたいに戻っちゃいけないの？～リズ：だって！わからないけど。でもコニー、あなたそんなことしないでしょ？～コニー：もちろんするわ！～リズ：化粧だけで十分じゃない？～コニー：やめてよ、リズ。もっと柔軟に考えて！私の目を見て！腫れてるし、クマも濃いし、緩んで線や輪がいっぱい。手術でこの疲れた感じを消してほしいのよ。～リズ：でも他の人はどう思うかしら？～コニー：他人がどう思おうと気にしないわ。私はリフトを受ける準備ができてるの。",
+        "title": "I'm ready for a lift!",
+        "title_translation": "リフトの準備はできてる！"
+    },
+    {
+        "category": "Friendship",
+        "category_translation": "友情",
+        "conversation": "William:I'm really happy that you could come.~Margaret:Yeah. It's been years since we did this together.~William:I know. It has been a long time.~Margaret:Well, anyway, a drink to our friendship!~William:Cheers!",
+        "conversation_translation": "ウィリアム：来てくれて本当に嬉しいよ。～マーガレット：ええ。一緒にこうするのは何年ぶりかしら。～ウィリアム：そうだね。本当に久しぶりだ。～マーガレット：まあ、とにかく友情に乾杯！～ウィリアム：乾杯！",
+        "title": "A Drink to Our Friendship!",
+        "title_translation": "友情に乾杯！"
+    },
+    {
+        "category": "Friendship",
+        "category_translation": "友情",
+        "conversation": "Adriana:I heard you're moving to New York.~Ryan:Yes.  I've got an offer in upstate New York.~Adriana:Oh, that's great!  But I'm going to miss you.~Ryan:Me, too.  Let's keep in touch.~Adriana:Yeah.  Don't forget to drop me a line when you settle down.~Ryan:Trust me.  I won't. I'll keep you posted.~Adriana:You have my address?~Ryan:Well, I have your e-mail address.~Adriana:All right!  I look forward to hearing from you soon.  Good luck!",
+        "conversation_translation": "アドリアナ：ニューヨークに引っ越すって聞いたわ。～ライアン：そうだ。ニューヨーク州北部でオファーをもらったんだ。～アドリアナ：すごいじゃない！でも寂しくなるわ。～ライアン：僕もだよ。連絡取り合おう。～アドリアナ：そうね。落ち着いたら手紙をくれるのを忘れないでね。～ライアン：信じて。忘れないよ。必ず近況を知らせるから。～アドリアナ：私の住所持ってる？～ライアン：えっと、君のメールアドレスならあるよ。～アドリアナ：それで十分！近いうちに連絡を楽しみにしてるわ。頑張って！",
+        "title": "Don't Forget to Drop Me a Line!",
+        "title_translation": "手紙を忘れないで！"
+    },
+    {
+        "category": "Friendship",
+        "category_translation": "友情",
+        "conversation": "Frank:I just received a letter from one of my old high school buddies.~Sarah:That's nice!~Frank:Well, actually I haven't heard from him in ages.~Sarah:To be frank with you, I've been out of touch with most of my old friends.  Only one or two still keep me posted about what they are doing.~Frank:I know.  It's really hard to maintain contact when people move around so much.~Sarah:That's right.  People just drift apart! But you're lucky to be back in touch with your buddy again.",
+        "conversation_translation": "フランク：高校時代の友達から手紙をもらったんだ。～サラ：いいわね！～フランク：でも実は彼からは何年も連絡なかったんだ。～サラ：正直に言うと、私もほとんどの昔の友達と連絡を取ってないの。まだ近況を教えてくれるのは1人か2人くらいよ。～フランク：そうだね。人はあちこち移動するから連絡を維持するのは本当に大変だよ。～サラ：その通り！自然と疎遠になっちゃうの。でも友達とまた連絡が取れたなんて運がいいわね。",
+        "title": "It's hard to keep up contact!",
+        "title_translation": "連絡を保つのは難しい！"
+    },
+    {
+        "category": "Friendship",
+        "category_translation": "友情",
+        "conversation": "Roger:So, how is your new roommate?~Martha:She really turns me off.~Roger:What happened?~Martha:She's always making loud noises at midnight and when I remind her, she always makes rude remarks.~Roger:Why don't you have a heart to heart chat with her?~Martha:I tried, but it didn't work.~Roger:But how many times did you try?~Martha:At least three times.  I guess I'm going to complain to the manager.  I hope she can be evicted.",
+        "conversation_translation": "ロジャー：新しいルームメイトはどう？～マーサ：本当に嫌になるわ。～ロジャー：何があったの？～マーサ：いつも真夜中に大きな音を立てるの。それで注意すると、いつも失礼なことを言うのよ。～ロジャー：腹を割って話してみたら？～マーサ：試したけど、うまくいかなかったわ。～ロジャー：でも何回試したの？～マーサ：少なくとも3回はね。もう管理人に苦情を言うつもりよ。追い出されればいいんだけど。",
+        "title": "Why don't you have a heart-to-heart talk with her?",
+        "title_translation": "腹を割って話したら？"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Sydney:Would you like to have some ice-cream?  I've got a variety of flavors for you to choose from.  I've got strawberry, peach, chocolate, chocolate chip, chocolate brownie, coffee, vanilla, rocky road, butter pecan, and praline.~Martha:Wow!  What choices you have!  I wish I could, but I just can't.  I'm on a diet to lose weight.~Sydney:Come on, it's just a bite.  It doesn't really hurt to have just a bite.~Martha:I'd better not.  Please don't tempt me.  Please!~Sydney:Gee!  You are really strong-willed. ~Martha:You're darn right.  I'm not so easily coaxed into doing something that I think is wrong.~Sydney:Well, I'd better not tempt you.  Otherwise, if I give you a piece of cake, you might ask for a glass of milk.",
+        "conversation_translation": "シドニー：アイスクリーム食べる？いろんな味があるよ。ストロベリー、ピーチ、チョコレート、チョコチップ、チョコブラウニー、コーヒー、バニラ、ロッキーロード、バターピーカン、プラリネ。～マーサ：わあ！すごい種類ね！食べたいけど無理だわ。今ダイエット中なの。～シドニー：いいじゃない、一口くらい。ちょっと食べるくらい害はないよ。～マーサ：やめておくわ。お願い、誘惑しないで。～シドニー：あら、本当に意志が強いのね。～マーサ：その通り。私は自分で悪いと思うことに簡単に乗せられたりしないの。～シドニー：じゃあやめておくよ。そうじゃないとケーキを出したら、君がミルクも欲しいって言うかもしれないし。",
+        "title": "I'm on a Diet to Lose Weight.",
+        "title_translation": "減量のためにダイエット中。"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Sydney:Steve, you look pale.  What happened?~Steve:I didn't sleep a wink last night.~Sydney:Did you have something on your mind?  You look so concerned!  Maybe I can help you!~Steve:Well, I'm under a lot of pressure.  My boss is very pushy.  He assigned me three projects.  Now the deadlines are near, and I still haven't finished all of my projects.~Sydney:Is there anything I can do to help you?~Steve:Well, I guess one one can help me but myself!  For the moment, I just need someone to talk to so that I can relieve my stress.",
+        "conversation_translation": "シドニー：スティーブ、顔色が悪いよ。どうしたんだ？～スティーブ：昨夜、一睡もできなかったんだ。～シドニー：何か悩み事？すごく心配そうに見えるよ！私が助けられるかも！～スティーブ：実はすごいプレッシャーで。上司がとても強引で、3つのプロジェクトを任されたんだ。締め切りが近いのにまだ全部終わってない。～シドニー：私にできることはある？～スティーブ：いや、自分で何とかするしかないよ！今はただ、ストレスを発散するために話を聞いてくれる人が欲しいだけなんだ。",
+        "title": "I Didn't Sleep a Wink Last Night!",
+        "title_translation": "昨夜は一睡もできなかった！"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Jeanette:Sylvia, your eyes look swollen.  What happened? ~Sylvia:I broke up with Paul last night and I was all over the bed the whole night.~Jeanette:Well, it's understandable, but Paul isn't the kind of guy that deserves your heartache.  Come on.  You'll find a nicer guy soon.~Sylvia:Well, I was restless because I was thinking how I was so stupid that I almost trusted the rest of my life to him....~Jeanette:Oh, Sylvia....",
+        "conversation_translation": "ジャネット：シルビア、目が腫れてるわ。どうしたの？～シルビア：昨夜ポールと別れたの。それで一晩中ベッドでゴロゴロしてたの。～ジャネット：それは分かるけど、ポールはあなたがそんなに心を痛める価値のある人じゃないわ。元気出して。すぐにもっと素敵な人が見つかるわよ。～シルビア：でも、一生を彼に預けようとした自分の愚かさを考えて眠れなかったのよ....～ジャネット：ああ、シルビア....",
+        "title": "I Was All Over the Bed the Whole Night Last Night!",
+        "title_translation": "昨夜は一晩中ベッドでゴロゴロしてた！"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Alice:Have you been working out?~Bruce:Yeah, as a matter of fact, I've been going to the gym for half a year now!~Alice:I can tell.  You look really buff!  And no more beer belly!  Have you been lifting weights?~Bruce:That and I do an hour of aerobics every other day!  I tell you, it's addicting!  I feel like a new man!~Alice:Well, you look like a million bucks!~Bruce:Thanks!",
+        "conversation_translation": "アリス：運動してるの？～ブルース：うん、実はもう半年間ジムに通ってるんだ！～アリス：見てわかるわ。本当に筋肉ついてる！しかもビール腹もなくなった！ウェイトリフティングしてるの？～ブルース：それと、1日おきに1時間エアロビもしてるんだ！やみつきになるよ！新しい自分になった気分だ！～アリス：本当にすごく健康的に見えるわ！～ブルース：ありがとう！",
+        "title": "I Feel Like a New Person!",
+        "title_translation": "新しい自分になった気分！"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Alicia:You look run down, Brian.~Brian:Yeah.  I've been feeling under the weather recently.   I caught a bad cold last week, and I still haven't gotten over it.~Alicia:Well, you wanna take sick leave?  All you need now is a good, long rest!~Brian:I guess so!  Even though I seem to be over the worst of it, I don't want to give the bug to anyone in the office.~Alicia:Good idea!",
+        "conversation_translation": "アリシア：ブライアン、疲れてるみたいよ。～ブライアン：ああ、最近ずっと体調が悪いんだ。先週ひどい風邪をひいて、まだ治ってないんだよ。～アリシア：病欠を取ったら？今必要なのは十分な休養よ！～ブライアン：そうだね！最悪の状態は過ぎたみたいだけど、オフィスの人に移したくないし。～アリシア：いい考えね！",
+        "title": "You Look Run Down!",
+        "title_translation": "疲れてるみたい！"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Davis:I think I'm running a temperature. My head is spinning, my mouth feels like cotton, and I have a scratchy throat.~Julie:Let me see.  Hmm, you'd better stay at home today.   And don't work on the computer!  Staying up late with that thing has obviously played havoc with your health.~Davis:I can't help it.  I guess I'm addicted to the Internet.~Julie:If you want to keep yourself in good shape, you'd better quit surfing the Net deep into the night. I don't want you kicking the bucket!",
+        "conversation_translation": "デイビス：熱があるみたいだ。頭がくらくらして、口がカラカラで、喉も痛い。～ジュリー：見せて。うーん、今日は家で休んだ方がいいわ。それにパソコンは使わないで！夜更かしが明らかに健康を害してるわよ。～デイビス：仕方ないよ。ネット中毒みたいなんだ。～ジュリー：健康でいたいなら、夜遅くまでネットサーフィンするのをやめた方がいいわ。死んじゃったら困るから！",
+        "title": "I Think I'm Running a Temperature!",
+        "title_translation": "熱があるみたい！"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Cindy:Hi, Robert, what happened to your face? It looks swollen.~Robert:I had to go get a cavity filled today.~Cindy:Did it hurt?~Robert:I don't even wanna talk about it.  It killed me!~Cindy:How long were you in the chair?~Robert:It took quite a while. But the worst part was getting numbed.  They had to give me three shot!~Cindy:Well, I guess you've learned a good lesson, huh!  You have to take good care of your teeth!~Robert:No kidding!  Not only can't I stand the pain, but man!  Dentists are expensive!  The bill is going to be humungus!~Cindy:Don't you have a dental insurance?~Robert:I do, but it still doesn't cover everything.",
+        "conversation_translation": "シンディ：ロバート、顔どうしたの？腫れてるよ。～ロバート：今日、虫歯を治療してもらったんだ。～シンディ：痛かった？～ロバート：話したくもないよ。死ぬほど痛かった！～シンディ：どのくらい椅子に座ってたの？～ロバート：結構長かったよ。でも最悪だったのは麻酔をかける時だ。3回も注射されたんだ！～シンディ：いい教訓になったんじゃない？歯はちゃんと大事にしないと！～ロバート：本当だよ！痛みに耐えられないし、しかも歯医者は高い！請求書はとんでもない額になるよ！～シンディ：歯科保険は入ってないの？～ロバート：入ってるけど、それでも全部はカバーされないんだ。",
+        "title": "The Cavity Is Killing Me!",
+        "title_translation": "虫歯が死ぬほど痛い！"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Jon:What happened to your eye?~Sydney:Nothing really.  I went to kiss my daughter on her tummy last night, and she reached up to stop me.  When she did that, her fingernails scraped my eye.~Jon:That sounds painful!~Sydney:It wasn't too bad at first, but the next morning it really hurt.~Jon:What did the doctor say?~Sydney:He said that it should be OK, but there might be a little scarring over my field of vision, so my eyesight may be blurry.~Jon:I'm sorry to hear that.~Sydney:Thanks!  Who knew that a poke in the eye would cause so much damage?",
+        "conversation_translation": "ジョン：目どうしたの？～シドニー：大したことないよ。昨夜、娘のお腹にキスしようとしたら、止めようとして爪で目を引っかかれちゃったんだ。～ジョン：それ痛そうだね！～シドニー：最初はそれほどでもなかったけど、翌朝すごく痛くなったんだ。～ジョン：お医者さんはなんて言ったの？～シドニー：大丈夫だって言われたけど、視界にちょっと傷跡が残って、視力がぼやけるかもしれないって。～ジョン：それは気の毒だね。～シドニー：ありがとう！目を突かれるだけでこんなにダメージがあるなんて誰が想像した？",
+        "title": "She Poked Me in the Eye.",
+        "title_translation": "彼女に目を突かれた。"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Mary:You looked tired.  Didn't you get enough sleep last night?~John:No, I had a bunch of my friends over, and we partied until the wee hours.~Mary:No wonder you look so bad!~John:I guess I just can't take late nights like I used to.  My head is spinning, and I have a migraine.~Mary:I think you need to go home and take a rest.~John:I wish I could, but I don't think I can keep my eyes open long enough to drive home.~Mary:Don't worry!  I'll give you a ride home.  But next time, watch the partying, OK?",
+        "conversation_translation": "メアリー：疲れてるみたいね。昨夜ちゃんと寝た？～ジョン：いや、友達がたくさん来てて、朝方までパーティーしてたんだ。～メアリー：だからそんなにひどい顔してるのね！～ジョン：昔みたいに夜更かしができないみたいだ。頭がくらくらして、偏頭痛まであるんだ。～メアリー：家に帰って休んだほうがいいよ。～ジョン：そうしたいけど、目を開けて運転して帰るのは無理そうだ。～メアリー：心配しないで！私が送ってあげる。でも次からはパーティー控えめにね？",
+        "title": "My Head Is Spinning Now.",
+        "title_translation": "頭がくらくらしてる。"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Jenny:What's going on?  You don't look so hot!~Mike:I have a stomachache.  I think I got some bad food at lunch today.~Jenny:Really?  But we ate at the same place.  How come my stomach is fine?~Mike:You have an iron stomach!  My stomach, on the other hand, isn't as strong!~Jenny:So what should we do now?~Mike:I've got to find a restroom - and quick!  I think I've got the royal runs.",
+        "conversation_translation": "ジェニー：どうしたの？顔色が悪いよ！～マイク：お腹が痛いんだ。今日の昼に悪いものを食べたみたい。～ジェニー：本当に？でも私たち同じ場所で食べたよね。なんで私のお腹は平気なの？～マイク：君は鉄の胃を持ってるんだ！俺の胃はそんなに強くないんだよ。～ジェニー：じゃあ今どうするの？～マイク：トイレを探さなきゃ、急いで！ひどい下痢になってるみたいだ。",
+        "title": "We Have an Iron Stomach.",
+        "title_translation": "鉄の胃を持ってる。"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Mary:Jane you look bushed. Didn't you get a good night's sleep?~Jane:Nope.  John kept me awake all last night.~Mary:Oh!?~Jane:I don't know why.  John rarely snores, but last night he really started sawing some logs!  And it wasn't just any snore.  It was more like a herd of elephants running through the room!~Mary:My grandpa used to do the same thing. Sometimes he would even wake himself up.  He snored so loud!  I always thought it was funny.~Jane:Well, I'm certainly not laughing about John. I don't think I can take another night like that again.~Mary:Have you considered buying some earplugs?~Jane:You bet!  In fact, I'm going to buy some at lunch!",
+        "conversation_translation": "メアリー：ジェーン、すごく疲れてるみたいね。よく眠れなかったの？～ジェーン：ううん。ジョンが一晩中私を起こしてたの。～メアリー：えっ！？～ジェーン：理由はわからないけど、普段ジョンはいびきをかかないのに、昨夜は本当に丸太を切ってるみたいにすごかったの！しかも普通のいびきじゃなくて、まるで象の群れが部屋を走り抜けているみたいだったわ！～メアリー：うちのおじいちゃんも同じことしてたよ。いびきが大きすぎて自分で目を覚ますこともあったくらい。私はいつも面白いと思ってたけどね。～ジェーン：でも、ジョンのことは笑えないわ。もうあんな夜は耐えられない。～メアリー：耳栓を買うこと考えた？～ジェーン：もちろん！お昼に買いに行くつもりよ！",
+        "title": "It Wasn't Just Any Snore!",
+        "title_translation": "ただのいびきじゃなかった！"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Jane:I'm really concerned about Jason.  His snoring is getting worse and worse.~Mary:Maybe he needs to go see a doctor.  I heard that sometimes a bad snore can cause heart failure because not enough oxygen gets to the brain.~Jane:That's what I'm worried about.  Sometimes it even seems like he stops breathing and I have to give him a push to make him start again.~Mary:I remember one of my friends' father had the same problem.  The doctor said it was sleep apnea.  Her dad had to get a pacemaker put in so that his heart wouldn't stop in the middle of the night.~Jane:You're kidding me!  That serious?~Mary:Yes, that serious!~Jane:That's it!  I'm making an appointment for Jason to see the doctor this afternoon.  We can't let this go any longer.",
+        "conversation_translation": "ジェーン：ジェイソンのこと本当に心配なの。彼のいびきがどんどんひどくなってるの。～メアリー：医者に診てもらった方がいいかもね。ひどいいびきは脳に酸素が十分に届かなくて心不全を起こすこともあるって聞いたわ。～ジェーン：それが心配なの。息が止まったように見えることもあって、私が押して再び呼吸させなきゃならないの。～メアリー：私の友達のお父さんも同じ問題があったわ。医者は睡眠時無呼吸症候群だと言ってたの。お父さんは夜中に心臓が止まらないようにペースメーカーを入れなきゃならなかったのよ。～ジェーン：冗談でしょ！そんなに深刻なの？～メアリー：そう、そんなに深刻なの！～ジェーン：もう決めた！今日の午後ジェイソンを病院に連れて行くわ。これ以上放っておけない。",
+        "title": "His Snoring Is Getting Worse and Worse!",
+        "title_translation": "彼のいびきはますますひどくなっている！"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Henk:Why are you wearing your bathing suit around the house?~Sydney:Yesterday I went swimming at your friend's house, and I forgot to put my suncreen on.~Henk:That wasn't very brilliant.~Sydney:Well, the sun didn't feel hot when I got in, but I guess I was wrong.  I got burned to a crisp!~Henk:So why the suit?~Sydney:I can't stand to wear anything else.",
+        "conversation_translation": "ヘンク：なんで家の中で水着を着てるの？～シドニー：昨日あなたの友達の家で泳いだんだけど、日焼け止めを塗り忘れちゃったの。～ヘンク：それはあまり賢くなかったね。～シドニー：入ったときは太陽が暑く感じなかったんだけど、間違いだったみたい。真っ赤に焼けちゃったの！～ヘンク：じゃあ、なんで水着なの？～シドニー：他の服は痛くて着られないのよ。",
+        "title": "I Was Burned to a Crisp!",
+        "title_translation": "真っ赤に日焼けしちゃった！"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Diane:Hey, Judy.  How's it going?~Terri:Not too great!  I'm really stressed out.~Diane:Oh?~Terri:Yeah, I think school is giving me hives.  See?~Diane:Oh, my gosh!  Your arm is full of bumps!~Terri:And that's not the worst of it.  You should see the bumps on my legs.~Diane:What did the doctor say?~Terri:He said to relax and take a break, but we both know I don't have any time for relaxing.~Diane:Yeah, but if you don't, it's only going to get worse.~Terri:I know, I know.... Maybe I can relax after this paper.~Diane:I sure hope so.",
+        "conversation_translation": "ダイアン：やあ、ジュディ。調子どう？～テリー：あまりよくないよ！すごくストレスがたまってるんだ。～ダイアン：そうなの？～テリー：うん、学校のせいでじんましんが出てる気がするんだ。見て！～ダイアン：うわっ！腕がブツブツだらけじゃない！～テリー：それだけじゃないんだ。足のブツブツも見たら驚くよ。～ダイアン：お医者さんは何て言ったの？～テリー：リラックスして休めって。でも時間なんて全然ないんだよ。～ダイアン：でも休まなきゃもっと悪くなるよ。～テリー：わかってる、わかってるよ……このレポートが終わったら休めるかな。～ダイアン：そう願ってるよ。",
+        "title": "I Think School Is Giving Me Hives!",
+        "title_translation": "学校のせいでじんましんが出てる気がする！"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Doctor:Hi, how are you feeling?~Sam:Horrible!  I got a cold five days ago, and now it seems it's getting worse.  The cough has gotten deeper, and I feel like I've been run over by a freight train.~Doctor:Well, let me take a listen to your chest.  Deep breath in...and exhale...Inhale...exhale.~Sam:Hear anything interesting down there?~Doctor:It sounds like you have some congestion in your lungs.  Have you been coughing stuff up?~Sam:A little, but not too much!~Doctor:Well, we need to get that junk loosened up.  Here is a prescription.~Sam:What's it for?~Doctor:It'll help loosen your chest up and calm your cough.  I want you to take it every 4 hours for a week, OK?~Sam:Fine.~Doctor:And don't forget to drink lots of fluids.~Sam:You got it.  Thank you!",
+        "conversation_translation": "医者：こんにちは、体調はどうですか？～サム：最悪です！5日前に風邪をひいたんですが、どんどん悪くなっているみたいです。咳がひどくなって、まるで貨物列車にひかれたような気分です。～医者：では胸の音を聞いてみましょう。大きく息を吸って…吐いて…吸って…吐いて…。～サム：何か面白い音が聞こえましたか？～医者：肺に少し詰まりがあるようですね。痰は出ていますか？～サム：少しだけです。～医者：その詰まりを取らなければなりません。これが処方箋です。～サム：何の薬ですか？～医者：胸の詰まりを和らげて咳を落ち着かせる薬です。1週間、4時間ごとに飲んでください。～サム：わかりました。～医者：水分もたくさん取るのを忘れないでくださいね。～サム：了解です。ありがとうございます！",
+        "title": "I Feel Like I've Been Run Over by a Freight Train.",
+        "title_translation": "貨物列車にひかれたみたいだ。"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Sam:I feel awful!~Alice:You don't look so good, either.  What's wrong?~Sam:My head's stuffed up.  I've got a runny nose, and I'm aching all over.~Alice:Poor guy!  What are you taking?~Sam:Nothing so far.  Do you have anything I can take?~Alice:Let me go look.  In the meantime, drink lots of orange juice....~Sam:(Moan.) OK, but hurry back!~ Doctor:(Later) ~Alice:I'm back, Sam.  How are you doing?~Sam:I still feel like death warmed over.~Alice:Well, I bought you a few things.~Sam:Great!  Bring them on.~Alice:Here's some cough syrup and I brought some cold and flue medicine.  It'll help you sleep.~Sam:Thanks!  I really appreciate it.",
+        "conversation_translation": "サム：最悪な気分だ！～アリス：顔色も良くないわ。どうしたの？～サム：頭が詰まってる感じで、鼻水が出て、体中が痛いんだ。～アリス：かわいそうに！何か薬は飲んでるの？～サム：まだ何も。何か持ってる？～アリス：探してくるわ。その間にオレンジジュースをたくさん飲んで。～サム：（うめき声）わかった、でも早く戻ってきて！～（後で医者が登場）～アリス：戻ったわ、サム。どう？～サム：まだ死にそうな気分だよ。～アリス：いくつか買ってきたわ。～サム：いいね！早く見せて。～アリス：咳止めシロップと風邪薬を持ってきたの。よく眠れるはずよ。～サム：ありがとう！本当に感謝するよ。",
+        "title": "My Head Is Stuffed Up.",
+        "title_translation": "頭が詰まってる感じだ。"
+    },
+    {
+        "category": "Health",
+        "category_translation": "健康",
+        "conversation": "Martha:How did Anneke like her first time at the beach?~Paula:She had a great time.  She really enjoyed making sand castles.~Martha:When did you come home?~Paula:I guess we got home about 3:00.  We spent a good 6 hours there.~Martha:That's a long time!  Did Anneke get burned?~Paula:No, unlike myself, I slathered her in sunscreen.  She didn't even turn down.~Martha:But you look like you got burned to a crisp.~Paula:You got that right!  Next time, I guess I ought to remember to put sunscreen on, too!",
+        "conversation_translation": "マーサ：アンネケは初めての海をどう思った？～ポーラ：とても楽しんでたよ。砂のお城作りが特に気に入ってたみたい。～マーサ：何時に帰ったの？～ポーラ：たぶん3時頃かな。6時間は海で過ごしたよ。～マーサ：それは長い時間だね！アンネケは日焼けしなかった？～ポーラ：私は焼けたけど、彼女には日焼け止めをたっぷり塗ったから大丈夫だったよ。～マーサ：でもあなたは真っ赤に焼けてるじゃない！～ポーラ：その通り！次は自分にも日焼け止めを塗るのを忘れないようにするわ！",
+        "title": "I Slathered Her in Sunscreen!",
+        "title_translation": "彼女に日焼け止めをたっぷり塗った！"
+    },
+    {
+        "category": "Housing",
+        "category_translation": "住宅",
+        "conversation": "Tracey:Don't you have air-conditioning in your apartment?  It's sweltering here!~Alice:Well, there's air-conditioning.  Did you see that window air-conditioner there?  The problem is that the window unit is not powerful enough.~Tracey:I guess not, huh. ~Alice:Well, I'm going to move out anyway.  The new apartment has central air-conditioning.~Tracey:You should've moved out long, long ago.~Alice:Well, I had to wait until the lease expired.  So.... ~Tracey:So how can you stand the heat?~Alice:Well, I open the windows and...and I've got an electric fan here.  It helps a little.~",
+        "conversation_translation": "トレーシー：アパートにエアコンないの？ここ暑すぎるよ！～アリス：あるにはあるのよ。あそこに窓用のエアコン見えるでしょ？でもあのユニットはパワー不足なの。～トレーシー：確かにそうだね。～アリス：でも、もうすぐ引っ越すつもり。新しいアパートにはセントラル空調があるの。～トレーシー：もっと前に引っ越すべきだったのに。～アリス：でも契約が切れるまで待たなきゃいけなかったのよ。～トレーシー：じゃあ、この暑さをどうやってしのいでるの？～アリス：窓を開けて…それに扇風機もあるから、少しはましよ。",
+        "title": "Don't you have air-conditioning in your apartment?",
+        "title_translation": "アパートにエアコンないの？"
+    },
+    {
+        "category": "Housing",
+        "category_translation": "住宅",
+        "conversation": "Victoria:Hello, is Margaret there?~Margaret:This is she.~Victoria:Hello, Margaret, this is the tenant of Apartment 10.  I guess my kitchen sink is clogged up again, and so is the bathtub.~Margaret:Alright, I'll send someone over tomorrow.~Victoria:Uhm, I'd really appreciate it if you would send someone to fix it today.  It's really a bother!  I can't cook, or take a shower.~Margaret:Fine, I'll be up in a few minutes.~Victoria:Thanks.  I appreciate it.",
+        "conversation_translation": "ビクトリア：こんにちは、マーガレットいますか？～マーガレット：私です。～ビクトリア：こんにちは、マーガレット。10号室の住人です。またキッチンの流しが詰まっちゃって、バスタブもなんです。～マーガレット：わかりました。明日、誰かを行かせますね。～ビクトリア：えっと、できれば今日直してもらえると助かります。すごく不便で！料理もできないし、シャワーも浴びられないんです。～マーガレット：わかりました、数分で伺います。～ビクトリア：ありがとう。感謝します。",
+        "title": "My kitchen sink is clogged up again.",
+        "title_translation": "またキッチンの流しが詰まった。"
+    },
+    {
+        "category": "Housing",
+        "category_translation": "住宅",
+        "conversation": "Curtis:So, what's wrong with the drain?~Marie:It's clogged and the water won't go down.~Curtis:Let me take a look. You know why?  It's clogged with hair.  No wonder the water won't go down.~Marie:Well, I guess the people who lived here before didn't clean the bathtub.~Curtis:You're darn right!~Marie:But what should I do now?~Curtis:Don't worry.  I've got some acid here.  It'll help dissolve the hair down there.~Marie:Erh!  It stinks!  Peehew!~Curtis:Now you know you'll have to clean your bathtub every time after you use it.",
+        "conversation_translation": "カーティス：それで、排水口はどうしたの？～マリー：詰まってて水が流れないの。～カーティス：見せてごらん。理由がわかるよ。髪の毛で詰まってるんだ。これじゃ水が流れるわけないね。～マリー：たぶん前に住んでた人たちがバスタブを掃除してなかったんだね。～カーティス：その通り！～マリー：でも、今どうすればいい？～カーティス：心配しないで。ここに薬剤があるから。髪の毛を溶かしてくれるよ。～マリー：うわっ！臭い！くさっ！～カーティス：これでわかったでしょ？これからはバスタブを使うたびに掃除しなきゃいけないんだよ。",
+        "title": "What's wrong with the drain?",
+        "title_translation": "排水口はどうしたの？"
+    },
+    {
+        "category": "Housing",
+        "category_translation": "住宅",
+        "conversation": "Heather:Gosh!  The water faucet is dripping badly again!~Darlean:You're going to have a humongous bill!~Heather:I know.  I've got to get it fixed as soon as possible.~Darlean:Don't you want to get it fixed now?~Heather:I wish I could, but I've got to go now.  I have an appointment in twenty minutes.~Darlean:Well, if you need anything, just let me know.~Heather:Oh, by the way, can you give me a ride?  My car is still in the shop.~Darlean:You sure are having bad luck these days.",
+        "conversation_translation": "ヘザー：ああ！また蛇口がひどく漏れてる！～ダーリーン：水道代がとんでもない額になるわよ！～ヘザー：わかってる。できるだけ早く直さなきゃ。～ダーリーン：今すぐ直したほうがいいんじゃない？～ヘザー：そうしたいけど、今は無理なの。20分後に予定があるのよ。～ダーリーン：じゃあ、何か必要なら教えてね。～ヘザー：そうだ、車を修理に出してるから、送ってもらえる？～ダーリーン：最近ほんとについてないわね。",
+        "title": "My water faucet is dripping badly.",
+        "title_translation": "蛇口がひどく漏れてる。"
+    },
+    {
+        "category": "Housing",
+        "category_translation": "住宅",
+        "conversation": "Grace:Why is there no water coming out when you turn on the faucet?~Henry:Not even a single drop?~Grace:Well, it's just drip, drip, drip.  But that's still not water.~Henry:I don't know.  Since last night water pressure has dropped to little more than a drip.~Grace:Did you call the apartment manager yet?~Henry:Yeah.  I called her this morning and she said she'd send someone over.~Grace:But how long ago was it?~Henry:That was three hours ago!!! ~Grace:That's outrageous!  I just don't understand why they're not on top of this!",
+        "conversation_translation": "グレース：蛇口をひねっても水が出ないのはどうして？～ヘンリー：一滴も？～グレース：いや、ポタポタくらいは出るけど、それじゃ水とは言えないわ。～ヘンリー：わからない。昨夜から水圧がポタポタ程度まで落ちてるんだ。～グレース：アパートの管理人にもう電話した？～ヘンリー：ああ、今朝電話して、誰かを行かせるって言ってたよ。～グレース：でもそれっていつのこと？～ヘンリー：もう3時間前だよ！！！～グレース：ひどい！どうしてすぐ対応してくれないのか理解できない！",
+        "title": "I wonder why there is no one on top of this.",
+        "title_translation": "なぜ誰も対応してくれないのかしら。"
+    },
+    {
+        "category": "Housing",
+        "category_translation": "住宅",
+        "conversation": "Marci:Has Patrick moved out yet?~Karen:Yes.  He moved out last weekend.  He's now living in a very nice quiet neighborhood.~Marci:I wonder if he's paying more for rent now.~Karen:I don't have the faintest idea.  Even so, it's still worth it, isn't it?~Marci:You're right!  I think he's probably very glad to leave that noisy apartment.~Karen:Yes, he is.  I know that for sure.",
+        "conversation_translation": "マーシー：パトリックはもう引っ越した？～カレン：うん。先週末に引っ越したの。今はとても静かでいい場所に住んでるわ。～マーシー：今はもっと家賃を払ってるのかな。～カレン：さあ、全然わからない。でも、それでも価値あることよね？～マーシー：その通り！きっとあのうるさいアパートを出られてすごく嬉しいだろうね。～カレン：そうよ、間違いないわ。",
+        "title": "He moved out last weekend.",
+        "title_translation": "彼は先週末に引っ越した。"
+    },
+    {
+        "category": "Housing",
+        "category_translation": "住宅",
+        "conversation": "Blanca:Hello.  I'm calling about the apartment you advertised.~Manager:Yes.  What kind of apartment are you interested in?~Blanca:I'm interested in a one-bedroom.  Do you have any   available?~Manager:Yes.  I have one.  When do you need it?~Blanca:Sometime around next week.  What can you tell me about this apartment?~Manager:Well, it's a one-bedroom apartment.  The monthly rent is $650, with a $300 security deposit.  You pay electricity only.  Gas and water is included.  Both the heat and stove are gas.  You'll be assigned a sheltered parking space at no extra charge.  And...that's probably it.~Blanca:Sounds good.  May I come over tomorrow to take a look?~Manager:Sure.  What time would you like to come?~Blanca:How about 10 AM?~Manager:Good.  May I have your name, please?~Blanca:My name is Blanca.~Manager:Blanca.  I'll see you tomorrow.",
+        "conversation_translation": "ブランカ：こんにちは。広告に出ていたアパートの件で電話しました。～管理人：はい。どんなタイプのアパートをお探しですか？～ブランカ：ワンベッドルームに興味があります。空きはありますか？～管理人：はい、1つあります。いつ必要ですか？～ブランカ：来週あたりです。このアパートについて教えていただけますか？～管理人：ワンベッドルームで、家賃は月650ドル、保証金は300ドルです。電気代だけ別で、ガスと水道は込みです。暖房とコンロはガスで、屋根付きの駐車スペースが無料でついてきます。それくらいですね。～ブランカ：良さそうですね。明日見に行ってもいいですか？～管理人：もちろん。何時に来ますか？～ブランカ：午前10時はどうですか？～管理人：いいですよ。お名前を教えていただけますか？～ブランカ：ブランカです。～管理人：ブランカさん。では明日お待ちしています。",
+        "title": "Do you have an apartment available?",
+        "title_translation": "アパートは空いていますか？"
+    },
+    {
+        "category": "Housing",
+        "category_translation": "住宅",
+        "conversation": "Liz:Geez!  Your room is like an ice-box!~Terri:No, it's not!  It's just comfortable.~Liz:Yeah, if you're a penguin.  Just look at me!  Even my goose bumps have goose bumps!~Terri:Get outta here!  I think you're exaggerating!~Liz:No, I'm not?  Where's the thermostat?~Terri:By the door, on the wall.~Liz:No wonder I'm cold!  This thing is set at 65?!~Terri:Like I said -- perfect!~Liz:If you live in Alaska.  By the way, where's the shovel?~Terri:Why do you need a shovel?~Liz:So I can dig us out when it starts snowing in here.",
+        "conversation_translation": "リズ：うわ！あなたの部屋、まるで冷蔵庫みたい！～テリ：そんなことないよ！ちょうど快適なだけ。～リズ：ペンギンならね。見てよ！鳥肌に鳥肌が立ってる！～テリ：やめてよ！大げさすぎると思うよ。～リズ：大げさじゃないわ。サーモスタットはどこ？～テリ：ドアの横の壁にあるよ。～リズ：どうりで寒いわけだ！65度（華氏）に設定されてる？！～テリ：言ったでしょ ― 完璧だって！～リズ：アラスカに住んでるならね。ところで、シャベルはどこ？～テリ：なんでシャベルが必要なの？～リズ：ここで雪が降り始めたときに掘り出せるようにね。",
+        "title": "Even goose bumps have goose bumps.",
+        "title_translation": "鳥肌に鳥肌が立つほど寒い"
+    },
+    {
+        "category": "Housing",
+        "category_translation": "住宅",
+        "conversation": "John:It's like an oven in here!  You must be roasting!~Martha:Actually, I'm just comfortable.~John:You've got to be kidding me.  It has to be over 95 degrees in here!~Martha:What can I say?  I'm a cold-blooded person.  The warmer, the better, as far as I'm concerned.~John:Well, can we at least open a window and get some ventilation in here?~Martha:Knock yourself out.~John:Thanks, I will.",
+        "conversation_translation": "ジョン：ここはまるでオーブンだ！暑くてたまらないだろう！～マーサ：実は私はちょうど快適なの。～ジョン：冗談だろう？ここは95度（華氏）以上あるに違いない！～マーサ：何と言えばいいのかしら。私は冷え性なの。暖かければ暖かいほどいいのよ。～ジョン：まあ、せめて窓を開けて換気してもいいかな？～マーサ：どうぞ、ご自由に。～ジョン：ありがとう、そうするよ。",
+        "title": "Can I open the window and get some ventilation?",
+        "title_translation": "窓を開けて換気してもいいですか？"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Cynthia:Hi, Victor, do you think it's possible for us to have a talk sometime today?~Victor:I'd love to, but I've got a pretty tight schedule today.~Cynthia:Oh, what have you got going on?~Victor:Well, I've got to finish a report by ten.  Then I have to drive to the airport to pick up a client of mine at eleven.  After that, I'll have a meeting with him over lunch.  I guess I won't have a break until two o'clock.  But then from three until five, I have to attend a senior staff meeting.~Cynthia:Wow, that's cutting it close.",
+        "conversation_translation": "シンシア：こんにちは、ビクター。今日どこかで話せる時間はあるかしら？～ビクター：話したいけど、今日は予定がぎっしりなんだ。～シンシア：あら、何があるの？～ビクター：10時までにレポートを仕上げないといけないんだ。それから11時に空港までクライアントを迎えに行く。その後はランチをしながら彼と打ち合わせ。休憩できるのは2時までなさそうだ。それから3時から5時までは幹部会議に出席しないといけない。～シンシア：わあ、それはかなりぎりぎりね。",
+        "title": "I've got a pretty tight schedule today!",
+        "title_translation": "今日は予定がぎっしり！"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Cathleen:Let's take a coffee break, shall we?~Yolanda:I wish I could, but I can't.~Cathleen:What keeps you so busy?  You've been sitting there for hours.  You've got to walk around.  You can't just stay on computer forever.~Yolanda:Well, I'm up to my neck in work.  I've got to finish this report.  Sarah needs it by noon.  I don't want to be scolded if I can't finish my work by the deadline.~Cathleen:I understand that, but you'd feel better if you took a break, even for just a short while.",
+        "conversation_translation": "キャスリーン：コーヒーブレイクにしない？～ヨランダ：できればしたいけど、無理なの。～キャスリーン：そんなに忙しいの？何時間もそこに座ってるじゃない。歩き回らないと。ずっとパソコンに向かっているわけにはいかないわ。～ヨランダ：仕事が山積みなのよ。このレポートを仕上げなきゃ。サラが正午までに必要としているの。締め切りに間に合わなければ叱られたくないし。～キャスリーン：わかるけど、少しでも休憩したほうが気分が良くなるわよ。",
+        "title": "I'm up to my neck in work.",
+        "title_translation": "仕事で首が回らないほど忙しい"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Laurie:This was a very good meeting, Liz.~Elizabeth:I'm happy that we've finally cleared up some problems.~Laurie:I think we have.  Is there anything else to discuss?~Elizabeth:No, that's all, I guess.~Laurie:Then, let's call it a day, shall we?~Elizabeth:All right.  See you later, Alligator.~Laurie:After a while, Crocodile.",
+        "conversation_translation": "ローリー：とても良い会議だったわね、リズ。～エリザベス：やっといくつかの問題を解決できて嬉しいわ。～ローリー：そうね。他に話し合うことはある？～エリザベス：いいえ、それで全部だと思うわ。～ローリー：じゃあ、今日はここまでにしましょうか。～エリザベス：そうね。またね、アリゲーター。～ローリー：しばらくしてね、クロコダイル。",
+        "title": "Let's call it a day, shall we?",
+        "title_translation": "今日はここまでにしましょうか？"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Neal:How many orders do we still need to pack, Gail?  We've been packing all day.~Gail:We still have to do about ten more.~Neal:Well, I'm really tired from packing all of the stuff all day.  And it's about time to clock out.~Gail:I know.  (Gail heaves a sigh.)  Maybe we can finish it tomorrow.~Neal:Why not!  These orders are not urgent.  We could do it first thing tomorrow morning.~Gail:All right.  Let's call it quits and go home.~Neal:See, great minds think alike!",
+        "conversation_translation": "ニール：ゲイル、あといくつ荷物を詰めないといけない？一日中詰め続けてるよ。～ゲイル：あと10個くらい残ってるわ。～ニール：もう一日中詰めて疲れたよ。そろそろ終わりの時間だ。～ゲイル：そうね。（ため息をつく）たぶん明日仕上げればいいわね。～ニール：そうだ！この注文は急ぎじゃないし。明日の朝一番にやればいい。～ゲイル：わかったわ。今日はここまでにして帰りましょう。～ニール：ほらね、考えることは一緒だ！",
+        "title": "We could do it first thing in the morning.",
+        "title_translation": "明日の朝一番にやればいい"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Jodie:Aren't you finished with your dinner yet?  You're slow!~Frank:No, I'm not!  I just wanna enjoy life and not have to rush all the time.~Jodie:But they're waiting for us.~Frank:Oh, that's right.  I almost forgot.  I'll be done in a second.  Gee!  Why is life always so rushie-rushie?",
+        "conversation_translation": "ジョディ：まだ夕食終わってないの？遅いわよ！～フランク：いや、そうじゃない！人生を楽しみたいんだよ。いつも急いでばかりじゃなくてね。～ジョディ：でも、みんなが私たちを待っているわよ。～フランク：ああ、そうだった。もう少しで終わるよ。まったく！どうして人生はいつもそんなに急がしいんだろう？",
+        "title": "Why is life always rushie-rushie?",
+        "title_translation": "どうして人生はいつもそんなに急がしいの？"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Shirley:Where are you heading in such a rush?~Judy:I'm heading home.~Shirley:Are we still going to have group study tonight?~Judy:Yeah.  I'm just going to grab something to eat and then I'll come back to school.~Shirley:See you then.~Judy:OK.",
+        "conversation_translation": "シャーリー：そんなに急いでどこに行くの？～ジュディ：家に帰るの。～シャーリー：今夜はまだグループ勉強会やるの？～ジュディ：うん。ちょっと食べるものを取ってから学校に戻るつもり。～シャーリー：じゃあ後でね。～ジュディ：オーケー。",
+        "title": "I'll just grab something to eat.",
+        "title_translation": "ちょっと食べてくるだけ"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Robyn:Has Alan shown up yet?~Scottie:Nope.  I guess something might have come up.~Robyn:I wonder what happened.~Scottie:I don't know.  I hope it's nothing serious.~Robyn:Last week his sister was admitted to the hospital. ~Scottie:Oh?  What happened?~Robyn:His sister had a car accident last week.~Scottie:Is she fine now~Robyn:She's still in a coma.~Scottie:Oh, poor Alan.  His sister is the only he has left since his parents died last year.",
+        "conversation_translation": "ロビン：アランはもう来た？～スコッティ：いや、たぶん何かあったんだろう。～ロビン：何が起きたのかしら。～スコッティ：わからないけど、大したことじゃないといいな。～ロビン：先週、彼の妹さんが入院したのよ。～スコッティ：えっ？どうしたの？～ロビン：先週、妹さんが交通事故に遭ったの。～スコッティ：今は大丈夫なの？～ロビン：まだ昏睡状態よ。～スコッティ：ああ、かわいそうなアラン。両親が去年亡くなってから、妹さんだけが彼に残された家族なのに。",
+        "title": "Something might have come up.",
+        "title_translation": "何かあったのかもしれない"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Arthur:What was that terrible noise?~Rose:I'm sorry.  I just dropped a stack of plates.~Arthur:Were you hurt?~Rose:Fortunately, no.  But I'm terribly sorry.~Arthur:I'm glad you're not hurt, but why did you drop the plates?~Rose:I couldn't help it. The plates were too greasy and slippery.~Arthur:You've got to be careful next time!~Rose:I will.  I will.  Trust me!",
+        "conversation_translation": "アーサー：あのひどい音は何だった？～ローズ：ごめんなさい。お皿を山ほど落としちゃったの。～アーサー：ケガはしなかった？～ローズ：幸い、大丈夫よ。でも本当にごめんなさい。～アーサー：ケガがなくてよかった。でもどうしてお皿を落としたんだい？～ローズ：仕方なかったの。お皿が油っぽくて滑りやすかったのよ。～アーサー：次は気をつけないと！～ローズ：気をつけるわ。本当に。信じて！",
+        "title": "I couldn't help it.",
+        "title_translation": "仕方なかったの"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Sarah:Why isn't Judy at work today?~Barbara:Apparently, something came up and she couldn't come.~Sarah:I wonder what happened.~Barbara:I heard she has a new boyfriend.~Sarah:Really?  When did that happen?~Barbara:I don't know.  I'm only guessing.~Sarah:A-ha, that's how rumors get started.",
+        "conversation_translation": "サラ：どうして今日はジュディが仕事に来てないの？～バーバラ：どうやら何か用事ができて来られなかったみたい。～サラ：何があったのかしら。～バーバラ：新しい彼氏ができたって聞いたわ。～サラ：本当？いつのこと？～バーバラ：わからないわ。ただの推測よ。～サラ：あー、そうやって噂って始まるのよね。",
+        "title": "That's how rumors get started!",
+        "title_translation": "噂はそうやって始まる！"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Kelly:I really don't know how to break this to you, but it's eating me alive!~Josie:Just tell the truth.  I won't take it personally.~Kelly:Well...hum...you're sure you won't lose control of yourself?~Josie:Sometimes it's wise to be direct with people.  Come on, just tell me.  Don't beat about the bush!  Please!~Kelly:Well, since you'd like an honest answer, I'll tell you the truth.~Josie:Alright!  What is that you want to tell me?~Kelly:We've won two free tickets to Hawaii for a seven-day vacation!!!~Josie:What?  Are you serious?  Oh, my gosh!  There will be guys everywhere!",
+        "conversation_translation": "ケリー：本当にどう伝えればいいかわからないの。でもずっと気になって仕方ないの！～ジョシー：正直に言えばいいのよ。気にしないから。～ケリー：えっと…本当に取り乱さない？～ジョシー：人には率直に伝えるのが賢いときもあるわ。さあ、言って。回りくどいのはやめて！お願い！～ケリー：じゃあ、正直に言うわね。～ジョシー：よし！何を言いたいの？～ケリー：ハワイへの7日間旅行の無料チケットを2枚当てたのよ！！！～ジョシー：えっ？本当に？うそでしょ！わぁ、男の人がいっぱいいるわ！",
+        "title": "I don't know how to break this to you!",
+        "title_translation": "どう伝えればいいかわからない！"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "April:Alvin, are you coming with us?~Alvin:I wish I could, but something unexpected has come up.~April:No wonder you look so concerned.  I hope it's nothing serious.~Alvin:Well, it's just something personal.~April:OK.  But if you need help, let me know.~Alvin:Sure.  I will.",
+        "conversation_translation": "エイプリル：アルヴィン、一緒に来る？～アルヴィン：行きたいけど、思いがけないことが起きてね。～エイプリル：心配そうにしてると思ったわ。深刻なことじゃないといいけど。～アルヴィン：まあ、ちょっと個人的なことなんだ。～エイプリル：わかった。でも助けが必要なら言ってね。～アルヴィン：もちろん。そうするよ。",
+        "title": "I hope it's nothing serious.",
+        "title_translation": "深刻なことじゃないといいけど。"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Eddie:Did you know that James went out of business?~Michelle:Really?  When?~Eddie:Last month.~Michelle:That's too bad.  He had owned that business for 15 years.  I wonder what happened.~Eddie:I don't know, but life must be pretty tough for his family now.~Michelle:Well, I think he has some other investments.  Maybe things are not as bad as they are.~Eddie:I hope so.",
+        "conversation_translation": "エディ：ジェームズが店を畳んだの知ってる？～ミシェル：本当？いつ？～エディ：先月さ。～ミシェル：それは残念ね。15年間もその店を経営してたのに。何があったのかしら。～エディ：わからないけど、今は家族にとって大変だろうな。～ミシェル：でも彼、他にも投資してたと思うから、そこまで悪くないかもね。～エディ：そうだといいけど。",
+        "title": "James went out of business recently.",
+        "title_translation": "ジェームズは最近店を畳んだ。"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Gregory:I was locked in last night.~Carol:What do you mean \\\"locked in\\\"?~Gregory:Well, my roommate thought I was out, so when he left he locked the door from outside.~Carol:Then how did you get out?~Gregory:I called my neighbor and gave him the key from inside.~Carol:That's a funny story.  I've never heard about anyone who got locked in rather than locked out.~Gregory:I know.  But things do happen.",
+        "conversation_translation": "グレゴリー：昨夜、家に閉じ込められたんだ。～キャロル：「閉じ込められた」ってどういう意味？～グレゴリー：ルームメイトが僕が外出してると思って、出かけるときに外から鍵をかけちゃったんだ。～キャロル：それでどうやって出たの？～グレゴリー：隣人に電話して、中から鍵を渡したんだ。～キャロル：面白い話ね。締め出されるんじゃなくて閉じ込められるなんて聞いたことないわ。～グレゴリー：そうだね。でもそういうこともあるさ。",
+        "title": "Things do happen.",
+        "title_translation": "そういうこともある。"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Lisa:Ross, you look so worried.  What happened?~Ross:Well, I want to get into that class, but I just found out that there are so many people on the waiting list.  I guess chances are probably slim.~Lisa:I wouldn't say that!  Many people might drop the class and then there will be some openings.  You never know.~Ross:I hope so.~Lisa:Come on, cheer up.  Don't worry so much.  Everything will work out just fine.",
+        "conversation_translation": "リサ：ロス、すごく心配そうね。どうしたの？～ロス：あの授業に入りたいんだけど、待機リストにたくさん人がいることがわかったんだ。だから可能性は低いと思う。～リサ：そうは言えないわ！辞める人もいるかもしれないし、空きが出るかもしれない。何が起こるかわからないものよ。～ロス：そうだといいな。～リサ：元気出して。そんなに心配しないで。きっとすべてうまくいくわ。",
+        "title": "Everything will work out just fine.",
+        "title_translation": "きっとうまくいくわ。"
+    },
+    {
+        "category": "Life",
+        "category_translation": "生活",
+        "conversation": "Jacob:You look so concerned, Dorothy.  What's on your mind?~Dorothy:I'm worried about the interview tomorrow.  It's so important to me.  You know, I've been looking for a job for three months, and this is my first interview.~Jacob:Don't worry too much, Dorothy.  Everything will work out just fine.~Dorothy:I hope so.~Jacob:Come on, Dorothy.  Let's keep our fingers crossed and hope for the best.",
+        "conversation_translation": "ジェイコブ：ドロシー、すごく心配そうだね。何を考えているの？～ドロシー：明日の面接が心配なの。私にとってすごく大事なのよ。3か月間ずっと仕事を探してきたけど、これが初めての面接なの。～ジェイコブ：そんなに心配しすぎないで、ドロシー。きっとうまくいくさ。～ドロシー：そうだといいけど。～ジェイコブ：さあ、ドロシー。指を交差させて幸運を祈ろうよ。",
+        "title": "Let's keep our fingers crossed and hope for the best!",
+        "title_translation": "幸運を祈ろう！"
+    },
+    {
+        "category": "Memory",
+        "category_translation": "記憶",
+        "conversation": "Bernard:Do you know what Herbert's phone number is?~Beatrice:Oh, Herbert's phone number?  I don't have my address book on me....hmmm...I can't think of it right off hand. ~Bernard:That's too BAD!  I've got to find him.  It's urgent!  If I can't find him today, I'll be dead!~Beatrice:Well, why don't you call Michelle?  She has his phone number.~Bernard:I've tried, but no one ANSWERED!~Beatrice:Oh, you are so dead!",
+        "conversation_translation": "バーナード：ハーバートの電話番号知ってる？～ベアトリス：ああ、ハーバートの電話番号？住所録を持ってないのよね…うーん、すぐには思い出せないわ。～バーナード：それは困った！彼を探さないといけないんだ。急用なんだ！今日見つけられなかったら、俺は終わりだ！～ベアトリス：それならミシェルに電話したら？彼女が番号を持ってるわよ。～バーナード：やってみたけど、誰も出なかったんだ！～ベアトリス：あら、本当にまずいわね！",
+        "title": "I can't think of it off hand",
+        "title_translation": "すぐには思い出せないわ"
+    },
+    {
+        "category": "Memory",
+        "category_translation": "記憶",
+        "conversation": "Gerri:I heard you're going to take the written test to get your driver's license?~Butch:Yeah.~Gerri:You've been driving for years.  There shouldn't be any problems.~Butch:But I still need to brush up on traffic rules a little bit.~Gerri:You'll be fine.  Just use your common sense.~Butch:Yeah, but sometimes I sense things wrong.",
+        "conversation_translation": "ジェリー：運転免許を取るために筆記試験を受けるって聞いたよ。～ブッチ：そうだよ。～ジェリー：何年も運転してるんだから問題ないでしょ。～ブッチ：でも、交通ルールをちょっと復習しないとね。～ジェリー：大丈夫よ。常識を使えばいいの。～ブッチ：そうだけど、時々勘違いするんだよな。",
+        "title": "I've got to brush up on it.",
+        "title_translation": "復習しないといけない"
+    },
+    {
+        "category": "Memory",
+        "category_translation": "記憶",
+        "conversation": "Erica:I've sent out the invitations for the dinner party.~Manuel:That's good.  Now what should we do?~Erica:We've got to plan the menu.~Manuel:Oh, that's right.  Do you have anything in mind?~Erica:I think I'm going to make the chicken salad we had at Pompa last time.  Remember I asked the chef for the recipe?~Manuel:Yeah, but did you forget that Linda doesn't eat chicken?~Erica:Linda?  Oh, my Gosh!  I forgot to invite her!  She'll be mad at me. It just slipped my mind.~Manuel:Well, it's not too late yet.  I'll make a phone call.  Don't worry.~Erica:Thanks!  I think I'm getting old!~Manuel:Looks like you ARE!",
+        "conversation_translation": "エリカ：夕食会の招待状を送ったわ。～マニュエル：それはいいね。じゃあ次はどうする？～エリカ：メニューを決めなきゃ。～マニュエル：そうだったね。何か考えてる？～エリカ：この前ポンパで食べたチキンサラダを作ろうと思ってるの。シェフにレシピを聞いたの覚えてる？～マニュエル：ああ、でもリンダがチキンを食べないの忘れたの？～エリカ：リンダ？あら、大変！彼女を招待するのを忘れてた！怒られちゃうわ。すっかり忘れてたの。～マニュエル：でも、まだ遅くないよ。僕が電話するから。心配しないで。～エリカ：ありがとう！年を取ってきたのかも！～マニュエル：その通りみたいだね！",
+        "title": "It slipped my mind.",
+        "title_translation": "うっかり忘れてた"
+    },
+    {
+        "category": "Memory",
+        "category_translation": "記憶",
+        "conversation": "Joan:Why are you so late?~Michael:I couldn't find my car keys.~Joan:What happened?~Michael:I left the keys in the car.~Joan:You locked them in the car?~Michael:That's right.~Joan:How did you get the door open?~Michael:Fortunately, my girlfrind has a spare key.",
+        "conversation_translation": "ジョーン：なんでこんなに遅いの？～マイケル：車の鍵が見つからなかったんだ。～ジョーン：どうしたの？～マイケル：車の中に置きっぱなしにしたんだ。～ジョーン：車の中に閉じ込めちゃったの？～マイケル：そうなんだ。～ジョーン：どうやってドアを開けたの？～マイケル：幸い、彼女がスペアキーを持ってたんだ。",
+        "title": "It slipped my mind.",
+        "title_translation": "うっかり忘れてた"
+    },
+    {
+        "category": "Memory",
+        "category_translation": "記憶",
+        "conversation": "Michael:I was locked out of my apartment last night.~Joan:How did THAT happen?  Did you lose your keys?~Michael:No.  I left the keys in the apartment.~Joan:Then how did you get in?~Michael:I climbed in from the window.~Joan:You what?  Oh, my!  You're brave.~Michael:Thank you.  In fact, I didn't realize I was such a good climber.",
+        "conversation_translation": "マイケル：昨夜アパートの外に締め出されちゃったんだ。～ジョーン：どうしてそんなことに？鍵をなくしたの？～マイケル：いや。部屋の中に置きっぱなしにしたんだ。～ジョーン：じゃあ、どうやって入ったの？～マイケル：窓からよじ登ったんだ。～ジョーン：えっ、何ですって？すごいわね！～マイケル：ありがとう。実は自分がこんなに登るのが得意だとは思わなかったよ。",
+        "title": "I was locked out of my apartment last night.",
+        "title_translation": "昨夜アパートに締め出された"
+    },
+    {
+        "category": "Memory",
+        "category_translation": "記憶",
+        "conversation": "Ray:Let's back up.  Where was I?~Brenda:You were talking about your trip to South Africa.~Ray:Oh, yeah. ~Brenda:I bet you had a great time.~Ray:Yes, we did.  In fact, you know what we encountered?~Brenda:A long-lost friend?~Ray:Come on!  A lion!",
+        "conversation_translation": "レイ：ちょっと戻ろう。僕はどこまで話してた？～ブレンダ：南アフリカ旅行の話をしてたわ。～レイ：ああ、そうだ。～ブレンダ：きっと楽しかったでしょうね。～レイ：うん、そうだったよ。実はね、何に出会ったと思う？～ブレンダ：長い間会ってなかった友達？～レイ：違うよ！ライオンさ！",
+        "title": "Let's back up.  Where was I?",
+        "title_translation": "話を戻そう。どこまで話してたっけ？"
+    },
+    {
+        "category": "Memory",
+        "category_translation": "記憶",
+        "conversation": "Marshall:Do you know what Jason's home phone number is?~Pam:I can't think of it off the top of my head.  You might want to look it up in the phone book.~Marshall:I've checked it already, but it seems that his phone number is UNLISTED.~Pam:Maybe it's under his roommate's name.~Marshall:Well, I guess so.~Pam:Maybe you can call his office and ask his secretary.~Marshall:I've already tried.  She won't tell me.  She says it's private.~Pam:Oh, that's right.  They usually don't release private information over the phone.",
+        "conversation_translation": "マーシャル：ジェイソンの自宅の電話番号知ってる？～パム：すぐには思い出せないわ。電話帳で調べたらどう？～マーシャル：もう調べたけど、彼の番号は非公開みたいだ。～パム：もしかしたらルームメイトの名前で載ってるかも。～マーシャル：まあ、そうかもな。～パム：オフィスに電話して秘書に聞いてみたら？～マーシャル：もう試したよ。でも教えてくれなかった。個人情報だからって。～パム：そうね。普通、電話で個人情報は教えてくれないわ。",
+        "title": "I can't think of it off the top of my head.",
+        "title_translation": "すぐには思い出せないな。"
+    },
+    {
+        "category": "Money",
+        "category_translation": "お金",
+        "conversation": "Cashier:How can I help you, Miss?~Jackie:Could you break a 20 for me?~Cashier:Sure.  How do you want it?~Jackie:Could I have two 5's and the rest in ones?~Cashier:Well, I have some 5's, but I don't have enough 1's.  Are quarters fine with you?~Jackie:Oh, that's even better!  In that case, I won't have to worry about the small change for the laundry.~Cashier:Here you go!~Jackie:Thanks a million!",
+        "conversation_translation": "レジ係：ご用件は何でしょう？～ジャッキー：20ドル札を崩してもらえますか？～レジ係：もちろん。どうしますか？～ジャッキー：5ドル札を2枚と、残りは1ドル札でお願いします。～レジ係：5ドル札はありますが、1ドル札が足りません。25セント硬貨でも大丈夫ですか？～ジャッキー：あ、それならもっといいです！洗濯の小銭に困らなくて済みますから。～レジ係：はい、どうぞ。～ジャッキー：本当にありがとうございます！",
+        "title": "Can you break a twenty-dollar bill?",
+        "title_translation": "20ドル札を崩してもらえますか？"
+    },
+    {
+        "category": "Money",
+        "category_translation": "お金",
+        "conversation": "Michaela:Do you have change for a dollar?~Brian:Yes, you're in luck.  I do have some.  What do you need it for?~Michaela:I need some change for the bus.~Brian:How do you want it?~Michaela:I need a couple of quarters and five dimes.",
+        "conversation_translation": "ミカエラ：1ドル札を崩せますか？～ブライアン：運がいいね。ちょうどあるよ。何に使うの？～ミカエラ：バスに乗るために小銭がいるの。～ブライアン：どういう形がいい？～ミカエラ：25セントを2枚と、10セントを5枚欲しいの。",
+        "title": "Do you have change for a dollar?",
+        "title_translation": "1ドル札を崩せますか？"
+    },
+    {
+        "category": "Money",
+        "category_translation": "お金",
+        "conversation": "Teller:May I help you, Miss?~Tess:Yes.  I have some coins that I need to change.~Teller:That's great!  I can use some change.  I'm almost out. ~Tess:You must be very busy today, I guess.~Teller:We're always busy, but today it's crazy.  Now, how do you want it?",
+        "conversation_translation": "銀行員：ご用件は何でしょう？～テス：はい、小銭を両替したいんです。～銀行員：それは助かります！こちらも小銭がほとんどなくて。～テス：今日はすごく忙しいんですね。～銀行員：いつも忙しいけど、今日は特に大変です。で、どのように両替しますか？",
+        "title": "I have some coins I need to change.",
+        "title_translation": "小銭を両替したいんです。"
+    },
+    {
+        "category": "Money",
+        "category_translation": "お金",
+        "conversation": "Syd:Excuse me?~Cashier:Yes, can I help you?~Syd:Yes.  I need to get some change for the parking meter.  May I have change for a five dollar bill?  I just need five dollars in quarters.~Cashier:I'm sorry, but we're not allowed to give change.~Syd:Oh.  That's too bad!  Is there a change machine somewhere around here?~Cashier:There is one in the shopping mall across the street.~Syd:Well, that's too far.  I may have a ticket when I come back.  What the heck....I'll buy a candy bar.",
+        "conversation_translation": "シド：すみません。～レジ係：はい、いかがしましたか？～シド：駐車メーター用に両替したいんです。5ドル札を崩して、全部25セントにしていただけますか？～レジ係：申し訳ありません。両替はできない決まりなんです。～シド：そうですか。残念！この辺に両替機はありますか？～レジ係：向かいのショッピングモールにありますよ。～シド：それだと遠すぎるな。戻ってきたら駐車違反の切符を切られてるかも。まあいいや…キャンディーバーを買います。",
+        "title": "I need five dollars in quarters.",
+        "title_translation": "5ドルを25セントに両替したい。"
+    },
+    {
+        "category": "Money",
+        "category_translation": "お金",
+        "conversation": "Stella:Oh, that's great!  I just lost another 50 cents in this stupid vending machine.~Bobby:I'm not surprised.  It's always out of order.~Stella:Yeah.  It eats my money relentlessly.~Bobby:OK.  Let me try.  You know what?  Whenever things like this don't work, hit it.  And it'll work.~Stella:You mean, SOMETIMES!~Bobby:(Hitting the vending machine hard.) Bang! Bang! Bang!   Hmmm...it usually works.~Stella:Let's put a sign on it so that the same thing doesn't happen to others.",
+        "conversation_translation": "ステラ：ああ、もう！またこの自販機に50セント飲まれちゃった。～ボビー：驚かないよ。いつも壊れてるし。～ステラ：ほんと、お金を容赦なく食べちゃうんだから。～ボビー：よし、ちょっと試してみるよ。こういうのは叩けば動くんだ。～ステラ：それ、たまにでしょ！～ボビー：（自販機を強く叩きながら）ドン！ドン！ドン！うーん…普段はこれで動くんだけどな。～ステラ：同じことが他の人にも起きないように、張り紙しておこうよ。",
+        "title": "I just lost another 50 cents.",
+        "title_translation": "また50セント失っちゃった。"
+    },
+    {
+        "category": "Money",
+        "category_translation": "お金",
+        "conversation": "Bonnie:Oh, that's great!  The washing machine is out of order again.~Jason:You can try another one.  That one works.~Bonnie:But I'm out of quarters.~Jason:Did you press the coin release lever?~Bonnie:Yeah, but nothing happened.  I've got to complain because this has happened so many times.",
+        "conversation_translation": "ボニー：ああ、まただ！洗濯機が故障してる。～ジェイソン：別のを試してみたら？あっちは動くよ。～ボニー：でも25セント硬貨を切らしてるの。～ジェイソン：コイン返却レバーを押した？～ボニー：うん、でも何も出てこなかった。またかって感じ。もう苦情を言わなきゃ。",
+        "title": "I'm out of quarters.",
+        "title_translation": "25セント硬貨を切らしている。"
+    },
+    {
+        "category": "Money",
+        "category_translation": "お金",
+        "conversation": "Jerry:Can you loan me some money?~Cathy:I'm sorry.  I've already gone through my paycheck for the week.~Jerry:You've gone through all you money so quickly?  I thought you were well-off.~Cathy:Not me!  You know money always burns a hole in my pocket.",
+        "conversation_translation": "ジェリー：お金貸してくれない？～キャシー：ごめんね。今週の給料もう全部使っちゃったの。～ジェリー：そんなに早く全部使ったの？裕福だと思ってたよ。～キャシー：私が？そんなことないわよ！お金はいつもあっという間になくなっちゃうの。",
+        "title": "I thought you were well-off.",
+        "title_translation": "裕福だと思ってたよ。"
+    },
+    {
+        "category": "Money",
+        "category_translation": "お金",
+        "conversation": "Terri:Hey, let's eat out tonight.~Fred:What's the occasion?  You won the lottery?~Terri:No, just wanna relax a little bit.  You don't have to win the lottery to relax, do you?~Fred:Well, I'm kind of broke.~Terri:Really?  It's very nice of you.~Fred:Don't be silly.  I'll take you anywhere you want to go.~Terri:Wonderful!  You know what?  I wish you wanted to relax everyday.~Fred:Dream on!",
+        "conversation_translation": "テリー：ねえ、今夜外食しようよ。～フレッド：何か特別なことでも？宝くじでも当たったの？～テリー：違うよ。ただちょっとリラックスしたいだけ。宝くじに当たらなくてもリラックスできるでしょ？～フレッド：まあ、実は金欠なんだ。～テリー：ほんと？優しいのね。～フレッド：バカ言うなよ。君が行きたいところならどこでも連れて行くよ。～テリー：素敵！毎日リラックスしたいって思ってくれたらいいのに。～フレッド：夢でも見てな！",
+        "title": "I'm kind of broke.",
+        "title_translation": "ちょっと金欠なんだ。"
+    },
+    {
+        "category": "Shopping",
+        "category_translation": "買い物",
+        "conversation": "Clerk:May I help you?~Karen:Yes. Do you have these shoes in size seven?~Clerk:I'm not sure.  If you can't find them on the rack, they may be out of stock.  But let me look in the stockroom.~Karen:Thanks. I'd like to try on a pair if you have them.~Clerk:I'll be right back.",
+        "conversation_translation": "店員：いらっしゃいませ。ご用件は？～カレン：はい、この靴のサイズ7はありますか？～店員：ちょっと分かりません。棚に見つからなければ在庫切れかもしれません。でも倉庫を確認してきますね。～カレン：ありがとうございます。もしあれば試着したいです。～店員：すぐ戻ります。",
+        "title": "Do you have these shoes in size seven?",
+        "title_translation": "この靴のサイズ7はありますか？"
+    },
+    {
+        "category": "Shopping",
+        "category_translation": "買い物",
+        "conversation": "Erwin:How much did you pay for it?~Dennis:200 bucks.~Erwin:200 bucks for a piece of junk like that?  That's a rip-off!~Dennis:What do you mean?~Erwin:It's not worth it.~Dennis:Oh.  I guess I really did get ripped off.",
+        "conversation_translation": "アーウィン：それいくらで買ったんだ？～デニス：200ドル。～アーウィン：あんなガラクタに200ドル？ぼったくりだよ！～デニス：どういう意味だ？～アーウィン：その価値はないってことさ。～デニス：そっか。本当にぼったくられたんだな。",
+        "title": "That's a rip-off!",
+        "title_translation": "ぼったくりだ！"
+    },
+    {
+        "category": "Shopping",
+        "category_translation": "買い物",
+        "conversation": "Sales Assoc:Hi, are you being helped?~Karen:No, I'm not.  I'm interested in some scarves.~Sales Assoc:All our scarves are in this section.  What do you think of this one here?  It's made of silk.~Karen:Hm, it looks nice, but I'd like to have something warm for the winter.~Sales Assoc:Maybe you would like a heavy wool scarf.  How about this one?~Karen:I think that's what I want.  How much is it?~Sales Assoc:It's...seventy-five dollars plus tax.~Karen:It's a little expensive.  Do you think it's possible to get a discount?~Sales Assoc:Hm, since you like it so much, how about a 10 percent discount. That's the best I can offer.~Karen:That's good.  Could you wrap it up for me?~Sales Assoc:Sure.  Is there anything else I can get for you?~Karen:No, that should be it.  Thank you.",
+        "conversation_translation": "販売員：こんにちは、どなたか対応していますか？～カレン：いいえ、してません。スカーフを探しているんです。～販売員：スカーフはこちらのセクションにあります。このシルクのはどうですか？～カレン：素敵だけど、冬用に暖かいものが欲しいわ。～販売員：では厚手のウールのスカーフはいかがですか？これはどうです？～カレン：それがいいと思います。おいくらですか？～販売員：75ドルと消費税です。～カレン：ちょっと高いですね。割引はできますか？～販売員：そうですね、そんなに気に入っていただけたなら10％引きにします。それが精一杯です。～カレン：いいですね。包んでいただけますか？～販売員：もちろんです。他にご用はありますか？～カレン：いいえ、それだけです。ありがとうございます。",
+        "title": "Are you being helped?",
+        "title_translation": "どなたか対応していますか？"
+    },
+    {
+        "category": "Shopping",
+        "category_translation": "買い物",
+        "conversation": "Greg:Hi, can I help you?~Karen:No, thanks. I'm just looking. ~Greg:All right.  If you need any help, just let me know.  My name is Greg.~Karen:Sure. I'll let you know if I need anything. (A king-size mattress attracts Karen.)  Hm, this mattress is very firm.  Jack will probably like it. ~Greg:Did you find something you like?~Karen:Yes, this mattress is very good.  It's pretty firm.  The mattress I'm now sleeping on is saggy.~Greg:You're right.  This is a very good brand.  It doesn't sag easily.  And we offer a life-time warranty, so you don't have to worry about its quality.~Karen:Does it come with a frame?~Greg:Unfortunately, it doesn't.  However, we could offer a ten percent discount on that.  And also, if you're really interested, we have a very good financing plan here.  There's no payment, no interest until next June.~Karen:That's an attractive plan.  I'll think about it.~Greg:Well, you've got to hurry.  This mattress sells pretty well and this promotion ends tomorrow.",
+        "conversation_translation": "グレッグ：こんにちは、何かお探しですか？～カレン：いいえ、ただ見ているだけです。～グレッグ：わかりました。必要なら声をかけてください。私はグレッグです。～カレン：はい、何かあればお願いします。（キングサイズのマットレスに目が留まる）ふむ、このマットレス硬めね。ジャックはきっと気に入るわ。～グレッグ：何か気に入ったものがありましたか？～カレン：ええ、このマットレスとてもいいわ。かなりしっかりしてる。今使ってるマットレスはもうへたってるの。～グレッグ：おっしゃる通り。これはとてもいいブランドで簡単にはへたりません。しかも生涯保証付きなので品質を心配する必要はありません。～カレン：フレームは付いていますか？～グレッグ：残念ながら付きません。ただしフレームは10％引きで提供できます。それに加えて、もし本当にご興味があれば、とても良い分割払いプランもあります。来年6月まで支払いも利息も不要です。～カレン：魅力的なプランですね。考えてみます。～グレッグ：お早めに。よく売れていて、このキャンペーンは明日で終わります。",
+        "title": "I am just browsing.",
+        "title_translation": "ただ見ているだけです。"
+    },
+    {
+        "category": "Shopping",
+        "category_translation": "買い物",
+        "conversation": "Cahsier:Is there anything else you would like to buy?~John:No, thank you.  I guess that's it.  By the way, in case there's a flaw in this CD player, can I return it?~Cahsier:Yes.  But you must return it within 30 days.~John:Is there a charge for that?  I know other stores have a restocking fee.~Cahsier:There will be no charge at all.  However, you must show us the receipt.  (The cashier is handing the receipt over to John for him to sign.)  Could you sign it here, please?~John:Thank you. ~Cahsier:All right.  Keep your receipt.  If something comes up, you can show it to us and we'll give you a refund.~John:Thanks.  I'll put it in a safe place.",
+        "conversation_translation": "レジ係：他にご購入されるものはありますか？～ジョン：いいえ、これで全部です。ところで、このCDプレーヤーに欠陥があった場合、返品できますか？～レジ係：はい。ただし30日以内に返品してください。～ジョン：手数料はかかりますか？他の店だと再入荷手数料がありますよね。～レジ係：一切かかりません。ただしレシートを提示してください。（レシートを差し出してサインを求める）ここにサインしていただけますか？～ジョン：ありがとうございます。～レジ係：はい。レシートは大切に保管してください。何かあれば、それを提示すれば返金いたします。～ジョン：ありがとう。大事にしまっておきます。",
+        "title": "Keep the receipt in the safe place.",
+        "title_translation": "レシートは大切に保管してください。"
+    },
+    {
+        "category": "Shopping",
+        "category_translation": "買い物",
+        "conversation": "Spencer:Doris, do you want to come to the mall with me?~Doris:I'd love to, but I'm broke.~Spencer:So am I, but I like browsing through the music store there.~Doris:Are you sure you only want to browse?~Spencer:Yeah.  I like to listen to new albums there.  I don't have money to buy them, but I can go there and listen.  You know you don't have to pay for listening.~Doris:You're such a dog.",
+        "conversation_translation": "スペンサー：ドリス、一緒にモールに行かない？～ドリス：行きたいけど、金欠なの。～スペンサー：僕もそうだけど、あそこの音楽ショップで見て回るのが好きなんだ。～ドリス：本当に見るだけ？～スペンサー：ああ。新しいアルバムを聴くのが好きなんだ。買うお金はないけど、聴くだけなら無料だろ？～ドリス：ほんと変わり者ね。",
+        "title": "Do you want to come to the mall with me?",
+        "title_translation": "一緒にモールに行かない？"
+    },
+    {
+        "category": "Shopping",
+        "category_translation": "買い物",
+        "conversation": "Chris:Doris, Highland Mall is having a big sale this weekend.  You wanna go?~Doris:Don't feel like it.  I'm broke.~Chris:Well, we can still do some window shopping, can't we?~Doris:Just look around?  Nah, that's boring.~Chris:I'll go myself then.",
+        "conversation_translation": "クリス：ドリス、今週末ハイランドモールで大セールがあるんだ。行かない？～ドリス：気分が乗らないの。お金もないし。～クリス：でもウィンドウショッピングならできるだろ？～ドリス：見て回るだけ？退屈よ。～クリス：じゃあ僕一人で行くよ。",
+        "title": "We can still do window shopping, can't we?",
+        "title_translation": "ウィンドウショッピングならできるだろ？"
+    },
+    {
+        "category": "Shopping",
+        "category_translation": "買い物",
+        "conversation": "Connie:Look at this catalog, John.  I think I want to get this red blouse.~John:Don't you have one like this in blue?~Connie:Yeah, but I don't have a red one.~John:Do you need every color in the rainbow?~Connie:(Looking at her husband dumbly.) Yes!~John:(The husband shakes his head.) Tsk...tsk...women!",
+        "conversation_translation": "コニー：ジョン、このカタログ見て。この赤いブラウスが欲しいの。～ジョン：こんな感じの青いやつ持ってなかった？～コニー：うん、でも赤は持ってないの。～ジョン：虹のすべての色が必要なのか？～コニー：（夫を呆れた顔で見ながら）そうよ！～ジョン：（首を振って）やれやれ…女ってやつは！",
+        "title": "Do you want to have every color in the rainbow?",
+        "title_translation": "虹のすべての色が欲しいのか？"
+    },
+    {
+        "category": "Time",
+        "category_translation": "時間",
+        "conversation": "Rosie:Sorry, I overslept.  My clock didn't go off this morning.~Francie:Again?~Rosie:That's right, even though I did set the alarm last night.~Francie:Your clock never works.  Perhaps you should buy a new one.~Rosie:Well, if it breaks down again tomorrow, I'll definitely buy a new one.~Francie:Maybe by then it'll be too late.~Rosie:What do you mean \"too late\"?~Francie:By that time you'll be fired.",
+        "conversation_translation": "ロージー：ごめん、寝坊しちゃった。今朝目覚ましが鳴らなかったの。～フランシー：また？～ロージー：そうなの。昨夜ちゃんとアラームをセットしたのに。～フランシー：その時計全然役に立たないじゃない。新しいのを買ったほうがいいよ。～ロージー：じゃあ、もし明日また壊れたら絶対新しいのを買うわ。～フランシー：その頃にはもう手遅れかもね。～ロージー：「手遅れ」ってどういう意味？～フランシー：その時にはもうクビになってるわよ。",
+        "title": "My alarm clock didn't go off this morning.",
+        "title_translation": "今朝目覚まし時計が鳴らなかった。"
+    },
+    {
+        "category": "Time",
+        "category_translation": "時間",
+        "conversation": "Kelly:Ha, Jessica, you're late.~Jessica:Yeah.  Each time we switch to daylight savings time, I always forget to put the clock forward an hour.~Kelly:Well, then later this year when we switch back to normal time, don't forget to set the clock back one hour.~Jessica:I just can't win!  Each time we switch back to normal time, I always forget to put the clock back an hour, so I always come to work an hour early.~Kelly:So, just remember.  Spring forward, fall back.~Jessica:So, that'll make it even.",
+        "conversation_translation": "ケリー：はは、ジェシカ、遅刻だよ。～ジェシカ：そうなの。サマータイムに変わるとき、いつも時計を1時間進めるのを忘れちゃうの。～ケリー：じゃあ、今年の後半に標準時間に戻るときは、時計を1時間戻すのを忘れないでね。～ジェシカ：どうしてもうまくいかないの！標準時間に戻るときはいつも時計を1時間戻すのを忘れて、結局1時間早く出社しちゃうの。～ケリー：だから覚えておけばいいんだよ。「春は進めて、秋は戻す」ってね。～ジェシカ：じゃあ、それで帳尻が合うわね。",
+        "title": "I always forget to put my clock back one hour.",
+        "title_translation": "時計を1時間戻すのをいつも忘れる。"
+    },
+    {
+        "category": "Time",
+        "category_translation": "時間",
+        "conversation": "Jane:My watch always gains ten minutes a day.~Mary:That's funny.  My watch always loses ten minutes a day.~Jane:No kidding.~Mary:I'm serious.  Every morning I set my watch by the radio, but it still loses ten minutes.~Jane:You know what you can do?~Mary:Throw it away and buy a new one?~Jane:No, you don't have to.  You only need to put your watch back ten minutes everyday.~Mary:So you put your watch back ten minutes everyday?~Jane:Yeah, that's what I'm doing.~Mary:Why bother?  Just buy a new watch.  It doesn't cost much.  Besides, I just can't put up with this thing any more.",
+        "conversation_translation": "ジェーン：私の時計、毎日10分進むのよ。～メアリー：おかしいわね。私の時計は毎日10分遅れるの。～ジェーン：冗談でしょ。～メアリー：本気よ。毎朝ラジオで合わせてるのに、それでも10分遅れるの。～ジェーン：どうすればいいか分かる？～メアリー：捨てて新しいのを買う？～ジェーン：いや、そうじゃないの。毎日10分戻せばいいだけ。～メアリー：じゃあ、毎日10分戻してるの？～ジェーン：そうよ、そうしてるわ。～メアリー：何でそんな面倒なことするの？新しい時計を買えばいいじゃない。そんなに高くないんだし。それにもうこんな時計には我慢できないわ。",
+        "title": "My watch always gains 10 minutes a day.",
+        "title_translation": "私の時計は毎日10分進む。"
+    },
+    {
+        "category": "Time",
+        "category_translation": "時間",
+        "conversation": "Roselind:Hey, you have so many clocks in your bedroom.~Jamie:Yeah, I want to make sure I can wake up in the morning.~Roselind:But is there something wrong with your clocks?  None of them has the same time.`Jamie:I do it on purpose.  I set this clock ahead ten minutes, and this one back ten minutes, but I always set that one to the right time.~Roselind:So the alarms ring every ten minutes?~Jamie:Yeah.~Roselind:Are your crazy or what?~Jamie:No, I am a heavy sleeper.  I need thunder to wake me up.",
+        "conversation_translation": "ロゼリンド：ねえ、寝室に時計がたくさんあるわね。～ジェイミー：そうなんだ。朝ちゃんと起きられるようにしてるんだよ。～ロゼリンド：でも時計が全部違う時間じゃない？～ジェイミー：わざとなんだ。この時計は10分進めて、あの時計は10分遅らせて、でもあの時計は正確な時間にしてある。～ロゼリンド：じゃあ、アラームが10分ごとに鳴るの？～ジェイミー：そうだよ。～ロゼリンド：頭おかしいんじゃない？～ジェイミー：違うよ。僕は寝起きが悪いんだ。雷みたいな音じゃないと起きられないんだよ。",
+        "title": "I always set my clock ahead ten minutes.",
+        "title_translation": "いつも時計を10分進めてセットする。"
+    },
+    {
+        "category": "Work",
+        "category_translation": "仕事",
+        "conversation": "Cathy:Did you see May today?~Jake:Yes.  But why does she have such a long face?~Cathy:I don't have the foggiest idea.~Jake:I thought she'd be happy.~Cathy:Yeah, especially since she got a promotion recently.~Jake:Maybe it's some kind of personal problem.",
+        "conversation_translation": "キャシー：今日メイに会った？～ジェイク：ああ。でもなんであんな浮かない顔してるんだ？～キャシー：全然見当もつかないわ。～ジェイク：幸せそうにしてると思ったのに。～キャシー：そうね。特に最近昇進したばかりなのに。～ジェイク：もしかしたら個人的な問題かもな。",
+        "title": "Why does she have a long face?",
+        "title_translation": "なんで彼女は浮かない顔をしているの？"
+    },
+    {
+        "category": "Work",
+        "category_translation": "仕事",
+        "conversation": "Eddie:What are the chances of getting a raise this year?~Janice:Chances are slim!~Eddie:Wow!  You haven't gotten a raise for how many years now?~Janice:(Heave a sigh). It's been three years!  The company keeps losing money and they can't afford to give anyone a raise.~Eddie:That's too bad.  Did you ever think of working somewhere else?~Janice:Yeah.  In fact, I have an interview next Monday.~Eddie:Good luck!",
+        "conversation_translation": "エディ：今年昇給の見込みはあるかな？～ジャニス：望みは薄いわ！～エディ：えっ、もう何年も昇給してないの？～ジャニス：（ため息をついて）3年よ！会社は赤字続きで誰にも昇給を出せないの。～エディ：それは残念だね。別の職場を考えたことは？～ジャニス：あるわ。実は来週の月曜に面接があるの。～エディ：頑張って！",
+        "title": "Chances are slim!",
+        "title_translation": "望みは薄い！"
+    },
+    {
+        "category": "Work",
+        "category_translation": "仕事",
+        "conversation": "Terri:Derrick, don't you think you should take a vacation?  Even one or two days would be fine.~Derrick:There's no way.  There's too much work.~Terri:But you look so exhausted.  You need a break!~Derrick:I know.  My chances would be better if they would hire more people.~Terri:They won't hire more people?~Derrick:No.  They always want to keep the cost down.  I am really overwhelmed with a heavy workload. ~Terri:Maybe you should talk to the manager.~Derrick:Yes.  I'm going to bring this up in tomorrow's meeting.",
+        "conversation_translation": "テリー：デリック、休暇を取ったほうがいいんじゃない？1日か2日でもいいから。～デリック：無理だよ。仕事が多すぎる。～テリー：でもすごく疲れてるよ。休養が必要だよ！～デリック：分かってる。もっと人を雇ってくれれば助かるんだけど。～テリー：人を雇わないの？～デリック：いや。コストを抑えたいらしい。本当に仕事が多すぎて参ってるんだ。～テリー：マネージャーに相談したほうがいいんじゃない？～デリック：そうだな。明日の会議で言ってみるよ。",
+        "title": "I'm overwhelmed with a heavy workload.",
+        "title_translation": "仕事が多すぎて参っている。"
+    },
+    {
+        "category": "Work",
+        "category_translation": "仕事",
+        "conversation": "Jack:You type fast!~Mary:Yup. I'm not boasting, but I type 80 words per minute.~Jack:Really? I wish I could type that fast. I use the \"hunt and peck\" method. You know, I look for the key I want and then I hit it with one finger. I just can't seem to get my hands to move any faster than that.~Mary:Well, there's no trick to typing quickly. You just need to practice. Once you get the hang of it, you'll find that it's really not as difficult as you think. In fact, it just becomes instinct to know what to do at the keyboard. But if you don't practice, it will never come naturally.",
+        "conversation_translation": "ジャック：タイピング速いね！～メアリー：そうよ。自慢じゃないけど、1分間に80語打てるの。～ジャック：本当に？僕もそんなに速く打てたらいいのに。僕は「一本指打法」なんだ。つまり、欲しいキーを探して指一本で打つんだよ。どうしてもそれ以上速く動かせないんだ。～メアリー：速く打つコツなんてないわ。ただ練習あるのみよ。コツをつかめば、思っているほど難しくないってわかるはず。実際、自然に体が覚えるの。でも練習しなければ、絶対に自然にはならないわ。",
+        "title": "Once you get the hang of it....",
+        "title_translation": "コツをつかめば……"
+    },
+    {
+        "category": "Work",
+        "category_translation": "仕事",
+        "conversation": "Reese:So, how was your interview?~Kent:I haven't gone to the interview yet.  It's tomorrow.  I'm so nervous.~Reese:Don't worry.  You should do fine.  You have the experience.~Kent:I hope so.~Reese:Remember, they want someone who works well with people.  You've got to show them how easy-going and personable you are!~Kent:Thanks.  I'll keep that in mind.",
+        "conversation_translation": "リース：それで、面接はどうだった？～ケント：まだ行ってないんだ。明日なんだよ。すごく緊張してる。～リース：心配ないさ。君なら大丈夫だよ。経験もあるし。～ケント：そうだといいけど。～リース：いいかい、相手は人付き合いがうまい人を求めているんだ。君が気さくで人当たりのいい人間だってことを見せるんだ！～ケント：ありがとう。心に留めておくよ。",
+        "title": "I'll keep that in mind.",
+        "title_translation": "心に留めておくよ。"
+    },
+    {
+        "category": "Work",
+        "category_translation": "仕事",
+        "conversation": "Raelene:Hi, Burt.  I heard you're looking for a new job.~Burt:Yeah.  I just had an interview yesterday.~Raelene:Oh.  How did it go?~Burt:I think I did well.  They said they would make a decision by this Friday.~Raelene:This Friday?  Looks like they want to hire the person as quickly as possible.~Burt:Yeah!  I think so, too.~Raelene:What are your chances of getting that job?~Burt:I believe I have a very good chance.  The director seems to like me.~Raelene:Well, good luck, then.~Burt:Thanks.  I hope it helps.",
+        "conversation_translation": "ラエレーン：やあ、バート。新しい仕事探してるって聞いたわ。～バート：そうなんだ。昨日面接を受けたよ。～ラエレーン：そうなの。どうだった？～バート：うまくいったと思うよ。金曜日までに決定するって言ってた。～ラエレーン：今週の金曜？すぐにでも人を雇いたいってことね。～バート：そうだね、僕もそう思う。～ラエレーン：その仕事に就ける可能性は？～バート：かなり可能性が高いと思う。ディレクターは僕を気に入ってくれたみたいだ。～ラエレーン：じゃあ頑張って。～バート：ありがとう。そうなるといいな。",
+        "title": "I believe I have a good chance.",
+        "title_translation": "かなり可能性が高いと思う。"
+    },
+    {
+        "category": "Weather",
+        "category_translation": "天気",
+        "conversation": "Gary:Oh, my!  It's really hot!  I've never seen such scorching weather in my life!~Sharon:Tell me about it.  It's like the whole world is broiling.~Gary:Oh, look at the thermometer!  The temperature has hit 98! ~Sharon:I hope it's not gonna break into three digits!~Gary:But it's already awfully close! ~Sharon:Well, I just hope it'll level off.~Gary:I guess we can't do anything until after dark then.~Sharon:I guess so.  What else can we do?  You can't stay in the heat for long!",
+        "conversation_translation": "ゲイリー：うわぁ！本当に暑いな！こんな猛暑は生まれて初めてだ！～シャロン：本当よね。まるで世界中が焼けてるみたい。～ゲイリー：あ、温度計を見て！気温が98度だ！～シャロン：3桁にならなきゃいいけど！～ゲイリー：でももうすごく近いぞ！～シャロン：まあ、これ以上上がらないといいけど。～ゲイリー：じゃあ日が暮れるまではどうしようもないな。～シャロン：そうね。他に何ができる？この暑さじゃ長く外にいられないわ！",
+        "title": "Oh, my! The whole world is broiling.",
+        "title_translation": "うわぁ！世界中が焼けてるみたい。"
+    },
+    {
+        "category": "Weather",
+        "category_translation": "天気",
+        "conversation": "Winnie:Oh, man!  Nobody can stand this kind of scorching heat. ~Marc:Tell me about it!  You can't even stay in the sun for five minutes.~Winnie:You'll be scorched like a shrivelled plant.~Marc:Or like a shrivelled old man!~Winnie:I like your humor, Marc.  Anyway, I guess this afternoon there's nothing we can do but stay home.~Marc:I guess so.  I don't want to be taken to the hospital for heat exhaustion or sunstroke or something. ~Winnie:You want my advice?  Drink a lot of liquids and spare yourself the worst of the heat!~Marc:Yeah, you're right.  Got to drink a lot of fluids.  Do we have any beer?~Winnie:Yes!  Do you want Coors Light or Corona? ~Marc:Do you have any Bud or Michelobe?",
+        "conversation_translation": "ウィニー：もうだめ！こんな猛暑、誰も耐えられないわ。～マーク：本当だよ！5分も日向にいられない。～ウィニー：しおれた植物みたいに焼けちゃう。～マーク：あるいはしわくちゃの老人みたいにね！～ウィニー：マーク、そのユーモア好きよ。とにかく、午後は家にいるしかないわね。～マーク：そうだな。熱中症とか日射病で病院に運ばれたくないし。～ウィニー：アドバイスするわ。水分をたくさん取って、暑さをしのぎなさい！～マーク：そうだな。水分をたくさん取らないとな。ビールある？～ウィニー：あるわよ！クアーズライトとコロナ、どっちにする？～マーク：バドワイザーかミケロブはないの？",
+        "title": "You've got to drink a lot of fluids.",
+        "title_translation": "水分をたくさん取らなきゃ。"
+    },
+    {
+        "category": "Weather",
+        "category_translation": "天気",
+        "conversation": "Chris:Oh, the heat is unbearable!  Didn't you turn on the air-conditioner?~Paul:The heat has blown our air-conditioner on the roof!~Chris:What the...!  So, what are we going to do?~Paul:We've got to have it fixed as soon as possible.  I've called someone and they're on the way.~Chris:Thank God! ~Paul:Here you go.  You can use the electric fan here.  At least you can catch a breeze.",
+        "conversation_translation": "クリス：ああ、暑さに耐えられない！エアコンつけなかったの？～ポール：暑さで屋上のエアコンが壊れたんだ！～クリス：なんだって…！じゃあどうするんだ？～ポール：できるだけ早く修理しないと。業者に電話したらもう来るところだ。～クリス：助かった！～ポール：ほら、この扇風機を使って。少なくとも風は感じられるだろ。",
+        "title": "Oh, the heat is unbearable!",
+        "title_translation": "暑さに耐えられない！"
+    },
+    {
+        "category": "Weather",
+        "category_translation": "天気",
+        "conversation": "Nancy:What's going on?  When you turn on the faucet, it's just drip, drip, drip.~Sandra:Well, it's the second day in a row.  I guess the pipes are frozen again.~Nancy:Really? ~Sandra:Yeah.  Yesterday the water even went off without a warning.  I couldn't take a shower, nor could I wash the dishes.~Nancy:Well, I'm wondering why the maanger isn't on top of this!",
+        "conversation_translation": "ナンシー：どうなってるの？蛇口をひねってもポタポタしか出ないじゃない。～サンドラ：もう2日連続よ。たぶんまた配管が凍ったんだわ。～ナンシー：本当？～サンドラ：ええ。昨日なんて予告なしで断水したのよ。シャワーも浴びられなかったし、皿も洗えなかった。～ナンシー：管理人はなんでちゃんと対応してないのかしら！",
+        "title": "The water just goes off without a warning.",
+        "title_translation": "水が予告なしに止まる。"
+    },
+    {
+        "category": "Weather",
+        "category_translation": "天気",
+        "conversation": "Stephen:Wow, you look like a drowned rat!  Didn't you know there's a thunderstorm today?~Justine:I knew there would be a shower, but I didn't realize it would rain cats and dogs today.~Stephen:Well, you'd better take a hot shower right now, or you'll catch a cold.~Justine:I know.  I don't want to get sick, especially during finals week.",
+        "conversation_translation": "スティーブン：わぁ、ずぶ濡れじゃないか！今日雷雨があるって知らなかったの？～ジャスティン：にわか雨があるのは知ってたけど、こんな土砂降りになるとは思わなかったの。～スティーブン：早く熱いシャワーを浴びたほうがいいぞ、風邪をひくぞ。～ジャスティン：わかってる。期末試験の週に病気になるなんて嫌だもの。",
+        "title": "It's raining cats and dogs today.",
+        "title_translation": "今日は土砂降りだ。"
+    },
+    {
+        "category": "Weather",
+        "category_translation": "天気",
+        "conversation": "Sally:I think a drought has set in.  It hasn't rained a drop for months.~Ethan:I think so, too, but didn't it rain last month?~Sally:It did rain last month, but the rainfall was only half the monthly average.~Ethan:Oh.  That bad?! ~Sally:That's right.  It's really bad.  I'm really concerned though not panicked yet. ~Ethan:I don't blame you.  The pastures have browned out even before the summer hasn't arrived.~Sally:Yeah, and the soil has been baked so hard that the plow can't even break the soil. ~Ethan:Looks like it's going to be an ongoing thing that would get worse each day.~Sally:Yeah.  If it doesn't rain, it's going to get critical.",
+        "conversation_translation": "サリー：干ばつが始まったと思うの。何か月も雨が一滴も降ってないわ。～イーサン：僕もそう思うけど、先月雨が降らなかったっけ？～サリー：先月は降ったけど、降水量は月平均の半分しかなかったのよ。～イーサン：えっ、そんなにひどいの？！～サリー：そうなの。本当に深刻よ。でもまだパニックにはなってないけど。～イーサン：それも無理ないね。夏が来る前に牧草地はすでに枯れてしまってる。～サリー：そうなの。それに土がカチカチに固まっていて、鋤でも壊せないの。～イーサン：これは日ごとに悪化しそうだね。～サリー：うん。雨が降らなければ本当に危機的になるわ。",
+        "title": "It hasn't rained a drop for months.",
+        "title_translation": "何か月も雨が一滴も降っていない。"
+    },
+    {
+        "category": "Vacation",
+        "category_translation": "休暇",
+        "conversation": "Tina:I'm so glad the weekend's finally here.~Lewis:Me too.  Imagine.  It's a long weekend.  We've got three days in a row.~Tina:So, where're you going?~Lewis:I don't have any plans yet.  I'll just play it by ear.  How about you?~Tina:We're going to go hiking and camping in the mountains.~Lewis:That sounds exciting!~Tina:Wanna join us?~Lewis:Hm, let me think about it.  I'll let you know later.",
+        "conversation_translation": "ティナ：やっと週末が来て嬉しいわ。～ルイス：僕もだよ。しかも今回は連休なんだ。3日間も続けて休みだよ。～ティナ：じゃあ、どこに行くの？～ルイス：まだ予定はないよ。行き当たりばったりで決めるつもり。君は？～ティナ：山にハイキングとキャンプに行くの。～ルイス：それは楽しそうだね！～ティナ：一緒に行かない？～ルイス：うーん、ちょっと考えてみるよ。後で知らせるね。",
+        "title": "We've got three days in a row!",
+        "title_translation": "3日間の連休だ！"
+    },
+    {
+        "category": "Vacation",
+        "category_translation": "休暇",
+        "conversation": "Niles:When are you gonna take your vacation?~Gloria:I was planning to take it at the end of this month.  My husband and I haven't had a chance to have a vacation over the past three years.  So we are planning to travel to Europe this time.  Why!  Has something come up?~Niles:Well, would it be too inconvenient for you to wait until next month?~Gloria:Hm....not really.  I guess I can put it off until next month, but I've got to talk about it with my husband. ~Niles:Thank you very much.  I really appreciate your being so flexible.",
+        "conversation_translation": "ナイルズ：いつ休暇を取るつもり？～グロリア：今月の終わりに取るつもりだったの。夫と私はこの3年間休暇を取る機会がなかったから、今回はヨーロッパに旅行する予定なのよ。どうして？何かあったの？～ナイルズ：えっと、来月まで待ってもらうと不便かな？～グロリア：うーん……そうでもないわ。来月まで延ばせると思うけど、夫と相談しなきゃ。～ナイルズ：本当にありがとう。柔軟に対応してくれて感謝するよ。",
+        "title": "I guess I can put if off until next month.",
+        "title_translation": "来月まで延ばせると思うわ。"
+    },
+    {
+        "category": "Vacation",
+        "category_translation": "休暇",
+        "conversation": "Jack:Do you have school today?~Gerri:I'm through for the summer.~Jack:Really?  So what do you plan to do?~Gerri:Well, I don't know what I'm going to do with my free time yet.~Jack:Are you planning to take any summer classes?~Gerri:No.  I think I'll just relax.  I really need a break.  A long break!",
+        "conversation_translation": "ジャック：今日は学校あるの？～ジェリ：夏休みに入ったの。～ジャック：本当？じゃあ何をするつもり？～ジェリ：まだ自由な時間をどう使うか決めてないの。～ジャック：夏期講習を取る予定は？～ジェリ：ううん。ただゆっくりしたいの。本当に休みが必要なの。長い休みが！",
+        "title": "I'm through for the summer.",
+        "title_translation": "夏休みに入ったの。"
+    },
+    {
+        "category": "Vacation",
+        "category_translation": "休暇",
+        "conversation": "Brenda:Did you say you're going to take a vacation next week?~Lorena:Yes.  I'm going to San Francisco for a couple of days.~Brenda:I really envy you.  I wish I could get away for a while.~Lorena:Can't you take a vacation this summer?~Brenda:Not until the end of August.",
+        "conversation_translation": "ブレンダ：来週休暇を取るって言ってた？～ロレーナ：そうよ。サンフランシスコに数日行くの。～ブレンダ：本当に羨ましいわ。私も少しでもどこかに行けたらいいのに。～ロレーナ：この夏、休暇は取れないの？～ブレンダ：8月の終わりまで無理なの。",
+        "title": "I wish I could get away for a while.",
+        "title_translation": "少しでもどこかに行けたらいいのに。"
+    },
+    {
+        "category": "Vacation",
+        "category_translation": "休暇",
+        "conversation": "Leo:How was your vacation, Cath?~Cathy:Oh, it was great!  I had a great time on the beach!~Leo:No wonder you're so dark!~Cathy:Yeah.  I had a lot of time to work on my tan.~Leo:What else did you do?~Cathy:Nothing really.  It was good just to relax.~Leo:I wish I could get away like that.  It sounds wonderful!~Cathy:Trust me -- it was!",
+        "conversation_translation": "レオ：休暇はどうだった、キャス？～キャシー：すごく良かった！ビーチでとても楽しかったわ！～レオ：だからそんなに日焼けしてるんだね！～キャシー：そうなの。たくさん日焼けできる時間があったの。～レオ：他には何をしたの？～キャシー：特に何も。リラックスするだけで良かったの。～レオ：僕もそんなふうに過ごせたらいいのに。素敵だね！～キャシー：本当にそうよ！",
+        "title": "It's good to relax.",
+        "title_translation": "リラックスするのはいいことだ。"
+    },
+    {
+        "category": "Traveling",
+        "category_translation": "旅行",
+        "conversation": "Tom:Can you do me a favor?~Jamie:Sure.  What is it?~Tom:Can you keep an eye on my bag, please? Nature's calling.~Jamie:Sure.  Will you be long?~Tom:No.  I just want to use the bathroom. ~Jamie:Go ahead.  It'll be safe with me.",
+        "conversation_translation": "トム：ちょっとお願いしてもいい？～ジェイミー：もちろん。何？～トム：僕のカバンを見ててもらえる？トイレに行きたいんだ。～ジェイミー：いいよ。長くかかる？～トム：いや、ちょっとトイレに行くだけだよ。～ジェイミー：行ってきなよ。私が見てるから安心して。",
+        "title": "Can you keep an eye on my bag?",
+        "title_translation": "僕のカバンを見ててもらえる？"
+    },
+    {
+        "category": "Traveling",
+        "category_translation": "旅行",
+        "conversation": "Tom:Where is my backpack?~Mary:I don't know.  Where did you leave it?~Tom:I just put it on the chair a while ago, but now it's gone. ~Mary:Are you sure?~Tom:Of course, I'm sure!  I bet someone stole it. ~Mary:Well, you should've kept an eye on it.",
+        "conversation_translation": "トム：僕のリュックどこ？～メアリー：知らないわ。どこに置いたの？～トム：さっき椅子に置いたんだけど、今なくなってるんだ。～メアリー：本当に？～トム：もちろん本当だよ！誰かに盗まれたに違いない！～メアリー：もっと気を付けて見ておくべきだったのよ。",
+        "title": "You should've kept an eye on it.",
+        "title_translation": "もっと気を付けて見ておくべきだったのに。"
+    },
+    {
+        "category": "Traveling",
+        "category_translation": "旅行",
+        "conversation": "Jill:Excuse me, can you do me a favor?~Stranger:Sure.  What can I do for you?~Jill:Can you save my place for me, please?  Nature's calling.~Stranger:Sure.  But hurry.  The line is moving fast.~Jill:Thanks.  It won't be long.  I'll be right back.",
+        "conversation_translation": "ジル：すみません、お願いしてもいいですか？～知らない人：もちろん。何をすればいい？～ジル：私の順番を取っておいてくれますか？トイレに行きたいんです。～知らない人：いいですよ。でも急いでね。列がすぐ進んでいますから。～ジル：ありがとうございます。すぐ戻ります。",
+        "title": "Can you save my place, please?",
+        "title_translation": "私の順番を取っておいてくれますか？"
+    },
+    {
+        "category": "Traveling",
+        "category_translation": "旅行",
+        "conversation": "Gerald:Excuse me.  Is this seat taken?~Manager:(Put off the headphones.)  I'm sorry.  What did you just say?~Gerald:Oh.  Will someone be using this seat?~Manager:No.  You can take it.~Gerald:Would you mind moving over one seat so my wife and I can sit together?~Manager:No, not at all.",
+        "conversation_translation": "ジェラルド：すみません。この席は空いてますか？～マネージャー：（ヘッドホンを外して）すみません、今なんて言いました？～ジェラルド：ああ、この席を誰か使いますか？～マネージャー：いいえ。座っていいですよ。～ジェラルド：一つ席をずれていただけますか？妻と一緒に座りたいんです。～マネージャー：もちろん、構いませんよ。",
+        "title": "Is this seat taken?",
+        "title_translation": "この席は空いてますか？"
+    },
+    {
+        "category": "Traveling",
+        "category_translation": "旅行",
+        "conversation": "Gabby:Hi, Harry, it's great to see you again.  I heard you've traveled a lot recently.~Harry:Yeah.  In the past three months I traveled to many countries in Africa.~Gabby:Well, I really envy you!  Did you pet a hyena?  (Harry is dumbfounded.)  I'm just kidding.~Harry:Well, I didn't pet a hyena, but I was once chased by a rhino, and it was fun!~Gabby:Are you serious?~Harry:No.  I'm just kidding.~Gabby:You really scared the heck out of me.~Harry:(Laughing....)  Well, I really missed the comforts of home.  Now I just want to take a break.  A long break!",
+        "conversation_translation": "ギャビー：やあハリー、また会えて嬉しいわ。最近たくさん旅行したんだってね。～ハリー：そうなんだ。この3か月でアフリカの多くの国を旅したよ。～ギャビー：本当に羨ましいわ！ハイエナに触った？（ハリーは呆然とする）冗談よ。～ハリー：いや、ハイエナには触らなかったけど、サイに追いかけられたことがあるんだ。楽しかったよ！～ギャビー：本当に？～ハリー：いや、冗談だよ。～ギャビー：本気で驚かせたじゃない！～ハリー：（笑いながら）まあ、やっぱり家の快適さが恋しかったんだ。今は休みたいよ。長い休みをね！",
+        "title": "I really miss the comforts of home.",
+        "title_translation": "やっぱり家の快適さが恋しい。"
+    },
+    {
+        "category": "Traveling",
+        "category_translation": "旅行",
+        "conversation": "Frank:I heard you took a trip to Mexico.~Jackie:Yes, I did.~Frank:How did you like it?~Jackie:Oh, I got sick and tired of hotels and hotel food.~Frank:I can imagine.  East or west, home is the best.",
+        "conversation_translation": "フランク：メキシコに旅行に行ったって聞いたよ。～ジャッキー：ええ、そうよ。～フランク：どうだった？～ジャッキー：もうホテルとホテルの食事にうんざりしたわ。～フランク：想像できるよ。東でも西でも、やっぱり家が一番だね。",
+        "title": "East or west, home is the best.",
+        "title_translation": "東でも西でも、やっぱり家が一番。"
+    },
+    {
+        "category": "Traveling",
+        "category_translation": "旅行",
+        "conversation": "Louise:Did you forget to check the gas?~Larry:Oh, I'm low on gas.  I've got to refill the tank.~Louise:Well, there's a gas station across the street and it's not too expensive.  About $1.19 per gallon for the mid-grade.~Larry:Let's try that.  (Larry parks the car by the gas pump.)  Oh, that's great!  The pump is out of order.~Louise:Looks like we've been followed by bad luck all day long.~Larry:Oh, come on.  Let's try another pump.  No big deal!",
+        "conversation_translation": "ルイーズ：ガソリン確認するの忘れた？～ラリー：あ、ガソリンが少ないな。タンクを満タンにしないと。～ルイーズ：通りの向こうにガソリンスタンドがあるわ。そんなに高くないし、中グレードで1ガロン1.19ドルくらいよ。～ラリー：それにしよう。（ラリーが車をポンプの前に停める）あれ、なんてこった！ポンプが故障してる。～ルイーズ：今日は一日中ツイてないみたいね。～ラリー：まあいいさ。別のポンプを試そう。大したことじゃない！",
+        "title": "I'm low on gas.",
+        "title_translation": "ガソリンが少ない。"
+    },
+    {
+        "category": "Traveling",
+        "category_translation": "旅行",
+        "conversation": "Clerk:Good evening, sir.  May I help you?~Roy:Yes.  What kind of rooms do you have?~Clerk:How large is your party?~Roy:Three.  Two adults and one child.~Clerk:Let's see. We have a room with two double beds.  How many nights?~Roy:Just one.  We're only staying overnight.",
+        "conversation_translation": "受付：こんばんは。ご用件は？～ロイ：はい。どんな部屋がありますか？～受付：ご一行は何名ですか？～ロイ：3人です。大人2人と子供1人。～受付：そうですね。ダブルベッドが2つある部屋があります。宿泊は何泊ですか？～ロイ：1泊だけです。一晩だけ泊まります。",
+        "title": "We're only staying overnight.",
+        "title_translation": "一晩だけ泊まります。"
+    }
+]
