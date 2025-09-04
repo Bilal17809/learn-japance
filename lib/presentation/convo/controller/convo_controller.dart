@@ -1,75 +1,25 @@
 import 'package:get/get.dart';
-import 'package:learn_japan/data/models/models.dart';
-import '/core/common/app_exceptions.dart';
+import '/data/models/models.dart';
 import '/core/services/services.dart';
 
 class ConvoController extends GetxController {
-  final TranslationService _translationService;
   final TtsService _ttsService;
 
-  ConvoController({
-    required TranslationService translationService,
-    required TtsService ttsService,
-  }) : _translationService = translationService,
-       _ttsService = ttsService;
+  ConvoController({required TtsService ttsService}) : _ttsService = ttsService;
 
-  var titles = <String>[].obs;
-  var conversations = <String>[].obs;
-  final RxMap<String, String> translationCache = <String, String>{}.obs;
-  final RxMap<String, bool> translatingStates = <String, bool>{}.obs;
-  var showTranslation = false.obs;
-  var translatedCategory = ''.obs;
   final targetLanguage = Rx<LanguageModel>(
     LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
   );
 
-  void setArgs({
-    required List<String> titles,
-    required List<String> conversations,
-  }) {
-    this.titles.assignAll(titles);
-    this.conversations.assignAll(conversations);
-  }
-
-  Future<void> translateText(String key, String text) async {
-    if (translationCache.containsKey(key)) return;
-
-    translatingStates[key] = true;
-    try {
-      final translation = await _translationService.translateText(
-        text,
-        targetLanguage: 'ja',
-      );
-      translationCache[key] = translation;
-    } catch (e) {
-      translationCache[key] = "${AppExceptions().failToTranslate}: $e";
-    } finally {
-      translatingStates[key] = false;
-    }
-  }
-
-  Future<void> translateConversation(int index) async {
-    final titleKey = "title_$index";
-    final convoKey = "convo_$index";
-
-    await Future.wait([
-      translateText(titleKey, titles[index]),
-      translateText(convoKey, conversations[index]),
-    ]);
-  }
-
-  void toggleTranslationVisibility() {
-    showTranslation.value = !showTranslation.value;
-  }
+  var showConvoMap = <int, bool>{}.obs;
 
   void onSpeak(String text) {
     _ttsService.speak(text, targetLanguage.value);
   }
 
-  void clearTranslation(int index) {
-    final titleKey = "title_$index";
-    final convoKey = "convo_$index";
-    translationCache.remove(titleKey);
-    translationCache.remove(convoKey);
+  void toggleConvo(int index) {
+    showConvoMap[index] = !(showConvoMap[index] ?? false);
   }
+
+  bool isExpanded(int index) => showConvoMap[index] ?? false;
 }

@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '/presentation/convo/view/widgets/convo_field.dart';
 import '../../controller/convo_controller.dart';
 import '/core/constants/constants.dart';
+import 'convo_field.dart';
 
 class ConvoCard extends StatelessWidget {
-  final String title;
-  final String conversation;
-  final ConvoController controller;
   final int index;
+  final String title;
+  final String titleTrans;
+  final String conversation;
+  final String convoTrans;
+  final ConvoController controller;
 
   const ConvoCard({
     super.key,
-    required this.title,
-    required this.conversation,
-    required this.controller,
     required this.index,
+    required this.title,
+    required this.titleTrans,
+    required this.conversation,
+    required this.convoTrans,
+    required this.controller,
   });
 
   @override
@@ -28,25 +32,25 @@ class ConvoCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ConvoField(
+              index: index,
               label: "Title",
               jpLabel: "タイトル",
               text: title,
-              cacheKey: "title_$index",
+              translated: titleTrans,
               icon: Icons.title,
               controller: controller,
-              index: index,
             ),
-            if (controller.translationCache["title_$index"] != null) ...[
+            if (controller.isExpanded(index)) ...[
               const Gap(kGap),
               ConvoField(
+                index: index,
                 label: "Conversation",
                 jpLabel: "会話",
                 text: conversation,
-                cacheKey: "convo_$index",
+                translated: convoTrans,
                 icon: Icons.chat,
-                isExample: true,
+                isTransField: true,
                 controller: controller,
-                index: index,
               ),
             ],
           ],
