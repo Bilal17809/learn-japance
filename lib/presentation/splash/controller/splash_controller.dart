@@ -19,8 +19,9 @@ class SplashController extends GetxController {
     try {
       isLoading.value = true;
       // await Future.delayed(const Duration(seconds: 2));
-      await _dbHelper.initDatabase('phrases_db', Assets.phrasesDB);
-      await _dbHelper.initDatabase('learn_japanese', Assets.learnDB);
+      await _dbHelper.initDatabase('phrases_db', Assets.phrasesDb);
+      await _dbHelper.initDatabase('learn_japanese', Assets.learnDb);
+      await _dbHelper.initDatabase('dictionary_db', Assets.dictDb);
     } finally {
       isLoading.value = false;
       showButton.value = true;

@@ -5,7 +5,7 @@ import '/data/models/models.dart';
 import '/presentation/convo_cat/view/convo_cat_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/phrases_topic/view/phrases_topic_view.dart';
-import '/presentation/start_learning/view/start_learning_view.dart';
+import '/presentation/dictionary/view/dictionary_view.dart';
 import '/core/utils/utils.dart';
 import '/presentation/translator/view/translator_view.dart';
 import '/presentation/grammar_type/view/grammar_type_view.dart';
@@ -43,7 +43,7 @@ class MenuList extends StatelessWidget {
                     Get.to(() => LearnCatView());
                     break;
                   case 1:
-                    Get.to(() => StartLearningView());
+                    Get.to(() => DictionaryView());
                     break;
                   case 2:
                     Get.to(() => TranslatorView());

@@ -36,9 +36,7 @@ class AppDecorations {
   }) => BoxDecoration(
     color:
         isExample
-            ? (context.isDark
-                ? AppColors.container(context)
-                : AppColors.container(context).withValues(alpha: 0.75))
+            ? AppColors.container(context).withValues(alpha: 0.75)
             : AppColors.container(context),
     borderRadius: BorderRadius.circular(kBorderRadius),
     border: Border.all(color: AppColors.primary(context)),
