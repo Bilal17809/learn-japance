@@ -4,10 +4,10 @@ import '/core/common/app_exceptions.dart';
 import '/data/models/learn_topic_model.dart';
 import '/core/services/services.dart';
 
-class LearnCatController extends GetxController {
+class LearnCategoryController extends GetxController {
   final LearnDbService _learnDbService;
 
-  LearnCatController({required LearnDbService learnDbService})
+  LearnCategoryController({required LearnDbService learnDbService})
     : _learnDbService = learnDbService;
 
   var isLoading = true.obs;

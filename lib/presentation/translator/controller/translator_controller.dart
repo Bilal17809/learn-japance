@@ -29,12 +29,12 @@ class TranslatorController extends GetxController {
   final targetLanguage = Rxn<LanguageModel>();
   final allLanguages = <LanguageModel>[].obs;
   final inputText = "".obs;
-  final translations = <TransResultModel>[].obs;
+  final translations = <TranslationResultModel>[].obs;
   final isTranslating = false.obs;
   final isSourceRtl = false.obs;
   final isTargetRtl = false.obs;
   final isSpeaking = false.obs;
-  final favorites = <TransResultModel>[].obs;
+  final favorites = <TranslationResultModel>[].obs;
 
   static const rtlLng = ["ar", "ur"];
 
@@ -90,7 +90,7 @@ class TranslatorController extends GetxController {
         targetLanguage: targetLanguage.value!.code,
       );
 
-      final newResult = TransResultModel(
+      final newResult = TranslationResultModel(
         id: DateTime.now().millisecondsSinceEpoch.toString(),
         input: inputText.value,
         output: result,
@@ -104,7 +104,7 @@ class TranslatorController extends GetxController {
       Get.find<TtsService>().speak(newResult.output, targetLanguage.value);
     } catch (e) {
       translations.add(
-        TransResultModel(
+        TranslationResultModel(
           id: DateTime.now().millisecondsSinceEpoch.toString(),
           input: inputText.value,
           output: "${AppExceptions().failToTranslate}: $e",
