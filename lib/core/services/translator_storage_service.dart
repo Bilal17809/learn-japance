@@ -25,13 +25,13 @@ class TranslatorStorageService {
   }
 
   // Translation history
-  Future<List<TransResultModel>> getTranslations() async {
+  Future<List<TranslationResultModel>> getTranslations() async {
     final saved = await _localStorage.getStringList('translations');
     if (saved == null) return [];
 
     return saved.map((s) {
       final parts = s.split('|');
-      return TransResultModel(
+      return TranslationResultModel(
         id: parts[0],
         input: parts[1],
         output: parts[2],
@@ -41,7 +41,7 @@ class TranslatorStorageService {
     }).toList();
   }
 
-  Future<void> saveTranslation(TransResultModel translation) async {
+  Future<void> saveTranslation(TranslationResultModel translation) async {
     final saved = await _localStorage.getStringList('translations') ?? [];
     saved.add(
       '${translation.id}|${translation.input}|${translation.output}|${translation.isSourceRtl}|${translation.isTargetRtl}',
@@ -56,13 +56,13 @@ class TranslatorStorageService {
   }
 
   // Favorites
-  Future<List<TransResultModel>> getFavorites() async {
+  Future<List<TranslationResultModel>> getFavorites() async {
     final saved = await _localStorage.getStringList('favorites');
     if (saved == null) return [];
 
     return saved.map((s) {
       final parts = s.split('|');
-      return TransResultModel(
+      return TranslationResultModel(
         id: parts[0],
         input: parts[1],
         output: parts[2],
@@ -72,7 +72,7 @@ class TranslatorStorageService {
     }).toList();
   }
 
-  Future<void> saveFavorites(List<TransResultModel> favorites) async {
+  Future<void> saveFavorites(List<TranslationResultModel> favorites) async {
     await _localStorage.setStringList(
       'favorites',
       favorites

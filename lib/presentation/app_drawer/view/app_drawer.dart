@@ -45,7 +45,7 @@ class AppDrawer extends StatelessWidget {
                 ],
               ),
             ),
-            DrawerTile(
+            _DrawerTile(
               icon: Icons.more,
               title: 'More Apps',
               onTap: () {
@@ -53,7 +53,7 @@ class AppDrawer extends StatelessWidget {
               },
             ),
             Divider(color: AppColors.primaryColorLight.withValues(alpha: 0.1)),
-            DrawerTile(
+            _DrawerTile(
               icon: Icons.privacy_tip_rounded,
               title: 'Privacy Policy',
               onTap: () {
@@ -61,7 +61,7 @@ class AppDrawer extends StatelessWidget {
               },
             ),
             Divider(color: AppColors.primaryColorLight.withValues(alpha: 0.1)),
-            DrawerTile(
+            _DrawerTile(
               icon: Icons.star_rounded,
               title: 'Rate Us',
               onTap: () {
@@ -70,7 +70,7 @@ class AppDrawer extends StatelessWidget {
             ),
             Divider(color: AppColors.primaryColorLight.withValues(alpha: 0.1)),
             if (Platform.isIOS) ...[
-              DrawerTile(
+              _DrawerTile(
                 icon: Icons.star_rounded,
                 title: 'Remove Ads',
                 onTap: () {
@@ -120,13 +120,12 @@ class AppDrawer extends StatelessWidget {
   }
 }
 
-class DrawerTile extends StatelessWidget {
+class _DrawerTile extends StatelessWidget {
   final IconData icon;
   final String title;
   final VoidCallback onTap;
 
-  const DrawerTile({
-    super.key,
+  const _DrawerTile({
     required this.icon,
     required this.title,
     required this.onTap,

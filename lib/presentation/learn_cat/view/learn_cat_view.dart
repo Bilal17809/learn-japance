@@ -13,7 +13,7 @@ class LearnCatView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<LearnCatController>();
+    final controller = Get.find<LearnCategoryController>();
     return Scaffold(
       appBar: TitleBar(title: 'Learn Japanese'),
       body: Obx(() {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import '/data/models/models.dart';
-import '/presentation/convo_cat/view/convo_cat_view.dart';
+import '/presentation/conversation_category/view/conversation_category_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/phrases_topic/view/phrases_topic_view.dart';
 import '/presentation/dictionary/view/dictionary_view.dart';
@@ -64,7 +64,7 @@ class MenuList extends StatelessWidget {
                     Get.to(() => PhrasesTopicView());
                     break;
                   case 8:
-                    Get.to(() => ConvoCatView());
+                    Get.to(() => ConversationCategoryView());
                     break;
                 }
               },

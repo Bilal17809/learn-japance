@@ -3,8 +3,8 @@ import '/presentation/dictionary/controller/dictionary_controller.dart';
 import '/presentation/learn/controller/learn_controller.dart';
 import '/presentation/learn_cat/controller/learn_cat_controller.dart';
 import '/core/helper/helper.dart';
-import '/presentation/convo/controller/convo_controller.dart';
-import '/presentation/convo_cat/controller/convo_cat_controller.dart';
+import '/presentation/conversation/controller/conversation_controller.dart';
+import '/presentation/conversation_category/controller/conversation_category_controller.dart';
 import '/core/local_storage/local_storage.dart';
 import '/presentation/phrases/controller/phrases_controller.dart';
 import '/presentation/translator/controller/translator_controller.dart';
@@ -32,7 +32,7 @@ class DependencyInjection {
       return PhrasesDbService(dbHelper: dbHelper);
     }, fenix: true);
     Get.lazyPut(() {
-      return ConvoDbService();
+      return ConversationDbService();
     }, fenix: true);
     Get.lazyPut(() {
       final dbHelper = Get.find<DbHelper>();
@@ -41,7 +41,7 @@ class DependencyInjection {
     Get.lazyPut(() {
       final dbHelper = Get.find<DbHelper>();
       return DictionaryDbService(dbHelper: dbHelper);
-    });
+    }, fenix: true);
     Get.lazyPut(() => LanguageService(), fenix: true);
     Get.lazyPut(() => GrammarDbService(), fenix: true);
     Get.lazyPut(() {
@@ -88,18 +88,20 @@ class DependencyInjection {
         storageService: storageService,
       );
     }, fenix: true);
-    Get.lazyPut<ConvoCatController>(() {
-      final convoDbService = Get.find<ConvoDbService>();
-      return ConvoCatController(convoDbService: convoDbService);
+    Get.lazyPut<ConversationCategoryController>(() {
+      final convoDbService = Get.find<ConversationDbService>();
+      return ConversationCategoryController(
+        conversationDbService: convoDbService,
+      );
     }, fenix: true);
 
-    Get.lazyPut<ConvoController>(() {
+    Get.lazyPut<ConversationController>(() {
       final ttsService = Get.find<TtsService>();
-      return ConvoController(ttsService: ttsService);
+      return ConversationController(ttsService: ttsService);
     }, fenix: true);
     Get.lazyPut(() {
       final learnDbService = Get.find<LearnDbService>();
-      return LearnCatController(learnDbService: learnDbService);
+      return LearnCategoryController(learnDbService: learnDbService);
     }, fenix: true);
     Get.lazyPut(() {
       final learnDbService = Get.find<LearnDbService>();
@@ -111,12 +113,8 @@ class DependencyInjection {
     }, fenix: true);
     Get.lazyPut(() {
       final dictionaryDbService = Get.find<DictionaryDbService>();
-      final translationService = Get.find<TranslationService>();
-      return DictionaryController(
-        dictionaryDbService: dictionaryDbService,
-        translationService: translationService,
-      );
-    });
+      return DictionaryController(dictionaryDbService: dictionaryDbService);
+    }, fenix: true);
     Get.lazyPut<GrammarTypeController>(() {
       final grammarDbService = Get.find<GrammarDbService>();
       final translationService = Get.find<TranslationService>();

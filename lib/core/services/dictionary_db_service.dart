@@ -7,7 +7,7 @@ class DictionaryDbService {
 
   Future<List<DictionaryModel>> getDictionaryData() async {
     final db = _dbHelper.getDb('dictionary_db');
-    final List<Map<String, dynamic>> maps = await db.query('dictionary');
+    final List<Map<String, dynamic>> maps = await db.query('jap_dict');
     return maps.map((map) => DictionaryModel.fromMap(map)).toList();
   }
 }
