@@ -5,13 +5,12 @@ import '/core/services/services.dart';
 
 class DictionaryController extends GetxController {
   final DictionaryDbService _dictionaryDbService;
+  final _dictionaryData = <DictionaryModel>[].obs;
+  var isLoading = true.obs;
+  final RxString searchQuery = ''.obs;
 
   DictionaryController({required DictionaryDbService dictionaryDbService})
     : _dictionaryDbService = dictionaryDbService;
-
-  var dictionaryData = <DictionaryModel>[].obs;
-  var isLoading = true.obs;
-  final RxString searchQuery = ''.obs;
 
   @override
   void onInit() {
@@ -23,7 +22,7 @@ class DictionaryController extends GetxController {
     try {
       isLoading.value = true;
       final result = await _dictionaryDbService.getDictionaryData();
-      dictionaryData.assignAll(result);
+      _dictionaryData.assignAll(result);
     } catch (e) {
       debugPrint(e.toString());
     } finally {
@@ -33,11 +32,11 @@ class DictionaryController extends GetxController {
 
   List<DictionaryModel> getFilteredData() {
     if (searchQuery.value.isEmpty) {
-      return dictionaryData;
+      return _dictionaryData;
     }
 
     final query = searchQuery.value.toLowerCase();
-    return dictionaryData.where((item) {
+    return _dictionaryData.where((item) {
       return item.english.toLowerCase().contains(query) ||
           item.japanese.toLowerCase().contains(query);
     }).toList();

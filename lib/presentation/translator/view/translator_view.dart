@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '/presentation/trans_fav/view/trans_fav_view.dart';
+import '/presentation/translation_favorite/view/translation_favorite_view.dart';
 import '/core/services/services.dart';
 import '/core/theme/theme.dart';
 import 'package:lottie/lottie.dart';
@@ -9,7 +9,7 @@ import '/core/utils/utils.dart';
 import '/presentation/translator/controller/translator_controller.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
-import 'widgets/lng_picker_box.dart';
+import 'widgets/language_picker_box.dart';
 import 'widgets/input_card.dart';
 
 class TranslatorView extends StatelessWidget {
@@ -49,10 +49,10 @@ class TranslatorView extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        LngPickerBox(
+                        LanguagePickerBox(
                           selected: controller.sourceLanguage.value,
                           languages: controller.allLanguages,
-                          onChanged: (lng) => controller.setSource(lng),
+                          onChanged: (lang) => controller.setSource(lang),
                         ),
                         IconActionButton(
                           onTap: () {
@@ -65,10 +65,10 @@ class TranslatorView extends StatelessWidget {
                           icon: Icons.swap_horiz,
                           color: AppColors.icon(context),
                         ),
-                        LngPickerBox(
+                        LanguagePickerBox(
                           selected: controller.targetLanguage.value,
                           languages: controller.allLanguages,
-                          onChanged: (lng) => controller.setTarget(lng),
+                          onChanged: (lang) => controller.setTarget(lang),
                         ),
                       ],
                     ),

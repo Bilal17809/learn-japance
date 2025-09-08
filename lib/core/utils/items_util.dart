@@ -11,7 +11,7 @@ class ItemsUtil {
     ItemsModel(assetPath: Assets.practice, label: "Practice"),
     ItemsModel(assetPath: Assets.speaking, label: "Speaking"),
     ItemsModel(assetPath: Assets.quiz, label: "Quiz"),
-    ItemsModel(assetPath: Assets.convo, label: "Dialog"),
+    ItemsModel(assetPath: Assets.conversation, label: "Dialog"),
   ];
   static final List<ItemsModel> grammarItems = [
     ItemsModel(assetPath: Assets.adverb),
@@ -28,7 +28,7 @@ class ItemsUtil {
 
   static final List<ItemsModel> learnItems = [
     ItemsModel(assetPath: Assets.greetings),
-    ItemsModel(assetPath: Assets.genConvo),
+    ItemsModel(assetPath: Assets.generalConversation),
     ItemsModel(assetPath: Assets.numbers),
     ItemsModel(assetPath: Assets.timeNDate),
     ItemsModel(assetPath: Assets.direction),
@@ -40,7 +40,7 @@ class ItemsUtil {
     ItemsModel(assetPath: Assets.regions),
     ItemsModel(assetPath: Assets.countries),
     ItemsModel(assetPath: Assets.tourism),
-    ItemsModel(assetPath: Assets.fam),
+    ItemsModel(assetPath: Assets.family),
     ItemsModel(assetPath: Assets.dating),
     ItemsModel(assetPath: Assets.emergency),
     ItemsModel(assetPath: Assets.sickness),

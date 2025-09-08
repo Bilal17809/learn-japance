@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '/presentation/lng_picker/view/lng_picker_view.dart';
+import '/presentation/language_picker/view/language_picker_view.dart';
 import '/data/models/models.dart';
 import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 
-class LngPickerBox extends StatelessWidget {
+class LanguagePickerBox extends StatelessWidget {
   final LanguageModel? selected;
   final List<LanguageModel> languages;
   final ValueChanged<LanguageModel> onChanged;
 
-  const LngPickerBox({
+  const LanguagePickerBox({
     super.key,
     required this.selected,
     required this.languages,
@@ -24,7 +24,7 @@ class LngPickerBox extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Get.to(
-            () => LngPickerView(
+            () => LanguagePickerView(
               languages: languages,
               selected: selected,
               onSelected: onChanged,

@@ -1,25 +1,22 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/common/app_exceptions.dart';
+import '/core/common/app_exceptions.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
 
 class GrammarController extends GetxController {
   final GrammarDbService _grammarDbService;
   final TranslationService _translationService;
+  final RxList<GrammarModel> _allData = <GrammarModel>[].obs;
+  final RxMap<String, String> translationCache = <String, String>{}.obs;
+  final RxMap<String, bool> translatingStates = <String, bool>{}.obs;
+  var isLoading = true.obs;
+  final RxString searchQuery = ''.obs;
 
   GrammarController({
     required GrammarDbService grammarDbService,
     required TranslationService translationService,
   }) : _grammarDbService = grammarDbService,
        _translationService = translationService;
-
-  var isLoading = true.obs;
-  final RxList<GrammarModel> allData = <GrammarModel>[].obs;
-  final RxMap<String, String> translationCache = <String, String>{}.obs;
-  final RxMap<String, bool> translatingStates = <String, bool>{}.obs;
-  final TextEditingController searchController = TextEditingController();
-  final RxString searchQuery = ''.obs;
 
   @override
   void onInit() {
@@ -32,7 +29,7 @@ class GrammarController extends GetxController {
     try {
       await Future.delayed(const Duration(milliseconds: 300));
       final data = await _grammarDbService.loadGrammarData();
-      allData.assignAll(data);
+      _allData.assignAll(data);
     } finally {
       isLoading.value = false;
     }
@@ -70,7 +67,7 @@ class GrammarController extends GetxController {
 
   List<GrammarModel> getFilteredData(String category) {
     final filtered =
-        allData.where((item) => item.category == category).toList();
+        _allData.where((item) => item.category == category).toList();
 
     if (searchQuery.value.isNotEmpty) {
       return filtered
@@ -83,11 +80,5 @@ class GrammarController extends GetxController {
     }
 
     return filtered;
-  }
-
-  @override
-  void onClose() {
-    searchController.dispose();
-    super.onClose();
   }
 }

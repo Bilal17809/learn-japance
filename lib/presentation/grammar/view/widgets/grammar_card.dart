@@ -5,14 +5,14 @@ import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 import '/data/models/grammar_model.dart';
 import '../../controller/grammar_controller.dart';
-import 'translation_field.dart';
+import 'grammar_field.dart';
 
-class JapaneseCard extends StatelessWidget {
+class GrammarCard extends StatelessWidget {
   final GrammarModel item;
   final GrammarController controller;
   final int index;
 
-  const JapaneseCard({
+  const GrammarCard({
     super.key,
     required this.item,
     required this.controller,
@@ -32,7 +32,7 @@ class JapaneseCard extends StatelessWidget {
               children: [Text(item.title, style: titleLargeStyle)],
             ),
             const Gap(kElementGap),
-            TranslationField(
+            GrammarField(
               label: "Category",
               jpLabel: "カテゴリー",
               text: item.category,
@@ -42,7 +42,7 @@ class JapaneseCard extends StatelessWidget {
             ),
             const Gap(kGap),
 
-            TranslationField(
+            GrammarField(
               label: "Description",
               jpLabel: "説明",
               text: item.description,
@@ -56,7 +56,7 @@ class JapaneseCard extends StatelessWidget {
               final example = e.value;
               return Padding(
                 padding: const EdgeInsets.only(bottom: kGap),
-                child: TranslationField(
+                child: GrammarField(
                   label: "Example ${index + 1}",
                   jpLabel: "例文",
                   text: example,

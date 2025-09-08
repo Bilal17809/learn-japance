@@ -9,7 +9,7 @@ import '/presentation/dictionary/view/dictionary_view.dart';
 import '/core/utils/utils.dart';
 import '/presentation/translator/view/translator_view.dart';
 import '/presentation/grammar_type/view/grammar_type_view.dart';
-import '/presentation/learn_cat/view/learn_cat_view.dart';
+import '/presentation/learn_category/view/learn_category_view.dart';
 import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 
@@ -40,7 +40,7 @@ class MenuList extends StatelessWidget {
               onTap: () {
                 switch (index) {
                   case 0:
-                    Get.to(() => LearnCatView());
+                    Get.to(() => LearnCategoryView());
                     break;
                   case 1:
                     Get.to(() => DictionaryView());

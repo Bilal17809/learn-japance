@@ -7,6 +7,12 @@ import '/core/services/services.dart';
 class LearnController extends GetxController {
   final LearnDbService _learnDbService;
   final TtsService _ttsService;
+  final targetLanguage = Rx<LanguageModel>(
+    LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
+  );
+  final _topicId = 0.obs;
+  var isLoading = true.obs;
+  var data = <LearnModel>[].obs;
 
   LearnController({
     required LearnDbService learnDbService,
@@ -14,15 +20,8 @@ class LearnController extends GetxController {
   }) : _learnDbService = learnDbService,
        _ttsService = ttsService;
 
-  var isLoading = true.obs;
-  var data = <LearnModel>[].obs;
-  var topicId = 0.obs;
-  final targetLanguage = Rx<LanguageModel>(
-    LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
-  );
-
   void setTopic(int id) {
-    topicId.value = id;
+    _topicId.value = id;
     _fetchData();
   }
 
@@ -30,7 +29,7 @@ class LearnController extends GetxController {
     isLoading.value = true;
     try {
       await Future.delayed(const Duration(milliseconds: 200));
-      final result = await _learnDbService.getCatByTopic(topicId.value + 1);
+      final result = await _learnDbService.getCatByTopic(_topicId.value + 1);
       data.assignAll(result);
     } catch (e) {
       debugPrint('${AppExceptions().failToLoadDb}: $e');

@@ -5,16 +5,15 @@ import '/core/services/services.dart';
 class GrammarTypeController extends GetxController {
   final TranslationService _translationService;
   final GrammarDbService _grammarDbService;
+  var categoryTranslations = <String, String>{}.obs;
+  List<GrammarModel>? grammarData;
+  var translationsLoading = true.obs;
 
   GrammarTypeController({
     required TranslationService translationService,
     required GrammarDbService grammarDbService,
   }) : _grammarDbService = grammarDbService,
        _translationService = translationService;
-
-  var categoryTranslations = <String, String>{}.obs;
-  var translationsLoading = true.obs;
-  List<GrammarModel>? grammarData;
 
   @override
   void onInit() {
