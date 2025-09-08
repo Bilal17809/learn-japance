@@ -9,6 +9,13 @@ class PhrasesTopicController extends GetxController {
   final PhrasesDbService _phrasesDbService;
   final TranslationService _translationService;
   final LocalStorage _localStorage;
+  final RxString searchQuery = ''.obs;
+  var topics = <PhrasesTopicModel>[].obs;
+  var topicTranslations = <String>[].obs;
+  var isLoading = true.obs;
+  static const String _translationCacheKey = "topic_translations";
+  var translationsLoading = true.obs;
+  var error = ''.obs;
 
   PhrasesTopicController({
     required PhrasesDbService phrasesDbService,
@@ -17,15 +24,6 @@ class PhrasesTopicController extends GetxController {
   }) : _phrasesDbService = phrasesDbService,
        _translationService = translationService,
        _localStorage = localStorage;
-
-  final TextEditingController searchController = TextEditingController();
-  final RxString searchQuery = ''.obs;
-  var topics = <PhrasesTopicModel>[].obs;
-  var topicTranslations = <String>[].obs;
-  var isLoading = true.obs;
-  static const String _translationCacheKey = "topic_translations";
-  var translationsLoading = true.obs;
-  var error = ''.obs;
 
   @override
   void onInit() {
@@ -82,11 +80,5 @@ class PhrasesTopicController extends GetxController {
           ),
         )
         .toList();
-  }
-
-  @override
-  void onClose() {
-    searchController.dispose();
-    super.onClose();
   }
 }

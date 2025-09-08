@@ -8,6 +8,14 @@ class PhrasesController extends GetxController {
   final PhrasesDbService _dbService;
   final TranslationService _translationService;
   final LocalStorage _localStorage;
+  var phrases = <PhrasesModel>[].obs;
+  final RxMap<String, String> translationCache = <String, String>{}.obs;
+  final RxMap<String, bool> translatingStates = <String, bool>{}.obs;
+  final _topicId = 0.obs;
+  var translatedDescription = ''.obs;
+  var showTranslation = false.obs;
+  var isLoading = true.obs;
+  final _error = ''.obs;
 
   PhrasesController({
     required PhrasesDbService dbService,
@@ -17,17 +25,6 @@ class PhrasesController extends GetxController {
        _translationService = translationService,
        _localStorage = localStorage;
 
-  var phrases = <PhrasesModel>[].obs;
-  var isLoading = true.obs;
-  var error = ''.obs;
-
-  final RxMap<String, String> translationCache = <String, String>{}.obs;
-  final RxMap<String, bool> translatingStates = <String, bool>{}.obs;
-
-  var topicId = 0.obs;
-  var translatedDescription = ''.obs;
-  var showTranslation = false.obs;
-
   @override
   void onInit() {
     super.onInit();
@@ -35,13 +32,13 @@ class PhrasesController extends GetxController {
   }
 
   Future<void> _initTranslations() async {
-    if (topicId.value != 0) {
+    if (_topicId.value != 0) {
       await fetchPhrases();
     }
   }
 
   void setTopic(int id, String description) async {
-    topicId.value = id;
+    _topicId.value = id;
     await fetchPhrases();
     await translateDescription(description);
   }
@@ -54,12 +51,12 @@ class PhrasesController extends GetxController {
     isLoading.value = true;
     try {
       await Future.delayed(const Duration(milliseconds: 140));
-      error.value = '';
-      final data = await _dbService.getPhrasesByTopic(topicId.value);
+      _error.value = '';
+      final data = await _dbService.getPhrasesByTopic(_topicId.value);
       phrases.assignAll(data);
       await translateAll();
     } catch (e) {
-      error.value = e.toString();
+      _error.value = e.toString();
     } finally {
       isLoading.value = false;
     }
@@ -104,7 +101,7 @@ class PhrasesController extends GetxController {
   }
 
   Future<void> translateDescription(String description) async {
-    final descKey = "translation_topic_${topicId.value}_description";
+    final descKey = "translation_topic_${_topicId.value}_description";
 
     translatedDescription.value = "翻訳中...";
     try {

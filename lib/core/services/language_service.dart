@@ -7,22 +7,22 @@ import '/data/models/models.dart';
 class LanguageService {
   Future<List<LanguageModel>> loadLanguages() async {
     try {
-      final lngCodesJson = await rootBundle.loadString(Assets.lngCodes);
-      final lngFlagsJson = await rootBundle.loadString(Assets.lngFlags);
+      final langCodesJson = await rootBundle.loadString(Assets.langCodes);
+      final langFlagsJson = await rootBundle.loadString(Assets.langFlags);
 
-      final lngCodesMap = Map<String, String>.from(json.decode(lngCodesJson));
-      final lngFlagsMap = Map<String, String>.from(json.decode(lngFlagsJson));
+      final langCodesMap = Map<String, String>.from(json.decode(langCodesJson));
+      final langFlagsMap = Map<String, String>.from(json.decode(langFlagsJson));
 
-      return lngCodesMap.entries.map((entry) {
+      return langCodesMap.entries.map((entry) {
         final name = entry.key;
         final code = entry.value;
-        final countryCode = lngFlagsMap[name];
+        final countryCode = langFlagsMap[name];
 
         return LanguageModel.fromJson(name, code, countryCode);
       }).toList();
     } catch (e) {
       throw Exception(
-        "${AppExceptions().failToLoadDb} ${Assets.lngCodes} & ${Assets.lngFlags}: $e",
+        "${AppExceptions().failToLoadDb} ${Assets.langCodes} & ${Assets.langFlags}: $e",
       );
     }
   }

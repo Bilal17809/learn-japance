@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/utils/assets_util.dart';
-import 'package:learn_japan/presentation/conversation/view/conversation_view.dart';
+import '/core/utils/utils.dart';
+import '/presentation/conversation/view/conversation_view.dart';
 import 'package:lottie/lottie.dart';
 import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
@@ -14,6 +14,7 @@ class ConversationCategoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<ConversationCategoryController>();
+    final searchController = TextEditingController();
     return Scaffold(
       appBar: TitleBar(title: 'Choose Category'),
       body: Obx(() {
@@ -30,7 +31,7 @@ class ConversationCategoryView extends StatelessWidget {
                   vertical: kGap,
                 ),
                 child: SearchBarField(
-                  controller: controller.searchController,
+                  controller: searchController,
                   onSearch: (val) => controller.searchQuery.value = val,
                 ),
               ),
@@ -82,8 +83,8 @@ class _CategoriesCard extends StatelessWidget {
       onTap: () {
         Get.to(
           () => ConversationView(
-            cat: conversationModel.category,
-            catTrans: conversationModel.categoryTranslation,
+            category: conversationModel.category,
+            categoryTranslation: conversationModel.categoryTranslation,
             title: conversationModels.map((c) => c.title).toList(),
             titleTranslation:
                 conversationModels.map((c) => c.titleTrans).toList(),
@@ -93,7 +94,11 @@ class _CategoriesCard extends StatelessWidget {
                     .toList(),
             conversationTranslation:
                 conversationModels
-                    .map((c) => c.conversationTranslation.replaceAll('~', '\n'))
+                    .map(
+                      (c) => c.conversationTranslation
+                          .replaceAll('〜', '\n')
+                          .replaceAll('～', '\n'),
+                    ) // fullwidth tilde
                     .toList(),
           ),
         );

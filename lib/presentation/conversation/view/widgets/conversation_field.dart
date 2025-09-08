@@ -6,14 +6,14 @@ import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 import '../../controller/conversation_controller.dart';
 
-class ConvoField extends StatelessWidget {
+class ConversationField extends StatelessWidget {
   final String label, jpLabel, text, translated;
   final IconData icon;
   final bool isTransField;
   final ConversationController controller;
   final int index;
 
-  const ConvoField({
+  const ConversationField({
     super.key,
     required this.label,
     required this.jpLabel,
@@ -77,7 +77,7 @@ class ConvoField extends StatelessWidget {
                 ),
               ] else ...[
                 IconActionButton(
-                  onTap: () => controller.toggleConvo(index),
+                  onTap: () => controller.toggleConversation(index),
                   icon:
                       controller.isExpanded(index)
                           ? Icons.arrow_drop_up

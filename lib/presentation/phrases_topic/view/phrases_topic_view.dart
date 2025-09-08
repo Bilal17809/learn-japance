@@ -15,6 +15,7 @@ class PhrasesTopicView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<PhrasesTopicController>();
+    final searchController = TextEditingController();
 
     return Scaffold(
       appBar: TitleBar(title: 'Phrases'),
@@ -33,7 +34,7 @@ class PhrasesTopicView extends StatelessWidget {
                   vertical: kGap,
                 ),
                 child: SearchBarField(
-                  controller: controller.searchController,
+                  controller: searchController,
                   onSearch: (value) => controller.searchQuery.value = value,
                 ),
               ),

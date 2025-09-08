@@ -8,21 +8,10 @@ import '/core/services/services.dart';
 import '/core/utils/utils.dart';
 
 class TranslatorController extends GetxController {
-  final LanguageService _lngService;
+  final LanguageService _languageService;
   final TranslationService _translationService;
   final TranslatorStorageService _storageService;
   final SpeechService _speechService;
-
-  TranslatorController({
-    required LanguageService lngService,
-    required TranslationService translationService,
-    required TranslatorStorageService storageService,
-    required SpeechService speechService,
-  }) : _lngService = lngService,
-       _translationService = translationService,
-       _storageService = storageService,
-       _speechService = speechService;
-
   final inputController = TextEditingController();
   final isLoading = true.obs;
   final sourceLanguage = Rxn<LanguageModel>();
@@ -33,34 +22,42 @@ class TranslatorController extends GetxController {
   final isTranslating = false.obs;
   final isSourceRtl = false.obs;
   final isTargetRtl = false.obs;
-  final isSpeaking = false.obs;
   final favorites = <TranslationResultModel>[].obs;
+  static const _rtlLang = ["ar", "ur"];
 
-  static const rtlLng = ["ar", "ur"];
+  TranslatorController({
+    required LanguageService languageService,
+    required TranslationService translationService,
+    required TranslatorStorageService storageService,
+    required SpeechService speechService,
+  }) : _languageService = languageService,
+       _translationService = translationService,
+       _storageService = storageService,
+       _speechService = speechService;
 
   @override
   void onInit() {
     super.onInit();
-    fetchLngData();
-    loadFav();
+    _fetchLangData();
+    _loadFav();
     _loadTranslations();
   }
 
-  Future<void> fetchLngData() async {
+  Future<void> _fetchLangData() async {
     isLoading.value = true;
     try {
       await Future.delayed(const Duration(milliseconds: 300));
-      allLanguages.value = await _lngService.loadLanguages();
+      allLanguages.value = await _languageService.loadLanguages();
 
       final savedSource = await _storageService.getSourceLanguage();
       final savedTarget = await _storageService.getTargetLanguage();
 
       sourceLanguage.value =
-          _findLng(savedSource) ??
-          allLanguages.firstWhere((lng) => lng.name == "English");
+          _findLang(savedSource) ??
+          allLanguages.firstWhere((lang) => lang.name == "English");
       targetLanguage.value =
-          _findLng(savedTarget) ??
-          allLanguages.firstWhere((lng) => lng.name == "Japanese");
+          _findLang(savedTarget) ??
+          allLanguages.firstWhere((lang) => lang.name == "Japanese");
       _checkRtl();
     } finally {
       isLoading.value = false;
@@ -71,8 +68,10 @@ class TranslatorController extends GetxController {
     translations.value = await _storageService.getTranslations();
   }
 
-  LanguageModel? _findLng(String? name) =>
-      name == null ? null : allLanguages.firstWhere((lng) => lng.name == name);
+  LanguageModel? _findLang(String? name) =>
+      name == null
+          ? null
+          : allLanguages.firstWhere((lang) => lang.name == name);
 
   Future<void> translateInput() async {
     if (inputText.value.isEmpty) {
@@ -118,25 +117,25 @@ class TranslatorController extends GetxController {
   }
 
   void _checkRtl() {
-    isSourceRtl.value = rtlLng.contains(sourceLanguage.value?.code);
-    isTargetRtl.value = rtlLng.contains(targetLanguage.value?.code);
+    isSourceRtl.value = _rtlLang.contains(sourceLanguage.value?.code);
+    isTargetRtl.value = _rtlLang.contains(targetLanguage.value?.code);
   }
 
-  Future<void> _setLanguage(LanguageModel lng, bool isSource) async {
+  Future<void> _setLanguage(LanguageModel lang, bool isSource) async {
     if (isSource) {
-      sourceLanguage.value = lng;
+      sourceLanguage.value = lang;
       inputController.clear();
       inputText.value = '';
-      await _storageService.setSourceLanguage(lng.name);
+      await _storageService.setSourceLanguage(lang.name);
     } else {
-      targetLanguage.value = lng;
-      await _storageService.setTargetLanguage(lng.name);
+      targetLanguage.value = lang;
+      await _storageService.setTargetLanguage(lang.name);
     }
     _checkRtl();
   }
 
-  void setSource(LanguageModel lng) => _setLanguage(lng, true);
-  void setTarget(LanguageModel lng) => _setLanguage(lng, false);
+  void setSource(LanguageModel lang) => _setLanguage(lang, true);
+  void setTarget(LanguageModel lang) => _setLanguage(lang, false);
 
   Future<void> handleSpeechInput() async {
     try {
@@ -164,7 +163,7 @@ class TranslatorController extends GetxController {
     }
   }
 
-  Future<void> loadFav() async {
+  Future<void> _loadFav() async {
     favorites.value = await _storageService.getFavorites();
   }
 

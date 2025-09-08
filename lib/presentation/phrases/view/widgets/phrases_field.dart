@@ -73,13 +73,6 @@ class PhrasesField extends StatelessWidget {
                           )
                           : const SizedBox.shrink(),
                 ),
-                // if (!isLoading && translated == null)
-                //   IconActionButton(
-                //     onTap: () => controller.translateText(cacheKey, text),
-                //     icon: Icons.translate,
-                //     color: AppColors.primaryText(context),
-                //     size: smallIcon(context),
-                //   ),
               ],
             ),
           ],

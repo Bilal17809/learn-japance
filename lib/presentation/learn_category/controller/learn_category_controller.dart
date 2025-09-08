@@ -6,12 +6,11 @@ import '/core/services/services.dart';
 
 class LearnCategoryController extends GetxController {
   final LearnDbService _learnDbService;
+  var isLoading = true.obs;
+  var topics = <LearnTopicModel>[].obs;
 
   LearnCategoryController({required LearnDbService learnDbService})
     : _learnDbService = learnDbService;
-
-  var isLoading = true.obs;
-  var topics = <LearnTopicModel>[].obs;
 
   @override
   void onInit() {

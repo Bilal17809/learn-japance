@@ -6,16 +6,14 @@ import '/core/services/services.dart';
 
 class ConversationCategoryController extends GetxController {
   final ConversationDbService _conversationDbService;
+  final isLoading = true.obs;
+  final RxString searchQuery = ''.obs;
+  var category = <ConversationModel>[].obs;
+  final _uniqueCategory = <String>[].obs;
 
   ConversationCategoryController({
     required ConversationDbService conversationDbService,
   }) : _conversationDbService = conversationDbService;
-
-  final isLoading = true.obs;
-  var category = <ConversationModel>[].obs;
-  var uniqueCategory = <String>[].obs;
-  final TextEditingController searchController = TextEditingController();
-  final RxString searchQuery = ''.obs;
 
   @override
   void onInit() {
@@ -27,10 +25,10 @@ class ConversationCategoryController extends GetxController {
     isLoading.value = true;
     try {
       await Future.delayed(const Duration(milliseconds: 250));
-      final result = await _conversationDbService.loadConvoData();
+      final result = await _conversationDbService.loadData();
       category.assignAll(result);
       final unique = result.map((e) => e.category).toSet().toList();
-      uniqueCategory.assignAll(unique);
+      _uniqueCategory.assignAll(unique);
     } catch (e) {
       debugPrint('${AppExceptions().failToLoadDb}: $e');
     } finally {
@@ -40,19 +38,13 @@ class ConversationCategoryController extends GetxController {
 
   List<String> getFilteredCat() {
     if (searchQuery.value.isEmpty) {
-      return uniqueCategory;
+      return _uniqueCategory;
     }
-    return uniqueCategory
+    return _uniqueCategory
         .where(
           (c) =>
               c.toLowerCase().contains(searchQuery.value.toLowerCase().trim()),
         )
         .toList();
-  }
-
-  @override
-  void onClose() {
-    searchController.dispose();
-    super.onClose();
   }
 }

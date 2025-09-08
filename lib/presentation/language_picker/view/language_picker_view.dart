@@ -3,17 +3,17 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import '/core/utils/utils.dart';
-import '/presentation/lng_picker/controller/lng_picker_controller.dart';
+import '/presentation/language_picker/controller/language_picker_controller.dart';
 import '/data/models/models.dart';
 import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
 
-class LngPickerView extends StatelessWidget {
+class LanguagePickerView extends StatelessWidget {
   final LanguageModel? selected;
   final ValueChanged<LanguageModel> onSelected;
 
-  const LngPickerView({
+  const LanguagePickerView({
     super.key,
     required this.selected,
     required List<LanguageModel> languages,
@@ -24,7 +24,9 @@ class LngPickerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LngPickerController(allLanguages: _languages));
+    final controller = Get.put(
+      LanguagePickerController(allLanguages: _languages),
+    );
     final textController = TextEditingController();
 
     return Scaffold(
@@ -42,9 +44,9 @@ class LngPickerView extends StatelessWidget {
 
             Expanded(
               child: Obx(() {
-                final langs = controller.filteredLanguages;
+                final languages = controller.filteredLanguages;
 
-                if (langs.isEmpty) {
+                if (languages.isEmpty) {
                   return Center(
                     child: Opacity(
                       opacity: 0.5,
@@ -56,23 +58,23 @@ class LngPickerView extends StatelessWidget {
                   );
                 }
 
-                final selectedLang =
+                final selectedLanguage =
                     selected == null
                         ? null
-                        : langs.firstWhereOrNull(
-                          (lng) => lng.code == selected!.code,
+                        : languages.firstWhereOrNull(
+                          (lang) => lang.code == selected!.code,
                         );
 
-                final otherLangs =
-                    selectedLang == null
-                        ? langs
-                        : langs
-                            .where((lng) => lng.code != selected!.code)
+                final otherLanguages =
+                    selectedLanguage == null
+                        ? languages
+                        : languages
+                            .where((lang) => lang.code != selected!.code)
                             .toList();
 
                 final combined = [
-                  if (selectedLang != null) selectedLang,
-                  ...otherLangs,
+                  if (selectedLanguage != null) selectedLanguage,
+                  ...otherLanguages,
                 ];
 
                 return Padding(
@@ -80,12 +82,12 @@ class LngPickerView extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: combined.length,
                     itemBuilder: (context, index) {
-                      final lng = combined[index];
-                      final isSelected = lng.code == selected?.code;
+                      final lang = combined[index];
+                      final isSelected = lang.code == selected?.code;
 
                       return GestureDetector(
                         onTap: () {
-                          onSelected(lng);
+                          onSelected(lang);
                           Get.back();
                         },
                         child: Card(
@@ -94,9 +96,9 @@ class LngPickerView extends StatelessWidget {
                             padding: const EdgeInsets.all(kBodyHp),
                             child: Row(
                               children: [
-                                Text(lng.flagEmoji, style: titleLargeStyle),
+                                Text(lang.flagEmoji, style: titleLargeStyle),
                                 const Gap(kElementGap),
-                                Text(lng.name, style: titleSmallStyle),
+                                Text(lang.name, style: titleSmallStyle),
                                 if (isSelected) ...[
                                   const Spacer(),
                                   Icon(

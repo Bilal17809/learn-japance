@@ -3,9 +3,9 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import '../../controller/conversation_controller.dart';
 import '/core/constants/constants.dart';
-import 'convo_field.dart';
+import 'conversation_field.dart';
 
-class ConvoCard extends StatelessWidget {
+class ConversationCard extends StatelessWidget {
   final int index;
   final String title;
   final String titleTranslation;
@@ -13,7 +13,7 @@ class ConvoCard extends StatelessWidget {
   final String conversationTranslation;
   final ConversationController controller;
 
-  const ConvoCard({
+  const ConversationCard({
     super.key,
     required this.index,
     required this.title,
@@ -31,7 +31,7 @@ class ConvoCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ConvoField(
+            ConversationField(
               index: index,
               label: "Title",
               jpLabel: "タイトル",
@@ -40,19 +40,23 @@ class ConvoCard extends StatelessWidget {
               icon: Icons.title,
               controller: controller,
             ),
-            if (controller.isExpanded(index)) ...[
-              const Gap(kGap),
-              ConvoField(
-                index: index,
-                label: "Conversation",
-                jpLabel: "会話",
-                text: conversation,
-                translated: conversationTranslation,
-                icon: Icons.chat,
-                isTransField: true,
-                controller: controller,
-              ),
-            ],
+            controller.isExpanded(index)
+                ? Column(
+                  children: [
+                    const Gap(kGap),
+                    ConversationField(
+                      index: index,
+                      label: "Conversation",
+                      jpLabel: "会話",
+                      text: conversation,
+                      translated: conversationTranslation,
+                      icon: Icons.chat,
+                      isTransField: true,
+                      controller: controller,
+                    ),
+                  ],
+                )
+                : const SizedBox.shrink(),
           ],
         ),
       ),

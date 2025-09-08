@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/presentation/grammar/controller/grammar_controller.dart';
-import 'widgets/japanese_card.dart';
+import 'widgets/grammar_card.dart';
 
 class GrammarView extends StatelessWidget {
   final String selectedCategory;
@@ -15,6 +15,7 @@ class GrammarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GrammarController controller = Get.find<GrammarController>();
+    final searchController = TextEditingController();
 
     return Scaffold(
       appBar: TitleBar(title: selectedCategory),
@@ -33,7 +34,7 @@ class GrammarView extends StatelessWidget {
                   vertical: kGap,
                 ),
                 child: SearchBarField(
-                  controller: controller.searchController,
+                  controller: searchController,
                   onSearch: (value) => controller.searchQuery.value = value,
                 ),
               ),
@@ -53,7 +54,7 @@ class GrammarView extends StatelessWidget {
                           ),
                           itemCount: data.length,
                           itemBuilder: (context, index) {
-                            return JapaneseCard(
+                            return GrammarCard(
                               item: data[index],
                               controller: controller,
                               index: index,

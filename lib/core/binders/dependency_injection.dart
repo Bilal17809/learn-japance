@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import '/presentation/dictionary/controller/dictionary_controller.dart';
 import '/presentation/learn/controller/learn_controller.dart';
-import '/presentation/learn_cat/controller/learn_cat_controller.dart';
+import '/presentation/learn_category/controller/learn_category_controller.dart';
 import '/core/helper/helper.dart';
 import '/presentation/conversation/controller/conversation_controller.dart';
 import '/presentation/conversation_category/controller/conversation_category_controller.dart';
@@ -77,21 +77,21 @@ class DependencyInjection {
       );
     }, fenix: true);
     Get.lazyPut<TranslatorController>(() {
-      final lngService = Get.find<LanguageService>();
+      final languageService = Get.find<LanguageService>();
       final translationService = Get.find<TranslationService>();
       final storageService = Get.find<TranslatorStorageService>();
       final speechService = Get.find<SpeechService>();
       return TranslatorController(
-        lngService: lngService,
+        languageService: languageService,
         translationService: translationService,
         speechService: speechService,
         storageService: storageService,
       );
     }, fenix: true);
     Get.lazyPut<ConversationCategoryController>(() {
-      final convoDbService = Get.find<ConversationDbService>();
+      final conversationDbService = Get.find<ConversationDbService>();
       return ConversationCategoryController(
-        conversationDbService: convoDbService,
+        conversationDbService: conversationDbService,
       );
     }, fenix: true);
 

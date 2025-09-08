@@ -3,13 +3,13 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:learn_japan/presentation/learn/view/learn_view.dart';
 import '/core/utils/utils.dart';
-import '/presentation/learn_cat/controller/learn_cat_controller.dart';
+import '/presentation/learn_category/controller/learn_category_controller.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/data/models/learn_topic_model.dart';
 
-class LearnCatView extends StatelessWidget {
-  const LearnCatView({super.key});
+class LearnCategoryView extends StatelessWidget {
+  const LearnCategoryView({super.key});
 
   @override
   Widget build(BuildContext context) {
