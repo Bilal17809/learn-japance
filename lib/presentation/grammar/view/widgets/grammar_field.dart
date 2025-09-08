@@ -6,13 +6,13 @@ import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 import '../../controller/grammar_controller.dart';
 
-class TranslationField extends StatelessWidget {
+class GrammarField extends StatelessWidget {
   final String label, jpLabel, text, cacheKey;
   final IconData icon;
   final bool isExample;
   final GrammarController controller;
 
-  const TranslationField({
+  const GrammarField({
     super.key,
     required this.label,
     required this.jpLabel,

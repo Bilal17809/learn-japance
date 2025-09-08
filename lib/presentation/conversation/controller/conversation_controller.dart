@@ -4,21 +4,20 @@ import '/core/services/services.dart';
 
 class ConversationController extends GetxController {
   final TtsService _ttsService;
+  final _targetLanguage = Rx<LanguageModel>(
+    LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
+  );
 
   ConversationController({required TtsService ttsService})
     : _ttsService = ttsService;
 
-  final targetLanguage = Rx<LanguageModel>(
-    LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
-  );
-
   var showConversationMap = <int, bool>{}.obs;
 
   void onSpeak(String text) {
-    _ttsService.speak(text, targetLanguage.value);
+    _ttsService.speak(text, _targetLanguage.value);
   }
 
-  void toggleConvo(int index) {
+  void toggleConversation(int index) {
     showConversationMap[index] = !(showConversationMap[index] ?? false);
   }
 

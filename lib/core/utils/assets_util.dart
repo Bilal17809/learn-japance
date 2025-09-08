@@ -1,11 +1,11 @@
 class Assets {
   /// Db
-  static const String lngCodes = "assets/db/language_codes.json";
-  static const String lngFlags = "assets/db/language_flags.json";
+  static const String langCodes = "assets/db/language_codes.json";
+  static const String langFlags = "assets/db/language_flags.json";
   static const String grammarDb = "assets/db/japanese_dataset.json";
   static const String phrasesDb = "assets/db/phrases_db.db";
   static const String learnDb = "assets/db/learn_japanese.db";
-  static const String convoDb = "assets/db/tbl_conversation.json";
+  static const String conversationDb = "assets/db/tbl_conversation.json";
   static const String dictDb = "assets/db/dictionary.db";
 
   /// Lottie
@@ -23,7 +23,7 @@ class Assets {
   static const String practice = "images/pencil.png";
   static const String quiz = "images/question.png";
   static const String star = "images/star.png";
-  static const String convo = "images/chat.png";
+  static const String conversation = "images/chat.png";
 
   /// Grammar Icons
   static const String adverb = "images/adverb.png";
@@ -40,7 +40,7 @@ class Assets {
   /// Learn Japanese Icons
   static const String heroImg = "images/learn_hero_img.png";
   static const String greetings = "images/hand-shake.png";
-  static const String genConvo = "images/chat.png";
+  static const String generalConversation = "images/chat.png";
   static const String numbers = "images/calculator.png";
   static const String timeNDate = "images/calendar.png";
   static const String direction = "images/road-map.png";
@@ -52,7 +52,7 @@ class Assets {
   static const String regions = "images/regions.png";
   static const String countries = "images/countries.png";
   static const String tourism = "images/tourism.png";
-  static const String fam = "images/family.png";
+  static const String family = "images/family.png";
   static const String dating = "images/dating.png";
   static const String emergency = "images/emergency.png";
   static const String sickness = "images/sickness.png";

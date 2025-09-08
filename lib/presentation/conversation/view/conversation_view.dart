@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '../controller/conversation_controller.dart';
-import 'widgets/convo_card.dart';
+import 'widgets/conversation_card.dart';
 
 class ConversationView extends StatelessWidget {
-  final String cat;
-  final String catTrans;
+  final String category;
+  final String categoryTranslation;
   final List<String> title;
   final List<String> titleTranslation;
   final List<String> conversation;
@@ -15,10 +15,10 @@ class ConversationView extends StatelessWidget {
 
   const ConversationView({
     super.key,
-    required this.cat,
+    required this.category,
     required this.title,
     required this.conversation,
-    required this.catTrans,
+    required this.categoryTranslation,
     required this.titleTranslation,
     required this.conversationTranslation,
   });
@@ -27,7 +27,7 @@ class ConversationView extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<ConversationController>();
     return Scaffold(
-      appBar: TitleBar(title: '$cat - $catTrans'),
+      appBar: TitleBar(title: '$category - $categoryTranslation'),
       body: SafeArea(
         child: ListView.builder(
           padding: const EdgeInsets.symmetric(
@@ -36,7 +36,7 @@ class ConversationView extends StatelessWidget {
           ),
           itemCount: title.length,
           itemBuilder: (context, index) {
-            return ConvoCard(
+            return ConversationCard(
               title: title[index],
               titleTranslation: titleTranslation[index],
               conversation: conversation[index],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:learn_japan/core/common_widgets/common_widgets.dart';
+import '/core/common_widgets/common_widgets.dart';
 import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
 

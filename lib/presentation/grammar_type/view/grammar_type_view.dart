@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/utils/items_util.dart';
+import '/core/utils/utils.dart';
 import '/presentation/grammar/view/grammar_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
@@ -9,7 +9,7 @@ import '../controller/grammar_type_controller.dart';
 class GrammarTypeView extends StatelessWidget {
   GrammarTypeView({super.key});
 
-  final GrammarTypeController controller = Get.find<GrammarTypeController>();
+  final controller = Get.find<GrammarTypeController>();
 
   @override
   Widget build(BuildContext context) {
