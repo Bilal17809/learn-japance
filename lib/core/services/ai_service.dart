@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 import 'package:learn_japan/core/config/client.dart';
 import 'package:learn_japan/core/config/environment.dart';
@@ -22,9 +21,10 @@ class AiService {
           "Authorization": "Bearer $mistralKey",
         },
         body: jsonEncode({
-          "model": "mistral-medium-latest",
+          "model": "mistral-small",
           "messages": formattedMessages,
           "temperature": 0.7,
+          "max_tokens": 200,
         }),
       );
 

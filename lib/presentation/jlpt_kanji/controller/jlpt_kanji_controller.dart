@@ -1,38 +1,38 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/common/app_exceptions.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
 
-class LearnController extends GetxController {
-  final LearnDbService _learnDbService;
+class JlptKanjiController extends GetxController {
   final TtsService _ttsService;
+  final KanjiDbService _kanjiDbService;
+
+  var kanjiData = <KanjiModel>[].obs;
   final targetLanguage = Rx<LanguageModel>(
     LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
   );
-  var data = <LearnModel>[].obs;
-  final _topicId = 0.obs;
   var isLoading = true.obs;
 
-  LearnController({
-    required LearnDbService learnDbService,
+  JlptKanjiController({
     required TtsService ttsService,
-  }) : _learnDbService = learnDbService,
-       _ttsService = ttsService;
+    required KanjiDbService kanjiDbService,
+  }) : _ttsService = ttsService,
+       _kanjiDbService = kanjiDbService;
 
-  void setTopic(int id) {
-    _topicId.value = id;
-    _fetchData();
+  @override
+  void onInit() {
+    super.onInit();
+    _loadKanjiData();
   }
 
-  Future<void> _fetchData() async {
+  Future<void> _loadKanjiData() async {
     isLoading.value = true;
     try {
       await Future.delayed(const Duration(milliseconds: 200));
-      final result = await _learnDbService.getCatByTopic(_topicId.value + 1);
-      data.assignAll(result);
+      final kanjiModel = await _kanjiDbService.loadData();
+      kanjiData.assignAll(kanjiModel);
     } catch (e) {
-      debugPrint('${AppExceptions().failToLoadDb}: $e');
+      debugPrint("Error loading characters: $e");
     } finally {
       isLoading.value = false;
     }

@@ -10,3 +10,6 @@ export 'on_close_service.dart';
 export 'learn_db_service.dart';
 export 'dictionary_db_service.dart';
 export 'ai_service.dart';
+export 'kanji_db_service.dart';
+export 'katakana_db_service.dart';
+export 'hiragana_db_service.dart';

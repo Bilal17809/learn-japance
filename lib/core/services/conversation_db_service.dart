@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart';
 import '/core/common/app_exceptions.dart';
 import '/core/utils/utils.dart';
 import '/data/models/models.dart';

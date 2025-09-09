@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:learn_japan/presentation/jlpt_kanji/controller/jlpt_kanji_controller.dart';
+import '/presentation/characters/controller/characters_controller.dart';
 import '/presentation/dictionary/controller/dictionary_controller.dart';
 import '/presentation/learn/controller/learn_controller.dart';
 import '/presentation/learn_category/controller/learn_category_controller.dart';
@@ -26,6 +28,7 @@ class DependencyInjection {
       () => TranslatorStorageService(localStorage: Get.find<LocalStorage>()),
       fenix: true,
     );
+    Get.lazyPut(() => AiService(), fenix: true);
     Get.lazyPut(() => DbHelper(), fenix: true);
     Get.lazyPut(() {
       final dbHelper = Get.find<DbHelper>();
@@ -42,6 +45,9 @@ class DependencyInjection {
       final dbHelper = Get.find<DbHelper>();
       return DictionaryDbService(dbHelper: dbHelper);
     }, fenix: true);
+    Get.lazyPut(() => HiraganaDbService(), fenix: true);
+    Get.lazyPut(() => KatakanaDbService(), fenix: true);
+    Get.lazyPut(() => KanjiDbService(), fenix: true);
     Get.lazyPut(() => LanguageService(), fenix: true);
     Get.lazyPut(() => GrammarDbService(), fenix: true);
     Get.lazyPut(() {
@@ -113,7 +119,31 @@ class DependencyInjection {
     }, fenix: true);
     Get.lazyPut(() {
       final dictionaryDbService = Get.find<DictionaryDbService>();
-      return DictionaryController(dictionaryDbService: dictionaryDbService);
+      final ttsService = Get.find<TtsService>();
+      final aiService = Get.find<AiService>();
+      return DictionaryController(
+        dictionaryDbService: dictionaryDbService,
+        ttsService: ttsService,
+        aiService: aiService,
+      );
+    }, fenix: true);
+    Get.lazyPut(() {
+      final hiraganaDbService = Get.find<HiraganaDbService>();
+      final katakanaDbService = Get.find<KatakanaDbService>();
+      final ttsService = Get.find<TtsService>();
+      return CharactersController(
+        hiraganaDbService: hiraganaDbService,
+        katakanaDbService: katakanaDbService,
+        ttsService: ttsService,
+      );
+    }, fenix: true);
+    Get.lazyPut(() {
+      final ttsService = Get.find<TtsService>();
+      final kanjiDbService = Get.find<KanjiDbService>();
+      return JlptKanjiController(
+        ttsService: ttsService,
+        kanjiDbService: kanjiDbService,
+      );
     }, fenix: true);
     Get.lazyPut<GrammarTypeController>(() {
       final grammarDbService = Get.find<GrammarDbService>();

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-import '/core/utils/utils.dart';
 import '/presentation/language_picker/controller/language_picker_controller.dart';
 import '/data/models/models.dart';
 import '/core/theme/theme.dart';
@@ -47,15 +45,7 @@ class LanguagePickerView extends StatelessWidget {
                 final languages = controller.filteredLanguages;
 
                 if (languages.isEmpty) {
-                  return Center(
-                    child: Opacity(
-                      opacity: 0.5,
-                      child: Lottie.asset(
-                        Assets.searchError,
-                        width: context.screenWidth * 0.41,
-                      ),
-                    ),
-                  );
+                  return LottieWidget();
                 }
 
                 final selectedLanguage =
@@ -77,42 +67,39 @@ class LanguagePickerView extends StatelessWidget {
                   ...otherLanguages,
                 ];
 
-                return Padding(
+                return ListView.builder(
+                  itemCount: combined.length,
                   padding: const EdgeInsets.all(kBodyHp),
-                  child: ListView.builder(
-                    itemCount: combined.length,
-                    itemBuilder: (context, index) {
-                      final lang = combined[index];
-                      final isSelected = lang.code == selected?.code;
-
-                      return GestureDetector(
-                        onTap: () {
-                          onSelected(lang);
-                          Get.back();
-                        },
-                        child: Card(
-                          color: isSelected ? AppColors.primary(context) : null,
-                          child: Padding(
-                            padding: const EdgeInsets.all(kBodyHp),
-                            child: Row(
-                              children: [
-                                Text(lang.flagEmoji, style: titleLargeStyle),
-                                const Gap(kElementGap),
-                                Text(lang.name, style: titleSmallStyle),
-                                if (isSelected) ...[
-                                  const Spacer(),
-                                  Icon(
-                                    Icons.check,
-                                    color: AppColors.icon(context),
-                                  ),
-                                ],
+                  itemBuilder: (context, index) {
+                    final lang = combined[index];
+                    final isSelected = lang.code == selected?.code;
+                    return GestureDetector(
+                      onTap: () {
+                        onSelected(lang);
+                        Get.back();
+                      },
+                      child: Card(
+                        color: isSelected ? AppColors.primary(context) : null,
+                        child: Padding(
+                          padding: const EdgeInsets.all(kBodyHp),
+                          child: Row(
+                            children: [
+                              Text(lang.flagEmoji, style: titleLargeStyle),
+                              const Gap(kElementGap),
+                              Text(lang.name, style: titleSmallStyle),
+                              if (isSelected) ...[
+                                const Spacer(),
+                                Icon(
+                                  Icons.check,
+                                  color: AppColors.icon(context),
+                                ),
                               ],
-                            ),
+                            ],
                           ),
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
                 );
               }),
             ),
