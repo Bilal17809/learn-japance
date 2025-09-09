@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/utils/assets_util.dart';
-import 'package:lottie/lottie.dart';
 import '/core/theme/theme.dart';
 import '../controller/phrases_topic_controller.dart';
 import '/core/constants/constants.dart';
@@ -41,15 +39,7 @@ class PhrasesTopicView extends StatelessWidget {
               Expanded(
                 child:
                     data.isEmpty
-                        ? Center(
-                          child: Opacity(
-                            opacity: 0.5,
-                            child: Lottie.asset(
-                              Assets.searchError,
-                              width: context.screenWidth * 0.41,
-                            ),
-                          ),
-                        )
+                        ? LottieWidget()
                         : ListView.builder(
                           padding: const EdgeInsets.symmetric(
                             horizontal: kBodyHp,

@@ -8,3 +8,7 @@ export 'conversation_model.dart';
 export 'learn_model.dart';
 export 'learn_topic_model.dart';
 export 'dictionary_model.dart';
+export 'word_details_model.dart';
+export 'hiragana_model.dart';
+export 'katakana_model.dart';
+export 'kanji_model.dart';

@@ -7,6 +7,9 @@ class Assets {
   static const String learnDb = "assets/db/learn_japanese.db";
   static const String conversationDb = "assets/db/tbl_conversation.json";
   static const String dictDb = "assets/db/dictionary.db";
+  static const String hiraganaDb = "assets/db/hiragana.json";
+  static const String katakanaDb = "assets/db/katakana.json";
+  static const String kanjiDb = "assets/db/kanji.json";
 
   /// Lottie
   static const String searchError = "assets/animations/search_error.json";

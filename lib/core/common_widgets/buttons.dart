@@ -104,6 +104,7 @@ class IconActionButton extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final Color? backgroundColor;
   final bool isCircular;
+  final String? tooltip;
 
   const IconActionButton({
     super.key,
@@ -114,23 +115,27 @@ class IconActionButton extends StatelessWidget {
     this.padding = const EdgeInsets.all(kGap),
     this.backgroundColor,
     this.isCircular = false,
+    this.tooltip,
   });
 
   @override
   Widget build(BuildContext context) {
     final resolvedSize = size ?? secondaryIcon(context);
 
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: padding,
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          shape: isCircular ? BoxShape.circle : BoxShape.rectangle,
-          borderRadius:
-              isCircular ? null : BorderRadius.circular(kBorderRadius),
+    return Tooltip(
+      message: tooltip ?? '',
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: padding,
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            shape: isCircular ? BoxShape.circle : BoxShape.rectangle,
+            borderRadius:
+                isCircular ? null : BorderRadius.circular(kBorderRadius),
+          ),
+          child: Icon(icon, color: color, size: resolvedSize),
         ),
-        child: Icon(icon, color: color, size: resolvedSize),
       ),
     );
   }

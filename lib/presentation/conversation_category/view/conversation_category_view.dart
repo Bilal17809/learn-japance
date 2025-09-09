@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/core/utils/utils.dart';
 import '/presentation/conversation/view/conversation_view.dart';
-import 'package:lottie/lottie.dart';
 import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
@@ -38,15 +36,7 @@ class ConversationCategoryView extends StatelessWidget {
               Expanded(
                 child:
                     categories.isEmpty
-                        ? Center(
-                          child: Opacity(
-                            opacity: 0.5,
-                            child: Lottie.asset(
-                              Assets.searchError,
-                              width: context.screenWidth * 0.41,
-                            ),
-                          ),
-                        )
+                        ? LottieWidget()
                         : ListView.builder(
                           padding: const EdgeInsets.symmetric(
                             horizontal: kBodyHp,

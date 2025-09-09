@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-import '/core/theme/theme.dart';
-import '/core/utils/utils.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/translator/controller/translator_controller.dart';
@@ -20,21 +17,8 @@ class TransFavView extends StatelessWidget {
           child:
               controller.favorites.isEmpty
                   ? Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Opacity(
-                          opacity: 0.5,
-                          child: Lottie.asset(
-                            Assets.searchError,
-                            width: context.screenWidth * 0.35,
-                          ),
-                        ),
-                        Text(
-                          'Add translations to favorites',
-                          style: bodyLargeStyle,
-                        ),
-                      ],
+                    child: LottieWidget(
+                      message: 'Add translations to favorites',
                     ),
                   )
                   : Padding(
