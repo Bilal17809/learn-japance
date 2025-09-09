@@ -9,3 +9,4 @@ export 'translation_card.dart';
 export 'category_card.dart';
 export 'wavy_clipper.dart';
 export 'ticket_clipper.dart';
+export 'lottie_widget.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import '/presentation/characters/view/characters_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/theme/theme.dart';
-import '/presentation/translator/view/translator_view.dart';
 import '/core/constants/constants.dart';
 
 class HiraganaSection extends StatelessWidget {
@@ -50,7 +50,7 @@ class HiraganaSection extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: kElementGap),
                   child: AppElevatedButton(
-                    onPressed: () => Get.to(() => TranslatorView()),
+                    onPressed: () => Get.to(() => CharactersView()),
                     icon: Icons.translate,
                     label: 'Continue',
                     width: context.screenWidth * 0.6,

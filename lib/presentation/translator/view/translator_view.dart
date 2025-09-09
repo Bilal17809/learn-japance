@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '/presentation/translation_favorite/view/translation_favorite_view.dart';
 import '/core/services/services.dart';
 import '/core/theme/theme.dart';
-import 'package:lottie/lottie.dart';
 import '/core/utils/utils.dart';
 import '/presentation/translator/controller/translator_controller.dart';
 import '/core/common_widgets/common_widgets.dart';
@@ -115,21 +114,9 @@ class TranslatorView extends StatelessWidget {
                       ),
                     ] else ...[
                       Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Opacity(
-                              opacity: 0.5,
-                              child: Lottie.asset(
-                                Assets.translationLottie,
-                                width: context.screenWidth * 0.35,
-                              ),
-                            ),
-                            Text(
-                              'Submit text to show translation',
-                              style: bodyLargeStyle,
-                            ),
-                          ],
+                        child: LottieWidget(
+                          assetPath: Assets.translationLottie,
+                          message: 'Submit text to show translation',
                         ),
                       ),
                     ],

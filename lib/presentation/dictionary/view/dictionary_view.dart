@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
-import '/core/utils/utils.dart';
-import 'package:lottie/lottie.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/dictionary/controller/dictionary_controller.dart';
+import 'widgets/words_list.dart';
+import 'widgets/detail_section.dart';
 
 class DictionaryView extends StatelessWidget {
   const DictionaryView({super.key});
@@ -14,6 +13,7 @@ class DictionaryView extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<DictionaryController>();
     final searchController = TextEditingController();
+
     return Scaffold(
       appBar: TitleBar(title: 'Dictionary'),
       body: Obx(() {
@@ -21,6 +21,8 @@ class DictionaryView extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         final data = controller.getFilteredData();
+        final selected = controller.selectedWord.value;
+
         return SafeArea(
           child: Column(
             children: [
@@ -31,108 +33,24 @@ class DictionaryView extends StatelessWidget {
                 ),
                 child: SearchBarField(
                   controller: searchController,
-                  onSearch: (val) => controller.searchQuery.value = val,
+                  onSearch: (val) {
+                    controller.searchQuery.value = val;
+                    controller.selectedWord.value = null;
+                  },
                 ),
               ),
               Expanded(
                 child:
-                    data.isEmpty
-                        ? Lottie.asset(
-                          Assets.searchError,
-                          width: context.screenWidth * 0.41,
-                        )
-                        : Padding(
+                    selected != null
+                        ? Padding(
                           padding: const EdgeInsets.all(kBodyHp),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  padding: const EdgeInsets.all(kBodyHp),
-                                  decoration: AppDecorations.rounded(context),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.menu_book_rounded,
-                                                color: AppColors.icon(context),
-                                                size: secondaryIcon(context),
-                                              ),
-                                              const SizedBox(width: kGap),
-                                              Text(
-                                                'Word:',
-                                                style: titleSmallStyle,
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              IconActionButton(
-                                                icon: Icons.volume_up,
-                                                color: AppColors.icon(context),
-                                              ),
-                                              const SizedBox(width: kGap),
-                                              Tooltip(
-                                                message: 'Copy All',
-                                                child: IconActionButton(
-                                                  onTap: () {},
-                                                  icon: Icons.copy,
-                                                  color: AppColors.icon(
-                                                    context,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: kGap),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'English:',
-                                            style: titleSmallStyle,
-                                          ),
-                                          const SizedBox(width: kGap),
-                                          Expanded(
-                                            child: Text(
-                                              'meaning',
-                                              style: titleSmallStyle,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: kGap),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Japanese:',
-                                            style: titleSmallStyle,
-                                          ),
-                                          const SizedBox(width: kGap),
-                                          Expanded(
-                                            child: Text('selected word'),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(height: kElementGap),
-                              ],
-                            ),
-                          ),
+                          child: DetailSection(selected: selected),
+                        )
+                        : data.isEmpty
+                        ? LottieWidget()
+                        : WordsList(
+                          data: data,
+                          searchController: searchController,
                         ),
               ),
             ],

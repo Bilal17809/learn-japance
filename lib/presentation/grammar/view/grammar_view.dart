@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/utils/assets_util.dart';
-import 'package:lottie/lottie.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/presentation/grammar/controller/grammar_controller.dart';
@@ -41,12 +39,7 @@ class GrammarView extends StatelessWidget {
               Expanded(
                 child:
                     data.isEmpty
-                        ? Center(
-                          child: Lottie.asset(
-                            Assets.searchError,
-                            width: context.screenWidth * 0.41,
-                          ),
-                        )
+                        ? LottieWidget()
                         : ListView.builder(
                           padding: const EdgeInsets.symmetric(
                             horizontal: kBodyHp,
