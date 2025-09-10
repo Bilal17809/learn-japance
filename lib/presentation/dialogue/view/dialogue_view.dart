@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
-import '../controller/conversation_controller.dart';
-import 'widgets/conversation_card.dart';
+import '../controller/dialogue_controller.dart';
+import 'widgets/dialogue_card.dart';
 
-class ConversationView extends StatelessWidget {
+class DialgoueView extends StatelessWidget {
   final String category;
   final String categoryTranslation;
   final List<String> title;
@@ -13,7 +13,7 @@ class ConversationView extends StatelessWidget {
   final List<String> conversation;
   final List<String> conversationTranslation;
 
-  const ConversationView({
+  const DialgoueView({
     super.key,
     required this.category,
     required this.title,
@@ -25,7 +25,8 @@ class ConversationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<ConversationController>();
+    final controller = Get.find<DialogueController>();
+    controller.loadLearnedDialogues(category, title.length);
     return Scaffold(
       appBar: TitleBar(title: '$category - $categoryTranslation'),
       body: SafeArea(
@@ -36,8 +37,9 @@ class ConversationView extends StatelessWidget {
           ),
           itemCount: title.length,
           itemBuilder: (context, index) {
-            return ConversationCard(
+            return DialgoueCard(
               title: title[index],
+              category: category,
               titleTranslation: titleTranslation[index],
               conversation: conversation[index],
               conversationTranslation: conversationTranslation[index],

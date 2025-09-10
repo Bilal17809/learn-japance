@@ -40,10 +40,7 @@ class PhrasesView extends StatelessWidget {
                 ),
               Expanded(
                 child: ListView.builder(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: kBodyHp,
-                    vertical: kGap,
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: kBodyHp),
                   itemCount: data.length,
                   itemBuilder: (context, index) {
                     return PhraseCard(
@@ -101,7 +98,6 @@ class _DescriptionWidget extends StatelessWidget {
                 IconActionButton(
                   onTap: controller.toggleTranslationVisibility,
                   icon: Icons.arrow_drop_down,
-                  color: AppColors.icon(context),
                 ),
               ],
             );

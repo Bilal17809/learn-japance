@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import '/domain/use_cases/get_ai_response.dart';
 import '/core/helper/helper.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
@@ -7,7 +8,7 @@ import '/core/services/services.dart';
 class DictionaryController extends GetxController {
   final DictionaryDbService _dictionaryDbService;
   final TtsService _ttsService;
-  final AiService _aiService;
+  final GetAiResponse _aiService;
   final _dictionaryData = <DictionaryModel>[].obs;
   final _expandedDictionaryData =
       <DictionaryModel>[].obs; // For comma-separated words
@@ -23,7 +24,7 @@ class DictionaryController extends GetxController {
   DictionaryController({
     required DictionaryDbService dictionaryDbService,
     required TtsService ttsService,
-    required AiService aiService,
+    required GetAiResponse aiService,
   }) : _dictionaryDbService = dictionaryDbService,
        _ttsService = ttsService,
        _aiService = aiService;
@@ -108,7 +109,7 @@ class DictionaryController extends GetxController {
     wordDetails.value = null;
 
     try {
-      final response = await _aiService.sendMessage([
+      final response = await _aiService.call([
         {"role": "system", "content": PromptHelper.dictionaryPrompt},
         {"role": "user", "content": word.trim()},
       ]);

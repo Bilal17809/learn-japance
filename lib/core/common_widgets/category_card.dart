@@ -45,15 +45,21 @@ class CategoryCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const Gap(kElementGap),
-              Flexible(
-                child: Text(
-                  translatedCategory!,
-                  textAlign: TextAlign.center,
-                  style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
-                  softWrap: true,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+              const Gap(kGap),
+              Expanded(
+                child: Wrap(
+                  children: [
+                    Text(
+                      translatedCategory!,
+                      textAlign: TextAlign.center,
+                      style: titleMediumStyle.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
+                      softWrap: true,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
                 ),
               ),
               const Gap(kElementGap),

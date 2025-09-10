@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '/presentation/jlpt_kanji/controller/jlpt_kanji_controller.dart';
 import '/core/constants/constants.dart';
@@ -8,7 +9,6 @@ import '/data/models/kanji_model.dart';
 
 class KanjiBox extends StatelessWidget {
   final KanjiModel item;
-
   const KanjiBox({super.key, required this.item});
 
   @override
@@ -18,8 +18,9 @@ class KanjiBox extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: kGap),
       decoration: AppDecorations.rounded(
         context,
-      ).copyWith(border: Border.all(color: AppColors.kBlack, width: 2)),
+      ).copyWith(border: Border.all(color: AppColors.kBlack, width: 1)),
       child: ExpansionTile(
+        shape: const Border(),
         title: Text(item.kanji, style: titleLargeStyle),
         subtitle: Text(item.meanings.join(', '), style: titleSmallStyle),
         children: [
@@ -38,18 +39,27 @@ class KanjiBox extends StatelessWidget {
                     "Kun’yomi readings: ${item.kunReadings.join(', ')}",
                     style: bodyLargeStyle,
                   ),
-                  Text("JLPT: N${item.jlpt}", style: bodyLargeStyle),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: IconActionButton(
-                      onTap: () {
-                        if (item.kunReadings.isNotEmpty) {
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconActionButton(
+                        onTap: () {
+                          Clipboard.setData(
+                            ClipboardData(
+                              text:
+                                  'Kanji: ${item.kanji}\nMeaning:${item.meanings.join(', ')}\nOn’yomi: ${item.onReadings.join(', ')}\nKun’yomi: ${item.kunReadings.join(', ')}',
+                            ),
+                          );
+                        },
+                        icon: Icons.copy,
+                      ),
+                      IconActionButton(
+                        onTap: () {
                           controller.onSpeak(item.kunReadings.first);
-                        }
-                      },
-                      icon: Icons.volume_up,
-                      color: AppColors.icon(context),
-                    ),
+                        },
+                        icon: Icons.volume_up,
+                      ),
+                    ],
                   ),
                 ],
               ),

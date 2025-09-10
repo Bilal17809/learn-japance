@@ -6,7 +6,7 @@ import '/core/theme/theme.dart';
 import '/core/services/services.dart';
 import '/data/models/models.dart';
 
-class CharactersController extends GetxController {
+class JwsController extends GetxController {
   final TtsService _ttsService;
   final HiraganaDbService _hiraganaDbService;
   final KatakanaDbService _katakanaDbService;
@@ -18,10 +18,11 @@ class CharactersController extends GetxController {
   final targetLanguage = Rx<LanguageModel>(
     LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
   );
+  final selectedWord = ''.obs;
   var boxColors = <String, Color>{}.obs;
   var isLoading = true.obs;
 
-  CharactersController({
+  JwsController({
     required TtsService ttsService,
     required HiraganaDbService hiraganaDbService,
     required KatakanaDbService katakanaDbService,
@@ -33,6 +34,11 @@ class CharactersController extends GetxController {
   void onInit() {
     super.onInit();
     _loadAllCharacters();
+  }
+
+  void setArguments(String selectedWord) {
+    this.selectedWord.value = selectedWord;
+    boxColors[selectedWord] = AppColors.primary(Get.context!);
   }
 
   Future<void> _loadAllCharacters() async {
@@ -50,14 +56,8 @@ class CharactersController extends GetxController {
     }
   }
 
-  void onBoxSpeak(String character) async {
-    _changeBoxColor(character);
-    await _ttsService.speak(character, targetLanguage.value);
-    await Future.delayed(const Duration(milliseconds: 100));
-    boxColors[character] = AppColors.container(Get.context!);
-  }
-
-  void _changeBoxColor(String character) {
+  void onSpeak(String character) async {
+    boxColors.remove(selectedWord.value);
     final random = Random();
     boxColors[character] = Color.fromARGB(
       255,
@@ -65,6 +65,9 @@ class CharactersController extends GetxController {
       random.nextInt(256),
       random.nextInt(256),
     );
+    await _ttsService.speak(character, targetLanguage.value);
+    await Future.delayed(const Duration(milliseconds: 100));
+    boxColors[character] = AppColors.container(Get.context!);
   }
 
   Color getBoxColor(String character) {

@@ -11,7 +11,7 @@ class ItemsUtil {
     ItemsModel(assetPath: Assets.practice, label: "Practice"),
     ItemsModel(assetPath: Assets.speaking, label: "Speaking"),
     ItemsModel(assetPath: Assets.quiz, label: "Quiz"),
-    ItemsModel(assetPath: Assets.conversation, label: "Dialog"),
+    ItemsModel(assetPath: Assets.conversation, label: "Dialogues"),
   ];
   static final List<ItemsModel> grammarItems = [
     ItemsModel(assetPath: Assets.adverb),

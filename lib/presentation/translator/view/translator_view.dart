@@ -3,7 +3,6 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import '/presentation/translation_favorite/view/translation_favorite_view.dart';
 import '/core/services/services.dart';
-import '/core/theme/theme.dart';
 import '/core/utils/utils.dart';
 import '/presentation/translator/controller/translator_controller.dart';
 import '/core/common_widgets/common_widgets.dart';
@@ -30,7 +29,6 @@ class TranslatorView extends StatelessWidget {
               Get.to(() => const TransFavView());
             },
             icon: Icons.history,
-            color: AppColors.icon(context),
           ),
         ],
       ),
@@ -62,7 +60,6 @@ class TranslatorView extends StatelessWidget {
                             controller.setTarget(holder);
                           },
                           icon: Icons.swap_horiz,
-                          color: AppColors.icon(context),
                         ),
                         LanguagePickerBox(
                           selected: controller.targetLanguage.value,

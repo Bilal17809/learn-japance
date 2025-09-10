@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import '/presentation/home/controller/home_controller.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/theme/theme.dart';
 import '/core/utils/utils.dart';
@@ -10,40 +12,66 @@ class BottomSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kBodyHp * 1.5),
-        child: Column(
-          children: [
-            Divider(color: AppColors.primary(context)),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text("Today Progress", style: bodyMediumStyle),
-            ),
-            const Gap(kGap),
-            HorizontalProgress(currentStep: 57),
-            const Gap(kGap),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                _ProgressColumn(value: 10, label: "Lessons"),
-                _ProgressColumn(value: 30, label: "Words"),
-                _ProgressColumn(value: 5, label: "Sentences"),
-              ],
-            ),
-            Divider(color: AppColors.primary(context)),
-            const Spacer(),
-            Row(
-              children: [
-                Text("Streak", style: titleLargeStyle),
-                Spacer(),
-                Image.asset(Assets.star, width: primaryIcon(context)),
-                const Gap(kGap / 2),
-                Text("5 achievements", style: titleSmallStyle),
-              ],
-            ),
-            const Gap(kBodyHp),
-          ],
+    final controller = Get.find<HomeController>();
+    return Obx(
+      () => Expanded(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: kBodyHp * 1.5),
+          child: Column(
+            children: [
+              Divider(color: AppColors.primary(context)),
+
+              const Gap(kGap),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("Today's Progress", style: titleSmallStyle),
+                  const Spacer(),
+                  Text("Today's goal:", style: bodyMediumStyle),
+                  const SizedBox(width: 6),
+                  Text(
+                    "10 XP",
+                    style: bodyMediumStyle.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+              const Gap(kGap),
+              HorizontalProgress(
+                currentStep: ((controller.dailyProgress.value / 10) * 100)
+                    .toInt()
+                    .clamp(0, 100),
+              ),
+              const Gap(kGap),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _ProgressColumn(
+                    value: controller.phrasesLearnedToday.value,
+                    label: "Phrases",
+                  ),
+                  _ProgressColumn(value: 0, label: "Moji"),
+                  _ProgressColumn(
+                    value: controller.dialoguesLearnedToday.value,
+                    label: "Dialogues",
+                  ),
+                ],
+              ),
+              Divider(color: AppColors.primary(context)),
+              const Spacer(),
+              Row(
+                children: [
+                  Text("Streak", style: titleLargeStyle),
+                  Spacer(),
+                  Image.asset(Assets.star, width: primaryIcon(context)),
+                  const Gap(kGap / 2),
+                  Text("5 achievements", style: titleSmallStyle),
+                ],
+              ),
+              const Gap(kBodyHp),
+            ],
+          ),
         ),
       ),
     );

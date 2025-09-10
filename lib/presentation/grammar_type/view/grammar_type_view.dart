@@ -30,13 +30,13 @@ class GrammarTypeView extends StatelessWidget {
               vertical: kBodyHp,
             ),
             child: GridView.builder(
-              itemCount: categories.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: kElementGap,
                 mainAxisSpacing: kElementGap,
                 childAspectRatio: 1.0,
               ),
+              itemCount: categories.length,
               itemBuilder: (context, index) {
                 final category = categories[index];
                 return CategoryCard(

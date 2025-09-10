@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:learn_japan/core/common_widgets/buttons.dart';
 import '/presentation/phrases/controller/phrases_controller.dart';
 import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
@@ -25,11 +27,10 @@ class PhrasesField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      final isLoading = controller.translatingStates[cacheKey] == true;
       final translated = controller.translationCache[cacheKey];
 
       return Container(
-        padding: const EdgeInsets.all(kElementGap),
+        padding: const EdgeInsets.fromLTRB(kGap, kGap, kGap, 0),
         decoration: AppDecorations.highlight(context, isExample: isExample),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,14 +56,7 @@ class PhrasesField extends StatelessWidget {
               children: [
                 Expanded(
                   child:
-                      isLoading
-                          ? Text(
-                            "Translating...",
-                            style: bodyLargeStyle.copyWith(
-                              color: AppColors.textGreyColor,
-                            ),
-                          )
-                          : translated != null
+                      translated != null
                           ? Container(
                             padding: const EdgeInsets.all(8),
                             decoration: AppDecorations.highlight(
@@ -72,6 +66,27 @@ class PhrasesField extends StatelessWidget {
                             child: Text(translated, style: bodyLargeStyle),
                           )
                           : const SizedBox.shrink(),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconActionButton(
+                  onTap:
+                      () => controller.onSpeak(
+                        translated ?? 'Speech not available at the moment',
+                      ),
+                  icon: Icons.volume_up,
+                ),
+                IconActionButton(
+                  onTap:
+                      () => Clipboard.setData(
+                        ClipboardData(
+                          text: 'English: $text\nJapanese: $translated',
+                        ),
+                      ),
+                  icon: Icons.copy,
                 ),
               ],
             ),
