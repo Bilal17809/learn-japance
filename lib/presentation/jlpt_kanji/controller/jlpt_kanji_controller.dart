@@ -6,11 +6,10 @@ import '/core/services/services.dart';
 class JlptKanjiController extends GetxController {
   final TtsService _ttsService;
   final KanjiDbService _kanjiDbService;
-
-  var kanjiData = <KanjiModel>[].obs;
   final targetLanguage = Rx<LanguageModel>(
     LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
   );
+  var kanjiData = <KanjiModel>[].obs;
   var isLoading = true.obs;
 
   JlptKanjiController({

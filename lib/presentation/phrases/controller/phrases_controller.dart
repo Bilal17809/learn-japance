@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../../home/controller/home_controller.dart';
 import '/core/local_storage/local_storage.dart';
 import '/core/common/app_exceptions.dart';
 import '/core/services/services.dart';
@@ -8,22 +9,30 @@ class PhrasesController extends GetxController {
   final PhrasesDbService _dbService;
   final TranslationService _translationService;
   final LocalStorage _localStorage;
+  final TtsService _ttsService;
+
   var phrases = <PhrasesModel>[].obs;
   final RxMap<String, String> translationCache = <String, String>{}.obs;
   final RxMap<String, bool> translatingStates = <String, bool>{}.obs;
-  final _topicId = 0.obs;
   var translatedDescription = ''.obs;
+  var learnedPhrases = <int, bool>{}.obs;
+  final targetLanguage = Rx<LanguageModel>(
+    LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
+  );
+  final _topicId = 0.obs;
+  final _error = ''.obs;
   var showTranslation = false.obs;
   var isLoading = true.obs;
-  final _error = ''.obs;
 
   PhrasesController({
     required PhrasesDbService dbService,
     required TranslationService translationService,
     required LocalStorage localStorage,
+    required TtsService ttsService,
   }) : _dbService = dbService,
        _translationService = translationService,
-       _localStorage = localStorage;
+       _localStorage = localStorage,
+       _ttsService = ttsService;
 
   @override
   void onInit() {
@@ -40,11 +49,7 @@ class PhrasesController extends GetxController {
   void setTopic(int id, String description) async {
     _topicId.value = id;
     await fetchPhrases();
-    await translateDescription(description);
-  }
-
-  void toggleTranslationVisibility() {
-    showTranslation.value = !showTranslation.value;
+    await _translateDescription(description);
   }
 
   Future<void> fetchPhrases() async {
@@ -54,7 +59,8 @@ class PhrasesController extends GetxController {
       _error.value = '';
       final data = await _dbService.getPhrasesByTopic(_topicId.value);
       phrases.assignAll(data);
-      await translateAll();
+      await _translateAll();
+      await _loadLearnedPhrases();
     } catch (e) {
       _error.value = e.toString();
     } finally {
@@ -65,6 +71,7 @@ class PhrasesController extends GetxController {
   Future<void> translateItem(PhrasesModel item) async {
     final explanationKey = "translation_${item.id}_explanation";
     final sentenceKey = "translation_${item.id}_sentence";
+
     try {
       if (translationCache.containsKey(explanationKey) &&
           translationCache.containsKey(sentenceKey)) {
@@ -86,23 +93,24 @@ class PhrasesController extends GetxController {
         targetLanguage: 'ja',
       );
 
-      translationCache["${item.id}_explanation"] = translations[0];
-      translationCache["${item.id}_sentence"] = translations[1];
+      translationCache[explanationKey] = translations[0];
+      translationCache[sentenceKey] = translations[1];
+
+      await _localStorage.setString(explanationKey, translations[0]);
+      await _localStorage.setString(sentenceKey, translations[1]);
     } catch (e) {
-      translationCache["${item.id}_explanation"] =
+      translationCache[explanationKey] =
           "${AppExceptions().failToTranslate}: $e";
-      translationCache["${item.id}_sentence"] =
-          "${AppExceptions().failToTranslate}: $e";
+      translationCache[sentenceKey] = "${AppExceptions().failToTranslate}: $e";
     }
   }
 
-  Future<void> translateAll() async {
+  Future<void> _translateAll() async {
     await Future.wait(phrases.map(translateItem));
   }
 
-  Future<void> translateDescription(String description) async {
+  Future<void> _translateDescription(String description) async {
     final descKey = "translation_topic_${_topicId.value}_description";
-
     translatedDescription.value = "翻訳中...";
     try {
       final savedDesc = await _localStorage.getString(descKey);
@@ -119,5 +127,36 @@ class PhrasesController extends GetxController {
     } catch (e) {
       translatedDescription.value = "${AppExceptions().failToTranslate}: $e";
     }
+  }
+
+  Future<void> _loadLearnedPhrases() async {
+    for (var phrase in phrases) {
+      final key = "learned_phrase_${phrase.id}";
+      final isLearned = await _localStorage.getBool(key) ?? false;
+      learnedPhrases[phrase.id] = isLearned;
+    }
+  }
+
+  Future<void> learnPhrase(int index) async {
+    final phrase = phrases[index];
+    final key = "learned_phrase_${phrase.id}";
+
+    learnedPhrases[phrase.id] = true;
+    await _localStorage.setBool(key, true);
+    await Get.find<HomeController>().increaseProgress();
+  }
+
+  void onSpeak(String text) {
+    _ttsService.speak(text, targetLanguage.value);
+  }
+
+  void toggleTranslationVisibility() {
+    showTranslation.value = !showTranslation.value;
+  }
+
+  @override
+  void onClose() {
+    _ttsService.onClose();
+    super.onClose();
   }
 }

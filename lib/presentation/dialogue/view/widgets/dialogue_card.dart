@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '../../controller/conversation_controller.dart';
+import '../../../../core/common_widgets/buttons.dart';
+import '../../controller/dialogue_controller.dart';
 import '/core/constants/constants.dart';
-import 'conversation_field.dart';
+import 'dialogue_field.dart';
 
-class ConversationCard extends StatelessWidget {
+class DialgoueCard extends StatelessWidget {
   final int index;
   final String title;
   final String titleTranslation;
   final String conversation;
   final String conversationTranslation;
-  final ConversationController controller;
+  final DialogueController controller;
+  final String category;
 
-  const ConversationCard({
+  const DialgoueCard({
     super.key,
     required this.index,
     required this.title,
@@ -21,17 +23,20 @@ class ConversationCard extends StatelessWidget {
     required this.conversation,
     required this.conversationTranslation,
     required this.controller,
+    required this.category,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Padding(
+    return Obx(() {
+      final isLearned =
+          controller.learnedDialogues["${category}_$index"] ?? false;
+      return Padding(
         padding: const EdgeInsets.all(kGap),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ConversationField(
+            DialgoueField(
               index: index,
               label: "Title",
               jpLabel: "タイトル",
@@ -44,7 +49,7 @@ class ConversationCard extends StatelessWidget {
                 ? Column(
                   children: [
                     const Gap(kGap),
-                    ConversationField(
+                    DialgoueField(
                       index: index,
                       label: "Conversation",
                       jpLabel: "会話",
@@ -57,9 +62,21 @@ class ConversationCard extends StatelessWidget {
                   ],
                 )
                 : const SizedBox.shrink(),
+            const Gap(kBodyHp),
+            Center(
+              child: AppElevatedButton(
+                onPressed:
+                    isLearned
+                        ? null
+                        : () => controller.learnDialogue(category, index),
+                icon: Icons.chat,
+                label: isLearned ? 'Learned' : 'Learn this Dialogue',
+                backgroundColor: isLearned ? Colors.grey : null,
+              ),
+            ),
           ],
         ),
-      ),
-    );
+      );
+    });
   }
 }

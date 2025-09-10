@@ -34,7 +34,6 @@ class DetailSection extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.menu_book_rounded,
-                          color: AppColors.icon(context),
                           size: secondaryIcon(context),
                         ),
                         const SizedBox(width: kGap),
@@ -47,7 +46,6 @@ class DetailSection extends StatelessWidget {
                           tooltip: 'Speak',
                           onTap: () => controller.onSpeak(selected.japanese),
                           icon: Icons.volume_up,
-                          color: AppColors.icon(context),
                         ),
                         const SizedBox(width: kGap),
                         IconActionButton(
@@ -60,7 +58,6 @@ class DetailSection extends StatelessWidget {
                                 ),
                               ),
                           icon: Icons.copy,
-                          color: AppColors.icon(context),
                         ),
                       ],
                     ),

@@ -80,7 +80,6 @@ class TranslationCard extends StatelessWidget {
                         tts.isSpeaking(translatedText)
                             ? Icons.stop
                             : Icons.volume_up,
-                    color: AppColors.icon(context),
                     size: smallIcon(context),
                   ),
                   const Gap(kGap),
@@ -90,14 +89,12 @@ class TranslationCard extends StatelessWidget {
                           ClipboardData(text: translatedText),
                         ),
                     icon: Icons.copy,
-                    color: AppColors.icon(context),
                     size: smallIcon(context),
                   ),
                   const Gap(kGap),
                   IconActionButton(
-                    onTap: onRemove,
+                    onTap: onRemove!,
                     icon: Icons.delete,
-                    color: AppColors.icon(context),
                     size: smallIcon(context),
                   ),
                   const Gap(kGap),
@@ -108,7 +105,6 @@ class TranslationCard extends StatelessWidget {
                       );
                     },
                     icon: Icons.share,
-                    color: AppColors.icon(context),
                     size: smallIcon(context),
                   ),
                   if (showFav == true) ...[

@@ -1,12 +1,17 @@
 import 'package:get/get.dart';
-import 'package:learn_japan/presentation/jlpt_kanji/controller/jlpt_kanji_controller.dart';
-import '/presentation/characters/controller/characters_controller.dart';
+import 'package:learn_japan/core/config/client.dart';
+import 'package:learn_japan/data/data_source/ai_data_source.dart';
+import 'package:learn_japan/data/repo_impl/ai_repo_impl.dart';
+import 'package:learn_japan/domain/repo/ai_repo.dart';
+import 'package:learn_japan/domain/use_cases/get_ai_response.dart';
+import '/presentation/jlpt_kanji/controller/jlpt_kanji_controller.dart';
+import '/presentation/jws/controller/jws_controller.dart';
 import '/presentation/dictionary/controller/dictionary_controller.dart';
 import '/presentation/learn/controller/learn_controller.dart';
 import '/presentation/learn_category/controller/learn_category_controller.dart';
 import '/core/helper/helper.dart';
-import '/presentation/conversation/controller/conversation_controller.dart';
-import '/presentation/conversation_category/controller/conversation_category_controller.dart';
+import '/presentation/dialogue/controller/dialogue_controller.dart';
+import '/presentation/dialogue_category/controller/dialogue_category_controller.dart';
 import '/core/local_storage/local_storage.dart';
 import '/presentation/phrases/controller/phrases_controller.dart';
 import '/presentation/translator/controller/translator_controller.dart';
@@ -20,6 +25,12 @@ import '/core/services/services.dart';
 class DependencyInjection {
   static void init() {
     /// Core Services
+    Get.lazyPut<AiDataSource>(() => AiDataSource(mistralKey), fenix: true);
+    Get.lazyPut<AiRepo>(
+      () => AiRepoImpl(Get.find<AiDataSource>()),
+      fenix: true,
+    );
+    Get.lazyPut(() => GetAiResponse(Get.find<AiRepo>()), fenix: true);
     Get.lazyPut(() => LocalStorage(), fenix: true);
     Get.lazyPut(() => TranslationService(), fenix: true);
     Get.lazyPut(() => TtsService(), fenix: true);
@@ -28,7 +39,7 @@ class DependencyInjection {
       () => TranslatorStorageService(localStorage: Get.find<LocalStorage>()),
       fenix: true,
     );
-    Get.lazyPut(() => AiService(), fenix: true);
+    // Get.lazyPut(() => AiService(), fenix: true);
     Get.lazyPut(() => DbHelper(), fenix: true);
     Get.lazyPut(() {
       final dbHelper = Get.find<DbHelper>();
@@ -61,7 +72,16 @@ class DependencyInjection {
       return SplashController(dbHelper: dbHelper);
     }, fenix: true);
 
-    Get.lazyPut(() => HomeController(), fenix: true);
+    Get.lazyPut(() {
+      final ttsService = Get.find<TtsService>();
+      final localStorage = Get.find<LocalStorage>();
+      final jwsController = Get.find<JwsController>();
+      return HomeController(
+        ttsService: ttsService,
+        localStorage: localStorage,
+        jwsController: jwsController,
+      );
+    }, fenix: true);
     Get.lazyPut<PhrasesTopicController>(() {
       final phrasesService = Get.find<PhrasesDbService>();
       final translationService = Get.find<TranslationService>();
@@ -76,10 +96,12 @@ class DependencyInjection {
       final phrasesService = Get.find<PhrasesDbService>();
       final translationService = Get.find<TranslationService>();
       final localStorage = Get.find<LocalStorage>();
+      final ttsService = Get.find<TtsService>();
       return PhrasesController(
         dbService: phrasesService,
         translationService: translationService,
         localStorage: localStorage,
+        ttsService: ttsService,
       );
     }, fenix: true);
     Get.lazyPut<TranslatorController>(() {
@@ -94,16 +116,20 @@ class DependencyInjection {
         storageService: storageService,
       );
     }, fenix: true);
-    Get.lazyPut<ConversationCategoryController>(() {
+    Get.lazyPut<DialogueCategoryController>(() {
       final conversationDbService = Get.find<ConversationDbService>();
-      return ConversationCategoryController(
+      return DialogueCategoryController(
         conversationDbService: conversationDbService,
       );
     }, fenix: true);
 
-    Get.lazyPut<ConversationController>(() {
+    Get.lazyPut<DialogueController>(() {
       final ttsService = Get.find<TtsService>();
-      return ConversationController(ttsService: ttsService);
+      final localStorage = Get.find<LocalStorage>();
+      return DialogueController(
+        ttsService: ttsService,
+        localStorage: localStorage,
+      );
     }, fenix: true);
     Get.lazyPut(() {
       final learnDbService = Get.find<LearnDbService>();
@@ -120,7 +146,7 @@ class DependencyInjection {
     Get.lazyPut(() {
       final dictionaryDbService = Get.find<DictionaryDbService>();
       final ttsService = Get.find<TtsService>();
-      final aiService = Get.find<AiService>();
+      final aiService = Get.find<GetAiResponse>();
       return DictionaryController(
         dictionaryDbService: dictionaryDbService,
         ttsService: ttsService,
@@ -131,7 +157,7 @@ class DependencyInjection {
       final hiraganaDbService = Get.find<HiraganaDbService>();
       final katakanaDbService = Get.find<KatakanaDbService>();
       final ttsService = Get.find<TtsService>();
-      return CharactersController(
+      return JwsController(
         hiraganaDbService: hiraganaDbService,
         katakanaDbService: katakanaDbService,
         ttsService: ttsService,

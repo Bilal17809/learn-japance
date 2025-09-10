@@ -3,11 +3,12 @@ import '../constants/constants.dart';
 import '/core/theme/theme.dart';
 
 class AppElevatedButton extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final IconData icon;
   final String label;
   final double? height;
   final double? width;
+  final Color? backgroundColor;
 
   const AppElevatedButton({
     super.key,
@@ -16,6 +17,7 @@ class AppElevatedButton extends StatelessWidget {
     required this.label,
     this.height,
     this.width,
+    this.backgroundColor,
   });
 
   @override
@@ -26,6 +28,7 @@ class AppElevatedButton extends StatelessWidget {
       label: Text(label),
       style: ElevatedButton.styleFrom(
         minimumSize: Size(width ?? 0, height ?? 50),
+        backgroundColor: backgroundColor,
       ),
     );
   }
@@ -97,9 +100,9 @@ class SimpleButton extends StatelessWidget {
 }
 
 class IconActionButton extends StatelessWidget {
-  final VoidCallback? onTap;
+  final VoidCallback onTap;
   final IconData icon;
-  final Color color;
+  final Color? color;
   final double? size;
   final EdgeInsetsGeometry padding;
   final Color? backgroundColor;
@@ -108,9 +111,9 @@ class IconActionButton extends StatelessWidget {
 
   const IconActionButton({
     super.key,
-    this.onTap,
+    required this.onTap,
     required this.icon,
-    required this.color,
+    this.color,
     this.size,
     this.padding = const EdgeInsets.all(kGap),
     this.backgroundColor,
@@ -134,7 +137,11 @@ class IconActionButton extends StatelessWidget {
             borderRadius:
                 isCircular ? null : BorderRadius.circular(kBorderRadius),
           ),
-          child: Icon(icon, color: color, size: resolvedSize),
+          child: Icon(
+            icon,
+            color: color ?? AppColors.icon(context),
+            size: resolvedSize,
+          ),
         ),
       ),
     );

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/theme/app_colors.dart';
-import 'package:learn_japan/core/theme/app_decorations.dart';
-import 'package:learn_japan/core/theme/app_styles.dart';
+import 'package:learn_japan/core/theme/theme.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/presentation/learn/controller/learn_controller.dart';
@@ -57,7 +55,6 @@ class LearnView extends StatelessWidget {
                             data.elementAt(index).japanese.toString(),
                           ),
                       icon: Icons.volume_up,
-                      color: AppColors.icon(context),
                     ),
                   ),
                 ),

@@ -17,12 +17,12 @@ TextStyle headlineSmallStyle = const TextStyle(
 );
 
 TextStyle titleMediumStyle = const TextStyle(
-  fontSize: 18,
+  fontSize: 17,
   fontWeight: FontWeight.bold,
 );
 
 TextStyle titleLargeStyle = const TextStyle(
-  fontSize: 24,
+  fontSize: 22,
   fontWeight: FontWeight.bold,
 );
 

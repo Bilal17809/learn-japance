@@ -7,7 +7,7 @@ import '../../app_drawer/view/app_drawer.dart';
 import '/presentation/home/controller/home_controller.dart';
 import '/core/utils/utils.dart';
 import 'widgets/menu_list.dart';
-import 'widgets/hiragana_section.dart';
+import 'widgets/character_card.dart';
 import 'widgets/bottom_section.dart';
 import 'widgets/home_header.dart';
 
@@ -35,7 +35,7 @@ class HomeView extends StatelessWidget {
           child: Column(
             children: const [
               HomeHeader(),
-              HiraganaSection(),
+              CharacterCard(),
               MenuList(),
               BottomSection(),
             ],

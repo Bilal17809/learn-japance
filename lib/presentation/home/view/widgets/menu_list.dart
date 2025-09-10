@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import '/data/models/models.dart';
-import '/presentation/conversation_category/view/conversation_category_view.dart';
+import '/presentation/dialogue_category/view/dialogue_category_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/phrases_topic/view/phrases_topic_view.dart';
 import '/presentation/dictionary/view/dictionary_view.dart';
@@ -64,7 +64,7 @@ class MenuList extends StatelessWidget {
                     Get.to(() => PhrasesTopicView());
                     break;
                   case 8:
-                    Get.to(() => ConversationCategoryView());
+                    Get.to(() => DialogueCategoryView());
                     break;
                 }
               },
@@ -99,15 +99,17 @@ class _ItemCard extends StatelessWidget {
           ),
         ),
         const Gap(kGap),
-        SizedBox(
-          width: 60,
-          child: Text(
-            item.label ?? '',
-            textAlign: TextAlign.center,
-            style: bodyMediumStyle.copyWith(fontWeight: FontWeight.w600),
-            maxLines: 2,
-            softWrap: true,
-            overflow: TextOverflow.ellipsis,
+        Flexible(
+          child: SizedBox(
+            width: 70,
+            child: Text(
+              item.label ?? '',
+              textAlign: TextAlign.center,
+              style: bodySmallStyle.copyWith(fontWeight: FontWeight.w600),
+              maxLines: 2,
+              softWrap: true,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ),
       ],
