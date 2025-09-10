@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/presentation/conversation/view/conversation_view.dart';
+import '/presentation/dialogue/view/dialogue_view.dart';
 import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
-import '/presentation/conversation_category/controller/conversation_category_controller.dart';
+import '/presentation/dialogue_category/controller/dialogue_category_controller.dart';
 
-class ConversationCategoryView extends StatelessWidget {
-  const ConversationCategoryView({super.key});
+class DialogueCategoryView extends StatelessWidget {
+  const DialogueCategoryView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<ConversationCategoryController>();
+    final controller = Get.find<DialogueCategoryController>();
     final searchController = TextEditingController();
     return Scaffold(
       appBar: TitleBar(title: 'Choose Category'),
@@ -62,50 +62,53 @@ class _CategoriesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<ConversationCategoryController>();
+    final controller = Get.find<DialogueCategoryController>();
     final conversationModels =
         controller.category.where((c) => c.category == category).toList();
 
     if (conversationModels.isEmpty) return const SizedBox.shrink();
     final conversationModel = conversationModels.first;
 
-    return GestureDetector(
-      onTap: () {
-        Get.to(
-          () => ConversationView(
-            category: conversationModel.category,
-            categoryTranslation: conversationModel.categoryTranslation,
-            title: conversationModels.map((c) => c.title).toList(),
-            titleTranslation:
-                conversationModels.map((c) => c.titleTrans).toList(),
-            conversation:
-                conversationModels
-                    .map((c) => c.conversation.replaceAll('~', '\n'))
-                    .toList(),
-            conversationTranslation:
-                conversationModels
-                    .map(
-                      (c) => c.conversationTranslation
-                          .replaceAll('〜', '\n')
-                          .replaceAll('～', '\n'),
-                    ) // fullwidth tilde
-                    .toList(),
-          ),
-        );
-      },
-      child: Container(
-        margin: const EdgeInsets.only(bottom: kElementGap),
-        padding: const EdgeInsets.all(kBodyHp),
-        decoration: AppDecorations.simpleDecor(context),
-        child: ListTile(
-          title: Text(
-            category,
-            style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
-          ),
-          subtitle: Text(
-            conversationModel.categoryTranslation,
-            textAlign: TextAlign.right,
-            style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
+    return ClipPath(
+      clipper: TicketClipper(),
+      child: GestureDetector(
+        onTap: () {
+          Get.to(
+            () => DialgoueView(
+              category: conversationModel.category,
+              categoryTranslation: conversationModel.categoryTranslation,
+              title: conversationModels.map((c) => c.title).toList(),
+              titleTranslation:
+                  conversationModels.map((c) => c.titleTrans).toList(),
+              conversation:
+                  conversationModels
+                      .map((c) => c.conversation.replaceAll('~', '\n'))
+                      .toList(),
+              conversationTranslation:
+                  conversationModels
+                      .map(
+                        (c) => c.conversationTranslation
+                            .replaceAll('〜', '\n')
+                            .replaceAll('～', '\n'),
+                      ) // fullwidth tilde
+                      .toList(),
+            ),
+          );
+        },
+        child: Container(
+          margin: const EdgeInsets.only(bottom: kElementGap),
+          padding: const EdgeInsets.all(kBodyHp),
+          decoration: AppDecorations.rounded(context),
+          child: ListTile(
+            title: Text(
+              category,
+              style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
+            ),
+            subtitle: Text(
+              conversationModel.categoryTranslation,
+              textAlign: TextAlign.right,
+              style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
+            ),
           ),
         ),
       ),

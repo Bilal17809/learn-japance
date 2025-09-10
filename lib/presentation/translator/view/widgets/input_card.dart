@@ -76,7 +76,6 @@ class InputCard extends StatelessWidget {
                         right: 0,
                         child: IconActionButton(
                           icon: Icons.cancel,
-                          color: AppColors.icon(context),
                           onTap: () {
                             controller.inputController.clear();
                             controller.inputText.value = '';
@@ -102,21 +101,9 @@ class InputCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconActionButton(
-                  onTap: onLeftPressed,
-                  icon: leftIcon,
-                  color: AppColors.icon(context),
-                ),
-                IconActionButton(
-                  onTap: onCenterPressed,
-                  icon: centerIcon,
-                  color: AppColors.icon(context),
-                ),
-                IconActionButton(
-                  onTap: onRightPressed,
-                  icon: rightIcon,
-                  color: AppColors.icon(context),
-                ),
+                IconActionButton(onTap: onLeftPressed!, icon: leftIcon),
+                IconActionButton(onTap: onCenterPressed!, icon: centerIcon),
+                IconActionButton(onTap: onRightPressed!, icon: rightIcon),
               ],
             ),
           ),

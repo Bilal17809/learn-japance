@@ -1,56 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/constants/constants.dart';
-import 'package:learn_japan/core/theme/theme.dart';
-import '/core/common_widgets/common_widgets.dart';
+import '/core/constants/constants.dart';
+import '/core/theme/theme.dart';
+import '/presentation/jlpt_kanji/view/jlpt_kanji_view.dart';
 import '/data/models/hiragana_model.dart';
 import '/data/models/katakana_model.dart';
-import '/presentation/characters/controller/characters_controller.dart';
-import 'widgets/character_section.dart';
-import '../../jlpt_kanji/view/widgets/kanji_box.dart';
+import '/presentation/jws/controller/jws_controller.dart';
+import 'character_section.dart';
 
-class CharactersView extends StatelessWidget {
-  CharactersView({super.key});
-  final controller = Get.find<CharactersController>();
+class TabViewSections extends StatelessWidget {
+  const TabViewSections({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: TitleBar(
-          title: 'Choose A Category',
-          bottom: TabBar(
-            tabs: [
-              Tab(child: Text("Hiragana", style: titleSmallStyle)),
-              Tab(child: Text("Katakana", style: titleSmallStyle)),
-              Tab(child: Text("Kanji", style: titleSmallStyle)),
-            ],
-            isScrollable: false,
-          ),
-        ),
-        body: Obx(() {
-          if (controller.isLoading.value) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          return SafeArea(
-            child: TabBarView(
-              physics: NeverScrollableScrollPhysics(),
-              children: [
-                _HiraganaSection(controller: controller),
-                _KatakanaSection(controller: controller),
-                _KanjiSection(controller: controller),
-              ],
-            ),
-          );
-        }),
-      ),
+    final controller = Get.find<JwsController>();
+    return TabBarView(
+      physics: NeverScrollableScrollPhysics(),
+      children: [
+        _HiraganaSection(controller: controller),
+        _KatakanaSection(controller: controller),
+        _KanjiSection(controller: controller),
+      ],
     );
   }
 }
 
 class _HiraganaSection extends StatelessWidget {
-  final CharactersController controller;
+  final JwsController controller;
 
   const _HiraganaSection({required this.controller});
 
@@ -80,7 +56,7 @@ class _HiraganaSection extends StatelessWidget {
 }
 
 class _KatakanaSection extends StatelessWidget {
-  final CharactersController controller;
+  final JwsController controller;
 
   const _KatakanaSection({required this.controller});
 
@@ -111,17 +87,32 @@ class _KatakanaSection extends StatelessWidget {
 }
 
 class _KanjiSection extends StatelessWidget {
-  final CharactersController controller;
+  final JwsController controller;
 
   const _KanjiSection({required this.controller});
+
   @override
   Widget build(BuildContext context) {
+    final jlptLevels = [4, 3, 2, 1];
+
     return ListView.builder(
       padding: const EdgeInsets.all(kBodyHp),
-      itemCount: controller.kanjiData.length,
+      itemCount: jlptLevels.length,
       itemBuilder: (_, index) {
-        final item = controller.kanjiData[index];
-        return KanjiBox(item: item);
+        final jlpt = jlptLevels[index];
+        return GestureDetector(
+          onTap: () {
+            Get.to(() => JlptKanjiView(jlptLevel: jlpt));
+          },
+          child: Container(
+            margin: const EdgeInsets.symmetric(vertical: kGap),
+            padding: const EdgeInsets.all(kBodyHp),
+            decoration: AppDecorations.rounded(
+              context,
+            ).copyWith(border: Border.all(color: AppColors.kBlack, width: 1)),
+            child: Center(child: Text("JLPT N$jlpt", style: titleLargeStyle)),
+          ),
+        );
       },
     );
   }

@@ -15,21 +15,10 @@ class HomeHeader extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.centerLeft,
-            child: Text("Japanese", style: titleLargeStyle),
+            child: Text("Overall Progress", style: titleLargeStyle),
           ),
           const Gap(kGap / 2),
           HorizontalProgress(currentStep: 34),
-          const Gap(kGap / 2),
-          Row(
-            children: [
-              Text("Today's goal:", style: bodyMediumStyle),
-              const SizedBox(width: 6),
-              Text(
-                "10 XP",
-                style: bodyMediumStyle.copyWith(fontWeight: FontWeight.w600),
-              ),
-            ],
-          ),
         ],
       ),
     );

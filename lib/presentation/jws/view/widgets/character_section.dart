@@ -5,7 +5,7 @@ import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 import '/data/models/hiragana_model.dart';
 import '/data/models/katakana_model.dart';
-import '/presentation/characters/controller/characters_controller.dart';
+import '/presentation/jws/controller/jws_controller.dart';
 
 class CharacterSection<T> extends StatelessWidget {
   final String title;
@@ -57,16 +57,16 @@ class _CharacterBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<CharactersController>();
+    final controller = Get.find<JwsController>();
 
     return Obx(
       () => GestureDetector(
-        onTap: () => controller.onBoxSpeak(character),
+        onTap: () => controller.onSpeak(character),
         child: Container(
           width: 60,
           height: 80,
           decoration: AppDecorations.rounded(context).copyWith(
-            border: Border.all(color: AppColors.kBlack, width: 2),
+            border: Border.all(color: AppColors.kBlack, width: 1),
             color: controller.getBoxColor(character),
           ),
           child: Column(

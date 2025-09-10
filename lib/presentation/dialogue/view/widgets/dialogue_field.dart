@@ -4,16 +4,16 @@ import 'package:gap/gap.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
-import '../../controller/conversation_controller.dart';
+import '../../controller/dialogue_controller.dart';
 
-class ConversationField extends StatelessWidget {
+class DialgoueField extends StatelessWidget {
   final String label, jpLabel, text, translated;
   final IconData icon;
   final bool isTransField;
-  final ConversationController controller;
+  final DialogueController controller;
   final int index;
 
-  const ConversationField({
+  const DialgoueField({
     super.key,
     required this.label,
     required this.jpLabel,
@@ -35,11 +35,7 @@ class ConversationField extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(
-                icon,
-                size: smallIcon(context),
-                color: AppColors.icon(context),
-              ),
+              Icon(icon, size: smallIcon(context)),
               const Gap(kGap),
               Text(
                 "$label ($jpLabel)",

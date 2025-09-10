@@ -6,23 +6,29 @@ import '/presentation/jlpt_kanji/controller/jlpt_kanji_controller.dart';
 import '/core/constants/constants.dart';
 
 class JlptKanjiView extends StatelessWidget {
-  const JlptKanjiView({super.key});
+  final int jlptLevel;
+
+  const JlptKanjiView({super.key, required this.jlptLevel});
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<JlptKanjiController>();
+
     return Obx(() {
       if (controller.isLoading.value) {
-        return const Center(child: CircularProgressIndicator());
+        return Scaffold(body: const Center(child: CircularProgressIndicator()));
       }
+      final filteredKanji =
+          controller.kanjiData.where((k) => k.jlpt == jlptLevel).toList();
+
       return Scaffold(
-        appBar: TitleBar(title: 'JLPT'),
+        appBar: TitleBar(title: 'JLPT N$jlptLevel'),
         body: SafeArea(
           child: ListView.builder(
             padding: const EdgeInsets.all(kBodyHp),
-            itemCount: controller.kanjiData.length,
+            itemCount: filteredKanji.length,
             itemBuilder: (_, index) {
-              final item = controller.kanjiData[index];
+              final item = filteredKanji[index];
               return KanjiBox(item: item);
             },
           ),

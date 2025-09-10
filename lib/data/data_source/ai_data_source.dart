@@ -1,9 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:learn_japan/core/config/client.dart';
-import 'package:learn_japan/core/config/environment.dart';
+import '/core/config/environment.dart';
+import '/core/common/app_exceptions.dart';
 
-class AiService {
+class AiDataSource {
+  final String apiKey;
+  AiDataSource(this.apiKey);
+
   Future<String> sendMessage(List<Map<String, String>> messages) async {
     try {
       final formattedMessages =
@@ -14,11 +17,12 @@ class AiService {
             };
           }).toList();
 
+      final uri = Uri.parse(EnvironmentConfig.baseUrl);
       final response = await http.post(
-        Uri.parse(EnvironmentConfig.baseUrl),
+        uri,
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer $mistralKey",
+          "Authorization": "Bearer $apiKey",
         },
         body: jsonEncode({
           "model": "mistral-small",
@@ -33,10 +37,12 @@ class AiService {
         final content = data["choices"][0]["message"]["content"];
         return content ?? "No response generated";
       } else {
-        return "Error: ${response.statusCode} ${response.body}";
+        throw Exception(
+          '${AppExceptions().failedApiCall}: ${response.statusCode}',
+        );
       }
     } catch (e) {
-      return "Error generating content: $e";
+      throw Exception('Error generating content: $e');
     }
   }
 }

@@ -22,7 +22,17 @@ class PhrasesTopicView extends StatelessWidget {
           if (controller.isLoading.value) {
             return const Center(child: CircularProgressIndicator());
           }
-          final data = controller.getFilteredTopics();
+          final data =
+              controller
+                  .getFilteredTopics()
+                  .asMap()
+                  .entries
+                  .where(
+                    (entry) =>
+                        controller.topicTranslations[entry.key].isNotEmpty,
+                  )
+                  .map((entry) => entry.value)
+                  .toList();
 
           return Column(
             children: [
@@ -40,15 +50,40 @@ class PhrasesTopicView extends StatelessWidget {
                 child:
                     data.isEmpty
                         ? LottieWidget()
-                        : ListView.builder(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: kBodyHp,
-                          ),
-                          itemCount: data.length,
-                          itemBuilder: (context, index) {
-                            final topic = data[index];
-                            return _TopicCard(topic: topic);
+                        : NotificationListener<ScrollNotification>(
+                          onNotification: (scrollInfo) {
+                            if (!controller.translationsLoading.value &&
+                                scrollInfo.metrics.pixels >=
+                                    scrollInfo.metrics.maxScrollExtent - 100) {
+                              controller.translateNextBatch();
+                            }
+                            return false;
                           },
+
+                          child: ListView.builder(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: kBodyHp,
+                            ),
+                            itemCount: data.length,
+                            itemBuilder: (context, index) {
+                              final topic = data[index];
+                              if (index == controller.currentIndex - 1 &&
+                                  controller.translationsLoading.value) {
+                                return Column(
+                                  children: [
+                                    _TopicCard(topic: topic, index: index),
+                                    const Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Center(
+                                        child: CircularProgressIndicator(),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              }
+                              return _TopicCard(topic: topic, index: index);
+                            },
+                          ),
                         ),
               ),
             ],
@@ -61,44 +96,45 @@ class PhrasesTopicView extends StatelessWidget {
 
 class _TopicCard extends StatelessWidget {
   final PhrasesTopicModel topic;
-  const _TopicCard({required this.topic});
+  final int index;
+  const _TopicCard({required this.topic, required this.index});
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<PhrasesTopicController>();
-    final index = controller.topics.indexOf(topic);
-
-    return GestureDetector(
-      onTap:
-          () => Get.to(
-            () => PhrasesView(topicId: topic.id, description: topic.desc),
-          ),
-      child: Container(
-        margin: const EdgeInsets.only(bottom: kElementGap),
-        padding: const EdgeInsets.all(kBodyHp),
-        decoration: AppDecorations.simpleDecor(context),
-        child: Obx(() {
-          final translated = controller.topicTranslations[index];
-          return ListTile(
-            title: Align(
-              alignment: Alignment.topLeft,
-              child: Text(
+    return ClipPath(
+      clipper: TicketClipper(),
+      child: GestureDetector(
+        onTap:
+            () => Get.to(
+              () => PhrasesView(topicId: topic.id, description: topic.desc),
+            ),
+        child: Container(
+          margin: const EdgeInsets.only(bottom: kElementGap),
+          padding: const EdgeInsets.all(kBodyHp),
+          decoration: AppDecorations.rounded(context),
+          child: Obx(() {
+            final translated = controller.topicTranslations[index];
+            return ListTile(
+              title: Text(
                 topic.title,
                 style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
               ),
-            ),
-            subtitle: Padding(
-              padding: const EdgeInsets.only(top: kGap / 1.5),
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Text(
-                  translated,
-                  style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: kGap / 1.5),
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: Text(
+                    translated,
+                    style: titleMediumStyle.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          );
-        }),
+            );
+          }),
+        ),
       ),
     );
   }

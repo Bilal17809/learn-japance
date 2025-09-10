@@ -19,10 +19,7 @@ class HomeDialogs {
                 decoration: AppDecorations.simpleDecor(context),
                 child: Padding(
                   padding: const EdgeInsets.all(kElementGap),
-                  child: Icon(
-                    Icons.question_mark,
-                    color: AppColors.icon(context),
-                  ),
+                  child: Icon(Icons.question_mark),
                 ),
               ),
               const Gap(kGap),

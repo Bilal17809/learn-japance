@@ -4,14 +4,14 @@ import '/data/models/models.dart';
 import '/core/common/app_exceptions.dart';
 import '/core/services/services.dart';
 
-class ConversationCategoryController extends GetxController {
+class DialogueCategoryController extends GetxController {
   final ConversationDbService _conversationDbService;
   final isLoading = true.obs;
   final RxString searchQuery = ''.obs;
   var category = <ConversationModel>[].obs;
   final _uniqueCategory = <String>[].obs;
 
-  ConversationCategoryController({
+  DialogueCategoryController({
     required ConversationDbService conversationDbService,
   }) : _conversationDbService = conversationDbService;
 
