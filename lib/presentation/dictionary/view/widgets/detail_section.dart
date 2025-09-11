@@ -54,7 +54,7 @@ class DetailSection extends StatelessWidget {
                               () => Clipboard.setData(
                                 ClipboardData(
                                   text:
-                                      'English: ${selected.english} - Japanese: ${selected.japanese}',
+                                      '${selected.english}\n${selected.japanese}',
                                 ),
                               ),
                           icon: Icons.copy,

@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
+import '/core/mixins/connectivity_mixin.dart';
 import '../../home/controller/home_controller.dart';
 import '/core/local_storage/local_storage.dart';
 import '/core/common/app_exceptions.dart';
 import '/core/services/services.dart';
 import '/data/models/models.dart';
 
-class PhrasesController extends GetxController {
+class PhrasesController extends GetxController with ConnectivityMixin {
   final PhrasesDbService _dbService;
   final TranslationService _translationService;
   final LocalStorage _localStorage;
@@ -22,6 +23,7 @@ class PhrasesController extends GetxController {
   final _topicId = 0.obs;
   final _error = ''.obs;
   var showTranslation = false.obs;
+  var showExplanation = <int, bool>{}.obs;
   var isLoading = true.obs;
 
   PhrasesController({
@@ -35,8 +37,8 @@ class PhrasesController extends GetxController {
        _ttsService = ttsService;
 
   @override
-  void onInit() {
-    super.onInit();
+  void onReady() {
+    super.onReady();
     _initTranslations();
   }
 
@@ -71,31 +73,25 @@ class PhrasesController extends GetxController {
   Future<void> translateItem(PhrasesModel item) async {
     final explanationKey = "translation_${item.id}_explanation";
     final sentenceKey = "translation_${item.id}_sentence";
-
     try {
       if (translationCache.containsKey(explanationKey) &&
           translationCache.containsKey(sentenceKey)) {
         return;
       }
-
       final savedExplanation = await _localStorage.getString(explanationKey);
       final savedSentence = await _localStorage.getString(sentenceKey);
-
       if (savedExplanation != null && savedSentence != null) {
         translationCache[explanationKey] = savedExplanation;
         translationCache[sentenceKey] = savedSentence;
         return;
       }
-
       final textsToTranslate = [item.explanation, item.sentence];
       final translations = await _translationService.translateList(
         textsToTranslate,
         targetLanguage: 'ja',
       );
-
       translationCache[explanationKey] = translations[0];
       translationCache[sentenceKey] = translations[1];
-
       await _localStorage.setString(explanationKey, translations[0]);
       await _localStorage.setString(sentenceKey, translations[1]);
     } catch (e) {
@@ -150,8 +146,12 @@ class PhrasesController extends GetxController {
     _ttsService.speak(text, targetLanguage.value);
   }
 
-  void toggleTranslationVisibility() {
+  void toggleDescriptionVisibility() {
     showTranslation.value = !showTranslation.value;
+  }
+
+  void toggleExplanation(int phraseId) {
+    showExplanation[phraseId] = !(showExplanation[phraseId] ?? false);
   }
 
   @override

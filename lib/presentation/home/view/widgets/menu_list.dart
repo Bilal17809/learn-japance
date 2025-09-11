@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import '/presentation/practice_category/view/practice_category_view.dart';
 import '/data/models/models.dart';
 import '/presentation/dialogue_category/view/dialogue_category_view.dart';
 import '/core/common_widgets/common_widgets.dart';
@@ -52,19 +53,19 @@ class MenuList extends StatelessWidget {
                     Get.to(() => GrammarTypeView());
                     break;
                   case 4:
-                    Get.to(() => PhrasesTopicView());
+                    Get.to(() => DialogueCategoryView());
                     break;
                   case 5:
                     Get.to(() => PhrasesTopicView());
                     break;
                   case 6:
-                    Get.to(() => PhrasesTopicView());
+                    Get.to(() {});
                     break;
                   case 7:
-                    Get.to(() => PhrasesTopicView());
+                    Get.to(() => PracticeCategoryView());
                     break;
                   case 8:
-                    Get.to(() => DialogueCategoryView());
+                    Get.to(() {});
                     break;
                 }
               },

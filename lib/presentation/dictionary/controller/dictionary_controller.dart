@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import '/core/common/app_exceptions.dart';
 import '/domain/use_cases/get_ai_response.dart';
 import '/core/helper/helper.dart';
 import '/data/models/models.dart';
@@ -47,7 +48,7 @@ class DictionaryController extends GetxController {
       _dictionaryData.assignAll(result);
       _expandWords();
     } catch (e) {
-      debugPrint(e.toString());
+      debugPrint('${AppExceptions().failToFetchData} $e');
     } finally {
       isLoading.value = false;
     }
@@ -116,7 +117,7 @@ class DictionaryController extends GetxController {
 
       wordDetails.value = _parseAiResponse(response);
     } catch (e) {
-      debugPrint('Error: $e');
+      debugPrint('${AppExceptions().failToFetchData} $e');
     } finally {
       isAiLoading.value = false;
     }

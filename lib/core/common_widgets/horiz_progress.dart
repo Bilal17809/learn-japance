@@ -6,12 +6,14 @@ class HorizontalProgress extends StatelessWidget {
   final int? totalSteps;
   final int currentStep;
   final Color? selectedColor;
+  final Color? unselectedColor;
 
   const HorizontalProgress({
     super.key,
     required this.currentStep,
     this.totalSteps,
     this.selectedColor,
+    this.unselectedColor,
   });
 
   @override
@@ -22,7 +24,7 @@ class HorizontalProgress extends StatelessWidget {
       size: 8,
       padding: 0,
       selectedColor: selectedColor ?? AppColors.primary(context),
-      unselectedColor: AppColors.kWhite,
+      unselectedColor: unselectedColor ?? AppColors.kWhite,
       roundedEdges: const Radius.circular(10),
     );
   }
