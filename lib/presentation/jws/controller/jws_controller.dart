@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import '/core/common/app_exceptions.dart';
 import '/core/theme/theme.dart';
 import '/core/services/services.dart';
 import '/data/models/models.dart';
@@ -50,7 +51,7 @@ class JwsController extends GetxController {
       final katakanaModel = await _katakanaDbService.loadData();
       katakanaData.value = katakanaModel;
     } catch (e) {
-      debugPrint("Error loading characters: $e");
+      debugPrint("$AppExceptions().failToFetchData: $e");
     } finally {
       isLoading.value = false;
     }

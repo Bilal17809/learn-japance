@@ -11,7 +11,7 @@ class LearnDbService {
     return maps.map((map) => LearnTopicModel.fromMap(map)).toList();
   }
 
-  Future<List<LearnModel>> getCatByTopic(int topicId) async {
+  Future<List<LearnModel>> getCategoryByTopic(int topicId) async {
     final db = _dbHelper.getDb("learn_japanese");
     final List<Map<String, dynamic>> maps = await db.query(
       'tempt',

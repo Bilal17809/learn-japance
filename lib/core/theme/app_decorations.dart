@@ -36,12 +36,16 @@ class AppDecorations {
   }) => BoxDecoration(
     color:
         isExample
-            ? AppColors.container(context).withValues(alpha: 0.75)
+            ? AppColors.container(context).withValues(alpha: 0.25)
             : AppColors.container(context),
     borderRadius: BorderRadius.circular(kBorderRadius),
     border: Border.all(color: AppColors.primary(context)),
-    boxShadow: const [
-      BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 2)),
+    boxShadow: [
+      BoxShadow(
+        color: AppColors.primary(context).withValues(alpha: 0.2),
+        blurRadius: 4,
+        offset: Offset(0, 2),
+      ),
     ],
   );
 }

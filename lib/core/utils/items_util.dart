@@ -7,11 +7,11 @@ class ItemsUtil {
     ItemsModel(assetPath: Assets.dictionary, label: "Japanese Dictionary"),
     ItemsModel(assetPath: Assets.translation, label: "Translator"),
     ItemsModel(assetPath: Assets.grammar, label: "Grammar"),
-    ItemsModel(assetPath: Assets.quotes, label: "Phrases"),
-    ItemsModel(assetPath: Assets.practice, label: "Practice"),
-    ItemsModel(assetPath: Assets.speaking, label: "Speaking"),
-    ItemsModel(assetPath: Assets.quiz, label: "Quiz"),
     ItemsModel(assetPath: Assets.conversation, label: "Dialogues"),
+    ItemsModel(assetPath: Assets.quotes, label: "Phrases"),
+    ItemsModel(assetPath: Assets.speaking, label: "Speaking"),
+    ItemsModel(assetPath: Assets.practice, label: "Practice"),
+    ItemsModel(assetPath: Assets.quiz, label: "Quiz"),
   ];
   static final List<ItemsModel> grammarItems = [
     ItemsModel(assetPath: Assets.adverb),

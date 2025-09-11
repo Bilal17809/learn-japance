@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/core/theme/theme.dart';
 import '../controller/phrases_topic_controller.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
-import '/data/models/models.dart';
-import '../../phrases/view/phrases_view.dart';
+import 'widgets/topic_card.dart';
 
 class PhrasesTopicView extends StatelessWidget {
   const PhrasesTopicView({super.key});
@@ -22,17 +20,7 @@ class PhrasesTopicView extends StatelessWidget {
           if (controller.isLoading.value) {
             return const Center(child: CircularProgressIndicator());
           }
-          final data =
-              controller
-                  .getFilteredTopics()
-                  .asMap()
-                  .entries
-                  .where(
-                    (entry) =>
-                        controller.topicTranslations[entry.key].isNotEmpty,
-                  )
-                  .map((entry) => entry.value)
-                  .toList();
+          final data = controller.getFilteredTopics();
 
           return Column(
             children: [
@@ -48,40 +36,46 @@ class PhrasesTopicView extends StatelessWidget {
               ),
               Expanded(
                 child:
-                    data.isEmpty
+                    (data.isEmpty && !controller.translationsLoading.value)
                         ? LottieWidget()
                         : NotificationListener<ScrollNotification>(
                           onNotification: (scrollInfo) {
                             if (!controller.translationsLoading.value &&
+                                controller.currentIndex <
+                                    controller.topics.length &&
                                 scrollInfo.metrics.pixels >=
                                     scrollInfo.metrics.maxScrollExtent - 100) {
-                              controller.translateNextBatch();
+                              controller.translateBatch();
                             }
                             return false;
                           },
-
                           child: ListView.builder(
                             padding: const EdgeInsets.symmetric(
                               horizontal: kBodyHp,
                             ),
-                            itemCount: data.length,
+                            itemCount: data.length + 1,
                             itemBuilder: (context, index) {
-                              final topic = data[index];
-                              if (index == controller.currentIndex - 1 &&
-                                  controller.translationsLoading.value) {
-                                return Column(
-                                  children: [
-                                    _TopicCard(topic: topic, index: index),
-                                    const Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                      child: Center(
-                                        child: CircularProgressIndicator(),
-                                      ),
+                              if (index == data.length) {
+                                if (controller.translationsLoading.value) {
+                                  return Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                } else if (controller.currentIndex <
+                                    controller.topics.length) {
+                                  return const SizedBox(
+                                    height: 60,
+                                    child: Center(
+                                      child: CircularProgressIndicator(),
                                     ),
-                                  ],
-                                );
+                                  );
+                                } else {
+                                  return const SizedBox.shrink();
+                                }
                               }
-                              return _TopicCard(topic: topic, index: index);
+                              return TopicCard(
+                                topic: data[index],
+                                index: index,
+                              );
                             },
                           ),
                         ),
@@ -89,52 +83,6 @@ class PhrasesTopicView extends StatelessWidget {
             ],
           );
         }),
-      ),
-    );
-  }
-}
-
-class _TopicCard extends StatelessWidget {
-  final PhrasesTopicModel topic;
-  final int index;
-  const _TopicCard({required this.topic, required this.index});
-
-  @override
-  Widget build(BuildContext context) {
-    final controller = Get.find<PhrasesTopicController>();
-    return ClipPath(
-      clipper: TicketClipper(),
-      child: GestureDetector(
-        onTap:
-            () => Get.to(
-              () => PhrasesView(topicId: topic.id, description: topic.desc),
-            ),
-        child: Container(
-          margin: const EdgeInsets.only(bottom: kElementGap),
-          padding: const EdgeInsets.all(kBodyHp),
-          decoration: AppDecorations.rounded(context),
-          child: Obx(() {
-            final translated = controller.topicTranslations[index];
-            return ListTile(
-              title: Text(
-                topic.title,
-                style: titleMediumStyle.copyWith(fontWeight: FontWeight.w500),
-              ),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top: kGap / 1.5),
-                child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: Text(
-                    translated,
-                    style: titleMediumStyle.copyWith(
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
-            );
-          }),
-        ),
       ),
     );
   }

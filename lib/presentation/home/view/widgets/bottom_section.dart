@@ -51,11 +51,11 @@ class BottomSection extends StatelessWidget {
                     value: controller.phrasesLearnedToday.value,
                     label: "Phrases",
                   ),
-                  _ProgressColumn(value: 0, label: "Moji"),
                   _ProgressColumn(
                     value: controller.dialoguesLearnedToday.value,
                     label: "Dialogues",
                   ),
+                  _ProgressColumn(value: 0, label: "Practice"),
                 ],
               ),
               Divider(color: AppColors.primary(context)),
