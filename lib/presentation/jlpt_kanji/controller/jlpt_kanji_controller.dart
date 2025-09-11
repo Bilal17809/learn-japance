@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import '/core/common/app_exceptions.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
 
@@ -31,7 +32,7 @@ class JlptKanjiController extends GetxController {
       final kanjiModel = await _kanjiDbService.loadData();
       kanjiData.assignAll(kanjiModel);
     } catch (e) {
-      debugPrint("Error loading characters: $e");
+      debugPrint("${AppExceptions().failToFetchData}: $e");
     } finally {
       isLoading.value = false;
     }

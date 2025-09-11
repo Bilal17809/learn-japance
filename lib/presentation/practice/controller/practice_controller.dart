@@ -1,24 +1,30 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/common/app_exceptions.dart';
+import '/core/common/app_exceptions.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
 
-class LearnController extends GetxController {
+class PracticeController extends GetxController {
   final LearnDbService _learnDbService;
   final TtsService _ttsService;
+  var data = <LearnModel>[].obs;
   final targetLanguage = Rx<LanguageModel>(
     LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
   );
-  var data = <LearnModel>[].obs;
   final _topicId = 0.obs;
+  var currentPage = 0.obs;
   var isLoading = true.obs;
-
-  LearnController({
+  PracticeController({
     required LearnDbService learnDbService,
     required TtsService ttsService,
   }) : _learnDbService = learnDbService,
        _ttsService = ttsService;
+
+  @override
+  void onInit() {
+    _fetchData();
+    super.onInit();
+  }
 
   void setTopic(int id) {
     _topicId.value = id;
@@ -34,7 +40,7 @@ class LearnController extends GetxController {
       );
       data.assignAll(result);
     } catch (e) {
-      debugPrint('${AppExceptions().failToLoadDb}: $e');
+      debugPrint('${AppExceptions().failToFetchData}: $e');
     } finally {
       isLoading.value = false;
     }

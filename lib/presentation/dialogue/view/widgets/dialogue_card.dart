@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '../../../../core/common_widgets/buttons.dart';
+import '/core/common_widgets/common_widgets.dart';
 import '../../controller/dialogue_controller.dart';
 import '/core/constants/constants.dart';
+import '/core/theme/theme.dart';
 import 'dialogue_field.dart';
 
 class DialgoueCard extends StatelessWidget {
@@ -31,50 +32,42 @@ class DialgoueCard extends StatelessWidget {
     return Obx(() {
       final isLearned =
           controller.learnedDialogues["${category}_$index"] ?? false;
-      return Padding(
-        padding: const EdgeInsets.all(kGap),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            DialgoueField(
-              index: index,
-              label: "Title",
-              jpLabel: "タイトル",
-              text: title,
-              translated: titleTranslation,
-              icon: Icons.title,
-              controller: controller,
-            ),
-            controller.isExpanded(index)
-                ? Column(
-                  children: [
-                    const Gap(kGap),
-                    DialgoueField(
-                      index: index,
-                      label: "Conversation",
-                      jpLabel: "会話",
-                      text: conversation,
-                      translated: conversationTranslation,
-                      icon: Icons.chat,
-                      isTransField: true,
-                      controller: controller,
-                    ),
-                  ],
-                )
-                : const SizedBox.shrink(),
-            const Gap(kBodyHp),
-            Center(
-              child: AppElevatedButton(
+
+      return Card(
+        child: Padding(
+          padding: const EdgeInsets.all(kGap),
+          child: Column(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: titleLargeStyle),
+                  Text(titleTranslation, style: bodyMediumStyle),
+                ],
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: DialgoueField(
+                    text: conversation,
+                    translated: conversationTranslation,
+                    icon: Icons.chat_bubble,
+                    controller: controller,
+                  ),
+                ),
+              ),
+              const Gap(kGap),
+              AppElevatedButton(
                 onPressed:
                     isLearned
                         ? null
                         : () => controller.learnDialogue(category, index),
-                icon: Icons.chat,
-                label: isLearned ? 'Learned' : 'Learn this Dialogue',
+                icon: Icons.check_circle,
+                label: isLearned ? 'Learned' : 'Mark as Learned',
                 backgroundColor: isLearned ? Colors.grey : null,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     });

@@ -51,6 +51,7 @@ dependencies:
   speech_to_text: ^7.3.0
   share_plus: ^11.1.0
   intl: ^0.20.2
+  connectivity_plus: ^6.1.5
 
 dev_dependencies:
   flutter_test:

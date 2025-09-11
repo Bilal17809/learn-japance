@@ -7,81 +7,62 @@ import '/core/theme/theme.dart';
 import '../../controller/dialogue_controller.dart';
 
 class DialgoueField extends StatelessWidget {
-  final String label, jpLabel, text, translated;
+  final String text, translated;
   final IconData icon;
-  final bool isTransField;
   final DialogueController controller;
-  final int index;
 
   const DialgoueField({
     super.key,
-    required this.label,
-    required this.jpLabel,
     required this.text,
     required this.translated,
     required this.icon,
     required this.controller,
-    this.isTransField = false,
-    required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
+    final textLines = text.split('\n');
+    final translatedLines = translated.split('\n');
     return Container(
-      padding: const EdgeInsets.fromLTRB(kGap, kGap, kGap, 0),
-      decoration: AppDecorations.highlight(context, isExample: isTransField),
+      padding: const EdgeInsets.all(kGap),
+      margin: const EdgeInsets.symmetric(vertical: kGap),
+      decoration: AppDecorations.highlight(context, isExample: false),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Icon(icon, size: smallIcon(context)),
-              const Gap(kGap),
-              Text(
-                "$label ($jpLabel)",
-                style: bodyMediumStyle.copyWith(fontWeight: FontWeight.w500),
-              ),
-            ],
-          ),
-          const Gap(kGap),
-          Text(text, style: bodyLargeStyle),
-          const Gap(kGap),
-          Container(
-            padding: const EdgeInsets.all(kGap),
-            decoration: AppDecorations.highlight(
-              context,
-              isExample: !isTransField,
+          for (int i = 0; i < textLines.length; i++)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(textLines[i], style: titleSmallStyle),
+                const Gap(4),
+                if (i < translatedLines.length)
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(kGap),
+                    margin: const EdgeInsets.only(bottom: kGap),
+                    decoration: AppDecorations.highlight(
+                      context,
+                      isExample: true,
+                    ),
+                    child: Text(translatedLines[i], style: bodyLargeStyle),
+                  ),
+              ],
             ),
-            child: Text(translated, style: bodyMediumStyle),
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconActionButton(
                 onTap: () => controller.onSpeak(translated),
                 icon: Icons.volume_up,
-                color: AppColors.primaryText(context),
-                size: smallIcon(context),
               ),
-              if (isTransField) ...[
-                IconActionButton(
-                  onTap:
-                      () => Clipboard.setData(ClipboardData(text: translated)),
-                  icon: Icons.copy,
-                  color: AppColors.primaryText(context),
-                  size: smallIcon(context),
-                ),
-              ] else ...[
-                IconActionButton(
-                  onTap: () => controller.toggleConversation(index),
-                  icon:
-                      controller.isExpanded(index)
-                          ? Icons.arrow_drop_up
-                          : Icons.arrow_drop_down,
-                  color: AppColors.primaryText(context),
-                  size: smallIcon(context),
-                ),
-              ],
+              IconActionButton(
+                onTap:
+                    () => Clipboard.setData(
+                      ClipboardData(text: '$text\n\n$translated'),
+                    ),
+                icon: Icons.copy,
+              ),
             ],
           ),
         ],

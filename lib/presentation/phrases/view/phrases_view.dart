@@ -96,7 +96,7 @@ class _DescriptionWidget extends StatelessWidget {
                           : const SizedBox.shrink(),
                 ),
                 IconActionButton(
-                  onTap: controller.toggleTranslationVisibility,
+                  onTap: controller.toggleDescriptionVisibility,
                   icon: Icons.arrow_drop_down,
                 ),
               ],

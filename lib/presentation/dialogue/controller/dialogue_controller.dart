@@ -39,9 +39,15 @@ class DialogueController extends GetxController {
     _ttsService.speak(text, _targetLanguage.value);
   }
 
-  void toggleConversation(int index) {
-    showConversationMap[index] = !(showConversationMap[index] ?? false);
+  bool isExpanded(int index) => showConversationMap[index] ?? false;
+
+  void stopTts() {
+    _ttsService.stop();
   }
 
-  bool isExpanded(int index) => showConversationMap[index] ?? false;
+  @override
+  void onClose() {
+    _ttsService.onClose();
+    super.onClose();
+  }
 }

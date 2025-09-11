@@ -81,16 +81,10 @@ class _CategoriesCard extends StatelessWidget {
               titleTranslation:
                   conversationModels.map((c) => c.titleTrans).toList(),
               conversation:
-                  conversationModels
-                      .map((c) => c.conversation.replaceAll('~', '\n'))
-                      .toList(),
+                  conversationModels.map((c) => c.conversation).toList(),
               conversationTranslation:
                   conversationModels
-                      .map(
-                        (c) => c.conversationTranslation
-                            .replaceAll('〜', '\n')
-                            .replaceAll('～', '\n'),
-                      ) // fullwidth tilde
+                      .map((c) => c.conversationTranslation) // fullwidth tilde
                       .toList(),
             ),
           );

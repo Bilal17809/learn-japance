@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'common_widgets.dart';
 import '/core/theme/theme.dart';
@@ -11,6 +10,7 @@ class CategoryCard extends StatelessWidget {
   final String? translatedCategory;
   final ItemsModel item;
   final VoidCallback onTap;
+  final bool? isPractice;
 
   const CategoryCard({
     super.key,
@@ -18,6 +18,7 @@ class CategoryCard extends StatelessWidget {
     this.translatedCategory,
     required this.onTap,
     required this.item,
+    this.isPractice = false,
   });
 
   @override
@@ -30,9 +31,11 @@ class CategoryCard extends StatelessWidget {
           decoration: AppDecorations.rounded(context),
           padding: const EdgeInsets.all(kElementGap),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Align(
-                alignment: Alignment.centerRight,
+                alignment:
+                    isPractice! ? Alignment.center : Alignment.centerRight,
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: ImageActionButton(
@@ -45,24 +48,20 @@ class CategoryCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const Gap(kGap),
-              Expanded(
-                child: Wrap(
-                  children: [
-                    Text(
-                      translatedCategory!,
-                      textAlign: TextAlign.center,
-                      style: titleMediumStyle.copyWith(
-                        fontWeight: FontWeight.w500,
-                      ),
-                      softWrap: true,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+              Wrap(
+                children: [
+                  Text(
+                    translatedCategory!,
+                    textAlign: TextAlign.center,
+                    style: titleMediumStyle.copyWith(
+                      fontWeight: FontWeight.w500,
                     ),
-                  ],
-                ),
+                    softWrap: true,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
               ),
-              const Gap(kElementGap),
               FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
@@ -73,6 +72,12 @@ class CategoryCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
+              isPractice!
+                  ? HorizontalProgress(
+                    currentStep: 24,
+                    unselectedColor: AppColors.kGrey.withValues(alpha: 0.2),
+                  )
+                  : const SizedBox.shrink(),
             ],
           ),
         ),
