@@ -43,7 +43,7 @@ TextStyle bodyMediumStyle = const TextStyle(
 
 TextStyle bodySmallStyle = const TextStyle(
   fontSize: 12,
-  fontWeight: FontWeight.w600,
+  fontWeight: FontWeight.w500,
 );
 
 /// Shadows

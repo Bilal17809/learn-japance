@@ -48,4 +48,28 @@ class AppDecorations {
       ),
     ],
   );
+
+  static BoxDecoration option({
+    required bool isCorrect,
+    required bool isWrong,
+  }) {
+    return BoxDecoration(
+      color:
+          isCorrect
+              ? AppColors.kGreen.withValues(alpha: 0.25)
+              : isWrong
+              ? AppColors.kRed.withValues(alpha: 0.25)
+              : AppColors.transparent,
+      border: Border.all(
+        color:
+            isCorrect
+                ? AppColors.kGreen
+                : isWrong
+                ? AppColors.kRed
+                : AppColors.kGrey.withValues(alpha: 0.75),
+        width: 2,
+      ),
+      borderRadius: BorderRadius.circular(12),
+    );
+  }
 }
