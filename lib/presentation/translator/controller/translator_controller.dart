@@ -8,6 +8,7 @@ import '/core/services/services.dart';
 import '/core/utils/utils.dart';
 
 class TranslatorController extends GetxController {
+  final TtsService _ttsService;
   final LanguageService _languageService;
   final TranslationService _translationService;
   final TranslatorStorageService _storageService;
@@ -26,11 +27,13 @@ class TranslatorController extends GetxController {
   static const _rtlLang = ["ar", "ur"];
 
   TranslatorController({
+    required TtsService ttsService,
     required LanguageService languageService,
     required TranslationService translationService,
     required TranslatorStorageService storageService,
     required SpeechService speechService,
-  }) : _languageService = languageService,
+  }) : _ttsService = ttsService,
+       _languageService = languageService,
        _translationService = translationService,
        _storageService = storageService,
        _speechService = speechService;
@@ -78,17 +81,14 @@ class TranslatorController extends GetxController {
       ToastUtil().showErrorToast('Input field cannot be empty');
       return;
     }
-
     isTranslating.value = true;
     final currentSourceRtl = isSourceRtl.value;
     final currentTargetRtl = isTargetRtl.value;
-
     try {
       final result = await _translationService.translateText(
         inputText.value,
         targetLanguage: targetLanguage.value!.code,
       );
-
       final newResult = TranslationResultModel(
         id: DateTime.now().millisecondsSinceEpoch.toString(),
         input: inputText.value,
@@ -96,11 +96,9 @@ class TranslatorController extends GetxController {
         isSourceRtl: currentSourceRtl,
         isTargetRtl: currentTargetRtl,
       );
-
       translations.add(newResult);
       await _storageService.saveTranslation(newResult);
-
-      Get.find<TtsService>().speak(newResult.output, targetLanguage.value);
+      _ttsService.speak(newResult.output, targetLanguage.value);
     } catch (e) {
       translations.add(
         TranslationResultModel(
@@ -141,7 +139,6 @@ class TranslatorController extends GetxController {
     try {
       final locale = sourceLanguage.value?.ttsCode;
       String? recognized;
-
       if (Platform.isAndroid) {
         await _speechService.startSpeechToText(locale: locale);
         recognized = _speechService.getRecognizedText();
@@ -151,7 +148,6 @@ class TranslatorController extends GetxController {
           builder: (_) => const SpeechDialog(),
         );
       }
-
       if (recognized?.isNotEmpty ?? false) {
         inputController.text = recognized!;
         inputText.value = recognized;

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import '/presentation/practice/controller/practice_controller.dart';
+import '/presentation/practice_selection/controller/practice_selection_controller.dart';
 import '/core/config/client.dart';
 import '/data/data_source/ai_data_source.dart';
 import '/data/repo_impl/ai_repo_impl.dart';
@@ -112,11 +113,13 @@ class DependencyInjection {
       final translationService = Get.find<TranslationService>();
       final storageService = Get.find<TranslatorStorageService>();
       final speechService = Get.find<SpeechService>();
+      final ttsService = Get.find<TtsService>();
       return TranslatorController(
         languageService: languageService,
         translationService: translationService,
         speechService: speechService,
         storageService: storageService,
+        ttsService: ttsService,
       );
     }, fenix: true);
     Get.lazyPut<DialogueCategoryController>(() {
@@ -194,12 +197,16 @@ class DependencyInjection {
       final learnDbService = Get.find<LearnDbService>();
       return PracticeCategoryController(learnDbService: learnDbService);
     }, fenix: true);
-    Get.lazyPut<PracticeController>(() {
+    Get.lazyPut<PracticeSelectionController>(() {
       final learnDbService = Get.find<LearnDbService>();
+      return PracticeSelectionController(learnDbService: learnDbService);
+    }, fenix: true);
+    Get.lazyPut<PracticeController>(() {
       final ttsService = Get.find<TtsService>();
+      final speechService = Get.find<SpeechService>();
       return PracticeController(
-        learnDbService: learnDbService,
         ttsService: ttsService,
+        speechService: speechService,
       );
     }, fenix: true);
   }
