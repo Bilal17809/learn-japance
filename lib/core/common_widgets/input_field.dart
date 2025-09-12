@@ -17,6 +17,7 @@ class InputField extends StatelessWidget {
   final ValueChanged<String>? onSubmitted;
   final Color? cursorColor;
   final Color? backgroundColor;
+  final TextAlign textAlign;
 
   const InputField({
     super.key,
@@ -34,6 +35,7 @@ class InputField extends StatelessWidget {
     this.onSubmitted,
     this.cursorColor,
     this.backgroundColor,
+    this.textAlign = TextAlign.start,
   });
 
   @override
@@ -43,6 +45,7 @@ class InputField extends StatelessWidget {
       minLines: minLines,
       maxLines: maxLines,
       cursorColor: cursorColor,
+      textAlign: textAlign,
       decoration: InputDecoration(
         filled: true,
         fillColor: backgroundColor ?? AppColors.kWhite.withValues(alpha: 0.2),

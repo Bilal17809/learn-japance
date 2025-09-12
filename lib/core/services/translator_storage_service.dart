@@ -7,7 +7,6 @@ class TranslatorStorageService {
   TranslatorStorageService({required LocalStorage localStorage})
     : _localStorage = localStorage;
 
-  // Language preferences
   Future<String?> getSourceLanguage() async {
     return await _localStorage.getString('sourceLanguage');
   }
@@ -24,7 +23,6 @@ class TranslatorStorageService {
     await _localStorage.setString('targetLanguage', languageName);
   }
 
-  // Translation history
   Future<List<TranslationResultModel>> getTranslations() async {
     final saved = await _localStorage.getStringList('translations');
     if (saved == null) return [];
@@ -55,7 +53,6 @@ class TranslatorStorageService {
     await _localStorage.setStringList('translations', saved);
   }
 
-  // Favorites
   Future<List<TranslationResultModel>> getFavorites() async {
     final saved = await _localStorage.getStringList('favorites');
     if (saved == null) return [];
@@ -84,7 +81,6 @@ class TranslatorStorageService {
     );
   }
 
-  // Clear methods
   Future<void> clearTranslations() async {
     await _localStorage.remove('translations');
   }

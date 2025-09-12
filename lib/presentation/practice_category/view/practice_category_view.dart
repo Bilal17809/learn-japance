@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/presentation/practice/view/practice_view.dart';
+import '/presentation/practice_selection/view/practice_selection_view.dart';
 import '/presentation/practice_category/controller/practice_category_controller.dart';
 import '/core/utils/utils.dart';
 import '/core/common_widgets/common_widgets.dart';
@@ -66,7 +66,7 @@ class _MenuGrid extends StatelessWidget {
           item: item[index],
           onTap:
               () => Get.to(
-                () => PracticeView(
+                () => PracticeSelectionView(
                   topicId: index,
                   japCategory: data[index].japanese,
                   category: data[index].english,

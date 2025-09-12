@@ -4,131 +4,131 @@ import 'package:get/get.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/practice/controller/practice_controller.dart';
 import '/core/constants/constants.dart';
-import '/core/theme/theme.dart';
+import '/data/models/models.dart';
+import 'widgets/fill_bubble_page.dart';
+import 'widgets/writing_test_page.dart';
+import 'widgets/correct_meaning_page.dart';
+import 'widgets/pronunciation_page.dart';
+import 'widgets/speech_test_page.dart';
 
 class PracticeView extends StatelessWidget {
+  final List<LearnModel> data;
   final String category;
   final String japCategory;
-  final int topicId;
+  final int startIndex;
 
-  PracticeView({
+  const PracticeView({
     super.key,
+    required this.data,
     required this.category,
     required this.japCategory,
-    required this.topicId,
+    required this.startIndex,
   });
-
-  final _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<PracticeController>();
-    controller.setTopic(topicId);
+    controller.setArguments(data, category, japCategory, startIndex);
+    final pageController = PageController();
 
     return Scaffold(
       appBar: TitleBar(title: '$category - $japCategory'),
-      body: Obx(() {
-        if (controller.isLoading.value) {
-          return const Center(
-            child: CircularProgressIndicator(color: Colors.white),
-          );
-        }
-        final data = controller.data;
-        return SafeArea(
-          child: PageView.builder(
-            controller: _pageController,
-            onPageChanged: (index) {
-              controller.currentPage.value = index;
-            },
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: data.length,
-            itemBuilder: (context, index) {
-              final progress = (index + 1) / data.length;
-
-              return Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: PageView(
+                controller: pageController,
+                physics: const NeverScrollableScrollPhysics(),
+                onPageChanged: (index) {
+                  controller.currentPage.value = index;
+                },
+                children: [
+                  PronunciationPage(controller: controller),
+                  CorrectMeaningPage(controller: controller),
+                  FillBubblePage(controller: controller),
+                  SpeechTestPage(controller: controller),
+                  WritingTestPage(controller: controller),
+                ],
+              ),
+            ),
+            Obx(
+              () => Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: kBodyHp,
+                  vertical: kElementGap,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Column(
-                      children: [
-                        HorizontalProgress(
-                          currentStep: (progress * 100).toInt().clamp(0, 100),
-                        ),
-                        const Gap(kGap),
-                        Text(
-                          "Lesson ${index + 1} of ${data.length}",
-                          style: titleSmallStyle,
-                        ),
-                      ],
-                    ),
-                    const Gap(kGap),
-                    Expanded(
-                      child: Center(
-                        child: Container(
+                    if (controller.currentPage.value > 0)
+                      Flexible(
+                        child: AppElevatedButton(
+                          onPressed: () {
+                            if (controller.currentPage.value > 0) {
+                              controller.currentPage.value--;
+                              pageController.previousPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            }
+                          },
+                          icon: Icons.keyboard_double_arrow_left,
+                          label: 'Previous',
                           width: double.infinity,
-                          padding: const EdgeInsets.all(24),
-                          decoration: AppDecorations.simpleDecor(context),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                data[index].english,
-                                textAlign: TextAlign.center,
-                                style: headlineSmallStyle,
-                              ),
-                              const Gap(kBodyHp),
-                              Text(
-                                data[index].japanese,
-                                textAlign: TextAlign.center,
-                                style: titleLargeStyle,
-                              ),
-                            ],
-                          ),
                         ),
                       ),
+                    if (controller.currentPage.value > 0) const Gap(kGap),
+                    Flexible(
+                      child: AppElevatedButton(
+                        onPressed: () {
+                          final isLastPage = controller.currentPage.value == 4;
+                          final isLastLesson =
+                              controller.currentWordIndex.value ==
+                              controller.practiceData.length - 1;
+                          if (!isLastPage) {
+                            if (controller.currentPage.value < 4) {
+                              controller.currentPage.value++;
+                              pageController.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            }
+                          } else if (!isLastLesson) {
+                            controller.currentWordIndex.value++;
+                            controller.resetAllPageStates();
+                            controller.generateOptionsForBothPages();
+                            if (pageController.hasClients) {
+                              pageController.jumpToPage(0);
+                            }
+                          } else {
+                            Get.back();
+                          }
+                        },
+                        icon:
+                            controller.currentPage.value < 4
+                                ? Icons.keyboard_double_arrow_right
+                                : (controller.currentWordIndex.value <
+                                        controller.practiceData.length - 1
+                                    ? Icons.next_plan
+                                    : Icons.home),
+                        label:
+                            controller.currentPage.value < 4
+                                ? 'Next'
+                                : (controller.currentWordIndex.value <
+                                        controller.practiceData.length - 1
+                                    ? 'Next Lesson'
+                                    : 'Go Home'),
+                        width: double.infinity,
+                      ),
                     ),
-                    const Gap(kElementGap),
-                    index < data.length - 1
-                        ? Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Flexible(
-                              child: AppElevatedButton(
-                                onPressed: () {
-                                  if (index < data.length - 1) {
-                                    _pageController.nextPage(
-                                      duration: const Duration(
-                                        milliseconds: 300,
-                                      ),
-                                      curve: Curves.easeInOut,
-                                    );
-                                  }
-                                },
-                                width: double.infinity,
-                                icon: Icons.forward,
-                                label: 'Skip',
-                              ),
-                            ),
-                            const Gap(kGap),
-                            Flexible(
-                              child: AppElevatedButton(
-                                onPressed: () {},
-                                icon: Icons.start,
-                                label: 'Start',
-                                width: double.infinity,
-                              ),
-                            ),
-                          ],
-                        )
-                        : const SizedBox.shrink(),
                   ],
                 ),
-              );
-            },
-          ),
-        );
-      }),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
