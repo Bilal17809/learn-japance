@@ -28,7 +28,7 @@ class BottomSection extends StatelessWidget {
                   Text("Today's Progress", style: titleSmallStyle),
                   const Spacer(),
                   Text("Today's goal:", style: bodyMediumStyle),
-                  const SizedBox(width: 6),
+                  const Gap(kGap / 2),
                   Text(
                     "10 XP",
                     style: bodyMediumStyle.copyWith(
@@ -55,7 +55,10 @@ class BottomSection extends StatelessWidget {
                     value: controller.dialoguesLearnedToday.value,
                     label: "Dialogues",
                   ),
-                  _ProgressColumn(value: 0, label: "Practice"),
+                  _ProgressColumn(
+                    value: controller.practiceToday.value,
+                    label: "Practice",
+                  ),
                 ],
               ),
               Divider(color: AppColors.primary(context)),

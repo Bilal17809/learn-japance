@@ -87,14 +87,13 @@ class PracticeView extends StatelessWidget {
                               controller.currentWordIndex.value ==
                               controller.practiceData.length - 1;
                           if (!isLastPage) {
-                            if (controller.currentPage.value < 4) {
-                              controller.currentPage.value++;
-                              pageController.nextPage(
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            }
+                            controller.currentPage.value++;
+                            pageController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
                           } else if (!isLastLesson) {
+                            controller.saveProgress();
                             controller.currentWordIndex.value++;
                             controller.resetAllPageStates();
                             controller.generateOptionsForBothPages();
@@ -102,6 +101,7 @@ class PracticeView extends StatelessWidget {
                               pageController.jumpToPage(0);
                             }
                           } else {
+                            controller.saveProgress();
                             Get.back();
                           }
                         },
