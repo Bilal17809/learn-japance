@@ -49,6 +49,7 @@ class _MenuGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<PracticeCategoryController>();
     final item = ItemsUtil.learnItems;
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -57,19 +58,23 @@ class _MenuGrid extends StatelessWidget {
         crossAxisSpacing: kGap,
         childAspectRatio: 1,
       ),
-      itemCount: item.length,
+      itemCount: data.length,
       itemBuilder: (context, index) {
+        final topic = data[index];
+        final progress = controller.categoryProgress[topic.english] ?? 0;
+
         return CategoryCard(
           isPractice: true,
-          category: data[index].japanese,
-          translatedCategory: data[index].english,
+          currentStep: progress,
+          category: topic.japanese,
+          translatedCategory: topic.english,
           item: item[index],
           onTap:
               () => Get.to(
                 () => PracticeSelectionView(
                   topicId: index,
-                  japCategory: data[index].japanese,
-                  category: data[index].english,
+                  japCategory: topic.japanese,
+                  category: topic.english,
                 ),
               ),
         );

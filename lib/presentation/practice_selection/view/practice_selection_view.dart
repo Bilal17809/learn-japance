@@ -68,7 +68,6 @@ class PracticeSelectionView extends StatelessWidget {
                       child: Center(
                         child: Container(
                           width: double.infinity,
-                          padding: const EdgeInsets.all(24),
                           decoration: AppDecorations.simpleDecor(context),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,

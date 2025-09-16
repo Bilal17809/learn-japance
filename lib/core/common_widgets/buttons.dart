@@ -207,3 +207,29 @@ class ImageActionButton extends StatelessWidget {
     );
   }
 }
+
+class AppDialogButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  final Color? textColor;
+  final TextStyle? textStyle;
+
+  const AppDialogButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.textColor,
+    this.textStyle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPressed,
+      style: TextButton.styleFrom(
+        foregroundColor: textColor ?? AppColors.primaryText(context),
+      ),
+      child: Text(text, style: textStyle ?? titleSmallStyle),
+    );
+  }
+}

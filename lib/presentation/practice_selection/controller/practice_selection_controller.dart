@@ -7,10 +7,10 @@ import '/core/services/services.dart';
 class PracticeSelectionController extends GetxController {
   final LearnDbService _learnDbService;
   var data = <LearnModel>[].obs;
-
   final _topicId = 0.obs;
   var currentPage = 0.obs;
   var isLoading = true.obs;
+  var isCompleted = false.obs;
   PracticeSelectionController({required LearnDbService learnDbService})
     : _learnDbService = learnDbService;
 
