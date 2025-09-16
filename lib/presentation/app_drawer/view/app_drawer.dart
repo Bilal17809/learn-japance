@@ -69,6 +69,12 @@ class AppDrawer extends StatelessWidget {
               },
             ),
             Divider(color: AppColors.primaryColorLight.withValues(alpha: 0.1)),
+            _DrawerTile(
+              icon: Icons.warning_rounded,
+              title: 'Reset App',
+              onTap: () => ResetUtil.showResetDialog(context),
+            ),
+            Divider(color: AppColors.primaryColorLight.withValues(alpha: 0.1)),
             if (Platform.isIOS) ...[
               _DrawerTile(
                 icon: Icons.star_rounded,
@@ -140,3 +146,36 @@ class _DrawerTile extends StatelessWidget {
     );
   }
 }
+
+// void _showResetDialog(BuildContext context) {
+//   showDialog(
+//     context: context,
+//     builder: (ctx) {
+//       return AlertDialog(
+//         elevation: 4,
+//         shape: RoundedRectangleBorder(
+//           borderRadius: BorderRadius.circular(kBorderRadius),
+//         ),
+//         title: const Text("Reset App"),
+//         content: const Text(
+//           "Are you sure you want to reset the app?"
+//           "This will clear all saved progress and preferences.",
+//         ),
+//         actions: [
+//           TextButton(
+//             onPressed: () => Navigator.of(ctx).pop(),
+//             child: const Text("Cancel"),
+//           ),
+//           TextButton(
+//             onPressed: () async {
+//               await Get.find<LocalStorage>().clear();
+//               Restart.restartApp();
+//             },
+//             style: TextButton.styleFrom(foregroundColor: AppColors.kRed),
+//             child: const Text("Reset"),
+//           ),
+//         ],
+//       );
+//     },
+//   );
+// }

@@ -11,6 +11,7 @@ class CategoryCard extends StatelessWidget {
   final ItemsModel item;
   final VoidCallback onTap;
   final bool? isPractice;
+  final int? currentStep;
 
   const CategoryCard({
     super.key,
@@ -19,6 +20,7 @@ class CategoryCard extends StatelessWidget {
     required this.onTap,
     required this.item,
     this.isPractice = false,
+    this.currentStep,
   });
 
   @override
@@ -74,7 +76,7 @@ class CategoryCard extends StatelessWidget {
               ),
               isPractice!
                   ? HorizontalProgress(
-                    currentStep: 24,
+                    currentStep: currentStep!,
                     unselectedColor: AppColors.kGrey.withValues(alpha: 0.2),
                   )
                   : const SizedBox.shrink(),

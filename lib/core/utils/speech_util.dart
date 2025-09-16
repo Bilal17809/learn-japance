@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '/core/services/services.dart';
 import '/core/theme/theme.dart';
 
-class SpeechHelper {
+class SpeechUtil {
   static IconData getMicrophoneIcon(SpeechService speechService) {
     final isListening = speechService.isListening.value;
     final status = speechService.speechStatus.value;

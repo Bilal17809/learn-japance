@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+import '../common_widgets/common_widgets.dart';
 import '../constants/constants.dart';
 import '/core/theme/theme.dart';
 
@@ -10,63 +10,21 @@ class HomeDialogs {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: AppColors().getBgColor(context),
           elevation: 4,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                decoration: AppDecorations.simpleDecor(context),
-                child: Padding(
-                  padding: const EdgeInsets.all(kElementGap),
-                  child: Icon(Icons.question_mark),
-                ),
-              ),
-              const Gap(kGap),
-              Text(
-                'Exit App',
-                style: TextStyle(color: AppColors.secondaryText(context)),
-              ),
-            ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(kBorderRadius),
           ),
-          content: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Do you really want to exit the app?',
-                style: TextStyle(color: AppColors.secondaryText(context)),
-              ),
-            ],
-          ),
+          title: const Text("Exit App"),
+          content: const Text("Are you sure you want to exit the app?"),
           actions: [
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    decoration: AppDecorations.simpleDecor(context),
-                    child: TextButton(
-                      onPressed: () => Navigator.pop(context, false),
-                      child: Text(
-                        'Cancel',
-                        style: TextStyle(color: AppColors.primaryText(context)),
-                      ),
-                    ),
-                  ),
-                ),
-                const Gap(kGap),
-                Expanded(
-                  child: Container(
-                    decoration: AppDecorations.simpleDecor(context),
-                    child: TextButton(
-                      onPressed: () => Navigator.pop(context, true),
-                      child: Text(
-                        'Exit',
-                        style: TextStyle(color: AppColors.primaryText(context)),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            AppDialogButton(
+              text: "Cancel",
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            AppDialogButton(
+              text: "Exit",
+              textColor: AppColors.kRed,
+              onPressed: () => Navigator.pop(context),
             ),
           ],
         );

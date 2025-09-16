@@ -41,7 +41,7 @@ class SpeechDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  SpeechHelper.getStatusText(speechService),
+                  SpeechUtil.getStatusText(speechService),
                   style: titleLargeStyle.copyWith(fontWeight: FontWeight.w500),
                 ),
                 const Gap(kBodyHp),
@@ -65,12 +65,12 @@ class SpeechDialog extends StatelessWidget {
                     }
                   },
                   isCircular: true,
-                  icon: SpeechHelper.getMicrophoneIcon(speechService),
-                  color: SpeechHelper.getMicrophoneColor(speechService),
+                  icon: SpeechUtil.getMicrophoneIcon(speechService),
+                  color: SpeechUtil.getMicrophoneColor(speechService),
                 ),
                 const Gap(kBodyHp),
                 Text(
-                  SpeechHelper.getHintText(speechService),
+                  SpeechUtil.getHintText(speechService),
                   style: context.textTheme.bodySmall?.copyWith(
                     color: AppColors.textGreyColor,
                   ),
@@ -97,10 +97,8 @@ class SpeechDialog extends StatelessWidget {
                       Expanded(
                         child: AppElevatedButton(
                           onPressed:
-                              () => SpeechHelper.submitText(
-                                context,
-                                speechService,
-                              ),
+                              () =>
+                                  SpeechUtil.submitText(context, speechService),
                           icon: Icons.chevron_right,
                           width: double.infinity,
                           label: 'Use Text',

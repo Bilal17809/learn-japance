@@ -1,8 +1,14 @@
 import 'package:get/get.dart';
+import '/core/common_widgets/common_widgets.dart';
+import '/presentation/home/controller/home_controller.dart';
+import '/presentation/practice_category/controller/practice_category_controller.dart';
+import '/core/local_storage/local_storage.dart';
+import '/core/helper/helper.dart';
 import '/core/services/services.dart';
 import '/data/models/models.dart';
 
 class PracticeController extends GetxController {
+  final LocalStorage _localStorage;
   final TtsService _ttsService;
   final SpeechService _speechService;
   var practiceData = <LearnModel>[].obs;
@@ -20,14 +26,19 @@ class PracticeController extends GetxController {
   var isCorrectPage4 = false.obs;
   var optionsPage1 = <String>[].obs;
   var optionsPage2 = <String>[].obs;
+  var userSpeechInput = ''.obs;
+  var isCorrectSpeech = false.obs;
+  var showResultSpeech = false.obs;
   final targetLanguage = Rx<LanguageModel>(
-    LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'JA'),
+    LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'JP'),
   );
 
   PracticeController({
+    required LocalStorage localStorage,
     required TtsService ttsService,
     required SpeechService speechService,
-  }) : _ttsService = ttsService,
+  }) : _localStorage = localStorage,
+       _ttsService = ttsService,
        _speechService = speechService;
 
   void setArguments(
@@ -43,6 +54,40 @@ class PracticeController extends GetxController {
     currentWordIndex.value = start;
     resetAllPageStates();
     generateOptionsForBothPages();
+  }
+
+  Future<void> handleSpeechPracticeInput() async {
+    final locale =
+        '${targetLanguage.value.code}-${targetLanguage.value.ttsCode}';
+    final recognized = await SpeechHelper(
+      _speechService,
+    ).getSpeechInput(locale: locale);
+
+    if (recognized?.isNotEmpty ?? false) {
+      userSpeechInput.value = recognized!;
+      checkSpokenAnswer();
+    }
+  }
+
+  void checkSpokenAnswer() {
+    if (userSpeechInput.value.isNotEmpty) {
+      isCorrectSpeech.value = isSpokenCorrect(userSpeechInput.value);
+      showResultSpeech.value = true;
+    }
+  }
+
+  bool isSpokenCorrect(String spokenAnswer) {
+    if (currentWordIndex.value < practiceData.length) {
+      final correctAnswersRaw = practiceData[currentWordIndex.value].japanese;
+      final validAnswers =
+          correctAnswersRaw
+              .split(r'/')
+              .map((e) => e.toLowerCase().trim())
+              .toList();
+      final normalizedUser = spokenAnswer.toLowerCase().trim();
+      return validAnswers.contains(normalizedUser);
+    }
+    return false;
   }
 
   void resetAllPageStates() {
@@ -107,7 +152,7 @@ class PracticeController extends GetxController {
 
   void checkWritingAnswer() {
     if (userTextInput.value.isNotEmpty) {
-      isCorrectPage4.value = isAnswerCorrect(userTextInput.value);
+      isCorrectPage4.value = isWritingCorrect(userTextInput.value);
       showResultPage4.value = true;
     }
   }
@@ -119,11 +164,38 @@ class PracticeController extends GetxController {
     }
   }
 
-  bool isAnswerCorrect(String userAnswer) {
+  Future<void> saveProgress() async {
+    if (allAnswersCorrect) {
+      final key = "${category.value}_${currentWordIndex.value}";
+      final alreadySaved = await _localStorage.getBool(key) ?? false;
+      if (alreadySaved) return;
+      await _localStorage.setBool(key, true);
+      await Get.find<HomeController>().increaseProgress(isPractice: true);
+      await Get.find<PracticeCategoryController>().increasePracticeProgress(
+        category.value,
+      );
+      SimpleToast.showCustomToast(
+        context: Get.context!,
+        message: 'You have completed this lesson.',
+      );
+    } else {
+      SimpleToast.showCustomToast(
+        context: Get.context!,
+        message: 'Some of the answers were incorrect.',
+      );
+    }
+  }
+
+  bool isWritingCorrect(String userAnswer) {
     if (currentWordIndex.value < practiceData.length) {
-      final correctAnswer = practiceData[currentWordIndex.value].english;
-      return userAnswer.toLowerCase().trim() ==
-          correctAnswer.toLowerCase().trim();
+      final correctAnswersRaw = practiceData[currentWordIndex.value].english;
+      final validAnswers =
+          correctAnswersRaw
+              .split(r'/')
+              .map((e) => e.toLowerCase().trim())
+              .toList();
+      final normalisedUser = userAnswer.toLowerCase().trim();
+      return validAnswers.contains(normalisedUser);
     }
     return false;
   }
@@ -134,6 +206,13 @@ class PracticeController extends GetxController {
       return practiceData[currentWordIndex.value];
     }
     return practiceData.first;
+  }
+
+  bool get allAnswersCorrect {
+    return selectedAnswerPage1.value == currentWord?.english &&
+        selectedAnswerPage2.value == currentWord?.english &&
+        isCorrectSpeech.value &&
+        isCorrectPage4.value;
   }
 
   void onSpeak(String text) {

@@ -195,16 +195,22 @@ class DependencyInjection {
     }, fenix: true);
     Get.lazyPut<PracticeCategoryController>(() {
       final learnDbService = Get.find<LearnDbService>();
-      return PracticeCategoryController(learnDbService: learnDbService);
+      final localStorage = Get.find<LocalStorage>();
+      return PracticeCategoryController(
+        learnDbService: learnDbService,
+        localStorage: localStorage,
+      );
     }, fenix: true);
     Get.lazyPut<PracticeSelectionController>(() {
       final learnDbService = Get.find<LearnDbService>();
       return PracticeSelectionController(learnDbService: learnDbService);
     }, fenix: true);
     Get.lazyPut<PracticeController>(() {
+      final localStorage = Get.find<LocalStorage>();
       final ttsService = Get.find<TtsService>();
       final speechService = Get.find<SpeechService>();
       return PracticeController(
+        localStorage: localStorage,
         ttsService: ttsService,
         speechService: speechService,
       );

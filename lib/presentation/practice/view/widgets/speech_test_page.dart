@@ -49,7 +49,7 @@ class SpeechTestPage extends StatelessWidget {
                     ),
                     const Gap(kGap),
                     AppElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => controller.handleSpeechPracticeInput(),
                       icon: Icons.mic,
                       label: 'Start Recording',
                     ),
@@ -62,6 +62,23 @@ class SpeechTestPage extends StatelessWidget {
                   ],
                 ),
               ),
+              const Gap(kElementGap),
+              if (controller.showResultSpeech.value)
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(kGap),
+                  decoration: AppDecorations.option(
+                    isCorrect: controller.isCorrectSpeech.value,
+                    isWrong: !controller.isCorrectSpeech.value,
+                  ).copyWith(border: Border.all(color: AppColors.transparent)),
+                  child: Text(
+                    controller.isCorrectSpeech.value
+                        ? 'Correct!'
+                        : 'Incorrect. The correct answer is: ${controller.currentWord!.japanese}',
+                    style: titleMediumStyle,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
             ],
           ),
         ),

@@ -19,6 +19,7 @@ class HomeController extends GetxController {
   var dailyProgress = 0.obs;
   var phrasesLearnedToday = 0.obs;
   var dialoguesLearnedToday = 0.obs;
+  var practiceToday = 0.obs;
 
   HomeController({
     required JwsController jwsController,
@@ -39,20 +40,16 @@ class HomeController extends GetxController {
     while (_jwsController.isLoading.value) {
       await Future.delayed(const Duration(milliseconds: 100));
     }
-
     final allItems = [
       ..._getItems('hiragana', _jwsController),
       ..._getItems('katakana', _jwsController),
     ];
-
     if (allItems.isEmpty) return;
     final today = DateFormat('yyyy-MM-dd').format(DateTime.now());
     final lastDate = await _localStorage.getString('last_date');
-
     int storedIndex =
         int.tryParse(await _localStorage.getString('character_index') ?? '0') ??
         0;
-
     if (lastDate != null && today != lastDate) {
       storedIndex++;
       await _localStorage.setString('character_index', storedIndex.toString());
@@ -63,7 +60,6 @@ class HomeController extends GetxController {
 
     final nextIndex = storedIndex % allItems.length;
     final item = allItems[nextIndex];
-
     if (item is HiraganaItem) {
       currentScriptType.value = 'hiragana';
       currentWord.value = item.hiragana;
@@ -80,25 +76,30 @@ class HomeController extends GetxController {
     final lastProgressDate = await _localStorage.getString(
       'last_progress_date',
     );
-
     if (lastProgressDate != today) {
       phrasesLearnedToday.value = 0;
       dialoguesLearnedToday.value = 0;
       dailyProgress.value = 0;
+      practiceToday.value = 0;
       await _localStorage.setString('last_progress_date', today);
       await _localStorage.setInt('phrases_learned_today', 0);
       await _localStorage.setInt('dialogues_learned_today', 0);
+      await _localStorage.setInt('practice_today', 0);
       await _localStorage.setInt('daily_progress', 0);
     } else {
       phrasesLearnedToday.value =
           await _localStorage.getInt('phrases_learned_today') ?? 0;
       dialoguesLearnedToday.value =
           await _localStorage.getInt('dialogues_learned_today') ?? 0;
+      practiceToday.value = await _localStorage.getInt('practice_today') ?? 0;
       dailyProgress.value = await _localStorage.getInt('daily_progress') ?? 0;
     }
   }
 
-  Future<void> increaseProgress({bool isDialogue = false}) async {
+  Future<void> increaseProgress({
+    bool isDialogue = false,
+    bool isPractice = false,
+  }) async {
     dailyProgress.value++;
     if (isDialogue) {
       dialoguesLearnedToday.value++;
@@ -106,6 +107,9 @@ class HomeController extends GetxController {
         'dialogues_learned_today',
         dialoguesLearnedToday.value,
       );
+    } else if (isPractice) {
+      practiceToday.value++;
+      await _localStorage.setInt('practice_today', practiceToday.value);
     } else {
       phrasesLearnedToday.value++;
       await _localStorage.setInt(

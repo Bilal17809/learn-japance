@@ -1,11 +1,10 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '/core/common/app_exceptions.dart';
-import '/core/common_widgets/common_widgets.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
 import '/core/utils/utils.dart';
+import '/core/helper/helper.dart';
 
 class TranslatorController extends GetxController {
   final TtsService _ttsService;
@@ -136,27 +135,16 @@ class TranslatorController extends GetxController {
   void setTarget(LanguageModel lang) => _setLanguage(lang, false);
 
   Future<void> handleSpeechInput() async {
-    try {
-      final locale = sourceLanguage.value?.ttsCode;
-      String? recognized;
-      if (Platform.isAndroid) {
-        await _speechService.startSpeechToText(locale: locale);
-        recognized = _speechService.getRecognizedText();
-      } else {
-        recognized = await showDialog<String>(
-          context: Get.context!,
-          builder: (_) => const SpeechDialog(),
-        );
-      }
-      if (recognized?.isNotEmpty ?? false) {
-        inputController.text = recognized!;
-        inputText.value = recognized;
-      }
-    } catch (e) {
-      ToastUtil().showErrorToast('${AppExceptions().failToTranslate}: $e');
-    } finally {
-      translateInput();
+    final locale = sourceLanguage.value?.ttsCode;
+    final recognized = await SpeechHelper(
+      _speechService,
+    ).getSpeechInput(locale: locale);
+
+    if (recognized?.isNotEmpty ?? false) {
+      inputController.text = recognized!;
+      inputText.value = recognized;
     }
+    await translateInput();
   }
 
   Future<void> _loadFav() async {
