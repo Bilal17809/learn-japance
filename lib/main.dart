@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '/core/services/services.dart';
 import '/presentation/splash/view/splash_view.dart';
 import 'package:toastification/toastification.dart';
@@ -10,7 +12,10 @@ import 'core/theme/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  MobileAds.instance.initialize();
   DependencyInjection.init();
+  OnesignalService.init();
   WidgetsBinding.instance.addObserver(Get.find<OnCloseService>());
   final storage = LocalStorage();
   final isDark = await storage.getBool('isDarkMode');

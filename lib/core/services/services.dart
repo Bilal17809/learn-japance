@@ -13,3 +13,4 @@ export 'kanji_db_service.dart';
 export 'katakana_db_service.dart';
 export 'hiragana_db_service.dart';
 export 'connectivity_service.dart';
+export 'onesignal_service.dart';
