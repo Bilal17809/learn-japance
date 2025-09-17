@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '/ad_manager/ad_manager.dart';
 import '/presentation/practice/controller/practice_controller.dart';
 import '/presentation/practice_selection/controller/practice_selection_controller.dart';
 import '/core/config/client.dart';
@@ -27,25 +28,39 @@ import '/core/services/services.dart';
 
 class DependencyInjection {
   static void init() {
+    /// Ad Services
+    Get.lazyPut<RemoveAds>(() => RemoveAds(), fenix: true);
+    Get.lazyPut<AppOpenAdManager>(() => AppOpenAdManager(), fenix: true);
+    Get.lazyPut<SplashInterstitialManager>(
+      () => SplashInterstitialManager(),
+      fenix: true,
+    );
+    Get.lazyPut<InterstitialAdManager>(
+      () => InterstitialAdManager(),
+      fenix: true,
+    );
+
     /// Core Services
-    Get.lazyPut(() => ConnectivityService(), fenix: true);
+    Get.lazyPut<ConnectivityService>(() => ConnectivityService(), fenix: true);
     Get.lazyPut<AiDataSource>(() => AiDataSource(mistralKey), fenix: true);
     Get.lazyPut<AiRepo>(
       () => AiRepoImpl(Get.find<AiDataSource>()),
       fenix: true,
     );
-    Get.lazyPut(() => GetAiResponse(Get.find<AiRepo>()), fenix: true);
-    Get.lazyPut(() => LocalStorage(), fenix: true);
-    Get.lazyPut(() => TranslationService(), fenix: true);
-    Get.lazyPut(() => TtsService(), fenix: true);
-    Get.lazyPut(() => SpeechService(), fenix: true);
+    Get.lazyPut<GetAiResponse>(
+      () => GetAiResponse(Get.find<AiRepo>()),
+      fenix: true,
+    );
+    Get.lazyPut<LocalStorage>(() => LocalStorage(), fenix: true);
+    Get.lazyPut<TranslationService>(() => TranslationService(), fenix: true);
+    Get.lazyPut<TtsService>(() => TtsService(), fenix: true);
+    Get.lazyPut<SpeechService>(() => SpeechService(), fenix: true);
     Get.lazyPut(
       () => TranslatorStorageService(localStorage: Get.find<LocalStorage>()),
       fenix: true,
     );
-    // Get.lazyPut(() => AiService(), fenix: true);
-    Get.lazyPut(() => DbHelper(), fenix: true);
-    Get.lazyPut(() {
+    Get.lazyPut<DbHelper>(() => DbHelper(), fenix: true);
+    Get.lazyPut<PhrasesDbService>(() {
       final dbHelper = Get.find<DbHelper>();
       return PhrasesDbService(dbHelper: dbHelper);
     }, fenix: true);

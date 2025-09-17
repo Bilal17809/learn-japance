@@ -1,4 +1,4 @@
-package com.example.learn_japan
+package com.unisoftapps.learn_japan
 
 import android.Manifest
 import android.speech.tts.TextToSpeech
