@@ -6,4 +6,6 @@ class AppExceptions {
   final String failedApiCall = 'Failed to call the API';
   final String failToFetchData = 'Failed to fetch data';
   final String noInternet = 'No internet connection';
+  final String unsupportedPlatform = 'Platform not supported';
+  final String remoteConfigError = 'Failed to fetch remote config';
 }
