@@ -3,23 +3,28 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:learn_japan/core/theme/theme.dart';
 import 'package:shimmer/shimmer.dart';
-import '/core/common/app_exceptions.dart';
 import 'ad_manager.dart';
 
-class BannerAdController extends GetxController {
-  BannerAd? _bannerAd;
-  var isAdLoaded = false.obs;
-  var isAdEnabled = true.obs;
-
-  final removeAds = Get.find<RemoveAds>();
-  final appOpenAdManager = Get.find<AppOpenAdManager>();
+class BannerAdWidget extends StatefulWidget {
+  const BannerAdWidget({super.key});
 
   @override
-  void onInit() {
-    super.onInit();
+  State<BannerAdWidget> createState() => _BannerAdWidgetState();
+}
+
+class _BannerAdWidgetState extends State<BannerAdWidget> {
+  BannerAd? _bannerAd;
+  bool _isAdLoaded = false;
+  bool _isAdEnabled = true;
+
+  final removeAds = Get.find<RemoveAds>();
+
+  @override
+  void initState() {
+    super.initState();
     _initRemoteConfig();
+    loadBannerAd();
   }
 
   Future<void> _initRemoteConfig() async {
@@ -31,86 +36,65 @@ class BannerAdController extends GetxController {
           minimumFetchInterval: const Duration(seconds: 1),
         ),
       );
-
       String bannerAdKey;
       if (Platform.isAndroid) {
         bannerAdKey = '';
       } else if (Platform.isIOS) {
-        bannerAdKey = 'BannerAd_ios';
+        bannerAdKey = '';
       } else {
-        throw UnsupportedError(AppExceptions().unsupportedPlatform);
+        throw UnsupportedError('Platform not supported');
       }
       await remoteConfig.fetchAndActivate();
-      isAdEnabled.value = remoteConfig.getBool(bannerAdKey);
-      if (isAdEnabled.value) {
+      _isAdEnabled = remoteConfig.getBool(bannerAdKey);
+      if (_isAdEnabled) {
         loadBannerAd();
       }
     } catch (e) {
-      debugPrint('${AppExceptions().remoteConfigError}: $e');
-      isAdEnabled.value = false;
+      debugPrint('Error initializing remote config: $e');
     }
   }
 
-  Future<void> loadBannerAd() async {
-    final context = Get.context;
-    if (context == null) return;
+  void loadBannerAd() async {
     AdSize? adSize =
         await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
-          MediaQuery.of(context).size.width.truncate(),
+          MediaQuery.of(Get.context!).size.width.truncate(),
         );
-
     _bannerAd = BannerAd(
-      adUnitId: _adUnitId,
+      adUnitId:
+          Platform.isAndroid
+              ? 'ca-app-pub-3940256099942544/9214589741' // Test Id
+              // ? ''
+              : '',
       size: adSize!,
       request: const AdRequest(extras: {'collapsible': 'bottom'}),
       listener: BannerAdListener(
         onAdLoaded: (ad) {
-          isAdLoaded.value = true;
+          setState(() => _isAdLoaded = true);
         },
         onAdFailedToLoad: (ad, error) {
-          debugPrint('!!!!!!!! Banner Ad failed: ${error.message}');
-          isAdLoaded.value = false;
+          debugPrint('Banner Ad failed: ${error.message}');
           ad.dispose();
         },
       ),
     )..load();
   }
 
-  BannerAd? get bannerAd => _bannerAd;
-
-  String get _adUnitId {
-    if (Platform.isAndroid) {
-      return 'ca-app-pub-3940256099942544/9214589741';
-    } else if (Platform.isIOS) {
-      return '';
-    } else {
-      throw UnsupportedError(AppExceptions().unsupportedPlatform);
-    }
-  }
-
   @override
-  void onClose() {
+  void dispose() {
     _bannerAd?.dispose();
-    super.onClose();
+    super.dispose();
   }
-}
-
-class BannerAdWidget extends StatelessWidget {
-  const BannerAdWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final bannerAdController = Get.put(BannerAdController());
-
+    final appOpenAdController = Get.find<AppOpenAdManager>();
     return Obx(() {
-      if (!bannerAdController.isAdEnabled.value ||
-          bannerAdController.removeAds.isSubscribedGet.value ||
-          bannerAdController.appOpenAdManager.isAdVisible.value) {
+      if (!_isAdEnabled ||
+          removeAds.isSubscribedGet.value ||
+          appOpenAdController.isAdVisible.value) {
         return const SizedBox();
       }
-
-      return bannerAdController.isAdLoaded.value &&
-              bannerAdController.bannerAd != null
+      return _isAdLoaded && _bannerAd != null
           ? SafeArea(
             child: Container(
               margin: const EdgeInsets.all(2.0),
@@ -119,9 +103,9 @@ class BannerAdWidget extends StatelessWidget {
                 border: Border.all(color: Colors.grey.shade300, width: 1.2),
                 borderRadius: BorderRadius.circular(2.0),
               ),
-              width: bannerAdController.bannerAd!.size.width.toDouble(),
-              height: bannerAdController.bannerAd!.size.height.toDouble(),
-              child: AdWidget(ad: bannerAdController.bannerAd!),
+              width: _bannerAd!.size.width.toDouble(),
+              height: _bannerAd!.size.height.toDouble(),
+              child: AdWidget(ad: _bannerAd!),
             ),
           )
           : SafeArea(
@@ -130,8 +114,8 @@ class BannerAdWidget extends StatelessWidget {
             left: false,
             right: false,
             child: Shimmer.fromColors(
-              baseColor: AppColors().getBgColor(context),
-              highlightColor: Colors.black87,
+              baseColor: Colors.white,
+              highlightColor: Colors.white54,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
