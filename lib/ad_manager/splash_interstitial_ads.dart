@@ -9,7 +9,7 @@ import 'ad_manager.dart';
 class SplashInterstitialManager extends GetxController {
   InterstitialAd? _splashAd;
   bool isAdReady = false;
-  var isShowing = false.obs;
+  // var isShowing = false.obs;
   bool displaySplashAd = true;
   final removeAds = Get.find<RemoveAds>();
   final appOpenAdManager = Get.find<AppOpenAdManager>();
@@ -67,43 +67,40 @@ class SplashInterstitialManager extends GetxController {
     );
   }
 
-  void showSplashAd(VoidCallback onAdClosed) {
+  void showSplashAd() {
     if (!isAdReady || removeAds.isSubscribedGet.value) {
       debugPrint('!!!!!!!!!!Splash InterstitialAd not ready');
-      onAdClosed();
       return;
     }
-    isShowing.value = true;
-    _splashAd!.fullScreenContentCallback = FullScreenContentCallback(
-      onAdDismissedFullScreenContent: (ad) {
-        appOpenAdManager.setInterstitialAdDismissed();
-        ad.dispose();
-        isShowing.value = false;
-        onAdClosed();
-      },
-      onAdFailedToShowFullScreenContent: (ad, error) {
-        debugPrint("Splash Interstitial failed: $error");
-        appOpenAdManager.setInterstitialAdDismissed();
-        ad.dispose();
-        isShowing.value = false;
-        _resetAfterAd();
-        onAdClosed();
-      },
-    );
-    _splashAd!.show();
-    _splashAd = null;
-    isAdReady = false;
-  }
-
-  void _resetAfterAd() {
-    isAdReady = false;
-    loadAd();
-    update();
+    if (_splashAd != null) {
+      _splashAd!.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (ad) {
+          appOpenAdManager.setInterstitialAdDismissed();
+          ad.dispose();
+          isAdReady = false;
+          loadAd();
+          update();
+        },
+        onAdFailedToShowFullScreenContent: (ad, error) {
+          debugPrint("!!!!!!!!!!!!!!! Splash Interstitial failed: $error");
+          appOpenAdManager.setInterstitialAdDismissed();
+          ad.dispose();
+          isAdReady = false;
+          loadAd();
+          update();
+        },
+      );
+      _splashAd!.show();
+      _splashAd = null;
+      isAdReady = false;
+    } else {
+      debugPrint('!!!!!!!!!!Splash InterstitialAd is null');
+    }
   }
 
   String get _adUnitId {
     if (Platform.isAndroid) {
-      return 'ca-app-pub-3940256099942544/1033173712';
+      return 'ca-app-pub-3940256099942544/1033173712'; // Test Id
     } else if (Platform.isIOS) {
       return '';
     } else {

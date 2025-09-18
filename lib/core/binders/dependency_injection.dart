@@ -41,6 +41,7 @@ class DependencyInjection {
     );
 
     /// Core Services
+    Get.lazyPut<LocalStorage>(() => LocalStorage(), fenix: true);
     Get.lazyPut<ConnectivityService>(() => ConnectivityService(), fenix: true);
     Get.lazyPut<AiDataSource>(() => AiDataSource(mistralKey), fenix: true);
     Get.lazyPut<AiRepo>(
@@ -51,7 +52,6 @@ class DependencyInjection {
       () => GetAiResponse(Get.find<AiRepo>()),
       fenix: true,
     );
-    Get.lazyPut<LocalStorage>(() => LocalStorage(), fenix: true);
     Get.lazyPut<TranslationService>(() => TranslationService(), fenix: true);
     Get.lazyPut<TtsService>(() => TtsService(), fenix: true);
     Get.lazyPut<SpeechService>(() => SpeechService(), fenix: true);
@@ -64,23 +64,23 @@ class DependencyInjection {
       final dbHelper = Get.find<DbHelper>();
       return PhrasesDbService(dbHelper: dbHelper);
     }, fenix: true);
-    Get.lazyPut(() {
+    Get.lazyPut<ConversationDbService>(() {
       return ConversationDbService();
     }, fenix: true);
-    Get.lazyPut(() {
+    Get.lazyPut<LearnDbService>(() {
       final dbHelper = Get.find<DbHelper>();
       return LearnDbService(dbHelper: dbHelper);
     }, fenix: true);
-    Get.lazyPut(() {
+    Get.lazyPut<DictionaryDbService>(() {
       final dbHelper = Get.find<DbHelper>();
       return DictionaryDbService(dbHelper: dbHelper);
     }, fenix: true);
-    Get.lazyPut(() => HiraganaDbService(), fenix: true);
-    Get.lazyPut(() => KatakanaDbService(), fenix: true);
-    Get.lazyPut(() => KanjiDbService(), fenix: true);
-    Get.lazyPut(() => LanguageService(), fenix: true);
-    Get.lazyPut(() => GrammarDbService(), fenix: true);
-    Get.lazyPut(() {
+    Get.lazyPut<HiraganaDbService>(() => HiraganaDbService(), fenix: true);
+    Get.lazyPut<KatakanaDbService>(() => KatakanaDbService(), fenix: true);
+    Get.lazyPut<KanjiDbService>(() => KanjiDbService(), fenix: true);
+    Get.lazyPut<LanguageService>(() => LanguageService(), fenix: true);
+    Get.lazyPut<GrammarDbService>(() => GrammarDbService(), fenix: true);
+    Get.lazyPut<OnCloseService>(() {
       final dbHelper = Get.find<DbHelper>();
       return OnCloseService(dbHelper: dbHelper);
     }, fenix: true);
@@ -91,7 +91,7 @@ class DependencyInjection {
       return SplashController(dbHelper: dbHelper);
     }, fenix: true);
 
-    Get.lazyPut(() {
+    Get.lazyPut<HomeController>(() {
       final ttsService = Get.find<TtsService>();
       final localStorage = Get.find<LocalStorage>();
       final jwsController = Get.find<JwsController>();
@@ -152,11 +152,11 @@ class DependencyInjection {
         localStorage: localStorage,
       );
     }, fenix: true);
-    Get.lazyPut(() {
+    Get.lazyPut<LearnCategoryController>(() {
       final learnDbService = Get.find<LearnDbService>();
       return LearnCategoryController(learnDbService: learnDbService);
     }, fenix: true);
-    Get.lazyPut(() {
+    Get.lazyPut<LearnController>(() {
       final learnDbService = Get.find<LearnDbService>();
       final ttsService = Get.find<TtsService>();
       return LearnController(
@@ -164,7 +164,7 @@ class DependencyInjection {
         ttsService: ttsService,
       );
     }, fenix: true);
-    Get.lazyPut(() {
+    Get.lazyPut<DictionaryController>(() {
       final dictionaryDbService = Get.find<DictionaryDbService>();
       final ttsService = Get.find<TtsService>();
       final aiService = Get.find<GetAiResponse>();
@@ -174,7 +174,7 @@ class DependencyInjection {
         aiService: aiService,
       );
     }, fenix: true);
-    Get.lazyPut(() {
+    Get.lazyPut<JwsController>(() {
       final hiraganaDbService = Get.find<HiraganaDbService>();
       final katakanaDbService = Get.find<KatakanaDbService>();
       final ttsService = Get.find<TtsService>();
@@ -184,7 +184,7 @@ class DependencyInjection {
         ttsService: ttsService,
       );
     }, fenix: true);
-    Get.lazyPut(() {
+    Get.lazyPut<JlptKanjiController>(() {
       final ttsService = Get.find<TtsService>();
       final kanjiDbService = Get.find<KanjiDbService>();
       return JlptKanjiController(

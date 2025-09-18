@@ -141,7 +141,7 @@ class AppOpenAdManager extends GetxController with WidgetsBindingObserver {
 
   String _getAdUnitId() {
     if (Platform.isAndroid) {
-      return 'ca-app-pub-3940256099942544/9257395921';
+      return 'ca-app-pub-3940256099942544/9257395921'; // Test Id
     } else if (Platform.isIOS) {
       return '';
     } else {
