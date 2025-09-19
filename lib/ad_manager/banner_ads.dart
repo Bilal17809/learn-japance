@@ -24,6 +24,11 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   void initState() {
     super.initState();
     _initRemoteConfig();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     loadBannerAd();
   }
 
@@ -33,20 +38,22 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
       await remoteConfig.setConfigSettings(
         RemoteConfigSettings(
           fetchTimeout: const Duration(seconds: 10),
-          minimumFetchInterval: const Duration(seconds: 1),
+          minimumFetchInterval: const Duration(minutes: 1),
         ),
       );
       String bannerAdKey;
       if (Platform.isAndroid) {
-        bannerAdKey = '';
+        bannerAdKey = 'banner';
       } else if (Platform.isIOS) {
-        bannerAdKey = '';
+        bannerAdKey = 'BannerAd';
       } else {
         throw UnsupportedError('Platform not supported');
       }
       await remoteConfig.fetchAndActivate();
-      _isAdEnabled = remoteConfig.getBool(bannerAdKey);
-      if (_isAdEnabled) {
+      final showBanner = remoteConfig.getBool(bannerAdKey);
+      if (!mounted) return;
+      setState(() => _isAdEnabled = showBanner);
+      if (showBanner) {
         loadBannerAd();
       }
     } catch (e) {
@@ -57,22 +64,23 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   void loadBannerAd() async {
     AdSize? adSize =
         await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
-          MediaQuery.of(Get.context!).size.width.truncate(),
+          MediaQuery.sizeOf(Get.context!).width.truncate(),
         );
     _bannerAd = BannerAd(
       adUnitId:
           Platform.isAndroid
-              ? 'ca-app-pub-3940256099942544/9214589741' // Test Id
+              ? 'ca-app-pub-3940256099942544/6300978111' // Test Id
               // ? ''
               : '',
-      size: adSize!,
-      request: const AdRequest(extras: {'collapsible': 'bottom'}),
+      size: AdSize.banner,
+      request: AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (ad) {
+          debugPrint("!!!!!!!!!!! BannerAd loaded: ${ad.adUnitId}");
           setState(() => _isAdLoaded = true);
         },
         onAdFailedToLoad: (ad, error) {
-          debugPrint('Banner Ad failed: ${error.message}');
+          debugPrint('!!!!!!!!!!!!!!!!!! Banner Ad failed: ${error.message}');
           ad.dispose();
         },
       ),

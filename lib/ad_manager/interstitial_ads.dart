@@ -3,12 +3,11 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:learn_japan/core/common/app_exceptions.dart';
 import 'ad_manager.dart';
 
 class InterstitialAdManager extends GetxController {
   InterstitialAd? _currentAd;
-  bool _isAdReady = false;
+  bool isAdReady = false;
   var isShow = false.obs;
   int visitCounter = 0;
   late int displayThreshold;
@@ -20,7 +19,7 @@ class InterstitialAdManager extends GetxController {
     super.onInit();
     displayThreshold = 3;
     _initRemoteConfig();
-    _loadAd();
+    loadAd();
   }
 
   Future<void> _initRemoteConfig() async {
@@ -34,11 +33,11 @@ class InterstitialAdManager extends GetxController {
       );
       String interstitialKey;
       if (Platform.isAndroid) {
-        interstitialKey = '';
+        interstitialKey = 'interstitial';
       } else if (Platform.isIOS) {
-        interstitialKey = '';
+        interstitialKey = 'InterstitialAd';
       } else {
-        throw UnsupportedError(AppExceptions().unsupportedPlatform);
+        throw UnsupportedError('Platform not supported');
       }
       await remoteConfig.fetchAndActivate();
       final newThreshold = remoteConfig.getInt(interstitialKey);
@@ -46,22 +45,22 @@ class InterstitialAdManager extends GetxController {
         displayThreshold = newThreshold;
       }
     } catch (e) {
-      debugPrint('${AppExceptions().remoteConfigError}: $e');
+      debugPrint('Error initializing remote config: $e');
     }
   }
 
-  void _loadAd() {
+  void loadAd() {
     InterstitialAd.load(
       adUnitId: _adUnitId,
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
           _currentAd = ad;
-          _isAdReady = true;
+          isAdReady = true;
           update();
         },
         onAdFailedToLoad: (error) {
-          _isAdReady = false;
+          isAdReady = false;
           debugPrint("Interstitial load error: $error");
         },
       ),
@@ -70,7 +69,7 @@ class InterstitialAdManager extends GetxController {
 
   void showAd() {
     if (removeAds.isSubscribedGet.value) {
-      SizedBox();
+      const SizedBox();
     }
     if (_currentAd == null) return;
     isShow.value = true;
@@ -92,7 +91,7 @@ class InterstitialAdManager extends GetxController {
 
     _currentAd!.show();
     _currentAd = null;
-    _isAdReady = false;
+    isAdReady = false;
   }
 
   void checkAndDisplayAd() {
@@ -100,7 +99,7 @@ class InterstitialAdManager extends GetxController {
     debugPrint("Visit count: $visitCounter");
 
     if (visitCounter >= displayThreshold) {
-      if (_isAdReady) {
+      if (isAdReady) {
         showAd();
       } else {
         debugPrint("Interstitial not ready yet.");
@@ -111,14 +110,15 @@ class InterstitialAdManager extends GetxController {
 
   void _resetAfterAd() {
     visitCounter = 0;
-    _isAdReady = false;
-    _loadAd();
+    isAdReady = false;
+    loadAd();
     update();
   }
 
   String get _adUnitId {
     if (Platform.isAndroid) {
-      return 'ca-app-pub-3940256099942544/1033173712'; // Test Id
+      // return '';
+      return 'ca-app-pub-3940256099942544/1033173712'; // testId
     } else if (Platform.isIOS) {
       return '';
     } else {

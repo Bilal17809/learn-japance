@@ -14,6 +14,9 @@ class LearnCategoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<LearnCategoryController>();
     return Scaffold(
       appBar: TitleBar(title: 'Learn Japanese'),

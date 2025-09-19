@@ -35,10 +35,10 @@ class DependencyInjection {
       () => SplashInterstitialManager(),
       fenix: true,
     );
-    Get.lazyPut<InterstitialAdManager>(
-      () => InterstitialAdManager(),
-      fenix: true,
-    );
+    // Get.lazyPut<InterstitialAdManager>(
+    //   () => InterstitialAdManager(),
+    //   fenix: true,
+    // );
 
     /// Core Services
     Get.lazyPut<LocalStorage>(() => LocalStorage(), fenix: true);
