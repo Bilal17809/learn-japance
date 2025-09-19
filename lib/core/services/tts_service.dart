@@ -1,49 +1,27 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
+import '/core/mixins/connectivity_mixin.dart';
 import '/data/models/language_model.dart';
+import 'services.dart';
 
-class TtsService extends GetxController with WidgetsBindingObserver {
-  final FlutterTts _flutterTts = FlutterTts();
-
+class TtsService extends GetxController
+    with WidgetsBindingObserver, ConnectivityMixin {
+  final _audioService = Get.find<AudioService>();
   final RxString _currentSpeakingText = ''.obs;
-  String get currentSpeakingText => _currentSpeakingText.value;
-
+  bool _cancelRequested = false;
   bool isSpeaking(String text) => _currentSpeakingText.value == text;
+  double pitch = 1.0;
+  double speed = 1.0;
 
   @override
   void onInit() {
     super.onInit();
     WidgetsBinding.instance.addObserver(this);
-    _flutterTts.setPitch(1);
-    _flutterTts.setSpeechRate(0.5);
-
-    _flutterTts.setCompletionHandler(() {
-      _currentSpeakingText.value = '';
-    });
-
-    _flutterTts.setErrorHandler((msg) {
-      _currentSpeakingText.value = '';
-    });
-  }
-
-  Future<void> speak(String text, LanguageModel? language) async {
-    if (text.isEmpty || language == null) return;
-
-    _currentSpeakingText.value = text;
-    await _flutterTts.setLanguage(language.ttsCode);
-    final voices = await _flutterTts.getVoices;
-    for (var voice in voices) {
-      if (voice is Map && voice['locale'] == language.ttsCode) {
-        final castedVoice = voice.map(
-          (k, v) => MapEntry(k.toString(), v.toString()),
-        );
-        await _flutterTts.setVoice(castedVoice);
-        break;
+    ever(_audioService.isPlaying, (playing) {
+      if (playing == false) {
+        _currentSpeakingText.value = '';
       }
-    }
-
-    await _flutterTts.speak(text);
+    });
   }
 
   @override
@@ -53,14 +31,52 @@ class TtsService extends GetxController with WidgetsBindingObserver {
     }
   }
 
+  String _buildTTSUrl(String text, String langCode) {
+    final encoded = Uri.encodeComponent(text);
+    return 'https://translate.google.com/translate_tts?ie=UTF-8'
+        '&client=tw-ob'
+        '&q=$encoded'
+        '&tl=$langCode'
+        '&ttsspeed=$speed'
+        '&pitch=$pitch';
+  }
+
+  Future<void> speak(String text, LanguageModel? language) async {
+    initWithConnectivityCheck(
+      context: Get.context!,
+      onConnected: () async {
+        if (text.isEmpty || language == null) return;
+        _cancelRequested = false;
+        _currentSpeakingText.value = text;
+        final List<String> chunks = [];
+        if (text.length > 200) {
+          int start = 0;
+          while (start < text.length) {
+            int end = (start + 200 < text.length) ? start + 200 : text.length;
+            chunks.add(text.substring(start, end));
+            start = end;
+          }
+        } else {
+          chunks.add(text);
+        }
+        for (final chunk in chunks) {
+          if (_cancelRequested) break;
+          final url = _buildTTSUrl(chunk, language.code);
+          await _audioService.playUrl(url);
+        }
+      },
+    );
+  }
+
   Future<void> stop() async {
+    _cancelRequested = true;
     _currentSpeakingText.value = '';
-    await _flutterTts.stop();
+    await _audioService.stop();
   }
 
   @override
   void onClose() {
-    _flutterTts.stop();
+    stop();
     super.onClose();
   }
 }

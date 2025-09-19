@@ -4,6 +4,7 @@ import '/core/theme/theme.dart';
 import '/presentation/jws/view/widgets/tab_view_sections.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/jws/controller/jws_controller.dart';
+import '/ad_manager/ad_manager.dart';
 
 class JwsView extends StatelessWidget {
   final String selectedWord;
@@ -12,6 +13,9 @@ class JwsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     controller.setArguments(selectedWord);
     return DefaultTabController(
       length: 3,
@@ -32,6 +36,12 @@ class JwsView extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
           return SafeArea(child: TabViewSections());
+        }),
+        bottomNavigationBar: Obx(() {
+          final interstitial = Get.find<InterstitialAdManager>();
+          return interstitial.isShow.value
+              ? const SizedBox()
+              : const BannerAdWidget();
         }),
       ),
     );

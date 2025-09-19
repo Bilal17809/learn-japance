@@ -7,6 +7,7 @@ import '/core/services/services.dart';
 import '/presentation/splash/view/splash_view.dart';
 import 'package:toastification/toastification.dart';
 import '/core/local_storage/local_storage.dart';
+import 'ad_manager/ad_manager.dart';
 import 'core/binders/dependency_injection.dart';
 import 'core/theme/theme.dart';
 
@@ -15,6 +16,7 @@ Future<void> main() async {
   await Firebase.initializeApp();
   MobileAds.instance.initialize();
   DependencyInjection.init();
+  Get.put(InterstitialAdManager());
   OnesignalService.init();
   WidgetsBinding.instance.addObserver(Get.find<OnCloseService>());
   final storage = LocalStorage();

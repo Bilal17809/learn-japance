@@ -7,12 +7,16 @@ import '/core/utils/utils.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/data/models/learn_topic_model.dart';
+import '/ad_manager/ad_manager.dart';
 
 class PracticeCategoryView extends StatelessWidget {
   const PracticeCategoryView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<PracticeCategoryController>();
     return Scaffold(
       appBar: TitleBar(title: 'Practice'),
@@ -37,6 +41,12 @@ class PracticeCategoryView extends StatelessWidget {
             ),
           ),
         );
+      }),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
       }),
     );
   }

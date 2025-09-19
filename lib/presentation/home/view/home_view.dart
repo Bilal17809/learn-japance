@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import '/ad_manager/ad_manager.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/global_keys/global_key.dart';
 import '../../app_drawer/view/app_drawer.dart';

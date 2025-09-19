@@ -17,6 +17,7 @@ class TranslationCard extends StatelessWidget {
   final bool isTargetRtl;
   final bool showFav;
   final VoidCallback? onRemove;
+  final String targetLangCode;
 
   const TranslationCard({
     super.key,
@@ -27,6 +28,7 @@ class TranslationCard extends StatelessWidget {
     required this.isTargetRtl,
     required this.onRemove,
     required this.showFav,
+    required this.targetLangCode,
   });
 
   @override
@@ -69,12 +71,12 @@ class TranslationCard extends StatelessWidget {
                 children: [
                   IconActionButton(
                     onTap: () {
+                      final lang = controller.allLanguages.firstWhere(
+                        (l) => l.code == targetLangCode,
+                      );
                       tts.isSpeaking(translatedText)
                           ? tts.stop()
-                          : tts.speak(
-                            translatedText,
-                            controller.targetLanguage.value,
-                          );
+                          : tts.speak(translatedText, lang);
                     },
                     icon:
                         tts.isSpeaking(translatedText)

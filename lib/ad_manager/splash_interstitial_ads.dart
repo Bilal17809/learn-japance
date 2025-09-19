@@ -9,7 +9,6 @@ import 'ad_manager.dart';
 class SplashInterstitialManager extends GetxController {
   InterstitialAd? _splashAd;
   bool isAdReady = false;
-  // var isShowing = false.obs;
   bool displaySplashAd = true;
   final removeAds = Get.find<RemoveAds>();
   final appOpenAdManager = Get.find<AppOpenAdManager>();
@@ -32,9 +31,9 @@ class SplashInterstitialManager extends GetxController {
       );
       String splashAdKey;
       if (Platform.isAndroid) {
-        splashAdKey = '';
+        splashAdKey = 'SplashAd';
       } else if (Platform.isIOS) {
-        splashAdKey = '';
+        splashAdKey = 'SplashAd';
       } else {
         throw UnsupportedError(AppExceptions().unsupportedPlatform);
       }

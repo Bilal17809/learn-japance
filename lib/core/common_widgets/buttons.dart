@@ -25,7 +25,7 @@ class AppElevatedButton extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed: onPressed,
       icon: Icon(icon),
-      label: Text(label),
+      label: Text(label, style: titleSmallStyle),
       style: ElevatedButton.styleFrom(
         minimumSize: Size(width ?? 0, height ?? 50),
         backgroundColor: backgroundColor,

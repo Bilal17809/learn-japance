@@ -14,3 +14,4 @@ export 'katakana_db_service.dart';
 export 'hiragana_db_service.dart';
 export 'connectivity_service.dart';
 export 'onesignal_service.dart';
+export 'audio_service.dart';

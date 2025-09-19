@@ -5,6 +5,7 @@ import '/presentation/grammar/view/grammar_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '../controller/grammar_type_controller.dart';
+import '/ad_manager/ad_manager.dart';
 
 class GrammarTypeView extends StatelessWidget {
   GrammarTypeView({super.key});
@@ -13,16 +14,17 @@ class GrammarTypeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     return Scaffold(
       appBar: TitleBar(title: 'Select Category'),
       body: Obx(() {
         if (controller.translationsLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
-
         final data = controller.grammarData;
         final categories = controller.getUniqueCategories(data!);
-
         return SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -51,6 +53,12 @@ class GrammarTypeView extends StatelessWidget {
             ),
           ),
         );
+      }),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
       }),
     );
   }

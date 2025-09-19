@@ -51,9 +51,9 @@ class AppOpenAdManager extends GetxController with WidgetsBindingObserver {
       );
       String appOpenKey;
       if (Platform.isAndroid) {
-        appOpenKey = '';
+        appOpenKey = 'AppOpenAd';
       } else if (Platform.isIOS) {
-        appOpenKey = '';
+        appOpenKey = 'AppOpenAd';
       } else {
         throw UnsupportedError(AppExceptions().unsupportedPlatform);
       }
