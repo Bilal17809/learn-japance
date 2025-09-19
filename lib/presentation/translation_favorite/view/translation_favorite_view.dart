@@ -34,6 +34,7 @@ class TransFavView extends StatelessWidget {
                           translatedText: item.output,
                           isSourceRtl: item.isSourceRtl,
                           isTargetRtl: item.isTargetRtl,
+                          targetLangCode: item.targetLangCode,
                           onRemove: () => controller.removeFav(item.id),
                         );
                       },

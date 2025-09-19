@@ -7,13 +7,13 @@ import 'package:learn_japan/core/common/app_exceptions.dart';
 import 'ad_manager.dart';
 
 class InterstitialAdManager extends GetxController {
+  final removeAds = Get.find<RemoveAds>();
+  final appOpenAdManager = Get.find<AppOpenAdManager>();
   InterstitialAd? _currentAd;
-  bool _isAdReady = false;
+  bool isAdReady = false;
   var isShow = false.obs;
   int visitCounter = 0;
   late int displayThreshold;
-  final removeAds = Get.find<RemoveAds>();
-  final appOpenAdManager = Get.find<AppOpenAdManager>();
 
   @override
   void onInit() {
@@ -34,9 +34,9 @@ class InterstitialAdManager extends GetxController {
       );
       String interstitialKey;
       if (Platform.isAndroid) {
-        interstitialKey = '';
+        interstitialKey = 'interstitial';
       } else if (Platform.isIOS) {
-        interstitialKey = '';
+        interstitialKey = 'InterstitialAd';
       } else {
         throw UnsupportedError(AppExceptions().unsupportedPlatform);
       }
@@ -57,20 +57,20 @@ class InterstitialAdManager extends GetxController {
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
           _currentAd = ad;
-          _isAdReady = true;
+          isAdReady = true;
           update();
         },
         onAdFailedToLoad: (error) {
-          _isAdReady = false;
-          debugPrint("Interstitial load error: $error");
+          isAdReady = false;
+          debugPrint("!!!!!!!!!!!!!!!!!!! Interstitial load error: $error");
         },
       ),
     );
   }
 
-  void showAd() {
+  void _showAd() {
     if (removeAds.isSubscribedGet.value) {
-      SizedBox();
+      const SizedBox();
     }
     if (_currentAd == null) return;
     isShow.value = true;
@@ -82,26 +82,24 @@ class InterstitialAdManager extends GetxController {
         _resetAfterAd();
       },
       onAdFailedToShowFullScreenContent: (ad, error) {
-        debugPrint("Interstitial failed: $error");
+        debugPrint("!!!!!!!!!!!! Interstitial failed: $error");
         appOpenAdManager.setInterstitialAdDismissed();
         ad.dispose();
         isShow.value = false;
         _resetAfterAd();
       },
     );
-
     _currentAd!.show();
     _currentAd = null;
-    _isAdReady = false;
+    isAdReady = false;
   }
 
   void checkAndDisplayAd() {
     visitCounter++;
-    debugPrint("Visit count: $visitCounter");
-
+    debugPrint("!!!!!!!!!!! Visit count: $visitCounter");
     if (visitCounter >= displayThreshold) {
-      if (_isAdReady) {
-        showAd();
+      if (isAdReady) {
+        _showAd();
       } else {
         debugPrint("Interstitial not ready yet.");
         visitCounter = 0;
@@ -111,14 +109,15 @@ class InterstitialAdManager extends GetxController {
 
   void _resetAfterAd() {
     visitCounter = 0;
-    _isAdReady = false;
+    isAdReady = false;
     _loadAd();
     update();
   }
 
   String get _adUnitId {
     if (Platform.isAndroid) {
-      return 'ca-app-pub-3940256099942544/1033173712'; // Test Id
+      // return '';
+      return 'ca-app-pub-3940256099942544/1033173712'; // testId
     } else if (Platform.isIOS) {
       return '';
     } else {

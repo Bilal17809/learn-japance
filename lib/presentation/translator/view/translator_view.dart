@@ -9,15 +9,18 @@ import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import 'widgets/language_picker_box.dart';
 import 'widgets/input_card.dart';
+import '/ad_manager/ad_manager.dart';
 
 class TranslatorView extends StatelessWidget {
   const TranslatorView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<TranslatorController>();
     final tts = Get.find<TtsService>();
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: TitleBar(
@@ -104,6 +107,7 @@ class TranslatorView extends StatelessWidget {
                               translatedText: item.output,
                               isSourceRtl: item.isSourceRtl,
                               isTargetRtl: item.isTargetRtl,
+                              targetLangCode: item.targetLangCode,
                               onRemove: () => controller.remove(item.id),
                             );
                           },
@@ -126,6 +130,12 @@ class TranslatorView extends StatelessWidget {
           );
         }),
       ),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
+      }),
     );
   }
 }

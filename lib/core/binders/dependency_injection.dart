@@ -35,10 +35,10 @@ class DependencyInjection {
       () => SplashInterstitialManager(),
       fenix: true,
     );
-    Get.lazyPut<InterstitialAdManager>(
-      () => InterstitialAdManager(),
-      fenix: true,
-    );
+    // Get.lazyPut<InterstitialAdManager>(
+    //   () => InterstitialAdManager(),
+    //   fenix: true,
+    // );
 
     /// Core Services
     Get.lazyPut<LocalStorage>(() => LocalStorage(), fenix: true);
@@ -52,6 +52,7 @@ class DependencyInjection {
       () => GetAiResponse(Get.find<AiRepo>()),
       fenix: true,
     );
+    Get.lazyPut<AudioService>(() => AudioService(), fenix: true);
     Get.lazyPut<TranslationService>(() => TranslationService(), fenix: true);
     Get.lazyPut<TtsService>(() => TtsService(), fenix: true);
     Get.lazyPut<SpeechService>(() => SpeechService(), fenix: true);

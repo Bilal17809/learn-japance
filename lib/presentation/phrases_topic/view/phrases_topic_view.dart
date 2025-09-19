@@ -4,12 +4,16 @@ import '../controller/phrases_topic_controller.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
 import 'widgets/topic_card.dart';
+import '/ad_manager/ad_manager.dart';
 
 class PhrasesTopicView extends StatelessWidget {
   const PhrasesTopicView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<PhrasesTopicController>();
     final searchController = TextEditingController();
 
@@ -21,7 +25,6 @@ class PhrasesTopicView extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
           final data = controller.getFilteredTopics();
-
           return Column(
             children: [
               Padding(
@@ -84,6 +87,12 @@ class PhrasesTopicView extends StatelessWidget {
           );
         }),
       ),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
+      }),
     );
   }
 }

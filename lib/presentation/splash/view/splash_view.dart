@@ -40,7 +40,7 @@ class SplashView extends StatelessWidget {
                               textColor: AppColors.kBlack,
                               onPressed: () async {
                                 if (splashAd.isAdReady) {
-                                  splashAd.showSplashAd();
+                                  // splashAd.showSplashAd();
                                   Get.to(() => HomeView());
                                 } else {
                                   Get.to(() => HomeView());

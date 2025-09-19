@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import '/ad_manager/ad_manager.dart';
 import '/presentation/practice/view/practice_view.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/practice_selection/controller/practice_selection_controller.dart';
@@ -41,11 +42,9 @@ class PracticeSelectionView extends StatelessWidget {
             onPageChanged: (index) {
               controller.currentPage.value = index;
             },
-            physics: NeverScrollableScrollPhysics(),
             itemCount: data.length,
             itemBuilder: (context, index) {
               final progress = (index + 1) / data.length;
-
               return Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
@@ -65,71 +64,64 @@ class PracticeSelectionView extends StatelessWidget {
                     ),
                     const Gap(kGap),
                     Expanded(
-                      child: Center(
-                        child: Container(
-                          width: double.infinity,
-                          decoration: AppDecorations.simpleDecor(context),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                data[index].english,
-                                textAlign: TextAlign.center,
-                                style: headlineSmallStyle,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(kBodyHp),
+                              decoration: AppDecorations.rounded(
+                                context,
+                              ).copyWith(
+                                border: Border.all(
+                                  color: AppColors.kGrey.withValues(
+                                    alpha: 0.75,
+                                  ),
+                                ),
                               ),
-                              const Gap(kBodyHp),
-                              Text(
-                                data[index].japanese,
-                                textAlign: TextAlign.center,
-                                style: titleLargeStyle,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '${index + 1} of ${data.length}',
+                                    style: headlineMediumStyle,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const Gap(kGap),
+                                  Text(
+                                    data[index].japanese,
+                                    style: headlineLargeStyle,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const Gap(kGap),
+                                  Text(
+                                    data[index].english,
+                                    style: titleLargeStyle,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const Gap(kGap),
+                                  AppElevatedButton(
+                                    onPressed:
+                                        () => Get.to(
+                                          () => PracticeView(
+                                            data: controller.data.toList(),
+                                            category: category,
+                                            japCategory: japCategory,
+                                            startIndex: index,
+                                          ),
+                                        ),
+                                    icon: Icons.rocket_launch_rounded,
+                                    label: 'Start Now',
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                    const Gap(kElementGap),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        index < data.length - 1
-                            ? Flexible(
-                              child: AppElevatedButton(
-                                onPressed: () {
-                                  if (index < data.length - 1) {
-                                    _pageController.nextPage(
-                                      duration: const Duration(
-                                        milliseconds: 300,
-                                      ),
-                                      curve: Curves.easeInOut,
-                                    );
-                                  }
-                                },
-                                width: double.infinity,
-                                icon: Icons.keyboard_double_arrow_right,
-                                label: 'Skip',
-                              ),
-                            )
-                            : const SizedBox.shrink(),
-                        const Gap(kGap),
-                        Flexible(
-                          child: AppElevatedButton(
-                            onPressed:
-                                () => Get.to(
-                                  () => PracticeView(
-                                    data: controller.data.toList(),
-                                    category: category,
-                                    japCategory: japCategory,
-                                    startIndex: index,
-                                  ),
-                                ),
-                            icon: Icons.rocket_launch,
-                            label: 'Start',
-                            width: double.infinity,
-                          ),
-                        ),
-                      ],
-                    ),
+                    const Gap(kGap),
+                    NativeAdWidget(),
                   ],
                 ),
               );

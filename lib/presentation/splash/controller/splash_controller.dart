@@ -12,9 +12,11 @@ class SplashController extends GetxController {
   SplashController({required DbHelper dbHelper}) : _dbHelper = dbHelper;
 
   @override
-  void onInit() {
-    super.onInit();
-    Get.find<SplashInterstitialManager>().loadAd();
+  void onReady() {
+    super.onReady();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<SplashInterstitialManager>().loadAd();
+    });
     _init();
   }
 
