@@ -5,12 +5,16 @@ import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/dialogue_category/controller/dialogue_category_controller.dart';
+import '/ad_manager/ad_manager.dart';
 
 class DialogueCategoryView extends StatelessWidget {
   const DialogueCategoryView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<DialogueCategoryController>();
     final searchController = TextEditingController();
     return Scaffold(
@@ -44,7 +48,7 @@ class DialogueCategoryView extends StatelessWidget {
                           itemCount: categories.length,
                           itemBuilder: (context, index) {
                             final category = categories[index];
-                            return _CategoriesCard(category: category);
+                            return _CategoryCard(category: category);
                           },
                         ),
               ),
@@ -52,13 +56,19 @@ class DialogueCategoryView extends StatelessWidget {
           ),
         );
       }),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
+      }),
     );
   }
 }
 
-class _CategoriesCard extends StatelessWidget {
+class _CategoryCard extends StatelessWidget {
   final String category;
-  const _CategoriesCard({required this.category});
+  const _CategoryCard({required this.category});
 
   @override
   Widget build(BuildContext context) {

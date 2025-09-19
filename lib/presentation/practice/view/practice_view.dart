@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import '../../../ad_manager/native_ads.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/practice/controller/practice_controller.dart';
 import '/core/constants/constants.dart';
@@ -52,6 +53,7 @@ class PracticeView extends StatelessWidget {
                 ],
               ),
             ),
+            NativeAdWidget(),
             Obx(
               () => Padding(
                 padding: const EdgeInsets.symmetric(

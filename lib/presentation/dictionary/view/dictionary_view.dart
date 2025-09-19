@@ -13,7 +13,6 @@ class DictionaryView extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<DictionaryController>();
     final searchController = TextEditingController();
-
     return Scaffold(
       appBar: TitleBar(title: 'Dictionary'),
       body: Obx(() {

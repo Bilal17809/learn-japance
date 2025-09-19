@@ -69,7 +69,12 @@ class BottomSection extends StatelessWidget {
                   Spacer(),
                   Image.asset(Assets.star, width: primaryIcon(context)),
                   const Gap(kGap / 2),
-                  Text("5 achievements", style: titleSmallStyle),
+                  Text(
+                    (controller.practiceToday.value == 1)
+                        ? "${controller.practiceToday.value} Achievement"
+                        : "${controller.practiceToday.value} Achievements",
+                    style: titleSmallStyle,
+                  ),
                 ],
               ),
               const Gap(kBodyHp),

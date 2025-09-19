@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
+// import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -29,33 +29,36 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    loadBannerAd();
+    if (_isAdEnabled && _bannerAd == null) {
+      loadBannerAd();
+    }
   }
 
   Future<void> _initRemoteConfig() async {
-    final remoteConfig = FirebaseRemoteConfig.instance;
+    // final remoteConfig = FirebaseRemoteConfig.instance;
     try {
-      await remoteConfig.setConfigSettings(
-        RemoteConfigSettings(
-          fetchTimeout: const Duration(seconds: 10),
-          minimumFetchInterval: const Duration(minutes: 1),
-        ),
-      );
-      String bannerAdKey;
-      if (Platform.isAndroid) {
-        bannerAdKey = 'banner';
-      } else if (Platform.isIOS) {
-        bannerAdKey = 'BannerAd';
-      } else {
-        throw UnsupportedError('Platform not supported');
-      }
-      await remoteConfig.fetchAndActivate();
-      final showBanner = remoteConfig.getBool(bannerAdKey);
+      // await remoteConfig.setConfigSettings(
+      //   RemoteConfigSettings(
+      //     fetchTimeout: const Duration(seconds: 10),
+      //     minimumFetchInterval: const Duration(minutes: 1),
+      //   ),
+      // );
+      // String bannerAdKey;
+      // if (Platform.isAndroid) {
+      //   bannerAdKey = 'banner';
+      // } else if (Platform.isIOS) {
+      //   bannerAdKey = 'BannerAd';
+      // } else {
+      //   throw UnsupportedError('Platform not supported');
+      // }
+      // await remoteConfig.fetchAndActivate();
+      // final showBanner = remoteConfig.getBool(bannerAdKey);
       if (!mounted) return;
-      setState(() => _isAdEnabled = showBanner);
-      if (showBanner) {
-        loadBannerAd();
-      }
+      setState(() => _isAdEnabled = true);
+      loadBannerAd();
+      // if (showBanner) {
+      //   loadBannerAd();
+      // }
     } catch (e) {
       debugPrint('Error initializing remote config: $e');
     }
@@ -69,11 +72,11 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     _bannerAd = BannerAd(
       adUnitId:
           Platform.isAndroid
-              ? 'ca-app-pub-3940256099942544/6300978111' // Test Id
+              ? 'ca-app-pub-3940256099942544/9214589741' // Test Id
               // ? ''
               : '',
-      size: AdSize.banner,
-      request: AdRequest(),
+      size: adSize!,
+      request: const AdRequest(extras: {'collapsible': 'bottom'}),
       listener: BannerAdListener(
         onAdLoaded: (ad) {
           debugPrint("!!!!!!!!!!! BannerAd loaded: ${ad.adUnitId}");

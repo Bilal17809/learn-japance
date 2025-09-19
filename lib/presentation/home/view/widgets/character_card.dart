@@ -45,7 +45,7 @@ class CharacterCard extends StatelessWidget {
                       ),
                       Text(
                         controller.currentRomaji.value,
-                        style: titleMediumStyle,
+                        style: titleLargeStyle,
                       ),
                     ],
                   ),

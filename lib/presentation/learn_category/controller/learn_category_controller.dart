@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import '/ad_manager/ad_manager.dart';
 import '/core/common/app_exceptions.dart';
 import '/data/models/learn_topic_model.dart';
 import '/core/services/services.dart';

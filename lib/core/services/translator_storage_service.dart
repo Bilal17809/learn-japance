@@ -26,7 +26,6 @@ class TranslatorStorageService {
   Future<List<TranslationResultModel>> getTranslations() async {
     final saved = await _localStorage.getStringList('translations');
     if (saved == null) return [];
-
     return saved.map((s) {
       final parts = s.split('|');
       return TranslationResultModel(
@@ -35,6 +34,7 @@ class TranslatorStorageService {
         output: parts[2],
         isSourceRtl: parts[3] == 'true',
         isTargetRtl: parts[4] == 'true',
+        targetLangCode: parts[5],
       );
     }).toList();
   }
@@ -42,7 +42,8 @@ class TranslatorStorageService {
   Future<void> saveTranslation(TranslationResultModel translation) async {
     final saved = await _localStorage.getStringList('translations') ?? [];
     saved.add(
-      '${translation.id}|${translation.input}|${translation.output}|${translation.isSourceRtl}|${translation.isTargetRtl}',
+      '${translation.id}|${translation.input}|${translation.output}|'
+      '${translation.isSourceRtl}|${translation.isTargetRtl}|${translation.targetLangCode}',
     );
     await _localStorage.setStringList('translations', saved);
   }
@@ -65,6 +66,7 @@ class TranslatorStorageService {
         output: parts[2],
         isSourceRtl: parts[3] == 'true',
         isTargetRtl: parts[4] == 'true',
+        targetLangCode: parts[5],
       );
     }).toList();
   }
@@ -75,7 +77,8 @@ class TranslatorStorageService {
       favorites
           .map(
             (f) =>
-                '${f.id}|${f.input}|${f.output}|${f.isSourceRtl}|${f.isTargetRtl}',
+                '${f.id}|${f.input}|${f.output}|'
+                '${f.isSourceRtl}|${f.isTargetRtl}|${f.targetLangCode}',
           )
           .toList(),
     );

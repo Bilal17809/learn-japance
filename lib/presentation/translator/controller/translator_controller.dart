@@ -94,6 +94,7 @@ class TranslatorController extends GetxController {
         output: result,
         isSourceRtl: currentSourceRtl,
         isTargetRtl: currentTargetRtl,
+        targetLangCode: targetLanguage.value!.code,
       );
       translations.add(newResult);
       await _storageService.saveTranslation(newResult);
@@ -106,6 +107,7 @@ class TranslatorController extends GetxController {
           output: "${AppExceptions().failToTranslate}: $e",
           isSourceRtl: currentSourceRtl,
           isTargetRtl: currentTargetRtl,
+          targetLangCode: targetLanguage.value!.code,
         ),
       );
     } finally {

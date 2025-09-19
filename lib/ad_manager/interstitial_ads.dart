@@ -3,23 +3,24 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:learn_japan/core/common/app_exceptions.dart';
 import 'ad_manager.dart';
 
 class InterstitialAdManager extends GetxController {
+  final removeAds = Get.find<RemoveAds>();
+  final appOpenAdManager = Get.find<AppOpenAdManager>();
   InterstitialAd? _currentAd;
   bool isAdReady = false;
   var isShow = false.obs;
   int visitCounter = 0;
   late int displayThreshold;
-  final removeAds = Get.find<RemoveAds>();
-  final appOpenAdManager = Get.find<AppOpenAdManager>();
 
   @override
   void onInit() {
     super.onInit();
     displayThreshold = 3;
     _initRemoteConfig();
-    loadAd();
+    _loadAd();
   }
 
   Future<void> _initRemoteConfig() async {
@@ -37,7 +38,7 @@ class InterstitialAdManager extends GetxController {
       } else if (Platform.isIOS) {
         interstitialKey = 'InterstitialAd';
       } else {
-        throw UnsupportedError('Platform not supported');
+        throw UnsupportedError(AppExceptions().unsupportedPlatform);
       }
       await remoteConfig.fetchAndActivate();
       final newThreshold = remoteConfig.getInt(interstitialKey);
@@ -45,11 +46,11 @@ class InterstitialAdManager extends GetxController {
         displayThreshold = newThreshold;
       }
     } catch (e) {
-      debugPrint('Error initializing remote config: $e');
+      debugPrint('${AppExceptions().remoteConfigError}: $e');
     }
   }
 
-  void loadAd() {
+  void _loadAd() {
     InterstitialAd.load(
       adUnitId: _adUnitId,
       request: const AdRequest(),
@@ -61,13 +62,13 @@ class InterstitialAdManager extends GetxController {
         },
         onAdFailedToLoad: (error) {
           isAdReady = false;
-          debugPrint("Interstitial load error: $error");
+          debugPrint("!!!!!!!!!!!!!!!!!!! Interstitial load error: $error");
         },
       ),
     );
   }
 
-  void showAd() {
+  void _showAd() {
     if (removeAds.isSubscribedGet.value) {
       const SizedBox();
     }
@@ -81,14 +82,13 @@ class InterstitialAdManager extends GetxController {
         _resetAfterAd();
       },
       onAdFailedToShowFullScreenContent: (ad, error) {
-        debugPrint("Interstitial failed: $error");
+        debugPrint("!!!!!!!!!!!! Interstitial failed: $error");
         appOpenAdManager.setInterstitialAdDismissed();
         ad.dispose();
         isShow.value = false;
         _resetAfterAd();
       },
     );
-
     _currentAd!.show();
     _currentAd = null;
     isAdReady = false;
@@ -96,11 +96,10 @@ class InterstitialAdManager extends GetxController {
 
   void checkAndDisplayAd() {
     visitCounter++;
-    debugPrint("Visit count: $visitCounter");
-
+    debugPrint("!!!!!!!!!!! Visit count: $visitCounter");
     if (visitCounter >= displayThreshold) {
       if (isAdReady) {
-        showAd();
+        _showAd();
       } else {
         debugPrint("Interstitial not ready yet.");
         visitCounter = 0;
@@ -111,7 +110,7 @@ class InterstitialAdManager extends GetxController {
   void _resetAfterAd() {
     visitCounter = 0;
     isAdReady = false;
-    loadAd();
+    _loadAd();
     update();
   }
 

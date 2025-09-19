@@ -4,6 +4,7 @@ class TranslationResultModel {
   final String output;
   final bool isSourceRtl;
   final bool isTargetRtl;
+  final String targetLangCode;
 
   TranslationResultModel({
     required this.id,
@@ -11,5 +12,6 @@ class TranslationResultModel {
     required this.output,
     this.isSourceRtl = false,
     this.isTargetRtl = false,
+    required this.targetLangCode,
   });
 }
