@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restart_app/restart_app.dart';
-import '../common_widgets/common_widgets.dart';
-import '../constants/constants.dart';
-import '../local_storage/local_storage.dart';
-import '../theme/theme.dart';
+import '/core/common_widgets/common_widgets.dart';
+import '/core/constants/constants.dart';
+import '/core/local_storage/local_storage.dart';
+import '/core/theme/theme.dart';
 
 class ResetUtil {
   static void showResetDialog(BuildContext context) async {

@@ -114,7 +114,7 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
   Widget shimmerSmallWidget(double width) {
     return Shimmer.fromColors(
       baseColor: AppColors.secondary(context),
-      highlightColor: AppColors.icon(context),
+      highlightColor: AppColors.container(context),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: AspectRatio(
@@ -122,7 +122,7 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
           child: Container(
             width: width,
             decoration: BoxDecoration(
-              color: AppColors.primary(context),
+              color: AppColors.primary(context).withValues(alpha: 0.6),
               borderRadius: BorderRadius.circular(8),
             ),
           ),
@@ -134,7 +134,7 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
   Widget shimmerMediumWidget(double width) {
     return Shimmer.fromColors(
       baseColor: AppColors.secondary(context),
-      highlightColor: AppColors.icon(context),
+      highlightColor: AppColors.container(context),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -144,7 +144,7 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
               child: Container(
                 width: width,
                 decoration: BoxDecoration(
-                  color: AppColors.primary(context),
+                  color: AppColors.primary(context).withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),

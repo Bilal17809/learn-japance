@@ -58,7 +58,6 @@ class HomeController extends GetxController {
     } else if (lastDate == null) {
       await _localStorage.setString('last_date', today);
     }
-
     final nextIndex = storedIndex % allItems.length;
     final item = allItems[nextIndex];
     if (item is HiraganaItem) {

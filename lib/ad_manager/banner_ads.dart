@@ -126,14 +126,14 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
             right: false,
             child: Shimmer.fromColors(
               baseColor: AppColors.secondary(context),
-              highlightColor: AppColors.icon(context),
+              highlightColor: AppColors.container(context),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   height: 50,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: AppColors.primary(context),
+                    color: AppColors.primary(context).withValues(alpha: 0.6),
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                 ),

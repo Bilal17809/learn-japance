@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/theme/theme.dart';
+import '/presentation/dialogue/controller/dialogue_controller.dart';
+import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
-import '../controller/dialogue_controller.dart';
 import 'widgets/dialogue_card.dart';
 import '/ad_manager/ad_manager.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:learn_japan/core/utils/utils.dart';
-import '../common/app_exceptions.dart';
+import '/core/utils/utils.dart';
+import '/core/common/app_exceptions.dart';
 import '/data/models/models.dart';
 
 class LanguageService {

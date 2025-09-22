@@ -52,8 +52,10 @@ class AppColors {
   static Color container(BuildContext context) =>
       context.isDark ? kWhite.withValues(alpha: 0.1) : kWhite;
 
-  static Color icon(BuildContext context) =>
-      context.isDark ? kWhite : primaryColorLight;
+  static Color icon(BuildContext context) => context.isDark ? kWhite : kGrey;
+
+  static Color secondaryIcon(BuildContext context) =>
+      context.isDark ? kGrey : primaryColorLight;
 
   Color getBgColor(BuildContext context) =>
       context.isDark ? darkBgColor : lightBgColor;

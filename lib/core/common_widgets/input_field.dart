@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
+import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 
 class InputField extends StatelessWidget {
@@ -18,6 +18,7 @@ class InputField extends StatelessWidget {
   final Color? cursorColor;
   final Color? backgroundColor;
   final TextAlign textAlign;
+  final String? Function(String?)? validator;
 
   const InputField({
     super.key,
@@ -36,16 +37,18 @@ class InputField extends StatelessWidget {
     this.cursorColor,
     this.backgroundColor,
     this.textAlign = TextAlign.start,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       minLines: minLines,
       maxLines: maxLines,
       cursorColor: cursorColor,
       textAlign: textAlign,
+      validator: validator,
       decoration: InputDecoration(
         filled: true,
         fillColor: backgroundColor ?? AppColors.kWhite.withValues(alpha: 0.2),
@@ -57,19 +60,19 @@ class InputField extends StatelessWidget {
         border:
             border ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(kCircularBorderRadius),
+              borderRadius: BorderRadius.circular(kBorderRadius),
               borderSide: BorderSide(color: AppColors.primaryColorLight),
             ),
         enabledBorder:
             border ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(kCircularBorderRadius),
+              borderRadius: BorderRadius.circular(kBorderRadius),
               borderSide: BorderSide(color: AppColors.primaryColorLight),
             ),
         focusedBorder:
             border ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(kCircularBorderRadius),
+              borderRadius: BorderRadius.circular(kBorderRadius),
               borderSide: BorderSide(
                 color: AppColors.primaryColorLight,
                 width: 2,
@@ -78,12 +81,12 @@ class InputField extends StatelessWidget {
       ),
       style:
           textStyle ??
-          bodySmallStyle.copyWith(
+          bodyLargeStyle.copyWith(
             color: AppColors.primaryColorLight,
             fontWeight: FontWeight.bold,
           ),
       onChanged: onChanged,
-      onSubmitted: onSubmitted,
+      onFieldSubmitted: onSubmitted,
     );
   }
 }

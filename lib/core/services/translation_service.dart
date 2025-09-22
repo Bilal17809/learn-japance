@@ -1,4 +1,4 @@
-import 'package:learn_japan/core/common/app_exceptions.dart';
+import '/core/common/app_exceptions.dart';
 import 'package:translator/translator.dart';
 
 class TranslationService {

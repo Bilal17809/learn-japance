@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '/presentation/splash/controller/splash_controller.dart';
 import '/ad_manager/ad_manager.dart';
 import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import '/presentation/home/view/home_view.dart';
 import '/core/common_widgets/common_widgets.dart';
-import '../controller/splash_controller.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});

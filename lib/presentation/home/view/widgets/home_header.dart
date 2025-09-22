@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '../../controller/home_controller.dart';
+import '/presentation/home/controller/home_controller.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';

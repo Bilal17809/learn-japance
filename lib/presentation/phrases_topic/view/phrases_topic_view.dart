@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controller/phrases_topic_controller.dart';
+import '/presentation/phrases_topic/controller/phrases_topic_controller.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
 import 'widgets/topic_card.dart';

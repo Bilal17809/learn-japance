@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 /// Text
 TextStyle headlineLargeStyle = const TextStyle(
-  fontSize: 60,
+  fontSize: 52,
   fontWeight: FontWeight.w500,
 );
 
 TextStyle headlineMediumStyle = const TextStyle(
-  fontSize: 50,
+  fontSize: 46,
   fontWeight: FontWeight.w500,
 );
 
 TextStyle headlineSmallStyle = const TextStyle(
-  fontSize: 30,
+  fontSize: 28,
   fontWeight: FontWeight.w700,
 );
 
@@ -23,7 +23,7 @@ TextStyle titleMediumStyle = const TextStyle(
 
 TextStyle titleLargeStyle = const TextStyle(
   fontSize: 22,
-  fontWeight: FontWeight.bold,
+  fontWeight: FontWeight.w600,
 );
 
 TextStyle titleSmallStyle = const TextStyle(

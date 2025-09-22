@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
-import '../common/app_exceptions.dart';
+import '/core/common/app_exceptions.dart';
 
 class SpeechService extends GetxController {
   RxBool isListening = false.obs;

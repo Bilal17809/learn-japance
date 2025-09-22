@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '/presentation/report/controller/report_controller.dart';
 import '/ad_manager/ad_manager.dart';
 import '/presentation/practice/controller/practice_controller.dart';
 import '/presentation/practice_selection/controller/practice_selection_controller.dart';
@@ -219,6 +220,7 @@ class DependencyInjection {
         speechService: speechService,
       );
     }, fenix: true);
+    Get.lazyPut<ReportController>(() => ReportController(), fenix: true);
 
     /// Ad Services
     Get.lazyPut<RemoveAds>(() => RemoveAds(), fenix: true);

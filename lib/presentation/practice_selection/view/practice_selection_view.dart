@@ -49,7 +49,7 @@ class PracticeSelectionView extends StatelessWidget {
             itemBuilder: (context, index) {
               final progress = (index + 1) / data.length;
               return Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(kBodyHp),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -133,11 +133,7 @@ class PracticeSelectionView extends StatelessWidget {
                     const Gap(kGap),
                     data[index].japanese.characters.length >= 12
                         ? const SizedBox.shrink()
-                        : Expanded(
-                          child: NativeAdWidget(
-                            templateType: TemplateType.medium,
-                          ),
-                        ),
+                        : NativeAdWidget(templateType: TemplateType.medium),
                   ],
                 ),
               );

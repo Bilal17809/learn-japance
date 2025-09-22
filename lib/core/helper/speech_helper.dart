@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '/core/common/app_exceptions.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/services/services.dart';
-import '/core/utils/utils.dart';
 
 class SpeechHelper {
   final SpeechService _speechService;
@@ -23,7 +22,10 @@ class SpeechHelper {
         );
       }
     } catch (e) {
-      ToastUtil().showErrorToast('${AppExceptions().failToTranslate}: $e');
+      SimpleToast.showCustomToast(
+        context: Get.context!,
+        message: '${AppExceptions().failToTranslate}: $e',
+      );
       return null;
     }
   }

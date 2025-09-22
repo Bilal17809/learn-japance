@@ -45,7 +45,7 @@ class CategoryCard extends StatelessWidget {
                     assetPath: item.assetPath,
                     isCircular: true,
                     backgroundColor: AppColors.secondary(Get.context!),
-                    color: AppColors.icon(context),
+                    color: AppColors.secondaryIcon(context),
                     size: primaryIcon(context),
                   ),
                 ),

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/common/app_exceptions.dart';
+import '/core/common/app_exceptions.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
 

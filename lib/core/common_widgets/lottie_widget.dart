@@ -1,4 +1,4 @@
-import '../theme/theme.dart';
+import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
 import '/core/utils/utils.dart';
 import 'package:lottie/lottie.dart';

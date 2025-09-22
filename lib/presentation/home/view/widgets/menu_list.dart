@@ -92,7 +92,7 @@ class _ItemCard extends StatelessWidget {
             backgroundColor: AppColors.container(context),
             padding: const EdgeInsets.all(kBodyHp),
             size: primaryIcon(context),
-            color: AppColors.icon(context),
+            color: AppColors.secondaryIcon(context),
           ),
         ),
         const Gap(kGap),

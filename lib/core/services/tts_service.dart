@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/common_widgets/common_widgets.dart';
+import '/core/common_widgets/common_widgets.dart';
 import '/core/mixins/connectivity_mixin.dart';
 import '/data/models/language_model.dart';
 import 'services.dart';

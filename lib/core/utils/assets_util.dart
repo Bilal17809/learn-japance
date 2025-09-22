@@ -14,6 +14,7 @@ class Assets {
   /// Lottie
   static const String searchError = "assets/animations/search_error.json";
   static const String translationLottie = "assets/animations/translation.json";
+  static const String reportLottie = "assets/animations/report.json";
 
   /// Home Icons
   static const String heroImage = "images/hero_image.png";

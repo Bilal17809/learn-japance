@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/ad_manager/ad_manager.dart';
+import '/ad_manager/ad_manager.dart';
 import '/core/utils/utils.dart';
 import '/core/helper/helper.dart';
 
