@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '/presentation/report/controller/report_controller.dart';
 import '/ad_manager/ad_manager.dart';
 import '/presentation/practice/controller/practice_controller.dart';
 import '/presentation/practice_selection/controller/practice_selection_controller.dart';
@@ -28,18 +29,6 @@ import '/core/services/services.dart';
 
 class DependencyInjection {
   static void init() {
-    /// Ad Services
-    Get.lazyPut<RemoveAds>(() => RemoveAds(), fenix: true);
-    Get.lazyPut<AppOpenAdManager>(() => AppOpenAdManager(), fenix: true);
-    Get.lazyPut<SplashInterstitialManager>(
-      () => SplashInterstitialManager(),
-      fenix: true,
-    );
-    // Get.lazyPut<InterstitialAdManager>(
-    //   () => InterstitialAdManager(),
-    //   fenix: true,
-    // );
-
     /// Core Services
     Get.lazyPut<LocalStorage>(() => LocalStorage(), fenix: true);
     Get.lazyPut<ConnectivityService>(() => ConnectivityService(), fenix: true);
@@ -231,5 +220,15 @@ class DependencyInjection {
         speechService: speechService,
       );
     }, fenix: true);
+    Get.lazyPut<ReportController>(() => ReportController(), fenix: true);
+
+    /// Ad Services
+    Get.lazyPut<RemoveAds>(() => RemoveAds(), fenix: true);
+    Get.lazyPut<AppOpenAdManager>(() => AppOpenAdManager(), fenix: true);
+    Get.lazyPut<SplashInterstitialManager>(
+      () => SplashInterstitialManager(),
+      fenix: true,
+    );
+    Get.lazyPut<NativeAdManager>(() => NativeAdManager(), fenix: true);
   }
 }

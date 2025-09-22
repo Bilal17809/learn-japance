@@ -11,7 +11,6 @@ import '/ad_manager/ad_manager.dart';
 
 class PracticeCategoryView extends StatelessWidget {
   const PracticeCategoryView({super.key});
-
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {

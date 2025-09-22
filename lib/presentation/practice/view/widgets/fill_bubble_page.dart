@@ -30,7 +30,7 @@ class FillBubblePage extends StatelessWidget {
                   children: [
                     Text(
                       'Fill in the Bubble',
-                      style: headlineMediumStyle,
+                      style: headlineSmallStyle,
                       textAlign: TextAlign.center,
                     ),
                     const Gap(kGap),

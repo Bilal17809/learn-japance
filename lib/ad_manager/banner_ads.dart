@@ -1,9 +1,10 @@
 import 'dart:io';
-// import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shimmer/shimmer.dart';
+import '/core/theme/theme.dart';
 import 'ad_manager.dart';
 
 class BannerAdWidget extends StatefulWidget {
@@ -35,30 +36,29 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   }
 
   Future<void> _initRemoteConfig() async {
-    // final remoteConfig = FirebaseRemoteConfig.instance;
+    final remoteConfig = FirebaseRemoteConfig.instance;
     try {
-      // await remoteConfig.setConfigSettings(
-      //   RemoteConfigSettings(
-      //     fetchTimeout: const Duration(seconds: 10),
-      //     minimumFetchInterval: const Duration(minutes: 1),
-      //   ),
-      // );
-      // String bannerAdKey;
-      // if (Platform.isAndroid) {
-      //   bannerAdKey = 'banner';
-      // } else if (Platform.isIOS) {
-      //   bannerAdKey = 'BannerAd';
-      // } else {
-      //   throw UnsupportedError('Platform not supported');
-      // }
-      // await remoteConfig.fetchAndActivate();
-      // final showBanner = remoteConfig.getBool(bannerAdKey);
+      await remoteConfig.setConfigSettings(
+        RemoteConfigSettings(
+          fetchTimeout: const Duration(seconds: 10),
+          minimumFetchInterval: const Duration(minutes: 1),
+        ),
+      );
+      String bannerAdKey;
+      if (Platform.isAndroid) {
+        bannerAdKey = 'banner';
+      } else if (Platform.isIOS) {
+        bannerAdKey = 'BannerAd';
+      } else {
+        throw UnsupportedError('Platform not supported');
+      }
+      await remoteConfig.fetchAndActivate();
+      final showBanner = remoteConfig.getBool(bannerAdKey);
       if (!mounted) return;
       setState(() => _isAdEnabled = true);
-      loadBannerAd();
-      // if (showBanner) {
-      //   loadBannerAd();
-      // }
+      if (showBanner) {
+        loadBannerAd();
+      }
     } catch (e) {
       debugPrint('Error initializing remote config: $e');
     }
@@ -125,15 +125,15 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
             left: false,
             right: false,
             child: Shimmer.fromColors(
-              baseColor: Colors.white,
-              highlightColor: Colors.white54,
+              baseColor: AppColors.secondary(context),
+              highlightColor: AppColors.container(context),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   height: 50,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColors.primary(context).withValues(alpha: 0.6),
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                 ),

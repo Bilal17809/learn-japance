@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '/core/common_widgets/common_widgets.dart';
 import '/core/common/app_exceptions.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
-import '/core/utils/utils.dart';
 import '/core/helper/helper.dart';
 
 class TranslatorController extends GetxController {
@@ -77,7 +77,10 @@ class TranslatorController extends GetxController {
 
   Future<void> translateInput() async {
     if (inputText.value.isEmpty) {
-      ToastUtil().showErrorToast('Input field cannot be empty');
+      SimpleToast.showCustomToast(
+        context: Get.context!,
+        message: 'Input field cannot be empty',
+      );
       return;
     }
     isTranslating.value = true;
@@ -141,7 +144,6 @@ class TranslatorController extends GetxController {
     final recognized = await SpeechHelper(
       _speechService,
     ).getSpeechInput(locale: locale);
-
     if (recognized?.isNotEmpty ?? false) {
       inputController.text = recognized!;
       inputText.value = recognized;

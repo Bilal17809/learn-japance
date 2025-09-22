@@ -4,17 +4,18 @@ import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/presentation/grammar/controller/grammar_controller.dart';
 import 'widgets/grammar_card.dart';
+import '/ad_manager/ad_manager.dart';
 
 class GrammarView extends StatelessWidget {
   final String selectedCategory;
-
   const GrammarView({super.key, required this.selectedCategory});
-
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final GrammarController controller = Get.find<GrammarController>();
     final searchController = TextEditingController();
-
     return Scaffold(
       appBar: TitleBar(title: selectedCategory),
       body: Obx(() {
@@ -22,7 +23,6 @@ class GrammarView extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         final data = controller.getFilteredData(selectedCategory);
-
         return SafeArea(
           child: Column(
             children: [
@@ -58,6 +58,12 @@ class GrammarView extends StatelessWidget {
             ],
           ),
         );
+      }),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
       }),
     );
   }

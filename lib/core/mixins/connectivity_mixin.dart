@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../services/services.dart';
-import '../common/app_exceptions.dart';
-import '../utils/utils.dart';
+import '/core/services/services.dart';
+import '/core/common/app_exceptions.dart';
+import '/core/utils/utils.dart';
 
 mixin ConnectivityMixin on GetxController {
   final ConnectivityService connectivityService = ConnectivityService.instance;

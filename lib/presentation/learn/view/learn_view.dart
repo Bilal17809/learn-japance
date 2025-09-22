@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/theme/theme.dart';
+import '/core/theme/theme.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/presentation/learn/controller/learn_controller.dart';
+import '/ad_manager/ad_manager.dart';
 
 class LearnView extends StatelessWidget {
   final int topicId;
@@ -18,6 +19,9 @@ class LearnView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<LearnController>();
     controller.setTopic(topicId);
     return Scaffold(
@@ -35,6 +39,9 @@ class LearnView extends StatelessWidget {
             ),
             itemCount: data.length,
             itemBuilder: (context, index) {
+              if (index == 3) {
+                return NativeAdWidget();
+              }
               return ClipPath(
                 clipper: TicketClipper(),
                 child: Container(

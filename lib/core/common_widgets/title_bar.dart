@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '/core/theme/theme.dart';
 import 'buttons.dart';
-import '../constants/constants.dart';
+import '/core/constants/constants.dart';
 
 class TitleBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;

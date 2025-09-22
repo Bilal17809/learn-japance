@@ -3,13 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/global_keys/global_key.dart';
-import '../../app_drawer/view/app_drawer.dart';
+import '/presentation/app_drawer/view/app_drawer.dart';
 import '/presentation/home/controller/home_controller.dart';
 import '/core/utils/utils.dart';
 import 'widgets/menu_list.dart';
 import 'widgets/character_card.dart';
 import 'widgets/bottom_section.dart';
 import 'widgets/home_header.dart';
+import '/ad_manager/ad_manager.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -21,7 +22,7 @@ class HomeView extends StatelessWidget {
       canPop: false,
       onPopInvokedWithResult: (didPop, value) async {
         if (didPop) return;
-        final shouldExit = await HomeDialogs.showExitDialog(context);
+        final shouldExit = await ExitDialog.show(context);
         if (shouldExit == true) SystemNavigator.pop();
       },
       child: Scaffold(
@@ -41,6 +42,12 @@ class HomeView extends StatelessWidget {
             ],
           ),
         ),
+        bottomNavigationBar: Obx(() {
+          final interstitial = Get.find<InterstitialAdManager>();
+          return interstitial.isShow.value || homeController.isDrawerOpen.value
+              ? const SizedBox()
+              : const BannerAdWidget();
+        }),
       ),
     );
   }

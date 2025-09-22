@@ -51,9 +51,7 @@ class LearnCategoryView extends StatelessWidget {
 
 class _MenuGrid extends StatelessWidget {
   final List<LearnTopicModel> data;
-
   const _MenuGrid({required this.data});
-
   @override
   Widget build(BuildContext context) {
     final item = ItemsUtil.learnItems;

@@ -13,7 +13,6 @@ class CharacterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<HomeController>();
-
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: kBodyHp * 1.5,
@@ -31,7 +30,6 @@ class CharacterCard extends StatelessWidget {
           const Gap(kGap / 1.5),
           Obx(
             () => Container(
-              height: context.screenHeight * 0.37,
               color: AppColors.secondary(context),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

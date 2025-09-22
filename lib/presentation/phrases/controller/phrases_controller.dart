@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import '/core/mixins/connectivity_mixin.dart';
-import '../../home/controller/home_controller.dart';
+import '/presentation/home/controller/home_controller.dart';
 import '/core/local_storage/local_storage.dart';
 import '/core/common/app_exceptions.dart';
 import '/core/services/services.dart';

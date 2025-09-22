@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '../services/services.dart';
-import '../constants/constants.dart';
+import '/core/services/services.dart';
+import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 
 class ConnectivityUtil {

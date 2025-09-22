@@ -1,4 +1,7 @@
 import 'dart:io';
+import 'package:learn_japan/presentation/report/view/report_view.dart';
+
+import '/presentation/premium_screen/premium_screen.dart';
 import '/core/helper/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -40,7 +43,7 @@ class AppDrawer extends StatelessWidget {
                   const Gap(kGap),
                   FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: Text('Learn Japanese', style: headlineSmallStyle),
+                    child: Text('Learn Japanese', style: titleLargeStyle),
                   ),
                 ],
               ),
@@ -80,13 +83,19 @@ class AppDrawer extends StatelessWidget {
                 icon: Icons.star_rounded,
                 title: 'Remove Ads',
                 onTap: () {
-                  // Get.to(PremiumScreen());
+                  Get.to(PremiumScreen());
                 },
               ),
               Divider(
                 color: AppColors.primaryColorLight.withValues(alpha: 0.1),
               ),
             ],
+            _DrawerTile(
+              icon: Icons.report,
+              title: 'Report An Issue',
+              onTap: () => Get.to(() => ReportView()),
+            ),
+            Divider(color: AppColors.primaryColorLight.withValues(alpha: 0.1)),
             ListTile(
               leading: Icon(
                 Icons.dark_mode_rounded,

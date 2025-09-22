@@ -1,6 +1,49 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
+import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
+
+class GlassButton extends StatelessWidget {
+  final IconData? icon;
+  final String? text;
+  final double width;
+  final VoidCallback? onTap;
+
+  const GlassButton({
+    super.key,
+    this.icon,
+    this.text,
+    this.width = 30,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        height: 34,
+        width: width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white.withValues(alpha: 0.6),
+        ),
+        child: Center(
+          child:
+              icon != null
+                  ? Icon(icon, size: 18)
+                  : Text(
+                    text ?? "",
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+        ),
+      ),
+    );
+  }
+}
 
 class AppElevatedButton extends StatelessWidget {
   final VoidCallback? onPressed;
@@ -169,7 +212,7 @@ class ImageActionButton extends StatelessWidget {
     this.width,
     this.isCircular = false,
     this.backgroundColor,
-    this.padding = const EdgeInsets.all(8),
+    this.padding = const EdgeInsets.all(12),
     this.borderRadius,
     this.height,
   });
@@ -190,13 +233,15 @@ class ImageActionButton extends StatelessWidget {
         height: height,
         padding: padding,
         decoration: BoxDecoration(
-          color: backgroundColor,
+          color:
+              backgroundColor ??
+              AppColors.secondary(context).withValues(alpha: 0.1),
           shape: isCircular ? BoxShape.circle : BoxShape.rectangle,
           borderRadius:
               isCircular ? null : borderRadius ?? BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
-              color: AppColors.kGrey.withValues(alpha: 0.1),
+              color: AppColors.kBlack.withValues(alpha: 0.1),
               blurRadius: 5,
               offset: Offset(0, 2),
             ),

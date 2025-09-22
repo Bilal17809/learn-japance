@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/core/theme/app_colors.dart';
 import 'package:toastification/toastification.dart';
 
 class SimpleToast {
@@ -21,8 +22,8 @@ class SimpleToast {
       icon: Icon(icon, size: 24),
       showIcon: true,
       primaryColor: primaryColor,
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
+      backgroundColor: AppColors.secondary(context),
+      foregroundColor: AppColors.primaryText(context),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       borderRadius: BorderRadius.circular(12),
