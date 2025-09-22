@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import '/core/local_storage/local_storage.dart';
-import '../../home/controller/home_controller.dart';
+import '/presentation/home/controller/home_controller.dart';
 import '/data/models/models.dart';
 import '/core/services/services.dart';
 
@@ -38,8 +38,6 @@ class DialogueController extends GetxController {
   void onSpeak(String text) {
     _ttsService.speak(text, _targetLanguage.value);
   }
-
-  bool isExpanded(int index) => showConversationMap[index] ?? false;
 
   void stopTts() {
     _ttsService.stop();

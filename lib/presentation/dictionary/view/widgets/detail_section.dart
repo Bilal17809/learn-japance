@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/data/models/models.dart';
+import '/data/models/models.dart';
 import '/presentation/dictionary/view/widgets/ai_section.dart';
 import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';

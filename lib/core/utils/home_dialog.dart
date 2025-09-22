@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../common_widgets/common_widgets.dart';
-import '../constants/constants.dart';
+import '/core/common_widgets/common_widgets.dart';
+import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 
-class HomeDialogs {
-  static Future<bool?> showExitDialog(BuildContext context) async {
+class ExitDialog {
+  static Future<bool?> show(BuildContext context) async {
     return await showDialog<bool>(
       context: context,
       barrierDismissible: false,

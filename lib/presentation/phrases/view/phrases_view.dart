@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import '/presentation/phrases/controller/phrases_controller.dart';
 import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 import '/core/common_widgets/common_widgets.dart';
-import '../controller/phrases_controller.dart';
 import 'widgets/phrase_card.dart';
+import '/ad_manager/ad_manager.dart';
 
 class PhrasesView extends StatelessWidget {
   final int topicId;
@@ -19,16 +20,17 @@ class PhrasesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<PhrasesController>();
     controller.setTopic(topicId, description);
-
     return Scaffold(
       appBar: TitleBar(title: "Phrases"),
       body: Obx(() {
         if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
-
         final data = controller.phrases;
         return SafeArea(
           child: Column(
@@ -54,6 +56,12 @@ class PhrasesView extends StatelessWidget {
             ],
           ),
         );
+      }),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
       }),
     );
   }

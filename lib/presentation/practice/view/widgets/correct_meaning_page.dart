@@ -30,7 +30,7 @@ class CorrectMeaningPage extends StatelessWidget {
                   children: [
                     Text(
                       'Choose the Correct Meaning',
-                      style: headlineMediumStyle,
+                      style: headlineSmallStyle,
                       textAlign: TextAlign.center,
                     ),
                     const Gap(kGap),

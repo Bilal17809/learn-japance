@@ -30,7 +30,7 @@ class WritingTestPage extends StatelessWidget {
               children: [
                 Text(
                   'Writing Test',
-                  style: headlineMediumStyle,
+                  style: headlineSmallStyle,
                   textAlign: TextAlign.center,
                 ),
                 const Gap(kGap),

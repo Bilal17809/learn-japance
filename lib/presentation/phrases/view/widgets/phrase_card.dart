@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '../../controller/phrases_controller.dart';
+import '/presentation/phrases/controller/phrases_controller.dart';
 import '/core/constants/constants.dart';
 import '/data/models/models.dart';
 import 'phrases_field.dart';

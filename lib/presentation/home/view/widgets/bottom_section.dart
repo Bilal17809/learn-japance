@@ -14,72 +14,66 @@ class BottomSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<HomeController>();
     return Obx(
-      () => Expanded(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kBodyHp * 1.5),
-          child: Column(
-            children: [
-              Divider(color: AppColors.primary(context)),
-
-              const Gap(kGap),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text("Today's Progress", style: titleSmallStyle),
-                  const Spacer(),
-                  Text("Today's goal:", style: bodyMediumStyle),
-                  const Gap(kGap / 2),
-                  Text(
-                    "10 XP",
-                    style: bodyMediumStyle.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-              const Gap(kGap),
-              HorizontalProgress(
-                currentStep: ((controller.dailyProgress.value / 10) * 100)
-                    .toInt()
-                    .clamp(0, 100),
-              ),
-              const Gap(kGap),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _ProgressColumn(
-                    value: controller.phrasesLearnedToday.value,
-                    label: "Phrases",
-                  ),
-                  _ProgressColumn(
-                    value: controller.dialoguesLearnedToday.value,
-                    label: "Dialogues",
-                  ),
-                  _ProgressColumn(
-                    value: controller.practiceToday.value,
-                    label: "Practice",
-                  ),
-                ],
-              ),
-              Divider(color: AppColors.primary(context)),
-              const Spacer(),
-              Row(
-                children: [
-                  Text("Streak", style: titleLargeStyle),
-                  Spacer(),
-                  Image.asset(Assets.star, width: primaryIcon(context)),
-                  const Gap(kGap / 2),
-                  Text(
-                    (controller.practiceToday.value == 1)
-                        ? "${controller.practiceToday.value} Achievement"
-                        : "${controller.practiceToday.value} Achievements",
-                    style: titleSmallStyle,
-                  ),
-                ],
-              ),
-              const Gap(kBodyHp),
-            ],
-          ),
+      () => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: kBodyHp * 1.5),
+        child: Column(
+          children: [
+            Divider(color: AppColors.primary(context)),
+            const Gap(kGap),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text("Today's Progress", style: titleSmallStyle),
+                const Spacer(),
+                Text("Today's goal:", style: bodyMediumStyle),
+                const Gap(kGap / 2),
+                Text(
+                  "10 XP",
+                  style: bodyMediumStyle.copyWith(fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+            const Gap(kGap),
+            HorizontalProgress(
+              currentStep: ((controller.dailyProgress.value / 10) * 100)
+                  .toInt()
+                  .clamp(0, 100),
+            ),
+            const Gap(kGap),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _ProgressColumn(
+                  value: controller.phrasesLearnedToday.value,
+                  label: "Phrases",
+                ),
+                _ProgressColumn(
+                  value: controller.dialoguesLearnedToday.value,
+                  label: "Dialogues",
+                ),
+                _ProgressColumn(
+                  value: controller.practiceToday.value,
+                  label: "Practice",
+                ),
+              ],
+            ),
+            Divider(color: AppColors.primary(context)),
+            Row(
+              children: [
+                Text("Streak", style: titleLargeStyle),
+                Spacer(),
+                Image.asset(Assets.star, width: primaryIcon(context)),
+                const Gap(kGap / 2),
+                Text(
+                  (controller.practiceToday.value == 1)
+                      ? "${controller.practiceToday.value} Achievement"
+                      : "${controller.practiceToday.value} Achievements",
+                  style: titleSmallStyle,
+                ),
+              ],
+            ),
+            const Gap(kBodyHp),
+          ],
         ),
       ),
     );
@@ -89,9 +83,7 @@ class BottomSection extends StatelessWidget {
 class _ProgressColumn extends StatelessWidget {
   final int value;
   final String label;
-
   const _ProgressColumn({required this.value, required this.label});
-
   @override
   Widget build(BuildContext context) {
     return Column(

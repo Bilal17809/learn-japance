@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/presentation/translator/controller/translator_controller.dart';
+import '/presentation/translator/controller/translator_controller.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/buttons.dart';
 import '/core/services/services.dart';

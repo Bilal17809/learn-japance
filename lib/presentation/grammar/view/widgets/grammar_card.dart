@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import '/presentation/grammar/controller/grammar_controller.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
 import '/data/models/grammar_model.dart';
-import '../../controller/grammar_controller.dart';
 import 'grammar_field.dart';
 
 class GrammarCard extends StatelessWidget {

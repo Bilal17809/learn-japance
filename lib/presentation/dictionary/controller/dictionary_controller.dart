@@ -11,8 +11,7 @@ class DictionaryController extends GetxController {
   final TtsService _ttsService;
   final GetAiResponse _aiService;
   final _dictionaryData = <DictionaryModel>[].obs;
-  final _expandedDictionaryData =
-      <DictionaryModel>[].obs; // For comma-separated words
+  final _expandedDictionaryData = <DictionaryModel>[].obs;
   final Rx<DictionaryModel?> selectedWord = Rx<DictionaryModel?>(null);
   final targetLanguage = Rx<LanguageModel>(
     LanguageModel(name: 'Japanese', code: 'ja', ttsCode: 'ja-JP'),
@@ -84,7 +83,6 @@ class DictionaryController extends GetxController {
         );
       }
     }
-
     _expandedDictionaryData.assignAll(expandedList);
   }
 

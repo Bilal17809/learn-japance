@@ -32,7 +32,7 @@ class PronunciationPage extends StatelessWidget {
                   children: [
                     Text(
                       'Pronunciation Example',
-                      style: headlineMediumStyle,
+                      style: headlineSmallStyle,
                       textAlign: TextAlign.center,
                     ),
                     const Gap(kGap),

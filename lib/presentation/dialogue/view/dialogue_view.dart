@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learn_japan/core/theme/theme.dart';
+import '/presentation/dialogue/controller/dialogue_controller.dart';
+import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
-import '../controller/dialogue_controller.dart';
 import 'widgets/dialogue_card.dart';
+import '/ad_manager/ad_manager.dart';
 
 class DialgoueView extends StatelessWidget {
   final String category;
@@ -26,11 +27,12 @@ class DialgoueView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<DialogueController>();
     controller.loadLearnedDialogues(category, title.length);
-
     final pageController = PageController();
-
     return Scaffold(
       appBar: TitleBar(title: '$category - $categoryTranslation'),
       body: SafeArea(
@@ -88,6 +90,12 @@ class DialgoueView extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
+      }),
     );
   }
 }

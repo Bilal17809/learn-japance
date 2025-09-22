@@ -59,7 +59,6 @@ class GrammarController extends GetxController {
     );
     await translateText("${item.id}_category", translations[0]);
     await translateText("${item.id}_description", translations[1]);
-
     for (int i = 0; i < item.examples.length; i++) {
       await translateText("${item.id}_example_$i", translations[i + 2]);
     }
@@ -78,7 +77,6 @@ class GrammarController extends GetxController {
           )
           .toList();
     }
-
     return filtered;
   }
 }
