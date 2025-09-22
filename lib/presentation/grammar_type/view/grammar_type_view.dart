@@ -9,9 +9,7 @@ import '/ad_manager/ad_manager.dart';
 
 class GrammarTypeView extends StatelessWidget {
   GrammarTypeView({super.key});
-
   final controller = Get.find<GrammarTypeController>();
-
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {

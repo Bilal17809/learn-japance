@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '/ad_manager/ad_manager.dart';
 import '/presentation/practice/view/practice_view.dart';
 import '/core/common_widgets/common_widgets.dart';
@@ -24,9 +25,11 @@ class PracticeSelectionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<PracticeSelectionController>();
     controller.setTopic(topicId);
-
     return Scaffold(
       appBar: TitleBar(title: '$category - $japCategory'),
       body: Obx(() {
@@ -84,13 +87,20 @@ class PracticeSelectionView extends StatelessWidget {
                                 children: [
                                   Text(
                                     '${index + 1} of ${data.length}',
-                                    style: headlineMediumStyle,
+                                    style: headlineSmallStyle,
                                     textAlign: TextAlign.center,
                                   ),
                                   const Gap(kGap),
                                   Text(
                                     data[index].japanese,
-                                    style: headlineLargeStyle,
+                                    style:
+                                        data[index]
+                                                    .japanese
+                                                    .characters
+                                                    .length <=
+                                                20
+                                            ? headlineLargeStyle
+                                            : headlineMediumStyle,
                                     textAlign: TextAlign.center,
                                   ),
                                   const Gap(kGap),
@@ -121,13 +131,34 @@ class PracticeSelectionView extends StatelessWidget {
                       ),
                     ),
                     const Gap(kGap),
-                    NativeAdWidget(),
+                    data[index].japanese.characters.length >= 12
+                        ? const SizedBox.shrink()
+                        : Expanded(
+                          child: NativeAdWidget(
+                            templateType: TemplateType.medium,
+                          ),
+                        ),
                   ],
                 ),
               );
             },
           ),
         );
+      }),
+      bottomNavigationBar: Obx(() {
+        final currentData = controller.data;
+        final currentPage = controller.currentPage.value;
+        if (currentData.isNotEmpty &&
+            currentPage >= 0 &&
+            currentPage < currentData.length &&
+            currentData[currentPage].japanese.characters.length >= 12) {
+          final interstitial = Get.find<InterstitialAdManager>();
+          return interstitial.isShow.value
+              ? const SizedBox.shrink()
+              : const BannerAdWidget();
+        } else {
+          return const SizedBox.shrink();
+        }
       }),
     );
   }

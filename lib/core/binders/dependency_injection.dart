@@ -28,18 +28,6 @@ import '/core/services/services.dart';
 
 class DependencyInjection {
   static void init() {
-    /// Ad Services
-    Get.lazyPut<RemoveAds>(() => RemoveAds(), fenix: true);
-    Get.lazyPut<AppOpenAdManager>(() => AppOpenAdManager(), fenix: true);
-    Get.lazyPut<SplashInterstitialManager>(
-      () => SplashInterstitialManager(),
-      fenix: true,
-    );
-    // Get.lazyPut<InterstitialAdManager>(
-    //   () => InterstitialAdManager(),
-    //   fenix: true,
-    // );
-
     /// Core Services
     Get.lazyPut<LocalStorage>(() => LocalStorage(), fenix: true);
     Get.lazyPut<ConnectivityService>(() => ConnectivityService(), fenix: true);
@@ -231,5 +219,14 @@ class DependencyInjection {
         speechService: speechService,
       );
     }, fenix: true);
+
+    /// Ad Services
+    Get.lazyPut<RemoveAds>(() => RemoveAds(), fenix: true);
+    Get.lazyPut<AppOpenAdManager>(() => AppOpenAdManager(), fenix: true);
+    Get.lazyPut<SplashInterstitialManager>(
+      () => SplashInterstitialManager(),
+      fenix: true,
+    );
+    Get.lazyPut<NativeAdManager>(() => NativeAdManager(), fenix: true);
   }
 }

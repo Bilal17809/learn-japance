@@ -22,9 +22,7 @@ class Assets {
   static const String translation = "images/translation.png";
   static const String grammar = "images/grammar.png";
   static const String quotes = "images/quotes.png";
-  static const String speaking = "images/mic.png";
   static const String practice = "images/pencil.png";
-  static const String quiz = "images/question.png";
   static const String star = "images/star.png";
   static const String conversation = "images/chat.png";
 

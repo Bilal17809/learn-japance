@@ -40,7 +40,7 @@ class AppDrawer extends StatelessWidget {
                   const Gap(kGap),
                   FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: Text('Learn Japanese', style: headlineSmallStyle),
+                    child: Text('Learn Japanese', style: titleLargeStyle),
                   ),
                 ],
               ),

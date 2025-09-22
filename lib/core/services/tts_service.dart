@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:learn_japan/core/common_widgets/common_widgets.dart';
 import '/core/mixins/connectivity_mixin.dart';
 import '/data/models/language_model.dart';
 import 'services.dart';
@@ -62,7 +63,15 @@ class TtsService extends GetxController
         for (final chunk in chunks) {
           if (_cancelRequested) break;
           final url = _buildTTSUrl(chunk, language.code);
-          await _audioService.playUrl(url);
+          if (language.code == 'zu') {
+            return SimpleToast.showCustomToast(
+              context: Get.context!,
+              message:
+                  'Selected language is currently not supported for speech',
+            );
+          } else {
+            await _audioService.playUrl(url);
+          }
         }
       },
     );

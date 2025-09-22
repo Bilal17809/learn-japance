@@ -25,54 +25,50 @@ class MenuList extends StatelessWidget {
         kGap +
         bodyMediumStyle.fontSize! * 3;
 
-    return SizedBox(
-      height: itemHeight,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: ItemsUtil.homeItems.length,
-        padding: const EdgeInsets.symmetric(horizontal: kBodyHp),
-        itemBuilder: (context, index) {
-          final item = ItemsUtil.homeItems[index];
-          return Padding(
-            padding: EdgeInsets.only(
-              right: index == ItemsUtil.homeItems.length - 1 ? 0 : kGap,
-            ),
-            child: GestureDetector(
-              onTap: () {
-                switch (index) {
-                  case 0:
-                    Get.to(() => LearnCategoryView());
-                    break;
-                  case 1:
-                    Get.to(() => DictionaryView());
-                    break;
-                  case 2:
-                    Get.to(() => TranslatorView());
-                    break;
-                  case 3:
-                    Get.to(() => GrammarTypeView());
-                    break;
-                  case 4:
-                    Get.to(() => DialogueCategoryView());
-                    break;
-                  case 5:
-                    Get.to(() => PhrasesTopicView());
-                    break;
-                  case 6:
-                    Get.to(() {});
-                    break;
-                  case 7:
-                    Get.to(() => PracticeCategoryView());
-                    break;
-                  case 8:
-                    Get.to(() {});
-                    break;
-                }
-              },
-              child: _ItemCard(item: item),
-            ),
-          );
-        },
+    return Flexible(
+      child: SizedBox(
+        height: itemHeight,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: ItemsUtil.homeItems.length,
+          padding: const EdgeInsets.symmetric(horizontal: kBodyHp),
+          itemBuilder: (context, index) {
+            final item = ItemsUtil.homeItems[index];
+            return Padding(
+              padding: EdgeInsets.only(
+                right: index == ItemsUtil.homeItems.length - 1 ? 0 : kGap,
+              ),
+              child: GestureDetector(
+                onTap: () {
+                  switch (index) {
+                    case 0:
+                      Get.to(() => LearnCategoryView());
+                      break;
+                    case 1:
+                      Get.to(() => DictionaryView());
+                      break;
+                    case 2:
+                      Get.to(() => TranslatorView());
+                      break;
+                    case 3:
+                      Get.to(() => GrammarTypeView());
+                      break;
+                    case 4:
+                      Get.to(() => DialogueCategoryView());
+                      break;
+                    case 5:
+                      Get.to(() => PhrasesTopicView());
+                      break;
+                    case 6:
+                      Get.to(() => PracticeCategoryView());
+                      break;
+                  }
+                },
+                child: _ItemCard(item: item),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -96,7 +92,7 @@ class _ItemCard extends StatelessWidget {
             backgroundColor: AppColors.container(context),
             padding: const EdgeInsets.all(kBodyHp),
             size: primaryIcon(context),
-            color: AppColors.primary(context),
+            color: AppColors.icon(context),
           ),
         ),
         const Gap(kGap),

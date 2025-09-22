@@ -10,6 +10,7 @@ import 'widgets/menu_list.dart';
 import 'widgets/character_card.dart';
 import 'widgets/bottom_section.dart';
 import 'widgets/home_header.dart';
+import '/ad_manager/ad_manager.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -41,6 +42,12 @@ class HomeView extends StatelessWidget {
             ],
           ),
         ),
+        bottomNavigationBar: Obx(() {
+          final interstitial = Get.find<InterstitialAdManager>();
+          return interstitial.isShow.value || homeController.isDrawerOpen.value
+              ? const SizedBox()
+              : const BannerAdWidget();
+        }),
       ),
     );
   }

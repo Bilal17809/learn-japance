@@ -6,27 +6,24 @@ import '/data/models/models.dart';
 import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
+import '/ad_manager/ad_manager.dart';
 
 class LanguagePickerView extends StatelessWidget {
   final LanguageModel? selected;
   final ValueChanged<LanguageModel> onSelected;
-
   const LanguagePickerView({
     super.key,
     required this.selected,
     required List<LanguageModel> languages,
     required this.onSelected,
   }) : _languages = languages;
-
   final List<LanguageModel> _languages;
-
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(
       LanguagePickerController(allLanguages: _languages),
     );
     final textController = TextEditingController();
-
     return Scaffold(
       appBar: TitleBar(title: 'Choose Language'),
       body: SafeArea(
@@ -73,6 +70,9 @@ class LanguagePickerView extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final lang = combined[index];
                     final isSelected = lang.code == selected?.code;
+                    if (index == 3) {
+                      return NativeAdWidget();
+                    }
                     return GestureDetector(
                       onTap: () {
                         onSelected(lang);

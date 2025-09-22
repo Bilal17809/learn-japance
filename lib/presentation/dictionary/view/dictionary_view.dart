@@ -5,12 +5,16 @@ import '/core/common_widgets/common_widgets.dart';
 import '/presentation/dictionary/controller/dictionary_controller.dart';
 import 'widgets/words_list.dart';
 import 'widgets/detail_section.dart';
+import '/ad_manager/ad_manager.dart';
 
 class DictionaryView extends StatelessWidget {
   const DictionaryView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<DictionaryController>();
     final searchController = TextEditingController();
     return Scaffold(
@@ -55,6 +59,12 @@ class DictionaryView extends StatelessWidget {
             ],
           ),
         );
+      }),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
       }),
     );
   }

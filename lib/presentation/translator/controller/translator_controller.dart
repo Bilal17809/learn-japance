@@ -141,7 +141,6 @@ class TranslatorController extends GetxController {
     final recognized = await SpeechHelper(
       _speechService,
     ).getSpeechInput(locale: locale);
-
     if (recognized?.isNotEmpty ?? false) {
       inputController.text = recognized!;
       inputText.value = recognized;

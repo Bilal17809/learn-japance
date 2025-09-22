@@ -1,41 +1,40 @@
 import 'dart:io';
-// import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:learn_japan/core/common/app_exceptions.dart';
+import '/core/common/app_exceptions.dart';
+import '/core/theme/theme.dart';
 import 'ad_manager.dart';
 import 'package:shimmer/shimmer.dart';
 
-class NativeAdController extends GetxController {
+class NativeAdManager extends GetxController {
   NativeAd? _nativeAd;
   final RxBool isAdReady = false.obs;
   bool showAd = false;
-
   final TemplateType templateType;
 
-  NativeAdController({this.templateType = TemplateType.small});
+  NativeAdManager({this.templateType = TemplateType.small});
 
   @override
   void onInit() {
     super.onInit();
-    initializeRemoteConfig();
+    _initRemoteConfig();
   }
 
-  Future<void> initializeRemoteConfig() async {
+  Future<void> _initRemoteConfig() async {
     try {
-      // final remoteConfig = FirebaseRemoteConfig.instance;
+      final remoteConfig = FirebaseRemoteConfig.instance;
 
-      // await remoteConfig.setConfigSettings(
-      //   RemoteConfigSettings(
-      //     fetchTimeout: const Duration(seconds: 3),
-      //     minimumFetchInterval: const Duration(seconds: 1),
-      //   ),
-      // );
-      // await remoteConfig.fetchAndActivate();
-      // final key = Platform.isAndroid ? 'NativeAdvAd' : 'NativeAdv';
-      // showAd = remoteConfig.getBool(key);
-      showAd = true;
+      await remoteConfig.setConfigSettings(
+        RemoteConfigSettings(
+          fetchTimeout: const Duration(seconds: 3),
+          minimumFetchInterval: const Duration(seconds: 1),
+        ),
+      );
+      await remoteConfig.fetchAndActivate();
+      final key = Platform.isAndroid ? 'NativeAdvAd' : 'NativeAdv';
+      showAd = remoteConfig.getBool(key);
       if (showAd) {
         loadNativeAd();
       } else {
@@ -91,7 +90,7 @@ class NativeAdWidget extends StatefulWidget {
 }
 
 class NativeAdWidgetState extends State<NativeAdWidget> {
-  late final NativeAdController _adController;
+  late final NativeAdManager _adController;
   late final String _tag;
   final removeAds = Get.find<RemoveAds>();
 
@@ -100,7 +99,7 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
     super.initState();
     _tag = UniqueKey().toString();
     _adController = Get.put(
-      NativeAdController(templateType: widget.templateType),
+      NativeAdManager(templateType: widget.templateType),
       tag: _tag,
     );
     _adController.loadNativeAd();
@@ -108,44 +107,51 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
 
   @override
   void dispose() {
-    Get.delete<NativeAdController>(tag: _tag);
+    Get.delete<NativeAdManager>(tag: _tag);
     super.dispose();
   }
 
-  Widget shimmerWidget(double width) {
+  Widget shimmerSmallWidget(double width) {
     return Shimmer.fromColors(
-      baseColor: Colors.black12,
-      highlightColor: Colors.grey.shade100,
+      baseColor: AppColors.secondary(context),
+      highlightColor: AppColors.icon(context),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        child: AspectRatio(
+          aspectRatio: 55 / 15,
+          child: Container(
+            width: width,
+            decoration: BoxDecoration(
+              color: AppColors.primary(context),
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget shimmerMediumWidget(double width) {
+    return Shimmer.fromColors(
+      baseColor: AppColors.secondary(context),
+      highlightColor: AppColors.icon(context),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Shimmer Image
             AspectRatio(
-              aspectRatio: 55 / 15,
+              aspectRatio: 16 / 9,
               child: Container(
                 width: width,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColors.primary(context),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
             ),
             const SizedBox(height: 10),
-            // First Text Line
             Container(
-              width: double.infinity,
-              height: 12,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Container(
-              width: width * 0.7,
-              height: 12,
+              width: width,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
@@ -160,32 +166,33 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
   @override
   Widget build(BuildContext context) {
     final appOpenAdController = Get.find<AppOpenAdManager>();
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final adHeight =
         widget.templateType == TemplateType.medium
             ? screenHeight * 0.48
             : screenHeight * 0.14;
+
     return Obx(() {
       if (removeAds.isSubscribedGet.value ||
           appOpenAdController.isAdVisible.value) {
         return const SizedBox();
       }
-      return _adController.isAdReady.value && _adController._nativeAd != null
-          ? Container(
-            height: adHeight,
-            margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.05),
-                  blurRadius: 3,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: AdWidget(ad: _adController._nativeAd!),
-          )
-          : shimmerWidget(adHeight);
+      if (_adController.isAdReady.value && _adController._nativeAd != null) {
+        return Container(
+          height: adHeight,
+          margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+          child: AdWidget(ad: _adController._nativeAd!),
+        );
+      } else {
+        return SizedBox(
+          height: adHeight,
+          child:
+              widget.templateType == TemplateType.medium
+                  ? shimmerMediumWidget(screenWidth)
+                  : shimmerSmallWidget(screenWidth),
+        );
+      }
     });
   }
 }

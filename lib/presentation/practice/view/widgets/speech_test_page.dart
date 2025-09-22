@@ -32,7 +32,7 @@ class SpeechTestPage extends StatelessWidget {
                   children: [
                     Text(
                       'Pronunciation Test',
-                      style: headlineMediumStyle,
+                      style: headlineSmallStyle,
                       textAlign: TextAlign.center,
                     ),
                     const Gap(kGap),

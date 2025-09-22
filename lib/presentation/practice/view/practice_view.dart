@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '../../../ad_manager/native_ads.dart';
+import '/ad_manager/ad_manager.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/practice/controller/practice_controller.dart';
 import '/core/constants/constants.dart';
@@ -17,7 +17,6 @@ class PracticeView extends StatelessWidget {
   final String category;
   final String japCategory;
   final int startIndex;
-
   const PracticeView({
     super.key,
     required this.data,
@@ -28,10 +27,12 @@ class PracticeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.find<InterstitialAdManager>().checkAndDisplayAd();
+    });
     final controller = Get.find<PracticeController>();
     controller.setArguments(data, category, japCategory, startIndex);
     final pageController = PageController();
-
     return Scaffold(
       appBar: TitleBar(title: '$category - $japCategory'),
       body: SafeArea(
@@ -53,7 +54,6 @@ class PracticeView extends StatelessWidget {
                 ],
               ),
             ),
-            NativeAdWidget(),
             Obx(
               () => Padding(
                 padding: const EdgeInsets.symmetric(
@@ -131,6 +131,12 @@ class PracticeView extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
+      }),
     );
   }
 }

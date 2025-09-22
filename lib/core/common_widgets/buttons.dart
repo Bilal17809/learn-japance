@@ -169,7 +169,7 @@ class ImageActionButton extends StatelessWidget {
     this.width,
     this.isCircular = false,
     this.backgroundColor,
-    this.padding = const EdgeInsets.all(8),
+    this.padding = const EdgeInsets.all(12),
     this.borderRadius,
     this.height,
   });
@@ -190,13 +190,15 @@ class ImageActionButton extends StatelessWidget {
         height: height,
         padding: padding,
         decoration: BoxDecoration(
-          color: backgroundColor,
+          color:
+              backgroundColor ??
+              AppColors.secondary(context).withValues(alpha: 0.1),
           shape: isCircular ? BoxShape.circle : BoxShape.rectangle,
           borderRadius:
               isCircular ? null : borderRadius ?? BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
-              color: AppColors.kGrey.withValues(alpha: 0.1),
+              color: AppColors.kBlack.withValues(alpha: 0.1),
               blurRadius: 5,
               offset: Offset(0, 2),
             ),

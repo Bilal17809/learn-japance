@@ -17,6 +17,7 @@ class HomeController extends GetxController {
   var currentScriptType = 'hiragana'.obs;
   var isDrawerOpen = false.obs;
   var dailyProgress = 0.obs;
+  var overallProgress = 0.obs;
   var phrasesLearnedToday = 0.obs;
   var dialoguesLearnedToday = 0.obs;
   var practiceToday = 0.obs;
@@ -94,6 +95,7 @@ class HomeController extends GetxController {
       practiceToday.value = await _localStorage.getInt('practice_today') ?? 0;
       dailyProgress.value = await _localStorage.getInt('daily_progress') ?? 0;
     }
+    overallProgress.value = await _localStorage.getInt('overall_progress') ?? 0;
   }
 
   Future<void> increaseProgress({
@@ -101,6 +103,7 @@ class HomeController extends GetxController {
     bool isPractice = false,
   }) async {
     dailyProgress.value++;
+    overallProgress.value++;
     if (isDialogue) {
       dialoguesLearnedToday.value++;
       await _localStorage.setInt(
@@ -118,6 +121,7 @@ class HomeController extends GetxController {
       );
     }
     await _localStorage.setInt('daily_progress', dailyProgress.value);
+    await _localStorage.setInt('overall_progress', overallProgress.value);
   }
 
   void onSpeak(String text) {
