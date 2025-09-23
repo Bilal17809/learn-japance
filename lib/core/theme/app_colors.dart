@@ -26,22 +26,22 @@ class AppColors {
 
   // Primary
   static const Color primaryColorLight = Color(0xFFEEAE4F);
-  static const Color primaryColorDark = Color(0xFF8F8F8F);
+  static const Color primaryColorDark = Color(0xFF181818);
 
   // Secondary
   static const Color secondaryColorLight = Color(0xFFFFECC9);
-  static const Color secondaryColorDark = Color(0xDD082773);
+  static const Color secondaryColorDark = Color(0xff9a9a9a);
 
   // Background
   static const Color lightBgColor = Color(0xFFEFD8DA);
-  static const Color darkBgColor = Color(0xDD061D5A);
+  static const Color darkBgColor = Color(0xFF121212);
 
   /// Getters
   static Color primary(BuildContext context) =>
-      context.isDark ? primaryColorDark : primaryColorLight;
+      context.isDark ? secondaryColorDark : primaryColorLight;
 
   static Color secondary(BuildContext context) =>
-      context.isDark ? secondaryColorDark : secondaryColorLight;
+      context.isDark ? kWhite.withValues(alpha: 0.1) : secondaryColorLight;
 
   static Color primaryText(BuildContext context) =>
       context.isDark ? textWhiteColor : textBlackColor;
@@ -55,7 +55,7 @@ class AppColors {
   static Color icon(BuildContext context) => context.isDark ? kWhite : kGrey;
 
   static Color secondaryIcon(BuildContext context) =>
-      context.isDark ? kGrey : primaryColorLight;
+      context.isDark ? kWhite : primaryColorLight;
 
   Color getBgColor(BuildContext context) =>
       context.isDark ? darkBgColor : lightBgColor;

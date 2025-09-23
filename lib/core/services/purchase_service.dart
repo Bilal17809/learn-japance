@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:in_app_purchase_android/in_app_purchase_android.dart';
-
+import '/core/theme/theme.dart';
 import '/core/local_storage/local_storage.dart';
 import '/ad_manager/ad_manager.dart';
 
@@ -113,10 +113,12 @@ class PurchaseService {
       context: context,
       barrierDismissible: false,
       builder:
-          (_) => const AlertDialog(
+          (_) => AlertDialog(
             content: Row(
               children: [
-                CircularProgressIndicator(),
+                CircularProgressIndicator(
+                  color: AppColors.secondaryIcon(context),
+                ),
                 SizedBox(width: 20),
                 Text('Connecting to store...'),
               ],
@@ -213,10 +215,12 @@ class PurchaseService {
       context: Get.context!,
       barrierDismissible: false,
       builder:
-          (_) => const AlertDialog(
+          (_) => AlertDialog(
             content: Row(
               children: [
-                CircularProgressIndicator(),
+                CircularProgressIndicator(
+                  color: AppColors.secondaryIcon(context),
+                ),
                 SizedBox(width: 20),
                 Text('Restoring purchases...'),
               ],

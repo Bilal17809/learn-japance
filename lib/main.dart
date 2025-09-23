@@ -37,7 +37,6 @@ Future<void> main() async {
 class LearnJapanese extends StatelessWidget {
   final ThemeMode themeMode;
   const LearnJapanese({super.key, required this.themeMode});
-
   @override
   Widget build(BuildContext context) {
     return ToastificationWrapper(

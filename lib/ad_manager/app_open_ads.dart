@@ -53,7 +53,7 @@ class AppOpenAdManager extends GetxController with WidgetsBindingObserver {
       if (Platform.isAndroid) {
         appOpenKey = 'AppOpenAd';
       } else if (Platform.isIOS) {
-        appOpenKey = 'AppOpenAd';
+        appOpenKey = '';
       } else {
         throw UnsupportedError(AppExceptions().unsupportedPlatform);
       }
@@ -141,7 +141,8 @@ class AppOpenAdManager extends GetxController with WidgetsBindingObserver {
 
   String _getAdUnitId() {
     if (Platform.isAndroid) {
-      return 'ca-app-pub-3940256099942544/9257395921'; // Test Id
+      // return 'ca-app-pub-3940256099942544/9257395921'; // Test Id
+      return 'ca-app-pub-8331781061822056/9248383484';
     } else if (Platform.isIOS) {
       return '';
     } else {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import '/core/theme/theme.dart';
 import '/presentation/learn/view/learn_view.dart';
 import '/core/utils/utils.dart';
 import '/presentation/learn_category/controller/learn_category_controller.dart';
@@ -22,7 +23,11 @@ class LearnCategoryView extends StatelessWidget {
       appBar: TitleBar(title: 'Learn Japanese'),
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.secondaryIcon(context),
+            ),
+          );
         }
         final data = controller.topics;
         return SafeArea(

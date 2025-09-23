@@ -29,7 +29,11 @@ class PhrasesView extends StatelessWidget {
       appBar: TitleBar(title: "Phrases"),
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.secondaryIcon(context),
+            ),
+          );
         }
         final data = controller.phrases;
         return SafeArea(

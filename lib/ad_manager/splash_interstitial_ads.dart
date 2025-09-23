@@ -31,9 +31,9 @@ class SplashInterstitialManager extends GetxController {
       );
       String splashAdKey;
       if (Platform.isAndroid) {
-        splashAdKey = 'SplashAd';
+        splashAdKey = 'SplashInterstitialAd';
       } else if (Platform.isIOS) {
-        splashAdKey = 'SplashAd';
+        splashAdKey = '';
       } else {
         throw UnsupportedError(AppExceptions().unsupportedPlatform);
       }
@@ -99,7 +99,8 @@ class SplashInterstitialManager extends GetxController {
 
   String get _adUnitId {
     if (Platform.isAndroid) {
-      return 'ca-app-pub-3940256099942544/1033173712'; // Test Id
+      // return 'ca-app-pub-3940256099942544/1033173712'; // Test Id
+      return 'ca-app-pub-8331781061822056/1561465158';
     } else if (Platform.isIOS) {
       return '';
     } else {

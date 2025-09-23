@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '/core/theme/theme.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/dictionary/controller/dictionary_controller.dart';
@@ -21,11 +22,14 @@ class DictionaryView extends StatelessWidget {
       appBar: TitleBar(title: 'Dictionary'),
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.secondaryIcon(context),
+            ),
+          );
         }
         final data = controller.getFilteredData();
         final selected = controller.selectedWord.value;
-
         return SafeArea(
           child: Column(
             children: [

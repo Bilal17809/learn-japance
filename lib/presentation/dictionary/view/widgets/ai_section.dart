@@ -13,7 +13,11 @@ class AiSection extends StatelessWidget {
     final controller = Get.find<DictionaryController>();
     return Obx(() {
       if (controller.isAiLoading.value) {
-        return const Center(child: CircularProgressIndicator());
+        return Center(
+          child: CircularProgressIndicator(
+            color: AppColors.secondaryIcon(context),
+          ),
+        );
       }
       if (controller.wordDetails.value == null) {
         return const SizedBox.shrink();

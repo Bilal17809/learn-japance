@@ -46,9 +46,9 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
       );
       String bannerAdKey;
       if (Platform.isAndroid) {
-        bannerAdKey = 'banner';
-      } else if (Platform.isIOS) {
         bannerAdKey = 'BannerAd';
+      } else if (Platform.isIOS) {
+        bannerAdKey = '';
       } else {
         throw UnsupportedError('Platform not supported');
       }
@@ -72,8 +72,8 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     _bannerAd = BannerAd(
       adUnitId:
           Platform.isAndroid
-              ? 'ca-app-pub-3940256099942544/9214589741' // Test Id
-              // ? ''
+              // ? 'ca-app-pub-3940256099942544/9214589741' // Test Id
+              ? 'ca-app-pub-8331781061822056/2304249920'
               : '',
       size: adSize!,
       request: const AdRequest(extras: {'collapsible': 'bottom'}),

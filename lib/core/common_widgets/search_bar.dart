@@ -40,7 +40,7 @@ class SearchBarField extends StatelessWidget {
         fontFamily: fontFamily,
         fontWeight: FontWeight.bold,
       ),
-      cursorColor: textColor,
+      cursorColor: AppColors.secondaryIcon(context),
       backgroundColor: backgroundColor,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(kCircularBorderRadius),

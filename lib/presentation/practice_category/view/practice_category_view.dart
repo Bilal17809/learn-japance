@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import '/core/theme/theme.dart';
 import '/presentation/practice_selection/view/practice_selection_view.dart';
 import '/presentation/practice_category/controller/practice_category_controller.dart';
 import '/core/utils/utils.dart';
@@ -21,7 +22,11 @@ class PracticeCategoryView extends StatelessWidget {
       appBar: TitleBar(title: 'Practice'),
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.secondaryIcon(context),
+            ),
+          );
         }
         final data = controller.topics;
         return SafeArea(

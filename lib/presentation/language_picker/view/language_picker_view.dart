@@ -79,7 +79,10 @@ class LanguagePickerView extends StatelessWidget {
                         Get.back();
                       },
                       child: Card(
-                        color: isSelected ? AppColors.primary(context) : null,
+                        color:
+                            isSelected
+                                ? AppColors.primary(context)
+                                : AppColors.secondary(context),
                         child: Padding(
                           padding: const EdgeInsets.all(kBodyHp),
                           child: Row(

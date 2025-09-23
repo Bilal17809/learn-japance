@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import '/core/helper/helper.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/mixins/connectivity_mixin.dart';
 import '/data/models/language_model.dart';
@@ -43,38 +45,46 @@ class TtsService extends GetxController
   }
 
   Future<void> speak(String text, LanguageModel? language) async {
+    final completer = Completer<void>();
     initWithConnectivityCheck(
       context: Get.context!,
       onConnected: () async {
-        if (text.isEmpty || language == null) return;
+        if (text.isEmpty || language == null) {
+          completer.complete();
+          return;
+        }
         _cancelRequested = false;
         _currentSpeakingText.value = text;
-        final List<String> chunks = [];
-        if (text.length > 200) {
-          int start = 0;
-          while (start < text.length) {
-            int end = (start + 200 < text.length) ? start + 200 : text.length;
-            chunks.add(text.substring(start, end));
-            start = end;
-          }
-        } else {
-          chunks.add(text);
-        }
+        final chunks =
+            text.length > 200
+                ? [
+                  for (int i = 0; i < text.length; i += 200)
+                    text.substring(
+                      i,
+                      i + 200 > text.length ? text.length : i + 200,
+                    ),
+                ]
+                : [text];
         for (final chunk in chunks) {
           if (_cancelRequested) break;
           final url = _buildTTSUrl(chunk, language.code);
           if (language.code == 'zu') {
-            return SimpleToast.showCustomToast(
+            SimpleToast.showCustomToast(
               context: Get.context!,
               message:
                   'Selected language is currently not supported for speech',
             );
+            completer.complete();
+            return;
           } else {
             await _audioService.playUrl(url);
+            await TtsWaitHelper.waitUntilFalse(_audioService.isPlaying);
           }
         }
+        completer.complete();
       },
     );
+    return completer.future;
   }
 
   Future<void> stop() async {
