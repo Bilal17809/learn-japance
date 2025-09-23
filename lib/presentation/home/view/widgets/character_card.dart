@@ -70,7 +70,7 @@ class _CharacterHeader extends StatelessWidget {
         children: [
           Icon(
             Icons.check_circle,
-            color: AppColors.primary(context),
+            color: AppColors.secondaryIcon(context),
             size: secondaryIcon(context),
           ),
           const Gap(kGap),

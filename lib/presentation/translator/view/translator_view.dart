@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import '/core/theme/theme.dart';
 import '/presentation/translation_favorite/view/translation_favorite_view.dart';
 import '/core/services/services.dart';
 import '/core/utils/utils.dart';
@@ -38,7 +39,11 @@ class TranslatorView extends StatelessWidget {
       body: SafeArea(
         child: Obx(() {
           if (controller.isLoading.value) {
-            return const Center(child: CircularProgressIndicator());
+            return Center(
+              child: CircularProgressIndicator(
+                color: AppColors.secondaryIcon(context),
+              ),
+            );
           }
           return Stack(
             children: [
@@ -125,7 +130,11 @@ class TranslatorView extends StatelessWidget {
                 ),
               ),
               if (controller.isTranslating.value)
-                const Center(child: CircularProgressIndicator()),
+                Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.secondaryIcon(context),
+                  ),
+                ),
             ],
           );
         }),

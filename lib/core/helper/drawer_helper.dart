@@ -4,11 +4,10 @@ import '/core/common/app_exceptions.dart';
 
 class DrawerActions {
   static Future<void> privacy() async {
-    const androidUrl = 'https://unisoftaps.blogspot.com/';
-    const iosUrl = 'https://asadarmantech.blogspot.com';
-
+    const androidUrl =
+        'https://modernmobileschool.blogspot.com/2017/07/modern-school-privacy-policy.html';
+    const iosUrl = '';
     final url = Platform.isIOS ? iosUrl : androidUrl;
-
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
     } else {
@@ -18,10 +17,8 @@ class DrawerActions {
 
   static Future<void> rateUs() async {
     const androidUrl =
-        'https://play.google.com/store/apps/details?id=com.unisoftaps.hondurasweatherforecast';
-    const iosUrl =
-        'https://apps.apple.com/us/app/Estonia Weather Forecast/6748671693';
-
+        'https://play.google.com/store/apps/details?id=com.learnjapanese.japanesespeakingcourse';
+    const iosUrl = '';
     final url = Platform.isIOS ? iosUrl : androidUrl;
 
     if (await canLaunchUrl(Uri.parse(url))) {
@@ -33,9 +30,8 @@ class DrawerActions {
 
   static Future<void> moreApp() async {
     const androidUrl =
-        'https://play.google.com/store/apps/developer?id=Unisoft+Apps';
-    const iosUrl =
-        'https://apps.apple.com/us/developer/muhammad-asad-arman/id1487950157?see-all=i-phonei-pad-apps';
+        'https://play.google.com/store/apps/developer?id=Modern+School';
+    const iosUrl = '';
 
     final url = Platform.isIOS ? iosUrl : androidUrl;
 

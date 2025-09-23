@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '/core/theme/theme.dart';
 import '/core/common_widgets/common_widgets.dart';
 import 'widgets/kanji_box.dart';
 import '/presentation/jlpt_kanji/controller/jlpt_kanji_controller.dart';
@@ -17,7 +18,13 @@ class JlptKanjiView extends StatelessWidget {
     final controller = Get.find<JlptKanjiController>();
     return Obx(() {
       if (controller.isLoading.value) {
-        return Scaffold(body: const Center(child: CircularProgressIndicator()));
+        return Scaffold(
+          body: Center(
+            child: CircularProgressIndicator(
+              color: AppColors.secondaryIcon(context),
+            ),
+          ),
+        );
       }
       final filteredKanji =
           controller.kanjiData.where((k) => k.jlpt == jlptLevel).toList();

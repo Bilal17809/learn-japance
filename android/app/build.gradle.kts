@@ -13,7 +13,7 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 android {
-    namespace = "com.unisoftapps.learn_japan"
+    namespace = "com.learnjapanese.japanesespeakingcourse"
     compileSdk = 36
     ndkVersion = "28.2.13676358"
 
@@ -27,7 +27,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.unisoftapps.learn_japan"
+        applicationId = "com.learnjapanese.japanesespeakingcourse"
         minSdk = 24
         targetSdk = 36
         versionCode = flutter.versionCode

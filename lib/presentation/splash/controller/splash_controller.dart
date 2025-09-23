@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 import 'package:get/get.dart';
 import '/ad_manager/ad_manager.dart';
 import '/core/utils/utils.dart';
@@ -8,15 +8,17 @@ class SplashController extends GetxController {
   final DbHelper _dbHelper;
   final _isLoading = true.obs;
   var showButton = false.obs;
-
+  var visibleLetters = 0.obs;
+  var fadeInOut = true.obs;
+  final String titleText = "Japanese made simple";
+  Timer? _typewriterTimer;
   SplashController({required DbHelper dbHelper}) : _dbHelper = dbHelper;
 
   @override
-  void onReady() {
-    super.onReady();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Get.find<SplashInterstitialManager>().loadAd();
-    });
+  void onInit() {
+    super.onInit();
+    _startTypewriter();
+    Get.find<SplashInterstitialManager>().loadAd();
     _init();
   }
 
@@ -31,5 +33,24 @@ class SplashController extends GetxController {
       _isLoading.value = false;
       showButton.value = true;
     }
+  }
+
+  void _startTypewriter() {
+    _typewriterTimer?.cancel();
+    _typewriterTimer = Timer.periodic(const Duration(milliseconds: 100), (
+      timer,
+    ) {
+      if (visibleLetters.value < titleText.length) {
+        visibleLetters.value++;
+      } else {
+        timer.cancel();
+      }
+    });
+  }
+
+  @override
+  void onClose() {
+    _typewriterTimer?.cancel();
+    super.onClose();
   }
 }

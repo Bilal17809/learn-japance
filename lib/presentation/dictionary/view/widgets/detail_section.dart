@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import '/presentation/report/view/report_view.dart';
 import '/data/models/models.dart';
 import '/presentation/dictionary/view/widgets/ai_section.dart';
 import '/core/theme/theme.dart';
@@ -36,7 +39,7 @@ class DetailSection extends StatelessWidget {
                           Icons.menu_book_rounded,
                           size: secondaryIcon(context),
                         ),
-                        const SizedBox(width: kGap),
+                        const Gap(kGap),
                         Text('Word:', style: titleSmallStyle),
                       ],
                     ),
@@ -47,7 +50,7 @@ class DetailSection extends StatelessWidget {
                           onTap: () => controller.onSpeak(selected.japanese),
                           icon: Icons.volume_up,
                         ),
-                        const SizedBox(width: kGap),
+                        const Gap(kGap),
                         IconActionButton(
                           tooltip: 'Copy All',
                           onTap:
@@ -63,24 +66,32 @@ class DetailSection extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: kGap),
+                const Gap(kGap),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('English:', style: titleSmallStyle),
-                    const SizedBox(width: kGap),
+                    const Gap(kGap),
                     Expanded(
                       child: Text(selected.english, style: titleSmallStyle),
                     ),
                   ],
                 ),
-                const SizedBox(height: kGap),
+                const Gap(kGap),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Japanese:', style: titleSmallStyle),
-                    const SizedBox(width: kGap),
+                    const Gap(kGap),
                     Expanded(child: Text(selected.japanese)),
+                    if (Platform.isAndroid) ...[
+                      const Spacer(),
+                      IconActionButton(
+                        tooltip: 'Report',
+                        onTap: () => Get.to(() => ReportView()),
+                        icon: Icons.report,
+                      ),
+                    ],
                   ],
                 ),
               ],

@@ -16,6 +16,14 @@ class Assets {
   static const String translationLottie = "assets/animations/translation.json";
   static const String reportLottie = "assets/animations/report.json";
 
+  /// App Icon
+  static const String appIcon = "images/icon.png";
+
+  /// Splash Icons
+  static const String splashContainer = "images/splash_container.png";
+  static const String kids = "images/kids.png";
+  static const String splashGlow = "images/splash_glow.png";
+
   /// Home Icons
   static const String heroImage = "images/hero_image.png";
   static const String readingBook = "images/reading-book.png";

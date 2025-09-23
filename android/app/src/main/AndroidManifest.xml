@@ -4,13 +4,13 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     
     <application
-        android:label="Learn Japanese"
+        android:label="Learn Japanese Speaking"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-8331781061822056~5612390804"/>
 
         <activity
             android:name=".MainActivity"

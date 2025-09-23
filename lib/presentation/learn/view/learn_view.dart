@@ -28,7 +28,11 @@ class LearnView extends StatelessWidget {
       appBar: TitleBar(title: '$category - $japCategory'),
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.secondaryIcon(context),
+            ),
+          );
         }
         final data = controller.data;
         return SafeArea(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '/core/theme/theme.dart';
 import '/presentation/phrases_topic/controller/phrases_topic_controller.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
@@ -21,7 +22,11 @@ class PhrasesTopicView extends StatelessWidget {
       body: SafeArea(
         child: Obx(() {
           if (controller.isLoading.value) {
-            return const Center(child: CircularProgressIndicator());
+            return Center(
+              child: CircularProgressIndicator(
+                color: AppColors.secondaryIcon(context),
+              ),
+            );
           }
           final data = controller.getFilteredTopics();
           return Column(
@@ -60,14 +65,18 @@ class PhrasesTopicView extends StatelessWidget {
                               if (index == data.length) {
                                 if (controller.translationsLoading.value) {
                                   return Center(
-                                    child: CircularProgressIndicator(),
+                                    child: CircularProgressIndicator(
+                                      color: AppColors.secondaryIcon(context),
+                                    ),
                                   );
                                 } else if (controller.currentIndex <
                                     controller.topics.length) {
-                                  return const SizedBox(
+                                  return SizedBox(
                                     height: 60,
                                     child: Center(
-                                      child: CircularProgressIndicator(),
+                                      child: CircularProgressIndicator(
+                                        color: AppColors.secondaryIcon(context),
+                                      ),
                                     ),
                                   );
                                 } else {

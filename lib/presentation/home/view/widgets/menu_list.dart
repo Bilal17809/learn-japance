@@ -9,7 +9,7 @@ import '/presentation/phrases_topic/view/phrases_topic_view.dart';
 import '/presentation/dictionary/view/dictionary_view.dart';
 import '/core/utils/utils.dart';
 import '/presentation/translator/view/translator_view.dart';
-import '/presentation/grammar_type/view/grammar_type_view.dart';
+// import '/presentation/grammar_type/view/grammar_type_view.dart';
 import '/presentation/learn_category/view/learn_category_view.dart';
 import '/core/constants/constants.dart';
 import '/core/theme/theme.dart';
@@ -50,16 +50,16 @@ class MenuList extends StatelessWidget {
                     case 2:
                       Get.to(() => TranslatorView());
                       break;
+                    // case 3:
+                    //   Get.to(() => GrammarTypeView());
+                    //   break;
                     case 3:
-                      Get.to(() => GrammarTypeView());
-                      break;
-                    case 4:
                       Get.to(() => DialogueCategoryView());
                       break;
-                    case 5:
+                    case 4:
                       Get.to(() => PhrasesTopicView());
                       break;
-                    case 6:
+                    case 5:
                       Get.to(() => PracticeCategoryView());
                       break;
                   }

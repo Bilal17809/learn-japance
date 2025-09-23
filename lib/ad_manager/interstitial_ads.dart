@@ -34,9 +34,9 @@ class InterstitialAdManager extends GetxController {
       );
       String interstitialKey;
       if (Platform.isAndroid) {
-        interstitialKey = 'interstitial';
-      } else if (Platform.isIOS) {
         interstitialKey = 'InterstitialAd';
+      } else if (Platform.isIOS) {
+        interstitialKey = '';
       } else {
         throw UnsupportedError(AppExceptions().unsupportedPlatform);
       }
@@ -116,8 +116,8 @@ class InterstitialAdManager extends GetxController {
 
   String get _adUnitId {
     if (Platform.isAndroid) {
-      // return '';
-      return 'ca-app-pub-3940256099942544/1033173712'; // testId
+      return 'ca-app-pub-8331781061822056/4187628497';
+      // return 'ca-app-pub-3940256099942544/1033173712'; // testId
     } else if (Platform.isIOS) {
       return '';
     } else {

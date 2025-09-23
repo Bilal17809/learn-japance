@@ -25,7 +25,11 @@ class PremiumBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (loading) {
-      return const Center(child: CircularProgressIndicator());
+      return Center(
+        child: CircularProgressIndicator(
+          color: AppColors.secondaryIcon(context),
+        ),
+      );
     }
     if (queryProductError != null) {
       return Center(child: Text(queryProductError!));
