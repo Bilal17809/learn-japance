@@ -38,6 +38,7 @@ class JwsController extends GetxController {
   }
 
   void setArguments(String selectedWord) {
+    boxColors.clear();
     this.selectedWord.value = selectedWord;
     boxColors[selectedWord] = AppColors.primary(Get.context!);
   }
@@ -59,6 +60,7 @@ class JwsController extends GetxController {
 
   void onSpeak(String character) async {
     boxColors.remove(selectedWord.value);
+    selectedWord.value = character;
     final random = Random();
     boxColors[character] = Color.fromARGB(
       255,
@@ -67,7 +69,6 @@ class JwsController extends GetxController {
       random.nextInt(256),
     );
     await _ttsService.speak(character, targetLanguage.value);
-    await Future.delayed(const Duration(milliseconds: 100));
     boxColors[character] = AppColors.container(Get.context!);
   }
 

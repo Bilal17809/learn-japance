@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '/core/theme/theme.dart';
 import '/presentation/grammar_type/controller/grammar_type_controller.dart';
 import '/core/utils/utils.dart';
 import '/presentation/grammar/view/grammar_view.dart';
@@ -19,7 +20,11 @@ class GrammarTypeView extends StatelessWidget {
       appBar: TitleBar(title: 'Select Category'),
       body: Obx(() {
         if (controller.translationsLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.secondaryIcon(context),
+            ),
+          );
         }
         final data = controller.grammarData;
         final categories = controller.getUniqueCategories(data!);

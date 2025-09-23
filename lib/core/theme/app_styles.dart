@@ -48,5 +48,5 @@ TextStyle bodySmallStyle = const TextStyle(
 
 /// Shadows
 const List<Shadow> kShadow = [
-  Shadow(offset: Offset(3, 3), blurRadius: 4, color: Colors.black54),
+  Shadow(offset: Offset(0, 1), blurRadius: 4, color: Colors.black38),
 ];

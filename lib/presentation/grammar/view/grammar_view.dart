@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '/core/theme/theme.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/core/constants/constants.dart';
 import '/presentation/grammar/controller/grammar_controller.dart';
@@ -20,7 +21,11 @@ class GrammarView extends StatelessWidget {
       appBar: TitleBar(title: selectedCategory),
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.secondaryIcon(context),
+            ),
+          );
         }
         final data = controller.getFilteredData(selectedCategory);
         return SafeArea(

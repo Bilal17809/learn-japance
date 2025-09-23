@@ -21,7 +21,11 @@ class DialogueCategoryView extends StatelessWidget {
       appBar: TitleBar(title: 'Choose Category'),
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.secondaryIcon(context),
+            ),
+          );
         }
         final categories = controller.getFilteredCat();
         return SafeArea(

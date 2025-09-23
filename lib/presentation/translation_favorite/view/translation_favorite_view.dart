@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '/core/constants/constants.dart';
 import '/core/common_widgets/common_widgets.dart';
 import '/presentation/translator/controller/translator_controller.dart';
@@ -49,13 +48,16 @@ class TransFavView extends StatelessWidget {
                       ),
                     ),
                   ),
-              Expanded(
-                child: NativeAdWidget(templateType: TemplateType.medium),
-              ),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: Obx(() {
+        final interstitial = Get.find<InterstitialAdManager>();
+        return interstitial.isShow.value
+            ? const SizedBox()
+            : const BannerAdWidget();
+      }),
     );
   }
 }

@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "470462158477",
-    "project_id": "learn-japanese-843ef",
-    "storage_bucket": "learn-japanese-843ef.firebasestorage.app"
+    "project_number": "594443544751",
+    "project_id": "learn-japanse-speaking",
+    "storage_bucket": "learn-japanse-speaking.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:470462158477:android:ecbd3d463b76435e79f4c4",
+        "mobilesdk_app_id": "1:594443544751:android:bc2b285eef088f5c2b4c5a",
         "android_client_info": {
-          "package_name": "com.unisoftapps.learn_japan"
+          "package_name": "com.learnjapanese.japanesespeakingcourse"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBAR7ZgxQbH5G3EBTb6ES-89iCngGSzyF0"
+          "current_key": "AIzaSyBPp9OG7HcvwR8FMz0zic6bEIxLk5ab8h0"
         }
       ],
       "services": {

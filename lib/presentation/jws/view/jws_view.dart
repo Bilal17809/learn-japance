@@ -29,11 +29,18 @@ class JwsView extends StatelessWidget {
               Tab(child: Text("Kanji", style: titleMediumStyle)),
             ],
             isScrollable: false,
+            unselectedLabelColor: AppColors.secondaryText(context),
+            labelColor: AppColors.primaryText(context),
+            indicatorColor: AppColors.primaryText(context),
           ),
         ),
         body: Obx(() {
           if (controller.isLoading.value) {
-            return const Center(child: CircularProgressIndicator());
+            return Center(
+              child: CircularProgressIndicator(
+                color: AppColors.secondaryIcon(context),
+              ),
+            );
           }
           return SafeArea(child: TabViewSections());
         }),

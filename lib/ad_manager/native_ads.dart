@@ -25,7 +25,6 @@ class NativeAdManager extends GetxController {
   Future<void> _initRemoteConfig() async {
     try {
       final remoteConfig = FirebaseRemoteConfig.instance;
-
       await remoteConfig.setConfigSettings(
         RemoteConfigSettings(
           fetchTimeout: const Duration(seconds: 3),
@@ -33,7 +32,7 @@ class NativeAdManager extends GetxController {
         ),
       );
       await remoteConfig.fetchAndActivate();
-      final key = Platform.isAndroid ? 'NativeAdvAd' : 'NativeAdv';
+      final key = Platform.isAndroid ? 'NativeAdvAd' : '';
       showAd = remoteConfig.getBool(key);
       if (showAd) {
         loadNativeAd();
@@ -49,7 +48,10 @@ class NativeAdManager extends GetxController {
     isAdReady.value = false;
 
     final adUnitId =
-        Platform.isAndroid ? 'ca-app-pub-3940256099942544/2247696110' : '';
+        Platform.isAndroid
+            // ? 'ca-app-pub-3940256099942544/2247696110'
+            ? 'ca-app-pub-8331781061822056/2104390636'
+            : '';
 
     _nativeAd = NativeAd(
       adUnitId: adUnitId,
@@ -116,15 +118,89 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
       baseColor: AppColors.secondary(context),
       highlightColor: AppColors.container(context),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        child: AspectRatio(
-          aspectRatio: 55 / 15,
-          child: Container(
-            width: width,
-            decoration: BoxDecoration(
-              color: AppColors.primary(context).withValues(alpha: 0.6),
-              borderRadius: BorderRadius.circular(8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: AppColors.primary(context).withValues(alpha: 0.2),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: AppColors.primary(context).withValues(alpha: 0.3),
+              width: 1,
             ),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: AppColors.primary(context).withValues(alpha: 0.6),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 12,
+                      width: width * 0.4,
+                      decoration: BoxDecoration(
+                        color: AppColors.primary(
+                          context,
+                        ).withValues(alpha: 0.6),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Container(
+                      height: 10,
+                      width: width * 0.25,
+                      decoration: BoxDecoration(
+                        color: AppColors.primary(
+                          context,
+                        ).withValues(alpha: 0.6),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Container(
+                      height: 10,
+                      width: width * 0.25,
+                      decoration: BoxDecoration(
+                        color: AppColors.primary(
+                          context,
+                        ).withValues(alpha: 0.6),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Container(
+                      height: 12,
+                      width: width * 0.4,
+                      decoration: BoxDecoration(
+                        color: AppColors.primary(
+                          context,
+                        ).withValues(alpha: 0.6),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 12),
+              Container(
+                height: 30,
+                width: 70,
+                decoration: BoxDecoration(
+                  color: AppColors.primary(context).withValues(alpha: 0.6),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -136,28 +212,60 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
       baseColor: AppColors.secondary(context),
       highlightColor: AppColors.container(context),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            AspectRatio(
-              aspectRatio: 16 / 9,
-              child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: AppColors.primary(context).withValues(alpha: 0.2),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: AppColors.primary(context).withValues(alpha: 0.3),
+              width: 1,
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 180,
                 width: width,
                 decoration: BoxDecoration(
                   color: AppColors.primary(context).withValues(alpha: 0.6),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Container(
-              width: width,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
+              const SizedBox(height: 12),
+              Container(
+                height: 14,
+                width: width * 0.6,
+                decoration: BoxDecoration(
+                  color: AppColors.primary(context).withValues(alpha: 0.6),
+                  borderRadius: BorderRadius.circular(6),
+                ),
               ),
-            ),
-          ],
+              const SizedBox(height: 8),
+              Container(
+                height: 12,
+                width: width * 0.8,
+                decoration: BoxDecoration(
+                  color: AppColors.primary(context).withValues(alpha: 0.6),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                  height: 36,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    color: AppColors.primary(context).withValues(alpha: 0.6),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

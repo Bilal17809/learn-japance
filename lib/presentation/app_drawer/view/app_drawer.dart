@@ -13,7 +13,6 @@ import '/core/utils/utils.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -35,7 +34,7 @@ class AppDrawer extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(top: kElementGap),
                       child: Image.asset(
-                        Assets.heroImage,
+                        Assets.appIcon,
                         height: primaryIcon(context),
                       ),
                     ),
@@ -43,7 +42,10 @@ class AppDrawer extends StatelessWidget {
                   const Gap(kGap),
                   FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: Text('Learn Japanese', style: titleLargeStyle),
+                    child: Text(
+                      'Learn Japanese\nSpeaking',
+                      style: titleLargeStyle,
+                    ),
                   ),
                 ],
               ),
@@ -90,12 +92,16 @@ class AppDrawer extends StatelessWidget {
                 color: AppColors.primaryColorLight.withValues(alpha: 0.1),
               ),
             ],
-            _DrawerTile(
-              icon: Icons.report,
-              title: 'Report An Issue',
-              onTap: () => Get.to(() => ReportView()),
-            ),
-            Divider(color: AppColors.primaryColorLight.withValues(alpha: 0.1)),
+            if (Platform.isAndroid) ...[
+              _DrawerTile(
+                icon: Icons.report,
+                title: 'Report An Issue',
+                onTap: () => Get.to(() => ReportView()),
+              ),
+              Divider(
+                color: AppColors.primaryColorLight.withValues(alpha: 0.1),
+              ),
+            ],
             ListTile(
               leading: Icon(
                 Icons.dark_mode_rounded,
@@ -124,7 +130,7 @@ class AppDrawer extends StatelessWidget {
                   AppColors.kGrey.withValues(alpha: 0.5),
                 ),
                 trackOutlineWidth: WidgetStatePropertyAll(1),
-                activeThumbImage: AssetImage(Assets.heroImage),
+                activeThumbImage: AssetImage(Assets.appIcon),
               ),
             ),
             Divider(color: AppColors.primaryColorLight.withValues(alpha: 0.1)),
@@ -155,36 +161,3 @@ class _DrawerTile extends StatelessWidget {
     );
   }
 }
-
-// void _showResetDialog(BuildContext context) {
-//   showDialog(
-//     context: context,
-//     builder: (ctx) {
-//       return AlertDialog(
-//         elevation: 4,
-//         shape: RoundedRectangleBorder(
-//           borderRadius: BorderRadius.circular(kBorderRadius),
-//         ),
-//         title: const Text("Reset App"),
-//         content: const Text(
-//           "Are you sure you want to reset the app?"
-//           "This will clear all saved progress and preferences.",
-//         ),
-//         actions: [
-//           TextButton(
-//             onPressed: () => Navigator.of(ctx).pop(),
-//             child: const Text("Cancel"),
-//           ),
-//           TextButton(
-//             onPressed: () async {
-//               await Get.find<LocalStorage>().clear();
-//               Restart.restartApp();
-//             },
-//             style: TextButton.styleFrom(foregroundColor: AppColors.kRed),
-//             child: const Text("Reset"),
-//           ),
-//         ],
-//       );
-//     },
-//   );
-// }
