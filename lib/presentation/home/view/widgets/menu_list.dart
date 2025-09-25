@@ -45,22 +45,22 @@ class MenuList extends StatelessWidget {
                       Get.to(() => LearnCategoryView());
                       break;
                     case 1:
-                      Get.to(() => DictionaryView());
+                      Get.to(() => PracticeCategoryView());
                       break;
                     case 2:
+                      Get.to(() => DictionaryView());
+                      break;
+                    case 3:
                       Get.to(() => TranslatorView());
                       break;
                     // case 3:
                     //   Get.to(() => GrammarTypeView());
                     //   break;
-                    case 3:
+                    case 4:
                       Get.to(() => DialogueCategoryView());
                       break;
-                    case 4:
-                      Get.to(() => PhrasesTopicView());
-                      break;
                     case 5:
-                      Get.to(() => PracticeCategoryView());
+                      Get.to(() => PhrasesTopicView());
                       break;
                   }
                 },

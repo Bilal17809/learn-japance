@@ -39,32 +39,38 @@ class DialgoueField extends StatelessWidget {
                 if (i < translatedLines.length)
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(kGap),
+                    padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
                     margin: const EdgeInsets.only(bottom: kGap),
                     decoration: AppDecorations.highlight(
                       context,
                       isExample: true,
                     ),
-                    child: Text(translatedLines[i], style: bodyLargeStyle),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(translatedLines[i], style: bodyLargeStyle),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconActionButton(
+                              onTap:
+                                  () => controller.onSpeak(translatedLines[i]),
+                              icon: Icons.volume_up,
+                            ),
+                            IconActionButton(
+                              onTap:
+                                  () => Clipboard.setData(
+                                    ClipboardData(text: '$text\n\n$translated'),
+                                  ),
+                              icon: Icons.copy,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
               ],
             ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              IconActionButton(
-                onTap: () => controller.onSpeak(translated),
-                icon: Icons.volume_up,
-              ),
-              IconActionButton(
-                onTap:
-                    () => Clipboard.setData(
-                      ClipboardData(text: '$text\n\n$translated'),
-                    ),
-                icon: Icons.copy,
-              ),
-            ],
-          ),
         ],
       ),
     );

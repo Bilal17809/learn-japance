@@ -22,7 +22,12 @@ class ReportView extends StatelessWidget {
         child: Form(
           key: formKey,
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(kBodyHp),
+            padding: EdgeInsets.only(
+              left: kBodyHp,
+              right: kBodyHp,
+              top: 0,
+              bottom: MediaQuery.of(context).viewInsets.bottom + kBodyHp,
+            ),
             child: Column(
               spacing: kElementGap,
               children: [

@@ -41,7 +41,7 @@ mixin ConnectivityMixin on GetxController {
     BuildContext? context,
   }) async {
     if (!connectivityService.isConnectedRx.value && context != null) {
-      await ConnectivityUtil.showNoInternetDialog(context, onRetry: action);
+      await ConnectivityDialog.showNoInternetDialog(context, onRetry: action);
       return false;
     }
     try {

@@ -80,7 +80,10 @@ class TranslatorView extends StatelessWidget {
                     InputCard(
                       mainText: controller.sourceLanguage.value?.name,
                       leftIcon:
-                          tts.isSpeaking(controller.inputText.value)
+                          (controller.inputText.value.isEmpty &&
+                                  !tts.isSpeaking(controller.inputText.value))
+                              ? Icons.stop
+                              : tts.isSpeaking(controller.inputText.value)
                               ? Icons.stop
                               : Icons.volume_up,
                       centerIcon: Icons.mic,
