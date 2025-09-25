@@ -59,7 +59,7 @@ class InputCard extends StatelessWidget {
                                 ? (controller.isSourceRtl.value
                                     ? TextAlign.right
                                     : TextAlign.left)
-                                : TextAlign.left, // hint stays left
+                                : TextAlign.left,
                         onChanged: (val) => controller.inputText.value = val,
                         maxLength: 200,
                         maxLines: 10,
@@ -90,7 +90,6 @@ class InputCard extends StatelessWidget {
           const Gap(kGap),
           Container(
             width: double.infinity,
-            // color: AppColors.primary(context),
             decoration: BoxDecoration(
               color: AppColors.primary(context),
               borderRadius: BorderRadius.only(

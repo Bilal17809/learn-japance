@@ -49,7 +49,7 @@ class NativeAdManager extends GetxController {
 
     final adUnitId =
         Platform.isAndroid
-            // ? 'ca-app-pub-3940256099942544/2247696110'
+            // ? 'ca-app-pub-3940256099942544/2247696110' // Test Id
             ? 'ca-app-pub-8331781061822056/2104390636'
             : '';
 
@@ -146,7 +146,7 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: 12,
+                      height: context.height * 0.01,
                       width: width * 0.4,
                       decoration: BoxDecoration(
                         color: AppColors.primary(
@@ -157,7 +157,7 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
                     ),
                     const SizedBox(height: 8),
                     Container(
-                      height: 10,
+                      height: context.height * 0.01,
                       width: width * 0.25,
                       decoration: BoxDecoration(
                         color: AppColors.primary(
@@ -168,7 +168,7 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
                     ),
                     const SizedBox(height: 8),
                     Container(
-                      height: 10,
+                      height: context.height * 0.01,
                       width: width * 0.25,
                       decoration: BoxDecoration(
                         color: AppColors.primary(
@@ -179,7 +179,7 @@ class NativeAdWidgetState extends State<NativeAdWidget> {
                     ),
                     const SizedBox(height: 8),
                     Container(
-                      height: 12,
+                      height: context.height * 0.01,
                       width: width * 0.4,
                       decoration: BoxDecoration(
                         color: AppColors.primary(

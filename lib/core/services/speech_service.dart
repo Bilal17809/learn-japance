@@ -95,7 +95,6 @@ class SpeechService extends GetxController {
         recognizedText.value = result;
       }
     } on PlatformException catch (e) {
-      recognizedText.value = AppExceptions().failSpeech;
       debugPrint("${AppExceptions().failSpeech}: ${e.message}");
     } finally {
       isListening.value = false;

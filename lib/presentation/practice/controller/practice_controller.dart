@@ -1,5 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/core/common_widgets/common_widgets.dart';
+import 'package:learn_japan/core/utils/utils.dart';
 import '/presentation/home/controller/home_controller.dart';
 import '/presentation/practice_category/controller/practice_category_controller.dart';
 import '/core/local_storage/local_storage.dart';
@@ -12,6 +13,7 @@ class PracticeController extends GetxController {
   final TtsService _ttsService;
   final SpeechService _speechService;
   var practiceData = <LearnModel>[].obs;
+  final textController = TextEditingController();
   var category = ''.obs;
   var japCategory = ''.obs;
   var startIndex = 0.obs;
@@ -98,6 +100,7 @@ class PracticeController extends GetxController {
     showResultPage4.value = false;
     userTextInput.value = '';
     isCorrectPage4.value = false;
+    textController.clear();
   }
 
   void generateOptionsForBothPages() {
@@ -168,20 +171,23 @@ class PracticeController extends GetxController {
     if (allAnswersCorrect) {
       final key = "${category.value}_${currentWordIndex.value}";
       final alreadySaved = await _localStorage.getBool(key) ?? false;
-      if (alreadySaved) return;
-      await _localStorage.setBool(key, true);
-      await Get.find<HomeController>().increaseProgress(isPractice: true);
-      await Get.find<PracticeCategoryController>().increasePracticeProgress(
-        category.value,
-      );
-      SimpleToast.showCustomToast(
+      if (!alreadySaved) {
+        await _localStorage.setBool(key, true);
+        await Get.find<HomeController>().increaseProgress(isPractice: true);
+        await Get.find<PracticeCategoryController>().increasePracticeProgress(
+          category.value,
+        );
+      }
+      ResultDialog.show(
         context: Get.context!,
-        message: 'You have completed this lesson.',
+        message: 'Congratulations! You’ve completed this lesson successfully!',
+        lottieAsset: Assets.successLottie,
       );
     } else {
-      SimpleToast.showCustomToast(
+      ResultDialog.show(
         context: Get.context!,
-        message: 'Some of the answers were incorrect.',
+        message: 'Some answers were incorrect. Keep trying, you’ll get there!',
+        lottieAsset: Assets.failureLottie,
       );
     }
   }
@@ -222,6 +228,7 @@ class PracticeController extends GetxController {
   @override
   void onClose() {
     _ttsService.onClose();
+    textController.dispose();
     super.onClose();
   }
 }

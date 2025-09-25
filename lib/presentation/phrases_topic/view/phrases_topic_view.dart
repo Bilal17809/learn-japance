@@ -60,35 +60,29 @@ class PhrasesTopicView extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                               horizontal: kBodyHp,
                             ),
-                            itemCount: data.length + 1,
+                            itemCount:
+                                data.length +
+                                (controller.currentIndex <
+                                        controller.topics.length
+                                    ? 1
+                                    : 0) +
+                                1,
                             itemBuilder: (context, index) {
-                              if (index == data.length) {
-                                if (controller.translationsLoading.value) {
-                                  return Center(
+                              if (index == 3) return NativeAdWidget();
+                              final dataIndex = index > 3 ? index - 1 : index;
+                              if (dataIndex >= data.length) {
+                                return SizedBox(
+                                  height: 60,
+                                  child: Center(
                                     child: CircularProgressIndicator(
                                       color: AppColors.secondaryIcon(context),
                                     ),
-                                  );
-                                } else if (controller.currentIndex <
-                                    controller.topics.length) {
-                                  return SizedBox(
-                                    height: 60,
-                                    child: Center(
-                                      child: CircularProgressIndicator(
-                                        color: AppColors.secondaryIcon(context),
-                                      ),
-                                    ),
-                                  );
-                                } else {
-                                  return const SizedBox.shrink();
-                                }
-                              }
-                              if (index == 3) {
-                                return NativeAdWidget();
+                                  ),
+                                );
                               }
                               return TopicCard(
-                                topic: data[index],
-                                index: index,
+                                topic: data[dataIndex],
+                                index: dataIndex,
                               );
                             },
                           ),

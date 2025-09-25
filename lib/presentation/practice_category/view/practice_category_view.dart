@@ -31,10 +31,9 @@ class PracticeCategoryView extends StatelessWidget {
         final data = controller.topics;
         return SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(kBodyHp),
+            padding: const EdgeInsets.symmetric(horizontal: kBodyHp),
             child: Column(
               children: [
-                const Gap(kElementGap),
                 Image.asset(
                   Assets.heroImage,
                   width: context.screenWidth * 0.41,

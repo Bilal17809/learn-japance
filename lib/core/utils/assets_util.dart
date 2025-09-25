@@ -15,6 +15,8 @@ class Assets {
   static const String searchError = "assets/animations/search_error.json";
   static const String translationLottie = "assets/animations/translation.json";
   static const String reportLottie = "assets/animations/report.json";
+  static const String successLottie = "assets/animations/passed.json";
+  static const String failureLottie = "assets/animations/failed.json";
 
   /// App Icon
   static const String appIcon = "images/icon.png";

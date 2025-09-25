@@ -23,8 +23,10 @@ class TransFavView extends StatelessWidget {
             children: [
               controller.favorites.isEmpty
                   ? Expanded(
-                    child: LottieWidget(
-                      message: 'Add translations to favorites',
+                    child: Center(
+                      child: LottieWidget(
+                        message: 'Add translations to favorites',
+                      ),
                     ),
                   )
                   : Expanded(

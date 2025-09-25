@@ -65,14 +65,15 @@ class LanguagePickerView extends StatelessWidget {
                 ];
 
                 return ListView.builder(
-                  itemCount: combined.length,
+                  itemCount: combined.length + 1,
                   padding: const EdgeInsets.all(kBodyHp),
                   itemBuilder: (context, index) {
-                    final lang = combined[index];
-                    final isSelected = lang.code == selected?.code;
                     if (index == 3) {
                       return NativeAdWidget();
                     }
+                    final dataIndex = index > 3 ? index - 1 : index;
+                    final lang = combined[dataIndex];
+                    final isSelected = lang.code == selected?.code;
                     return GestureDetector(
                       onTap: () {
                         onSelected(lang);
