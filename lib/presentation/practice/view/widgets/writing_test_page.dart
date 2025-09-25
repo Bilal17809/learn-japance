@@ -13,7 +13,6 @@ class WritingTestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textController = TextEditingController();
     return Obx(
       () => ListView(
         padding: const EdgeInsets.all(kBodyHp),
@@ -50,7 +49,7 @@ class WritingTestPage extends StatelessWidget {
           ),
           const Gap(kElementGap),
           InputField(
-            controller: textController,
+            controller: controller.textController,
             hintText: 'Type your answer here...',
             hintStyle: titleMediumStyle,
             onChanged: controller.updateTextInput,

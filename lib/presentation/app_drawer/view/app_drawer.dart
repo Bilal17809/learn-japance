@@ -77,7 +77,7 @@ class AppDrawer extends StatelessWidget {
             _DrawerTile(
               icon: Icons.warning_rounded,
               title: 'Reset App',
-              onTap: () => ResetUtil.showResetDialog(context),
+              onTap: () => ResetDialog.showResetDialog(context),
             ),
             Divider(color: AppColors.primaryColorLight.withValues(alpha: 0.1)),
             if (Platform.isIOS) ...[

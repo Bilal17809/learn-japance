@@ -41,11 +41,12 @@ class LearnView extends StatelessWidget {
               horizontal: kBodyHp,
               vertical: kGap,
             ),
-            itemCount: data.length,
+            itemCount: data.length + 1,
             itemBuilder: (context, index) {
               if (index == 3) {
                 return NativeAdWidget();
               }
+              final dataIndex = index > 3 ? index - 1 : index;
               return ClipPath(
                 clipper: TicketClipper(),
                 child: Container(
@@ -53,17 +54,17 @@ class LearnView extends StatelessWidget {
                   decoration: AppDecorations.rounded(context),
                   child: ListTile(
                     title: Text(
-                      data.elementAt(index).english.toString(),
+                      data.elementAt(dataIndex).english.toString(),
                       style: titleSmallStyle,
                     ),
                     subtitle: Text(
-                      data.elementAt(index).japanese.toString(),
+                      data.elementAt(dataIndex).japanese.toString(),
                       style: titleSmallStyle,
                     ),
                     trailing: IconActionButton(
                       onTap:
                           () => controller.onSpeak(
-                            data.elementAt(index).japanese.toString(),
+                            data.elementAt(dataIndex).japanese.toString(),
                           ),
                       icon: Icons.volume_up,
                     ),

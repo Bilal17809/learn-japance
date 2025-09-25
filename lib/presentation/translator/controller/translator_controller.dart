@@ -147,8 +147,8 @@ class TranslatorController extends GetxController {
     if (recognized?.isNotEmpty ?? false) {
       inputController.text = recognized!;
       inputText.value = recognized;
+      await translateInput();
     }
-    await translateInput();
   }
 
   Future<void> _loadFav() async {

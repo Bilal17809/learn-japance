@@ -76,7 +76,7 @@ class ConnectivityService extends GetxService {
       final hasInternet = result.isNotEmpty && result[0].rawAddress.isNotEmpty;
 
       if (!hasInternet) {
-        await ConnectivityUtil.showNoInternetDialog(
+        await ConnectivityDialog.showNoInternetDialog(
           Get.context!,
           onRetry: onRetry,
         );
@@ -84,7 +84,7 @@ class ConnectivityService extends GetxService {
       }
       return true;
     } catch (_) {
-      await ConnectivityUtil.showNoInternetDialog(
+      await ConnectivityDialog.showNoInternetDialog(
         Get.context!,
         onRetry: onRetry,
       );
